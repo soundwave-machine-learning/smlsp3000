@@ -1,12 +1,16 @@
 # Validation domains, thresholds and release proof
 
-Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
+Revision: execution V2 (owner decision OWN-DEC-001) · 2026-10-06 · supersedes execution V1
 
 Status: EXECUTION IN PROGRESS. Commands frozen in docs/BUILD_COMMANDS.md; hardware/production thresholds still UNKNOWN.
 
 ## Check execution status
 
 Sprint 1 executed VAL-001, VAL-002, VAL-003 (SIMULATION) and VAL-028 with logged commands/exit codes (evidence/sprint_01/); VAL-004 is BLOCKED (source access). All hardware/listening/host checks remain NOT EXECUTED. Mandatory commands are now frozen in docs/BUILD_COMMANDS.md (Python 3.13 + numpy reference/analysis stack, ENG-DEC-011); later checks use that manifest, not fabricated command names. Unknown command or criterion still means DRAFT/BLOCKED for the affected check.
+
+## Track split (OWN-DEC-001)
+
+Domains 1–4 below are SOFTWARE ACCEPTANCE (Track A) and may PASS on software evidence; domains 5–6 (hardware fit; hardware-arm listening) are HARDWARE-FIT ACCEPTANCE (Track B) and stay BLOCKED until G-04. Software numeric tolerances (cross-rate, reference/production, implementation alias budget) are owner decisions under G-08 and are never presented as hardware fidelity. Software-only listening comparisons (reference / simplified / bypass, no hardware condition) are permitted as informational LISTENING STIMULUS artifacts for G-07S.
 
 ## Independent acceptance domains
 

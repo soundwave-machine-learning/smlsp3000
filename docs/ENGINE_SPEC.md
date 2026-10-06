@@ -1,6 +1,6 @@
 # Engine specification and requirements
 
-Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
+Revision: execution V2 (owner decision OWN-DEC-001) · 2026-10-06 · supersedes execution V1
 
 Status: EXECUTION IN PROGRESS. Requirements unchanged; REQ-001/002/003/028 have Sprint 1 evidence (ACCEPTANCE_MATRIX); REQ-004 BLOCKED; no R-block implemented.
 
@@ -55,6 +55,10 @@ ARCHITECTURE owns interface/state/thread design; RATE_GAIN_PLAN owns units/rates
 
 Machine asset replacement requires provenance/hash, unchanged units/interface, updated confidence, rerun of affected validation and explicit scope decision if behavior changes. ProductParameters cannot modify ResearchConfiguration; release assets fix hypothesis choices. Unity pitch only. SP/MPC bypasses remove complete respective machine blocks. Plugin bypass means aligned dry passthrough, not a hidden alternate model. No wet/dry control or level macro is added without G-07 approval and explicit latency semantics.
 
+## Claim boundary (OWN-DEC-001)
+
+Until G-04 is actually completed the product is "a software instrument/effect inspired by and informed by documented SP-1200 / MPC3000 architecture and behaviour"; the words exact emulation, hardware matched, component accurate, measured SP-1200, measured MPC3000 and hardware validated are prohibited in code, UI, manual, metadata and release notes. Existing wording rules (PRODUCT ABSTRACTION for linked SP stereo, research fixture for ch 7–8, unity pitch only, MPC undriven contribution UNKNOWN) stand. Full text docs/EXECUTION_PLAN_V2.md §7.
+
 ## Readiness and acceptance
 
-Acceptance is the 28-row ACCEPTANCE_MATRIX; G-06 hardware tolerance, G-08 production tolerance and G-09 target tests are deliberately unresolved. No quantitative hardware PASS can be asserted yet. Unknown criteria keep dependent contracts DRAFT/BLOCKED. Sprint 1 executed under owner authorization of 2026-10-06 (docs/sprint_reports/SPRINT_01_REPORT.md). No production DSP or reference R-block implementation exists; the repository contains analysis/evidence tooling only.
+Acceptance is the 28-row ACCEPTANCE_MATRIX, split per OWN-DEC-001 into SOFTWARE ACCEPTANCE (Track A) and HARDWARE-FIT ACCEPTANCE (Track B, BLOCKED until G-04); G-06 hardware tolerance, G-08 production tolerance and G-09 target tests are deliberately unresolved. No quantitative hardware PASS can be asserted yet. Unknown criteria keep dependent contracts DRAFT/BLOCKED. Sprint 1 executed under owner authorization of 2026-10-06 (docs/sprint_reports/SPRINT_01_REPORT.md). No production DSP or reference R-block implementation exists; the repository contains analysis/evidence tooling only.

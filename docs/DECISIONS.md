@@ -1,6 +1,6 @@
 # Design decisions and unresolved selections
 
-Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
+Revision: execution V2 (owner decision OWN-DEC-001) · 2026-10-06 · supersedes execution V1
 
 Status: EXECUTION IN PROGRESS. Owner implementation authorization recorded 2026-10-06; product/release approvals still open.
 
@@ -41,7 +41,17 @@ Status: EXECUTION IN PROGRESS. Owner implementation authorization recorded 2026-
 | ENG-DEC-010 | Candidate delivery only in S8; no remote repository write, publishing, merging or installation authorized now | User planning-only | SUPERSEDED 2026-10-06 by owner execution instruction: pushes to branch claude/autonomous-build authorized; merge to main, publishing, installation remain NOT authorized |
 | ENG-DEC-011 | Reference/analysis stack: Python 3.13 + numpy 2.x + standard library (unittest, wave, json, hashlib); no dependency installation; exact commands in docs/BUILD_COMMANDS.md. Options rejected for now: scipy/pytest (reachable on PyPI but unnecessary for S1 and would add an install step), C++ for the analysis layer (premature before G-07/G-08). Reopen: S6 production engine (G-08) and S7 native wrapper (G-09) need a separate owner-approved production/framework decision | Owner execution instruction 2026-10-06 (G-01A); executor | ACTIVE for S1–S5 analysis/reference work |
 | ENG-DEC-012 | CHAIN-EXP-016 self-test design: analytic continuous-time stimulus evaluated at perturbed instants as independent truth; two-tone pilot burst (2000 + 2300 Hz) for unambiguous cross-correlation; joint least-squares scale fit for the clock ratio; first-order 5 Hz DC high-pass applied identically to both signals. These are evaluator (measurement-side) choices, not machine behaviour. Reopen: if S2 hardware pilots need other frequencies/durations, the evaluator config is revised and the self-test rerun before use | REQ-003; G-02 | ACTIVE; floor recorded in research/sim/CHAIN-EXP-016 |
+| ENG-DEC-014 | Provisional implementation policy (docs/EXECUTION_PLAN_V2.md §5): every hardware-fittable value is a versioned MachineAsset/ResearchConfiguration record tagged with evidence_status, substitute_kind (PROVISIONAL / LITERATURE-DERIVED / SIMULATED / ESTIMATE), hardware_validation = UNVALIDATED AGAINST HARDWARE, sources, decision ID, replacing experiment and model version; no hard-coded magic values; tests target software behaviour | OWN-DEC-001; REQ-022; G-08 | ACTIVE for Track A (schema fields added at Sprint 3 start) |
+| ENG-DEC-015 | Claim boundary (docs/EXECUTION_PLAN_V2.md §7): product described as "inspired by and informed by documented SP-1200 / MPC3000 architecture and behaviour"; never "exact emulation / hardware matched / component accurate / measured / hardware validated" until G-04 is actually completed | OWN-DEC-001; G-10/G-11 | ACTIVE |
 | ENG-DEC-013 | Branch naming: owner instruction names claude/autonomous-build; the harness-suggested session branch and the orchestrator's proposed build/sp1200-mpc3000-autonomous are not used. Main is never modified | Owner execution instruction | ACTIVE |
+
+## Owner decisions (execution)
+
+| ID | Decision | Reason | Consequences | Owner / date | Affected | Reopen |
+|---|---|---|---|---|---|---|
+| OWN-DEC-001 | Proceed with provisional software/reference implementation without hardware fit: Track A (software/reference) may proceed on documented research, literature-derived behaviour, simulation, numerical experiments, owner-approved provisional models and deterministic tests; Track B (hardware fit/validation) stays deferred and BLOCKED until physical hardware exists | Owner does not currently possess SP-1200 or MPC3000 hardware; the Sprint 2 campaign cannot be executed | Hardware matching not claimed; hardware-derived coefficients stay unresolved; provisional implementations replaceable; all hardware confidence states unchanged; future hardware fitting may replace provisional components; release wording distinguishes modeled/inspired from measured (claim boundary); Sprint 1 PASS and Sprint 2 BLOCKED preserved; G-04 reclassified DEFERRED EXTERNAL VALIDATION GATE | Project owner, 2026-10-06 (explicit owner product decision given to the executor); full text docs/EXECUTION_PLAN_V2.md | SPRINT_PLAN, GATE_REGISTER (G-04/05/06/07), ACCEPTANCE_MATRIX (split columns), CONFIDENCE (lane note), AUTONOMOUS_BUILD_PROMPT (§ revision V2), PROJECT_HANDOFF, README; contracts S3–S8 entry wording amended by addendum | Hardware becomes available (Track B starts; G-04 campaign per MEASUREMENT_PLAN); or owner withdraws the decision |
+
+The §4 dependency plan of docs/EXECUTION_PLAN_V2.md is SUBMITTED FOR OWNER APPROVAL; Sprint 3 does not start until it is approved and the §9 inputs exist.
 
 ## Open owner decisions
 

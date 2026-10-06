@@ -1,8 +1,8 @@
 # Autonomous build orchestrator
 
-Revision: planning V1 · 2026-10-06
+Revision: execution V2 (owner decision OWN-DEC-001) · 2026-10-06 · supersedes planning V1
 
-Status: DRAFT PLANNING CONTRACT. Documentation creation authorized; implementation and release not authorized.
+Status: ACTIVATED by owner execution instruction 2026-10-06 (G-01A; evidence/sprint_01/preflight.json). Sprint 1 PASS; Sprint 2 hardware campaign BLOCKED. Continuation into Sprints 3–8 follows the "Execution revision V2" section below once the owner approves docs/EXECUTION_PLAN_V2.md §4. Release not authorized.
 
 ## Activation and scope
 
@@ -48,6 +48,22 @@ For each contract01–08:
 
 B is reference recommendation, not selected shipping path. SP default UNDECIDED until G-07; MPC main recommended only. Linked SP stereo must say PRODUCT ABSTRACTION. Unity pitch only; tuned workflow/SSM filters/reverse shipping path remain outside scope. SP ZOH images must survive numerical reconstruction; no generic bitcrusher or tanh as machine model. MPC16-bit storage differs from18-bit converters; S/PDIF16-bit tests alone cannot prove18→16 rule. Physical volts calibration/interstage unknown cannot be0dB default. 208.33k spur absent from192k captures is NOT OBSERVABLE, not zero. No valid hardware-fit PASS before numeric G-06 policy. Cross-build does not equal native target proof. No hidden limiter/normalization/noise/jitter/mismatch/sag.
 
+## Execution revision V2 — continuation after the Sprint 2 hardware block (OWN-DEC-001)
+
+Owner product decision 2026-10-06 (docs/DECISIONS.md OWN-DEC-001; full plan docs/EXECUTION_PLAN_V2.md): the project runs as two tracks. Track A (software/reference implementation) may proceed on documented research, literature-derived behaviour, simulation, numerical experiments, owner-approved provisional models and deterministic tests. Track B (hardware fit/validation) stays deferred and BLOCKED until hardware exists. G-04 is a DEFERRED EXTERNAL VALIDATION GATE: it blocks every hardware-accuracy claim and every HARDWARE-FIT ACCEPTANCE cell, and nothing else.
+
+Continue past the Sprint 2 block into Sprint N (3…8) only when all of the following hold:
+
+1. The owner has approved docs/EXECUTION_PLAN_V2.md §4 (dependency plan) and supplied the §9 inputs that sprint needs.
+2. Every requirement of the sprint has an approved provisional path (class B) or no true hardware dependency (class C) in §4; class-A items are recorded BLOCKED in the sprint report and are never substituted silently.
+3. Hardware-derived claims remain explicitly unresolved in every artifact: assets tagged per §5 (evidence_status, substitute_kind, UNVALIDATED AGAINST HARDWARE, sources, decision, replacing experiment, model version); confidence register unchanged; HARDWARE-FIT cells never PASS.
+4. Replaceable architecture is preserved: provisional values only in versioned MachineAsset/ResearchConfiguration records behind R-block interfaces; no hard-coded magic values; asset swap needs no code change.
+5. The sprint's automated software gates pass with logs/exit codes; verdict vocabulary stays PASS / BLOCKED / PASS WITH EXTERNAL VALIDATION PENDING, where "external validation pending" now names G-04 (Track B) explicitly.
+
+STOP (do not work around) when: a sprint needs hardware data for an implementation decision that cannot be safely deferred (a class-A item on the critical path, an undefined provisional candidate set, an owner choice listed as "Owner" in §4 that has not been made); an artifact, test, UI string or document would need a hardware-accuracy claim (claim boundary §7); a provisional choice would require inventing a value with no source/status; or any stop condition listed elsewhere in this prompt. Sprint 2 itself is not re-run; when hardware becomes available Track B restarts at Sprint 2 with the same contract and the Track A assets are re-versioned by fit, never silently overwritten.
+
+Sprint reports under V2 carry two verdict lines: SOFTWARE (Track A) and HARDWARE-FIT (Track B, BLOCKED until G-04). The final report's RELEASE READY verdict refers only to a software release described under the claim boundary; a hardware-validated release stays NO.
+
 ## Durable pause and resume
 
 Maintain PROJECT_HANDOFF: source/repository/branch/current SHA, last accepted sprint and actual report/implementation commit, active task, exact commands/tests/results, evidence route/hash, open debt/gates and next authorized action. If context/resources/session end, checkpoint permitted work and state truthfully; do not promise background execution. New session inspects actual files/status before trusting state; do not rerun accepted work without new changes/failure/reason.
@@ -56,4 +72,4 @@ Maintain PROJECT_HANDOFF: source/repository/branch/current SHA, last accepted sp
 
 After Sprint8 run its clean approved rebuild/full regression/native/package checks. Write docs/AUTONOMOUS_BUILD_FINAL_REPORT.md only after actual execution: authorized baseline, all accepted milestone commits, real environments/tool/command results, asset/data/source/binary hashes, hardware/listening/native matrices, debt/gates, artifacts, limitations and release verdict. Required native/human evidence absent means RELEASE READY NO. Candidate may be reviewable while blocked, but no mandatory unresolved task is called complete. Stop at reviewable candidate; distribution/install/merge separate.
 
-Finish with AUTONOMOUS BUILD STATUS; repository/branch/exact source; Sprint01–08 verdicts; full regression; platform/hardware/listening status; actual artifacts; unresolved gates; RELEASE READY YES/NO; next authorized action. Generating this prompt did not execute it.
+Finish with AUTONOMOUS BUILD STATUS; repository/branch/exact source; Sprint01–08 verdicts (software and hardware-fit lines); full regression; platform/hardware/listening status; actual artifacts; unresolved gates; claim-boundary compliance; RELEASE READY YES/NO (software candidate under the claim boundary) and HARDWARE-VALIDATED RELEASE NO; next authorized action. Generating this prompt did not execute it.

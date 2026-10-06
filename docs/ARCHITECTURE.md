@@ -1,6 +1,6 @@
 # Architecture, replaceable blocks and state
 
-Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
+Revision: execution V2 (owner decision OWN-DEC-001) · 2026-10-06 · supersedes execution V1
 
 Status: EXECUTION IN PROGRESS. R0–R16 not implemented; Sprint 1 foundation layout recorded below.
 
@@ -49,6 +49,10 @@ An engine instance owns one logical chain: global shared clocks and per-channel 
 A shared rational/high-precision scheduler owns absolute input time, SP and MPC next-event phase/counters and proxy resampler history. Exact SP constant is a versioned provisional rational20MHz/768 until CHAIN-EXP-001/019 closure, not literal truncated26041.6667 accumulated forever. MPC clock44100 is distinct. Processing chunks never restart clock/hold at block boundaries. R4's source `None` describes ideal physical signal memory, not implementation scheduler state (AUD-C08). R7 stores held code per channel. Each filter delay line, coupling state and meter accumulator is per-channel; L/R share sample instants and nominal coefficient assets in linked mode, never each other's input/state. Equal input with equal state gives identical output. Different channels do not bleed unless measured/approved coupling is added.
 
 For research slot skew, source capture offset and DAC multiplex playback skew are separate terms; they are not arbitrary random phase or independent clocks. Slot experiment is not included in release. Literal MIX OUT is mono and cannot be renamed a stereo path. Unknown summing topology blocks its implementation. Synthetic continuous-time fixtures define cross-rate input; input reconstruction error/quantizer-boundary divergence is budgeted separately, never solved by removing the machine quantizer.
+
+## Provisional-asset interface requirement (OWN-DEC-001, Track A)
+
+Every R-block consumes its numbers from a versioned MachineAsset or ResearchConfiguration record validated at prepare(); DSP code contains no literal coefficient, gain, corner, clamp or rate. An asset record carries evidence_status, substitute_kind (PROVISIONAL / LITERATURE-DERIVED / SIMULATED / ESTIMATE), hardware_validation = UNVALIDATED AGAINST HARDWARE, source/claim/decision IDs, the Track B experiment that would replace it and a model version; a missing tag is an INVALID_CONFIGURATION. Blocks whose provisional state is INACTIVE (e.g. R3 placeholder, analog clamps UNSET, routes NOT POPULATED) are explicit identity/blocked states, never silent defaults. A Track B fitted asset is a new asset version behind the same interface; swapping assets must not require code changes (docs/EXECUTION_PLAN_V2.md §5).
 
 ## Numerical and real-time policy
 

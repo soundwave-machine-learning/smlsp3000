@@ -1,12 +1,12 @@
 # Eight-sprint dependency and ownership index
 
-Revision: planning V1 · 2026-10-06
+Revision: execution V2 (owner decision OWN-DEC-001) · 2026-10-06 · supersedes planning V1
 
-Status: DRAFT PLANNING CONTRACT. Documentation creation authorized; implementation and release not authorized.
+Status: EXECUTION IN PROGRESS. Sprint 1 PASS (fbd1fac). Sprint 2 hardware campaign BLOCKED / EXTERNAL HARDWARE REQUIRED (1c0fe89), preserved. Sprints 3–8 run as Track A (software/reference, provisional) under docs/EXECUTION_PLAN_V2.md once the owner approves its §4 plan; Track B (hardware fit) deferred.
 
 ## Exactly eight substantive milestones
 
-Eight is explicitly requested by the owner. Boundaries follow evidence dependencies, not equal word counts: research/framework → hardware/thresholds → two fitted references → cascade/product decision → production → native integration → candidate. Every individual contract is authoritative; this index does not duplicate its full work. No sprint has started and no completion report exists.
+Eight is explicitly requested by the owner. Boundaries follow evidence dependencies: research/framework → hardware/thresholds → two references → cascade/product decision → production → native integration → candidate. Every individual contract is authoritative for scope and checks; under OWN-DEC-001 the entry-gate wording "accepted S2 / G-04/G-05/G-06 closed" of contracts 03–08 is amended by docs/EXECUTION_PLAN_V2.md: the software (Track A) parts of each sprint proceed with labelled provisional substitutes, the hardware-fit (Track B) parts stay BLOCKED. Executed: Sprint 1 PASS; Sprint 2 BLOCKED at preflight (docs/sprint_reports/).
 
 | Sprint | Authoritative contract | Milestone | Entry gate / exit condition |
 |---|---|---|---|
@@ -19,9 +19,23 @@ Eight is explicitly requested by the owner. Boundaries follow evidence dependenc
 | 07 | [SPRINT_07.md](sprint_prompts/SPRINT_07.md) | Plugin wrapper, host/UI integration and real-time hardening | Accepted S6/G-08; actual G-09 target matrix, SDK/framework/license and native host access. G-10 final UI/listening protocol available; output/control design already selected. → All selected native rows and real-time/latency/bypass/state/UI checks pass; plugin/offline equivalence demonstrated; owner G-10 acceptance actual; no hypothetical target pass. |
 | 08 | [SPRINT_08.md](sprint_prompts/SPRINT_08.md) | Reproducible release candidate, provenance and final review | Accepted S1–S7; all mandatory evidence/numeric/product/native/human gates closed; G-11 rights/package/signing/install scope resolved as applicable; approved clean-build environment and artifact destination. → Clean rebuild/regression/package/mandatory native and human gates pass; exact hashes/source provenance; every requirement covered; RELEASE READY YES only if G-11 valid. If blocked, precise NO verdict and blocker report instead of fabricated completion. |
 
+## Track A / Track B dependency revision (OWN-DEC-001)
+
+| Sprint | Track A (software/reference, provisional) | Track B (hardware fit) | Entry under V2 |
+|---|---|---|---|
+| 02 | — | whole sprint (CHAIN-EXP-001..012/015, G-04/G-05/G-06) | BLOCKED / EXTERNAL HARDWARE REQUIRED |
+| 03 | REQ-008/009/010/011 provisional SP reference (class B), REQ-017/018 and CHAIN-EXP-017 (class C); ch 3–6 responses and MIX OUT not populated (class A) | VAL-008..011 hardware-fit cells | Owner approval of EXECUTION_PLAN_V2 §4 + §9 inputs 2–4 |
+| 04 | REQ-012/013/014 provisional MPC reference (class B) | VAL-012..014 hardware-fit cells | Accepted S3 (software) + §9 input 5 |
+| 05 | REQ-015 provisional interstage (B, owner-set), REQ-016 G-07S software product decision with software-only listening (B); CHAIN-EXP-013/014/018 hardware arms (A) | VAL-015 hardware-fit cell; G-07H | Accepted S4 + §9 input 6 |
+| 06 | REQ-019..022 (class C; G-08 owner budgets) | VAL-020 hardware image agreement cell | Accepted S5 + G-07S + G-08 |
+| 07 | REQ-023..026 (class C; G-09 owner/platform inputs; claim boundary) | — | Accepted S6 + G-09 + G-10 protocol |
+| 08 | REQ-027 software candidate under the claim boundary (C) | hardware-fit release (A) | Accepted S7; G-11 for software candidate |
+
+Full per-requirement table: docs/EXECUTION_PLAN_V2.md §4.
+
 ## Dependency order
 
-S1 before S2 (framework/commands); S2 before S3/S4 (valid evidence/thresholds); S3 then S4 form reference acceptance sequence; S3+S4+physical cascade before S5; G-07 after S5 before S6; G-08 frozen before S6 numerical work; S6 plus native capabilities G-09 before S7; G-10 human/native acceptance before S8; G-11 before release-ready verdict. Documentary source attempts cannot replace mandatory hardware evidence. No sprints are launched in parallel or delegated by this plan.
+S1 before S2 (framework/commands); S2 before S3/S4 for Track B only (valid evidence/thresholds) — Track A S3/S4 proceed on provisional substitutes (OWN-DEC-001); S3 then S4 form reference acceptance sequence; S3+S4+physical cascade before S5; G-07 after S5 before S6; G-08 frozen before S6 numerical work; S6 plus native capabilities G-09 before S7; G-10 human/native acceptance before S8; G-11 before release-ready verdict. Documentary source attempts cannot replace mandatory hardware evidence. No sprints are launched in parallel or delegated by this plan.
 
 ## Gate and requirement ownership
 
@@ -30,7 +44,7 @@ S1 before S2 (framework/commands); S2 before S3/S4 (valid evidence/thresholds); 
 | G-01 | S01 | G-01A blocks S1 mutations; G-01B blocks dependent executable work |
 | G-02 | S01 | Trusting fitted residuals or hardware comparison |
 | G-03 | S01 | Using extracted/guessed coefficients; dependent P0/P1 closure |
-| G-04 | S02 | All hardware-fit conclusions |
+| G-04 | S02 (deferred external validation) | All hardware-fit conclusions and claims; not Track A implementation |
 | G-05 | S02 | Calibrated machine references (S3/S4), cascade/product (S5+) |
 | G-06 | S02 | PASS for hardware fits in S3/S4/S5 |
 | G-07 | S05 | Production optimization, UI/defaults/presets |
@@ -52,4 +66,4 @@ S1 before S2 (framework/commands); S2 before S3/S4 (valid evidence/thresholds); 
 
 ## Readiness and resumption
 
-All contracts are DRAFT for execution: repository/baseline/branch/stack/commands/targets/budgets UNKNOWN, mandatory evidence absent, fidelity/production thresholds UNKNOWN. This is a complete planning file set, not an executable-ready or release-ready promise. G-01 allows future activation only with explicit implementation instruction and real project inputs. Subsequent required owner/hardware gates pause only the affected dependent work. ResearchConfiguration cannot be changed to quietly bypass a failed gate. PROJECT_HANDOFF is the durable actual state; accepted milestones are inspected before resuming, never rerun merely because a new chat starts.
+Repository/baseline/branch/stack/commands are known (Sprint 1); targets/budgets (G-08/G-09) and hardware thresholds (G-06) remain UNKNOWN. Track A readiness is gated by owner approval of EXECUTION_PLAN_V2 §4; release readiness remains NO. Subsequent required owner/hardware gates pause only the affected dependent work. ResearchConfiguration cannot be changed to quietly bypass a failed gate. PROJECT_HANDOFF is the durable actual state; accepted milestones are inspected before resuming, never rerun merely because a new chat starts.

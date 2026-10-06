@@ -1,12 +1,12 @@
 # Claim and source confidence register
 
-Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
+Revision: execution V2 (owner decision OWN-DEC-001) · 2026-10-06 · supersedes execution V1
 
-Status: EXECUTION IN PROGRESS. No claim status changed in Sprint 1 (no new evidence obtained).
+Status: EXECUTION IN PROGRESS. No claim status changed (no new evidence). OWN-DEC-001 authorizes Track A provisional implementation; it upgrades NO hardware claim: every row below keeps its status, and every provisional software value is additionally tagged UNVALIDATED AGAINST HARDWARE (docs/EXECUTION_PLAN_V2.md §5).
 
 ## Evidence taxonomy and approval lanes
 
-Preserve source VERIFIED / STRONGLY SUPPORTED / LITERATURE-DERIVED / SIMULATED / PROVISIONAL / SPECULATIVE / UNKNOWN / NOT EXECUTED. VERIFIED means documentary or published measurement read in the original pass, not a measurement of our unit. SIMULATED rows here include closed-form calculations only; executed simulations remain NO. PARTIAL in source means components/functions partly documented, not calibrated behavior.
+Preserve source VERIFIED / STRONGLY SUPPORTED / LITERATURE-DERIVED / SIMULATED / PROVISIONAL / SPECULATIVE / UNKNOWN / NOT EXECUTED. VERIFIED means documentary or published measurement read in the original pass, not a measurement of our unit. SIMULATED rows here include closed-form calculations only; executed simulations remain NO. PARTIAL in source means components/functions partly documented, not calibrated behavior. Implementation tags added by OWN-DEC-001 (not evidence classes): ESTIMATE = a value chosen for a provisional software block with recorded rationale but no supporting measurement or document; UNVALIDATED AGAINST HARDWARE = mandatory tag on every Track A asset until Track B replaces it. Neither tag changes a claim's evidence status.
 
 Lane 1 evidence: immutable research V1 and future source/unit artifacts; Sprint 1 added only access-failure records (reference/sources), no new evidence. Lane 2 design: source research recommendations and these planning proposals; owner approvals recorded in DECISIONS (ENG-DEC-011..013 added in Sprint 1). Lane 3 implementation: Sprint 1 analysis foundation (smlsp3000/, tests/, CHAIN-EXP-016 SIMULATION record); no machine block R0–R16 implemented; no claim status changed. Lane 4 release: none. The owner authorized implementation on 2026-10-06, not source recommendations as production defaults.
 

@@ -1,6 +1,6 @@
 # Parameter layers, candidate IDs and state policy
 
-Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
+Revision: execution V2 (owner decision OWN-DEC-001) · 2026-10-06 · supersedes execution V1
 
 Status: EXECUTION IN PROGRESS. No parameter created; schema records (smlsp3000/schemas.py) encode the three layers and UNSET semantics only.
 
@@ -26,7 +26,7 @@ Main stereo MPC output can remain a fixed selected MachineParameters route rathe
 
 ## MachineParameters — versioned calibrated assets
 
-sp_rate_hz/provenance; mpc_rate_hz; input volts-per-normalized-unit; SP input gain curves and ADC_FS/offset/code range; AA poles/zeros/order; SP level-DAC unity; hold response/fraction; output route/gain/coupling; interstage canonical reference gain; MPC input sensitivity-to-FS curves/pot calibration; ADC response/latency/FS/overload; 18→16 rule and unity arithmetic once identifiable; DAC interpolation/de-emphasis configuration; I/V/output filter/coupling/gain/FS; measured revision/route/OS; asset ID/version/hash and validity conditions. Every value retains source/experiment/uncertainty and permitted range; no user preset rewrites it. Unknown assets cannot be initialized with fabricated numbers.
+sp_rate_hz/provenance; mpc_rate_hz; input volts-per-normalized-unit; SP input gain curves and ADC_FS/offset/code range; AA poles/zeros/order; SP level-DAC unity; hold response/fraction; output route/gain/coupling; interstage canonical reference gain; MPC input sensitivity-to-FS curves/pot calibration; ADC response/latency/FS/overload; 18→16 rule and unity arithmetic once identifiable; DAC interpolation/de-emphasis configuration; I/V/output filter/coupling/gain/FS; measured revision/route/OS; asset ID/version/hash and validity conditions. Every value retains source/experiment/uncertainty and permitted range; no user preset rewrites it. Unknown assets cannot be initialized with fabricated numbers. Under OWN-DEC-001 a Track A asset may hold a provisional value only with the tags of docs/EXECUTION_PLAN_V2.md §5 (substitute_kind, UNVALIDATED AGAINST HARDWARE, decision ID, replacing experiment, model version); the serialized state references asset ID + version + hash so a later fitted asset is distinguishable from the provisional one.
 
 ## ResearchConfiguration — explicit hypothesis strategies
 
