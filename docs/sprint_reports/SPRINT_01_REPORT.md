@@ -117,4 +117,4 @@ Sprint 2 requires G-04 (stock units, calibrated interface, operator, routes) whi
 
 ## 17. Ending commit
 
-Recorded in docs/PROJECT_HANDOFF.md / `git log claude/autonomous-build` after the milestone commit; not written here before it exists.
+Milestone commit `fbd1facffb84ffd132c17eca8c60a390f7df5d6e` on `claude/autonomous-build` (recorded in the follow-up checkpoint commit after it existed). Files changed: 65 (see `git show --stat fbd1facffb84`).
