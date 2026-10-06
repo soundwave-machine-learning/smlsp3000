@@ -1,0 +1,415 @@
+{
+  "project": "SP-1200 → MPC3000 Full-Mix Processor",
+  "date": "2026-10-06",
+  "revision": "engineering planning V1",
+  "planning_only": true,
+  "production_dsp_written": false,
+  "sprint_count": 8,
+  "requirement_count": 28,
+  "source_p0_open": 6,
+  "source_p1_open": 12,
+  "source_experiments_executed": 0,
+  "manifest_policy": "Content inventory excludes MANIFEST.md/MANIFEST.json/SHA256SUMS (self-reference avoided); SHA256SUMS covers content and both manifests, excluding itself.",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 2897,
+      "sha256": "5a11506f0da2657df15ceca5125d077554df8edb2cbca116d4e711723a5044d5",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Read order, authority and repository/autonomy policy",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "README.md",
+      "bytes": 1539,
+      "sha256": "9b0fa3dba7a1b498f6bb3ff99b58271e62e23570253c2e4105f14c1733702d36",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Entry point and honest readiness",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/ACCEPTANCE_MATRIX.csv",
+      "bytes": 12331,
+      "sha256": "b04e9d992e3ffd4cfc7d04618dec949ddfa74365db3369b371f1645a74a72533",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Machine-readable acceptance matrix",
+      "owner": "Cross-sprint",
+      "sources": "Same as Markdown acceptance matrix",
+      "trigger": "Acceptance requirement or gate revision"
+    },
+    {
+      "path": "docs/ACCEPTANCE_MATRIX.md",
+      "bytes": 13173,
+      "sha256": "0e996963a244bf9ccfda29823129cb6271639b4d1ab63b3f60cd96175c9fe105",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Complete 28-row requirement-to-check/evidence mapping",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/ARCHITECTURE.md",
+      "bytes": 9630,
+      "sha256": "49ea8b1d65144cbebef0b4fec6c6fe9c1bc92204ff93746d2d9757a6a57663c0",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "All R0–R16 boundaries, ownership and runtime semantics",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/AUTONOMOUS_BUILD_PROMPT.md",
+      "bytes": 8435,
+      "sha256": "037c68af34066250bcb6dd09a94b082614faf2d50da05f63295d48b29bcbb224",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Eight-file read/execute/resume prompt; not launched",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/CONFIDENCE.md",
+      "bytes": 25968,
+      "sha256": "c0441e891ab366d526b72410d7263fc25dabba2e68fc240371b4c1df6f958721",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Full 54-claim register and 27-source inventory",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/DECISIONS.md",
+      "bytes": 5875,
+      "sha256": "0d291f9f1cfef7feed14fc098ee50b44d5f7d5b4286cdcdb02624eb83d07cb63",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "16 original decisions and engineering proposals",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/DELIVERY_SUMMARY.md",
+      "bytes": 5266,
+      "sha256": "43d73162eea41578e26adf252269d5f210ef77863148eccde5e2777f140563de",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Self-contained requested final deliverable summary",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/DSP_CHANGELOG.md",
+      "bytes": 948,
+      "sha256": "dd20cfdafb4aad28f5a5c0638c2dd48e9a7e6e0ecc010021410455c09516b7c3",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Planned DSP baseline; execution-only future entries",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/ENGINE_SPEC.md",
+      "bytes": 8389,
+      "sha256": "50f502711c961d53e80d1383e3955763bbf4f0f248f52ff9ee7e661086d2a59e",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "28 traceable requirements; behavior and interfaces",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/EXPERIMENT_PLAN.md",
+      "bytes": 9188,
+      "sha256": "437d5cff42be07c6f6fca477f99aeb7c59c98b3b439ddf00fa22daf157c5f439",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Full experiment register and dependency methods",
+      "owner": "S1/S2/S3/S4/S5",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/GATE_REGISTER.md",
+      "bytes": 6230,
+      "sha256": "e67074a6d4cf42c7c224b9b388d6af7e1a3ba9f40dd3a913c71593ee86d0c83e",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Dependency/measurement/approval gates",
+      "owner": "S1–S8",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/LISTENING_TEST_PLAN.md",
+      "bytes": 2803,
+      "sha256": "bd3a15d138cc498e2bf6a7c54e74cee6dd3df50ed755f0bd17dd2225a885dbf9",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Mandatory human test method and decision records",
+      "owner": "S5/S7",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/MEASUREMENT_PLAN.md",
+      "bytes": 8797,
+      "sha256": "20a04e6a5619afb8d443457869c98a183b6675c186fc0329c1c44ba85155a327",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Hardware setup/stimuli/calibration/split protocol",
+      "owner": "S2",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/PACKAGE_VALIDATION.md",
+      "bytes": 3474,
+      "sha256": "b1ba74c8c1bea2e87da602a1fd7577802ed1f8afe4a1d3ac3d785af297a89051",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Actually executed file/consistency checks; readiness unresolved",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/PARAMETERS.md",
+      "bytes": 5147,
+      "sha256": "c032f4f8b908afcaa52e5552a9c4724873e9f7d8bc4f24754bb9aee7024972da",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Product/Machine/Research separation; no invented defaults",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/PROJECT_BRIEF.md",
+      "bytes": 2731,
+      "sha256": "56bc352891d2cce5b6866166b2a7a7b877ea7ea85beee22d56502597a5d4119a",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Project goal, targets, authorization and non-goals",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/PROJECT_HANDOFF.md",
+      "bytes": 3152,
+      "sha256": "b119a77942c2e4495a03afd45c29c14cf2627be7ebe5fd69c507745425461672",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Single durable continuity/state file",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/RATE_GAIN_PLAN.md",
+      "bytes": 4372,
+      "sha256": "cfdf4408b6e689ea3d7cdd6565d18631727638c4492c4d3f66acd763068e523e",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Rate ratios, calibration units and explicit clipping",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/README.md",
+      "bytes": 7180,
+      "sha256": "7cdeef0efc1b68d276a03fb18edcf836906bebbc1177f5811c8bf6834a0399ae",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Full document authority/map/omission rationale",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/RESEARCH_AUDIT.md",
+      "bytes": 9856,
+      "sha256": "6e97ac3e1a17417403736ea1b165aaf14146cc5084eea1450927f29aab9b8bf9",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Evidence/conflict audit",
+      "owner": "Cross-sprint",
+      "sources": "Research §§1–5, 28–44; all claims/decisions/debt",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/RESEARCH_DEBT.md",
+      "bytes": 6460,
+      "sha256": "1e119e046caec00288f91a4342e77fc543f7bef009e508d6fd8d72e42812b26d",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "All 28 debt items with closure policy",
+      "owner": "S1/S2, decisions S5",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/SPRINT_PLAN.md",
+      "bytes": 8365,
+      "sha256": "72a39299c4aa22dbeb1ae69af38d1dfab19ddbf6a49cc32d04e6b2c62bbc105c",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Exact count, dependencies, gate and requirement map",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/VALIDATION_PLAN.md",
+      "bytes": 5913,
+      "sha256": "c84ed781117b89f2779f05c6c3f642a742b68ed64010a9d30eb00f3e253506e6",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Acceptance/check policy; honest command/target status",
+      "owner": "Cross-sprint",
+      "sources": "Research V1; user planning request",
+      "trigger": "Evidence, approved scope, or contract revision changes"
+    },
+    {
+      "path": "docs/research/SP1200_MPC3000_HANDOFF_V1.json",
+      "bytes": 100789,
+      "sha256": "ca16711489f460a303977a5ed84957121f64b1c5a8969c903e55b66b795bac31",
+      "approval_status": "SOURCE HISTORICAL; UNCHANGED",
+      "role": "Immutable supplied primary evidence / summary",
+      "owner": "Research",
+      "sources": "Uploaded researchV1 dated2026-10-05",
+      "trigger": "Never overwrite; new evidence uses new revision"
+    },
+    {
+      "path": "docs/research/SP1200_MPC3000_MIX_PROCESSOR_RESEARCH_PACKAGE_V1.md",
+      "bytes": 129080,
+      "sha256": "cea524a87d1b19d45e35511dacaca31aeedf03cbe4f2647737a96a2317903b1c",
+      "approval_status": "SOURCE HISTORICAL; UNCHANGED",
+      "role": "Immutable supplied primary evidence / summary",
+      "owner": "Research",
+      "sources": "Uploaded researchV1 dated2026-10-05",
+      "trigger": "Never overwrite; new evidence uses new revision"
+    },
+    {
+      "path": "docs/sprint_prompts/SPRINT_01.md",
+      "bytes": 11237,
+      "sha256": "7b0255831e3317efd77ac285a61322912e67fdbf6954edcd616f25ec2c978a41",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Substantive gated milestone contract",
+      "owner": "S01",
+      "sources": "Research V1; requirement/check IDs in contract",
+      "trigger": "Prerequisite, scope, acceptance, command or owner decision revision"
+    },
+    {
+      "path": "docs/sprint_prompts/SPRINT_02.md",
+      "bytes": 10884,
+      "sha256": "d6b925f8514447db212cf4416eb38593b0c33b71a01296c02aa934760b53e37d",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Substantive gated milestone contract",
+      "owner": "S02",
+      "sources": "Research V1; requirement/check IDs in contract",
+      "trigger": "Prerequisite, scope, acceptance, command or owner decision revision"
+    },
+    {
+      "path": "docs/sprint_prompts/SPRINT_03.md",
+      "bytes": 11136,
+      "sha256": "e90a9cead0bf863b7439bec9442a4b1a9bd6fbe2a3e5a1b25550020f0de95ff0",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Substantive gated milestone contract",
+      "owner": "S03",
+      "sources": "Research V1; requirement/check IDs in contract",
+      "trigger": "Prerequisite, scope, acceptance, command or owner decision revision"
+    },
+    {
+      "path": "docs/sprint_prompts/SPRINT_04.md",
+      "bytes": 10034,
+      "sha256": "fd2c738b51c2c27a33676e6f7b3759e86924c144e9fe12d403fc0901c0e6f204",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Substantive gated milestone contract",
+      "owner": "S04",
+      "sources": "Research V1; requirement/check IDs in contract",
+      "trigger": "Prerequisite, scope, acceptance, command or owner decision revision"
+    },
+    {
+      "path": "docs/sprint_prompts/SPRINT_05.md",
+      "bytes": 9906,
+      "sha256": "7d56764a54f960399e2db4f807b4eaa05d4338ec30a884d132d4c65711b7966c",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Substantive gated milestone contract",
+      "owner": "S05",
+      "sources": "Research V1; requirement/check IDs in contract",
+      "trigger": "Prerequisite, scope, acceptance, command or owner decision revision"
+    },
+    {
+      "path": "docs/sprint_prompts/SPRINT_06.md",
+      "bytes": 10783,
+      "sha256": "9485c28aa8bd3199e477a34e150b6a7d021f06d397dc9fd2603d55061f5737c2",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Substantive gated milestone contract",
+      "owner": "S06",
+      "sources": "Research V1; requirement/check IDs in contract",
+      "trigger": "Prerequisite, scope, acceptance, command or owner decision revision"
+    },
+    {
+      "path": "docs/sprint_prompts/SPRINT_07.md",
+      "bytes": 10596,
+      "sha256": "2a54e99dcd354b1d5cdc621cbea7e74f09f594ca9d151aa53c9322fd84d8ebb6",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Substantive gated milestone contract",
+      "owner": "S07",
+      "sources": "Research V1; requirement/check IDs in contract",
+      "trigger": "Prerequisite, scope, acceptance, command or owner decision revision"
+    },
+    {
+      "path": "docs/sprint_prompts/SPRINT_08.md",
+      "bytes": 9801,
+      "sha256": "1e8bce0d40b7a65c22f93c345b6ecdd943791bc947633454d903375b689fe19a",
+      "approval_status": "PLANNING V1; execution approval PENDING",
+      "role": "Substantive gated milestone contract",
+      "owner": "S08",
+      "sources": "Research V1; requirement/check IDs in contract",
+      "trigger": "Prerequisite, scope, acceptance, command or owner decision revision"
+    }
+  ],
+  "sprint_manifest": [
+    {
+      "number": 1,
+      "path": "docs/sprint_prompts/SPRINT_01.md",
+      "title": "Foundation, capability freeze and targeted source closure",
+      "status": "DRAFT/BLOCKED; NOT EXECUTED"
+    },
+    {
+      "number": 2,
+      "path": "docs/sprint_prompts/SPRINT_02.md",
+      "title": "Hardware evidence, P0/P1 closure and acceptance freeze",
+      "status": "DRAFT/BLOCKED; NOT EXECUTED"
+    },
+    {
+      "number": 3,
+      "path": "docs/sprint_prompts/SPRINT_03.md",
+      "title": "Calibrated SP reference and stereo skeleton validation",
+      "status": "DRAFT/BLOCKED; NOT EXECUTED"
+    },
+    {
+      "number": 4,
+      "path": "docs/sprint_prompts/SPRINT_04.md",
+      "title": "Calibrated MPC reference and path comparison",
+      "status": "DRAFT/BLOCKED; NOT EXECUTED"
+    },
+    {
+      "number": 5,
+      "path": "docs/sprint_prompts/SPRINT_05.md",
+      "title": "Cascade validation, blind listening and product selection",
+      "status": "DRAFT/BLOCKED; NOT EXECUTED"
+    },
+    {
+      "number": 6,
+      "path": "docs/sprint_prompts/SPRINT_06.md",
+      "title": "Production shared engine, parameter freeze and optimization",
+      "status": "DRAFT/BLOCKED; NOT EXECUTED"
+    },
+    {
+      "number": 7,
+      "path": "docs/sprint_prompts/SPRINT_07.md",
+      "title": "Plugin wrapper, host/UI integration and real-time hardening",
+      "status": "DRAFT/BLOCKED; NOT EXECUTED"
+    },
+    {
+      "number": 8,
+      "path": "docs/sprint_prompts/SPRINT_08.md",
+      "title": "Reproducible release candidate, provenance and final review",
+      "status": "DRAFT/BLOCKED; NOT EXECUTED"
+    }
+  ]
+}
