@@ -1,8 +1,8 @@
 # Engine specification and requirements
 
-Revision: planning V1 · 2026-10-06
+Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
 
-Status: DRAFT PLANNING CONTRACT. Documentation creation authorized; implementation and release not authorized.
+Status: EXECUTION IN PROGRESS. Requirements unchanged; REQ-001/002/003/028 have Sprint 1 evidence (ACCEPTANCE_MATRIX); REQ-004 BLOCKED; no R-block implemented.
 
 ## Product behavior and scope
 
@@ -57,4 +57,4 @@ Machine asset replacement requires provenance/hash, unchanged units/interface, u
 
 ## Readiness and acceptance
 
-Acceptance is the 28-row ACCEPTANCE_MATRIX; G-06 hardware tolerance, G-08 production tolerance and G-09 target tests are deliberately unresolved. No quantitative hardware PASS can be asserted yet. Unknown criteria keep dependent contracts DRAFT/BLOCKED. The engineering documents can be reviewed now; Sprint1 execution requires a separate authorization. No production DSP or reference implementation is included in this package.
+Acceptance is the 28-row ACCEPTANCE_MATRIX; G-06 hardware tolerance, G-08 production tolerance and G-09 target tests are deliberately unresolved. No quantitative hardware PASS can be asserted yet. Unknown criteria keep dependent contracts DRAFT/BLOCKED. Sprint 1 executed under owner authorization of 2026-10-06 (docs/sprint_reports/SPRINT_01_REPORT.md). No production DSP or reference R-block implementation exists; the repository contains analysis/evidence tooling only.

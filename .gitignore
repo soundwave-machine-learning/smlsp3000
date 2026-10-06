@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+build/
+dist/
+# Local scratch; evidence that is committed lives under evidence/ and research/ explicitly
+.pytest_cache/
+*.tmp

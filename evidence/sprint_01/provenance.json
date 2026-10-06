@@ -1,0 +1,250 @@
+{
+ "record": "Sprint 01 provenance (VAL-001 / REQ-001)",
+ "recorded_utc": "2026-10-06",
+ "baseline_commit": "3b53a6b1cb6600800cbc3c5eb6929fff8b3b254c",
+ "branch": "claude/autonomous-build",
+ "immutable_sources": {
+  "docs/research/SP1200_MPC3000_MIX_PROCESSOR_RESEARCH_PACKAGE_V1.md": "cea524a87d1b19d45e35511dacaca31aeedf03cbe4f2647737a96a2317903b1c",
+  "docs/research/SP1200_MPC3000_HANDOFF_V1.json": "ca16711489f460a303977a5ed84957121f64b1c5a8969c903e55b66b795bac31"
+ },
+ "immutable_sources_match_package_validation": true,
+ "contracts": {
+  "docs/sprint_prompts/SPRINT_01.md": "7b0255831e3317efd77ac285a61322912e67fdbf6954edcd616f25ec2c978a41",
+  "docs/sprint_prompts/SPRINT_02.md": "d6b925f8514447db212cf4416eb38593b0c33b71a01296c02aa934760b53e37d",
+  "docs/sprint_prompts/SPRINT_03.md": "e90a9cead0bf863b7439bec9442a4b1a9bd6fbe2a3e5a1b25550020f0de95ff0",
+  "docs/sprint_prompts/SPRINT_04.md": "fd2c738b51c2c27a33676e6f7b3759e86924c144e9fe12d403fc0901c0e6f204",
+  "docs/sprint_prompts/SPRINT_05.md": "7d56764a54f960399e2db4f807b4eaa05d4338ec30a884d132d4c65711b7966c",
+  "docs/sprint_prompts/SPRINT_06.md": "9485c28aa8bd3199e477a34e150b6a7d021f06d397dc9fd2603d55061f5737c2",
+  "docs/sprint_prompts/SPRINT_07.md": "2a54e99dcd354b1d5cdc621cbea7e74f09f594ca9d151aa53c9322fd84d8ebb6",
+  "docs/sprint_prompts/SPRINT_08.md": "1e8bce0d40b7a65c22f93c345b6ecdd943791bc947633454d903375b689fe19a"
+ },
+ "contracts_unchanged_from_planning_v1": true,
+ "known_baseline_deviation": {
+  "docs/ACCEPTANCE_MATRIX.csv": "SHA256SUMS/MANIFEST hash was computed on CRLF bytes (12331 B); repository holds LF bytes (12302 B); content identical after line-ending normalization; CRLF-restored bytes reproduce b04e9d99\u2026; no substantive contradiction"
+ },
+ "fabricated_results": "NONE: every executed check has a log with exit code; hardware, listening and native checks are recorded NOT EXECUTED/BLOCKED",
+ "authority_lanes": {
+  "evidence": "docs/research (unchanged), reference/sources ACCESS_RECORDs (access failures only)",
+  "design": "docs/*.md living revisions, DECISIONS ENG-DEC-011..013",
+  "implementation": "smlsp3000/, tests/, tools/, research/sim/CHAIN-EXP-016 (SIMULATION)",
+  "release": "none"
+ },
+ "artifacts": {
+  "docs/BUILD_COMMANDS.md": {
+   "sha256": "847277ce7d6f42b8409f1795fdf635d117adec485639d857d693cf30e416ad21",
+   "bytes": 3855,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "pyproject.toml": {
+   "sha256": "7262df45aa88930b7ec5719848b413b7455fdd3e5d002c0cf5d2e942535057d6",
+   "bytes": 457,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "reference/sources/mpc3000/ACCESS_RECORD.json": {
+   "sha256": "1bf43442ff745d76f3814ce18f28b463847e60894291b3726c48fa3eba340d00",
+   "bytes": 2247,
+   "artifact_class": "SOURCE EVIDENCE",
+   "dataset_role": "NONE"
+  },
+  "reference/sources/sp1200/ACCESS_RECORD.json": {
+   "sha256": "d33c7e7c2b3f8e85919c44652bdae5776052de1a15c5bf420ad8487377ea41a9",
+   "bytes": 2672,
+   "artifact_class": "SOURCE EVIDENCE",
+   "dataset_role": "NONE"
+  },
+  "research/sim/CHAIN-EXP-016/config.json": {
+   "sha256": "bad1282d14fd7c20d4a09a568ddf539b76d7e77f55cbdf0f41d2cce7f5a5bf8d",
+   "bytes": 8034,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "SELF_NULL"
+  },
+  "research/sim/CHAIN-EXP-016/manifest.sha256": {
+   "sha256": "2007060b1f52ee399f068ea0ff690f062fa7146364397cde6ee9a84fc61eee40",
+   "bytes": 1292,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "SELF_NULL"
+  },
+  "research/sim/CHAIN-EXP-016/residual_spectrum_combined.csv": {
+   "sha256": "6bc1b02a302a4e37339705edc72ff9093d9bdd653a77b9196d7647fbabf14229",
+   "bytes": 77450,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "SELF_NULL"
+  },
+  "research/sim/CHAIN-EXP-016/residual_spectrum_dc_plus_0p01.csv": {
+   "sha256": "2149c29fdd4ca98798c4580941a480bbeeab48dbe6d73176c09c5938912c5a80",
+   "bytes": 77450,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "SELF_NULL"
+  },
+  "research/sim/CHAIN-EXP-016/residual_spectrum_delay_0p37_samples.csv": {
+   "sha256": "d8185d5954fdba2811390d5193907dc9ce18ea507cc6719666020f7f3d0dc9d7",
+   "bytes": 77450,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "SELF_NULL"
+  },
+  "research/sim/CHAIN-EXP-016/residual_spectrum_delay_17p25_samples.csv": {
+   "sha256": "b49f674e50bb521506eb36dd4cde10bce463dc710665c25cbeebd087395dcf2c",
+   "bytes": 77450,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "SELF_NULL"
+  },
+  "research/sim/CHAIN-EXP-016/residual_spectrum_delay_3p30_samples.csv": {
+   "sha256": "26691df5c5233e5b9b4e4e866877c8a4d91f13e89a3099f061df63cc59abe57d",
+   "bytes": 77450,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "SELF_NULL"
+  },
+  "research/sim/CHAIN-EXP-016/residual_spectrum_gain_minus_1dB.csv": {
+   "sha256": "89c968662a49cff1c05ce78e778498584d6ce5f0e6d4b835a3c0ed2ed15dde62",
+   "bytes": 77450,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "SELF_NULL"
+  },
+  "research/sim/CHAIN-EXP-016/residual_spectrum_gain_plus_1dB.csv": {
+   "sha256": "84cc62de89dd05a22b0fbb27bd1f1af835c7aec5e0fd87989e1e37e85387dba3",
+   "bytes": 77450,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "SELF_NULL"
+  },
+  "research/sim/CHAIN-EXP-016/residual_spectrum_none.csv": {
+   "sha256": "2cbf7428bc154aaa3915b5f056fe9e0e89be75ee43a4b0876b300e1ca8325635",
+   "bytes": 77450,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "SELF_NULL"
+  },
+  "research/sim/CHAIN-EXP-016/residual_spectrum_polarity_inverted.csv": {
+   "sha256": "2cbf7428bc154aaa3915b5f056fe9e0e89be75ee43a4b0876b300e1ca8325635",
+   "bytes": 77450,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "SELF_NULL"
+  },
+  "research/sim/CHAIN-EXP-016/residual_spectrum_ratio_minus_120ppm.csv": {
+   "sha256": "6e3cebf93829c804bba4889458bc66c1478ca3fc5b2e179dbf1eae3f0756fdf3",
+   "bytes": 77450,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "SELF_NULL"
+  },
+  "research/sim/CHAIN-EXP-016/residual_spectrum_ratio_plus_37ppm.csv": {
+   "sha256": "811e1a0fc9e0ad11b874feeacf78856d4293113413b0412bf9c0c82e6e692ada",
+   "bytes": 77450,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "SELF_NULL"
+  },
+  "research/sim/CHAIN-EXP-016/result.json": {
+   "sha256": "0d4e2667bc4a5c8e0482069016c96facf36b15a9ae087900ca53365b33c18885",
+   "bytes": 25845,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "SELF_NULL"
+  },
+  "smlsp3000/__init__.py": {
+   "sha256": "208b3c20e104b263b7b6ebac1961aaf49cde27dbf846a50be92d7e8350101371",
+   "bytes": 393,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "smlsp3000/environment.py": {
+   "sha256": "f6204e65e3e3c1f85135a484f493658f7da0736211a5041b15edcc7169246e86",
+   "bytes": 1196,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "smlsp3000/experiments/__init__.py": {
+   "sha256": "c2e7d8099d56ab0ee06198a353d4c9e37e0143add9c7fa34da7514abaf899d51",
+   "bytes": 76,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "smlsp3000/experiments/exp016.py": {
+   "sha256": "bfb07d25ef718af10c80ff65f9acf40739b48af5e5061db4eba8108990a65c41",
+   "bytes": 9368,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "smlsp3000/hashing.py": {
+   "sha256": "fdcad89fe88ee7282279d30af92bb5cb7adb6aa0143d46c06f907c9b627859a4",
+   "bytes": 2744,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "smlsp3000/nullframework.py": {
+   "sha256": "c2e77962f02e0f157a9c2b89ec0776ba1556658c76b5914b6ee27a9acb35abb9",
+   "bytes": 18492,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "smlsp3000/runner.py": {
+   "sha256": "072b22391f63cd1e21cf2f951a9c187d286b17223ad6dccc1a9442d0c84b69c0",
+   "bytes": 2183,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "smlsp3000/schemas.py": {
+   "sha256": "3d6ab37e51cf479e3a98a867cae32e2250b20ff21ca7bc7e1fbd2ae397f08d15",
+   "bytes": 8232,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "smlsp3000/stimuli.py": {
+   "sha256": "d392eeaada5570196f8399651746eb8c6ad4606cf9c89a6a429e8da34b486bb0",
+   "bytes": 6463,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "smlsp3000/wavio.py": {
+   "sha256": "f034e6c9b0cf9940347ef0fbccaa56cbd86401319185d664d6364a6befe1795b",
+   "bytes": 4137,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "tests/__init__.py": {
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "bytes": 0,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "tests/test_exp016_reproduction.py": {
+   "sha256": "c5caf20120f4be22a95b7c7e337b180cb1b14fb9fc46993db27a30c454428bcc",
+   "bytes": 1204,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "tests/test_hashing.py": {
+   "sha256": "fb9d1b929bc44914bd004c51de41beb61fed6f1067edb2ba07dff88cfeb8ff69",
+   "bytes": 1450,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "tests/test_nullframework.py": {
+   "sha256": "b77aeaf86d61a0e72566a4db66a6e615264436eacd0fe9f5b310d4c9518d434c",
+   "bytes": 2661,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "tests/test_repo_integrity.py": {
+   "sha256": "4143f7f96bac94f7d73bdc8b611d76ac6ec4fc0dfe459f0cb9f19615366a4f33",
+   "bytes": 419,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "tests/test_schemas.py": {
+   "sha256": "66c1a006effc8279ffe9d7cc1f266b32c17e1366f20247eac54a54bedebb2eda",
+   "bytes": 2209,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "tests/test_wavio.py": {
+   "sha256": "e19a74e40677b2c9934680f4af80c8f7f21a41a966084d6b48ee35f80a817990",
+   "bytes": 1782,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  },
+  "tools/check_repo_integrity.py": {
+   "sha256": "216c7505068e798316ae6b013f4e5367277e8cd02822389c2d31ad2cea90d7cd",
+   "bytes": 5674,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE"
+  }
+ }
+}

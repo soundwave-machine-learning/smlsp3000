@@ -1,0 +1,57 @@
+{
+  "record": "Sprint 01 preflight (VAL-002 / REQ-002, G-01)",
+  "recorded_utc": "2026-10-06",
+  "authorization": {
+    "source": "Owner execution instruction received in this session (Claude Code cloud session), 2026-10-06: 'You are now authorized to begin autonomous implementation of SML SP-3000'",
+    "scope": "Sprint 1 and later sprints autonomously only where contracts and stop conditions permit; no merge to main; branch claude/autonomous-build; push when appropriate",
+    "G-01A": "RESOLVED by this instruction: repository, baseline, branch and permitted operations identified",
+    "budgets": "No explicit token/time/compute budget stated by owner; no paid or signing action authorized",
+    "note_on_branch": "The session harness pre-set branch claude/sleepy-hawking-wqdssx; the owner instruction explicitly names claude/autonomous-build, which is used. Reported in the sprint report."
+  },
+  "repository": {
+    "url": "https://github.com/soundwave-machine-learning/smlsp3000",
+    "remote_origin": "https://github.com/soundwave-machine-learning/smlsp3000 (fetch/push)",
+    "baseline_commit": "3b53a6b1cb6600800cbc3c5eb6929fff8b3b254c",
+    "baseline_commit_message": "Import SML SP-3000 engineering baseline",
+    "baseline_branch_at_start": "claude/sleepy-hawking-wqdssx (== main == 3b53a6b)",
+    "working_tree_at_start": "clean",
+    "implementation_branch": "claude/autonomous-build (created from 3b53a6b)",
+    "baseline_integrity": "both research sources SHA-256 identical to docs/PACKAGE_VALIDATION.md; 8/8 contracts; docs/ACCEPTANCE_MATRIX.csv differs from SHA256SUMS.txt only by CRLF->LF normalization at import (12331 vs 12302 bytes; CRLF-restored bytes reproduce the manifest hash)"
+  },
+  "environment": {
+    "kind": "cloud ephemeral container (Claude Code remote execution), not the owner's machine",
+    "os": "Linux 6.18.44-fc-v77 x86_64 (Ubuntu 24.04 userland)",
+    "cpu_count": 4,
+    "memory_gb": 15,
+    "python": "3.13.16",
+    "numpy": "2.5.3",
+    "git": "2.43.0",
+    "gcc": "13.3.0", "clang": "present", "cmake": "3.28.3", "ninja": "present", "make": "present",
+    "not_installed": ["scipy", "pytest", "soundfile", "ngspice", "any plugin SDK (JUCE/VST3/AU)", "any DAW"],
+    "network": "outbound HTTPS through an egress proxy with an allow-list; pypi.org reachable; archive.org, analog.com, renesas.com, farnell.com, alldatasheet.com DENIED (403 CONNECT / EGRESS_BLOCKED)",
+    "hardware_access": "NONE (no SP-1200, no MPC3000, no audio interface, no S/PDIF source)",
+    "source_rights_access": "NONE beyond the two immutable research files in docs/research/",
+    "credentials": "git push credential available to the session for the named repository; no other secrets used or printed"
+  },
+  "stack_decision": {
+    "id": "ENG-DEC-011",
+    "reference_runtime": "Python 3.13 + numpy (standard library otherwise); no dependency installation performed",
+    "rationale": "Available without install in this environment; sufficient for schema/hash/WAV/alignment/null tooling and for later offline reference DSP written explicitly (no filter-design library needed because no coefficients may be guessed); keeps the no-install posture of AGENTS.md; pytest/scipy are reachable via PyPI if a later sprint justifies them",
+    "production_runtime": "UNDECIDED (C/C++ toolchain gcc 13.3 / cmake 3.28 present; plugin framework, formats, OS/CPU/DAW matrix and licence are G-09 owner decisions; not inherited from any other project)",
+    "test_runner": "python3 -m unittest discover -s tests -t .",
+    "licence_route": "UNRESOLVED (owner); pyproject records this as text, no licence file created"
+  },
+  "target_matrix": {
+    "status": "UNKNOWN / G-09 OPEN",
+    "native_formats": "not promised; no SDK present",
+    "note": "Cross-build in this container would not constitute native validation (docs/VALIDATION_PLAN.md)"
+  },
+  "durable_artifact_route": "repository paths research/sim, reference/sources, evidence/sprint_NN (small artifacts only; raw hardware captures would need an owner-approved large-file route, none defined yet)",
+  "subsystem_path_mapping": {
+    "docs/BUILD_COMMANDS.md": "docs/BUILD_COMMANDS.md",
+    "evidence/sprint_01": "evidence/sprint_01/",
+    "reference/sources": "reference/sources/{sp1200,mpc3000}/",
+    "research/sim/CHAIN-EXP-016": "research/sim/CHAIN-EXP-016/",
+    "build/test/evidence-schema foundation": "pyproject.toml, smlsp3000/ (hashing, schemas, wavio, stimuli, nullframework, environment, runner, experiments/exp016), tests/, tools/check_repo_integrity.py"
+  }
+}

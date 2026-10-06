@@ -1,17 +1,17 @@
 # Validation domains, thresholds and release proof
 
-Revision: planning V1 · 2026-10-06
+Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
 
-Status: DRAFT PLANNING CONTRACT. Documentation creation authorized; implementation and release not authorized.
+Status: EXECUTION IN PROGRESS. Commands frozen in docs/BUILD_COMMANDS.md; hardware/production thresholds still UNKNOWN.
 
 ## Check execution status
 
-All DSP/build/hardware/listening/host checks are NOT EXECUTED. PACKAGE_VALIDATION records only documentation checks actually run in this task. Mandatory commands are UNKNOWN: Sprint1 must select the actual toolchain, create docs/BUILD_COMMANDS.md with exact shell/working-directory/version/flags/check IDs/artifact paths and demonstrate a smoke run before a dependent executable contract is frozen. Later checks use that manifest, not fabricated command names. Unknown command or criterion means DRAFT/BLOCKED for the affected check.
+Sprint 1 executed VAL-001, VAL-002, VAL-003 (SIMULATION) and VAL-028 with logged commands/exit codes (evidence/sprint_01/); VAL-004 is BLOCKED (source access). All hardware/listening/host checks remain NOT EXECUTED. Mandatory commands are now frozen in docs/BUILD_COMMANDS.md (Python 3.13 + numpy reference/analysis stack, ENG-DEC-011); later checks use that manifest, not fabricated command names. Unknown command or criterion still means DRAFT/BLOCKED for the affected check.
 
 ## Independent acceptance domains
 
 1. Source integrity and document/count checks: SHA equality and exact contract count, executed by planner.
-2. Same-build deterministic rendering and block partition invariance: exact sample sequence equality on common configuration; never use this as hardware fidelity.
+2. Same-build deterministic rendering and block partition invariance: exact sample sequence equality on common configuration; never use this as hardware fidelity. In force since Sprint 1 for CHAIN-EXP-016 (tests/test_exp016_reproduction.py compares a re-run to the committed record exactly).
 3. Cross-host-rate/precision/platform comparisons: G-08 numeric tolerances on common-band continuous-input fixtures; algorithms/quantizer-boundary considerations documented separately.
 4. Reference/production and plugin/offline agreement: G-08 frozen numerical budget and latency alignment, not the G-06 hardware budget.
 5. Hardware fit: G-06 thresholds from instrument uncertainty and three-take unit self-null floor, disjoint validation data and metric/domain/level-specific thresholds.
@@ -34,7 +34,7 @@ Normalize hardware/model to192kHz; estimate one constant clock ratio from start/
 | stereo correlation | UNKNOWN; cannot PASS yet | G-06: measured hardware self-null/instrument floor and application-specific bound before fitting |
 | peak/RMS/crest change | UNKNOWN; cannot PASS yet | G-06: measured hardware self-null/instrument floor and application-specific bound before fitting |
 
-Code transition matching targets exact agreement where raw digital data and thresholds are identifiable. Sensitivity/nominal level does not define ADC_FS. Silence/anti-phase may make a relative RMS metric undefined; record absolute residual and defined metric applicability, never Inf interpreted as model failure/pass. Image/alias frequencies and levels need calibrated spectral analysis; same-band limits include capture/host bandwidth.
+Evaluator floor (measured in Sprint 1, SIMULATION; research/sim/CHAIN-EXP-016/result.json): identical arrays null to exactly zero; with one constant clock ratio, one sub-sample delay, polarity, scalar gain and DC perturbations the framework residual is ≤ −92.6 dB RMS re signal (−149 dB with no perturbation), clock-ratio error ≤ 0.0005 ppm, delay error ≤ 2e-5 samples and gain error ≤ 3e-8 dB on a 50 Hz–18 kHz multitone at 192 kHz. A hardware model can never be required to null below this evaluator floor plus the measured hardware self-null floor (G-06). Code transition matching targets exact agreement where raw digital data and thresholds are identifiable. Sensitivity/nominal level does not define ADC_FS. Silence/anti-phase may make a relative RMS metric undefined; record absolute residual and defined metric applicability, never Inf interpreted as model failure/pass. Image/alias frequencies and levels need calibrated spectral analysis; same-band limits include capture/host bandwidth.
 
 ## Complete requirement/check/evidence matrix
 

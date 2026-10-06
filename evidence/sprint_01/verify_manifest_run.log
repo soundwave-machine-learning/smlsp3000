@@ -1,0 +1,14 @@
+OK        config.json
+OK        residual_spectrum_combined.csv
+OK        residual_spectrum_dc_plus_0p01.csv
+OK        residual_spectrum_delay_0p37_samples.csv
+OK        residual_spectrum_delay_17p25_samples.csv
+OK        residual_spectrum_delay_3p30_samples.csv
+OK        residual_spectrum_gain_minus_1dB.csv
+OK        residual_spectrum_gain_plus_1dB.csv
+OK        residual_spectrum_none.csv
+OK        residual_spectrum_polarity_inverted.csv
+OK        residual_spectrum_ratio_minus_120ppm.csv
+OK        residual_spectrum_ratio_plus_37ppm.csv
+OK        result.json
+exit=0

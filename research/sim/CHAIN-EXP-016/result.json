@@ -1,0 +1,707 @@
+{
+ "algorithm_version": "nullframework-1.2.1",
+ "artifact_class": "SIMULATION",
+ "command": "python3 -m smlsp3000.runner run CHAIN-EXP-016 --out research/sim/CHAIN-EXP-016",
+ "dataset_role": "SELF_NULL",
+ "debt_ids": [],
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "experiment_id": "CHAIN-EXP-016",
+ "hypothesis": "Framework nulls an ideal reference to numerical floor",
+ "input_config_sha256": "bad1282d14fd7c20d4a09a568ddf539b76d7e77f55cbdf0f41d2cce7f5a5bf8d",
+ "limitations": [
+  "Synthetic analytic truth only; no hardware, no noise model, no time-varying drift (by policy one constant ratio).",
+  "Floor includes Kaiser-sinc interpolation error and first-order DC high-pass; values are specific to this stimulus band (50 Hz\u201318 kHz) at 192 kHz.",
+  "Cross-platform floating-point differences may change low-order digits of floor values; same-build reproduction is exact."
+ ],
+ "metric_definitions": {
+  "clock_ratio": "f_pilot(capture)/f_pilot(reference), mean of start/end pilots; drift = (end-start) ppm",
+  "correlation": "Pearson correlation of ref and cand over the window",
+  "delay_samples": "integer lag from pilot envelope cross-correlation + sub-sample from pilot phase",
+  "gain": "calibration-tone amplitude ratio (capture/reference)",
+  "per_band_residual_db": "10*log10(sum|E|^2 / sum|R|^2) per band, Hann-windowed rfft",
+  "residual_peak_dbfs": "20*log10(max|ref-cand|), 1.0 = synthetic full scale",
+  "residual_rms_db_re_signal": "20*log10(rms(ref-cand)/rms(ref)) over the trimmed program window",
+  "undefined_handling": "relative metrics are null when signal RMS is zero; absolute residual always recorded"
+ },
+ "outcome": "PASS",
+ "preprocessing_version": "dc-hp1-5Hz/two-tone-pilot-lsfit+xcorr+phase/kaiser-sinc-96tap-b12",
+ "question": "Null-framework self-test",
+ "raw_output_sha256": {
+  "capture_combined_float64": "34bfee36b6609fc0f5993d45a0b83837c21653fbffb9b4c3ca1ac815f026602d",
+  "capture_dc_plus_0p01_float64": "cec37aafcc1289be523e434c5c94e71d0ac0e7c8a9e1f717a40928ef4d596d04",
+  "capture_delay_0p37_samples_float64": "8bdc1055d340bba0759bbb65d464ea2ab7a018e48c8bbe03df7c85bfad4ab9fc",
+  "capture_delay_17p25_samples_float64": "8ca0da8348b8306e0bd0acbfbebaa990e5d2049a87f26c68508a8932772fac9f",
+  "capture_delay_3p30_samples_float64": "68f1a72cac07181c37002980fb0addf6f1e804ed69cc494a80a996f1bfc7fdf3",
+  "capture_gain_minus_1dB_float64": "83a5b9cca3d7e1461515b58e4a57cd721340cfbfbddd70894849d2eb2c445d64",
+  "capture_gain_plus_1dB_float64": "12d41bcd4b4613dc3e8767a88cf1d40809e60465ffc3c32ca45b39c157023e30",
+  "capture_none_float64": "c4bc6f6f551dc7aeaca9ac9b27e787a41df623867f95aa94d29cd1dae9123690",
+  "capture_polarity_inverted_float64": "143350eaa23179214d76088fa051f9480f69e73572b113460751427089c703b1",
+  "capture_ratio_minus_120ppm_float64": "1978e446268a796ca00310fba4eb6097fa50eb902bf54a2a34ec0372d446a284",
+  "capture_ratio_plus_37ppm_float64": "e8b358cb53b6267f3214692902861a507a3bc056ffe2a1b255e304e5ad116e0d",
+  "reference_float64": "c4bc6f6f551dc7aeaca9ac9b27e787a41df623867f95aa94d29cd1dae9123690"
+ },
+ "requirement_ids": [
+  "REQ-003"
+ ],
+ "resulting_decision": "G-02: framework floor is known and recorded; framework may be used for hardware comparison once G-06 thresholds exist.",
+ "results": {
+  "cases": [
+   {
+    "case": "none",
+    "estimated": {
+     "clock_ratio": 0.9999999999992483,
+     "clock_ratio_drift_ppm": -1.6064927166326015e-06,
+     "dc_capture": 0.0,
+     "dc_reference": 0.0,
+     "delay_coarse_samples": 0,
+     "delay_end_check_samples": -3.1031472406628484e-07,
+     "delay_samples": -2.5257831340028965e-08,
+     "delay_seconds": -1.315512048959842e-13,
+     "gain": 1.0000000000000002,
+     "pilot_freq_cap_end_hz": 1999.9999999221645,
+     "pilot_freq_cap_start_hz": 1999.9999999997299,
+     "pilot_freq_ref_end_hz": 1999.9999999252746,
+     "pilot_freq_ref_start_hz": 1999.9999999996269,
+     "polarity": 1
+    },
+    "null_metrics": {
+     "correlation": 1.0,
+     "max_abs_residual_exact_zero": false,
+     "n_samples": 203520,
+     "per_band_residual_db": {
+      "11360-22720Hz": -140.7241299084468,
+      "1420-2840Hz": -157.76605498319918,
+      "177-355Hz": -176.27793192307277,
+      "22-44Hz": -174.20545796363868,
+      "2840-5680Hz": -151.6123427872921,
+      "355-710Hz": -170.27677762778123,
+      "44-88Hz": -188.4328291811267,
+      "5680-11360Hz": -145.83673507645943,
+      "710-1420Hz": -163.5416028036072,
+      "88-177Hz": -182.28613265309116
+     },
+     "residual_peak_abs": 1.658611512023178e-08,
+     "residual_peak_dbfs": -155.60510649219597,
+     "residual_rms": 3.745150130461865e-09,
+     "residual_rms_db_re_signal": -149.08450812045675,
+     "signal_rms": 0.10658464371707518
+    },
+    "recovery_error": {
+     "clock_ratio_ppm": -7.517320099736935e-07,
+     "dc_capture_error": 0.0,
+     "delay_end_vs_start_samples": -2.850568927262559e-07,
+     "delay_samples": -2.5257831340028965e-08,
+     "gain_db": 1.928654933106574e-15,
+     "polarity_correct": true
+    },
+    "residual_spectrum_csv": "residual_spectrum_none.csv",
+    "true": {
+     "clock_ratio": 1.0,
+     "dc": 0.0,
+     "delay_samples": 0.0,
+     "gain": 1.0,
+     "polarity": 1
+    }
+   },
+   {
+    "case": "ratio_plus_37ppm",
+    "estimated": {
+     "clock_ratio": 1.0000370004709764,
+     "clock_ratio_drift_ppm": 0.0009414542478936028,
+     "dc_capture": 0.0,
+     "dc_reference": 0.0,
+     "delay_coarse_samples": 0,
+     "delay_end_check_samples": 0.0001958231275236381,
+     "delay_samples": 1.722968312127347e-05,
+     "delay_seconds": 8.973793292329932e-11,
+     "gain": 1.0000000030109264,
+     "pilot_freq_cap_end_hz": 2000.0740018086792,
+     "pilot_freq_cap_start_hz": 2000.0740000001258,
+     "pilot_freq_ref_end_hz": 1999.9999999252746,
+     "pilot_freq_ref_start_hz": 1999.9999999996269,
+     "polarity": 1
+    },
+    "null_metrics": {
+     "correlation": 0.999999999761857,
+     "max_abs_residual_exact_zero": false,
+     "n_samples": 203520,
+     "per_band_residual_db": {
+      "11360-22720Hz": -84.88868519683422,
+      "1420-2840Hz": -101.83725892685592,
+      "177-355Hz": -115.34851453205745,
+      "22-44Hz": -63.149051619490535,
+      "2840-5680Hz": -95.75576936306652,
+      "355-710Hz": -112.87184662068633,
+      "44-88Hz": -109.57986613264772,
+      "5680-11360Hz": -89.9970505299899,
+      "710-1420Hz": -107.35805106162908,
+      "88-177Hz": -113.78519189126328
+     },
+     "residual_peak_abs": 1.0224479714809193e-05,
+     "residual_peak_dbfs": -99.80717564731478,
+     "residual_rms": 2.326099431520172e-06,
+     "residual_rms_db_re_signal": -93.22132725312409,
+     "signal_rms": 0.10658464371707518
+    },
+    "recovery_error": {
+     "clock_ratio_ppm": 0.00047097636901582973,
+     "dc_capture_error": 0.0,
+     "delay_end_vs_start_samples": 0.00017859344440236463,
+     "delay_samples": 1.722968312127347e-05,
+     "gain_db": 2.615257435413794e-08,
+     "polarity_correct": true
+    },
+    "residual_spectrum_csv": "residual_spectrum_ratio_plus_37ppm.csv",
+    "true": {
+     "clock_ratio": 1.000037,
+     "dc": 0.0,
+     "delay_samples": 0.0,
+     "gain": 1.0,
+     "polarity": 1
+    }
+   },
+   {
+    "case": "ratio_minus_120ppm",
+    "estimated": {
+     "clock_ratio": 0.99988000017563,
+     "clock_ratio_drift_ppm": 0.0003524631697615632,
+     "dc_capture": 0.0,
+     "dc_reference": 0.0,
+     "delay_coarse_samples": 0,
+     "delay_end_check_samples": 6.792063775891998e-05,
+     "delay_samples": 1.3177444681339744e-06,
+     "delay_seconds": 6.8632524381977834e-12,
+     "gain": 0.9999999990194406,
+     "pilot_freq_cap_end_hz": 1999.7600006290063,
+     "pilot_freq_cap_start_hz": 1999.7599999984236,
+     "pilot_freq_ref_end_hz": 1999.9999999252746,
+     "pilot_freq_ref_start_hz": 1999.9999999996269,
+     "polarity": 1
+    },
+    "null_metrics": {
+     "correlation": 0.9999999999528801,
+     "max_abs_residual_exact_zero": false,
+     "n_samples": 203520,
+     "per_band_residual_db": {
+      "11360-22720Hz": -92.49762621686001,
+      "1420-2840Hz": -110.26438684024524,
+      "177-355Hz": -113.25348256684734,
+      "22-44Hz": -60.58527556273356,
+      "2840-5680Hz": -103.54709730126295,
+      "355-710Hz": -123.17513283923302,
+      "44-88Hz": -100.00278625347141,
+      "5680-11360Hz": -97.64205074725808,
+      "710-1420Hz": -118.3767395367367,
+      "88-177Hz": -105.96839664691564
+     },
+     "residual_peak_abs": 4.621463853986263e-06,
+     "residual_peak_dbfs": -106.70440878752841,
+     "residual_rms": 1.0348691494263168e-06,
+     "residual_rms_db_re_signal": -100.25618394924608,
+     "signal_rms": 0.10658464371707518
+    },
+    "recovery_error": {
+     "clock_ratio_ppm": 0.00017562995502373724,
+     "dc_capture_error": 0.0,
+     "delay_end_vs_start_samples": 6.6602893290786e-05,
+     "delay_samples": 1.3177444681339744e-06,
+     "gain_db": -8.517030835556216e-09,
+     "polarity_correct": true
+    },
+    "residual_spectrum_csv": "residual_spectrum_ratio_minus_120ppm.csv",
+    "true": {
+     "clock_ratio": 0.99988,
+     "dc": 0.0,
+     "delay_samples": 0.0,
+     "gain": 1.0,
+     "polarity": 1
+    }
+   },
+   {
+    "case": "delay_0p37_samples",
+    "estimated": {
+     "clock_ratio": 0.9999999999851771,
+     "clock_ratio_drift_ppm": -2.953126632121439e-05,
+     "dc_capture": 0.0,
+     "dc_reference": 0.0,
+     "delay_coarse_samples": 0,
+     "delay_end_check_samples": 0.3699938810808898,
+     "delay_samples": 0.369999501956665,
+     "delay_seconds": 1.9270807393576303e-06,
+     "gain": 1.0000000034458023,
+     "pilot_freq_cap_end_hz": 1999.9999998660974,
+     "pilot_freq_cap_start_hz": 1999.9999999995123,
+     "pilot_freq_ref_end_hz": 1999.9999999252746,
+     "pilot_freq_ref_start_hz": 1999.9999999996269,
+     "polarity": 1
+    },
+    "null_metrics": {
+     "correlation": 0.9999999999997388,
+     "max_abs_residual_exact_zero": false,
+     "n_samples": 203520,
+     "per_band_residual_db": {
+      "11360-22720Hz": -114.81471924591021,
+      "1420-2840Hz": -129.3584853486082,
+      "177-355Hz": -131.50304410746625,
+      "22-44Hz": -131.7814245624319,
+      "2840-5680Hz": -124.98616346505335,
+      "355-710Hz": -132.94591681766897,
+      "44-88Hz": -131.02598254331585,
+      "5680-11360Hz": -119.7795887729616,
+      "710-1420Hz": -133.46450481982592,
+      "88-177Hz": -131.12608099881018
+     },
+     "residual_peak_abs": 3.465570111299554e-07,
+     "residual_peak_dbfs": -129.20450621195448,
+     "residual_rms": 7.759535960656153e-08,
+     "residual_rms_db_re_signal": -122.75717775310098,
+     "signal_rms": 0.10658464371707518
+    },
+    "recovery_error": {
+     "clock_ratio_ppm": -1.4822920668677853e-05,
+     "dc_capture_error": 0.0,
+     "delay_end_vs_start_samples": -5.620875775158574e-06,
+     "delay_samples": -4.980433350176838e-07,
+     "gain_db": 2.9929858529017245e-08,
+     "polarity_correct": true
+    },
+    "residual_spectrum_csv": "residual_spectrum_delay_0p37_samples.csv",
+    "true": {
+     "clock_ratio": 1.0,
+     "dc": 0.0,
+     "delay_samples": 0.37,
+     "gain": 1.0,
+     "polarity": 1
+    }
+   },
+   {
+    "case": "delay_3p30_samples",
+    "estimated": {
+     "clock_ratio": 0.9999999998763293,
+     "clock_ratio_drift_ppm": -0.00024562152312057606,
+     "dc_capture": 0.0,
+     "dc_reference": 0.0,
+     "delay_coarse_samples": 3,
+     "delay_end_check_samples": 3.299948948392715,
+     "delay_samples": 3.299995844351151,
+     "delay_seconds": 1.718747835599558e-05,
+     "gain": 1.0000000027407911,
+     "pilot_freq_cap_end_hz": 1999.9999994323114,
+     "pilot_freq_cap_start_hz": 1999.999999997907,
+     "pilot_freq_ref_end_hz": 1999.9999999252746,
+     "pilot_freq_ref_start_hz": 1999.9999999996269,
+     "polarity": 1
+    },
+    "null_metrics": {
+     "correlation": 0.9999999999832855,
+     "max_abs_residual_exact_zero": false,
+     "n_samples": 203520,
+     "per_band_residual_db": {
+      "11360-22720Hz": -96.4079565244902,
+      "1420-2840Hz": -113.46132019589511,
+      "177-355Hz": -128.6618789782166,
+      "22-44Hz": -135.77925029815506,
+      "2840-5680Hz": -107.25556656870539,
+      "355-710Hz": -124.6138467200396,
+      "44-88Hz": -131.68449078634742,
+      "5680-11360Hz": -101.51897376252876,
+      "710-1420Hz": -118.62406337627193,
+      "88-177Hz": -130.89686022646634
+     },
+     "residual_peak_abs": 2.7367276630406445e-06,
+     "residual_peak_dbfs": -111.25536835814265,
+     "residual_rms": 6.163355658981038e-07,
+     "residual_rms_db_re_signal": -104.75754816430208,
+     "signal_rms": 0.10658464371707518
+    },
+    "recovery_error": {
+     "clock_ratio_ppm": -0.00012367074031516267,
+     "dc_capture_error": 0.0,
+     "delay_end_vs_start_samples": -4.6895958435655416e-05,
+     "delay_samples": -4.155648848591653e-06,
+     "gain_db": 2.3806209413712026e-08,
+     "polarity_correct": true
+    },
+    "residual_spectrum_csv": "residual_spectrum_delay_3p30_samples.csv",
+    "true": {
+     "clock_ratio": 1.0,
+     "dc": 0.0,
+     "delay_samples": 3.2999999999999994,
+     "gain": 1.0,
+     "polarity": 1
+    }
+   },
+   {
+    "case": "delay_17p25_samples",
+    "estimated": {
+     "clock_ratio": 0.9999999995106089,
+     "clock_ratio_drift_ppm": -0.0009717211479909338,
+     "dc_capture": 0.0,
+     "dc_reference": 0.0,
+     "delay_coarse_samples": 17,
+     "delay_end_check_samples": 17.249797971207688,
+     "delay_samples": 17.24998354837916,
+     "delay_seconds": 8.984366431447478e-05,
+     "gain": 1.0000000021424431,
+     "pilot_freq_cap_end_hz": 1999.999997974771,
+     "pilot_freq_cap_start_hz": 1999.999999992566,
+     "pilot_freq_ref_end_hz": 1999.9999999252746,
+     "pilot_freq_ref_start_hz": 1999.9999999996269,
+     "polarity": 1
+    },
+    "null_metrics": {
+     "correlation": 0.9999999997383799,
+     "max_abs_residual_exact_zero": false,
+     "n_samples": 203520,
+     "per_band_residual_db": {
+      "11360-22720Hz": -84.45445813979354,
+      "1420-2840Hz": -101.5094983317918,
+      "177-355Hz": -119.52499858951823,
+      "22-44Hz": -121.61762344607959,
+      "2840-5680Hz": -95.33304374268637,
+      "355-710Hz": -113.71645074512635,
+      "44-88Hz": -129.41350510258272,
+      "5680-11360Hz": -89.56704417345611,
+      "710-1420Hz": -107.1080550354863,
+      "88-177Hz": -125.00161093712424
+     },
+     "residual_peak_abs": 1.0804427863685129e-05,
+     "residual_peak_dbfs": -99.32796451494511,
+     "residual_rms": 2.438077670603293e-06,
+     "residual_rms_db_re_signal": -92.81294201706356,
+     "signal_rms": 0.10658464371707518
+    },
+    "recovery_error": {
+     "clock_ratio_ppm": -0.0004893910832137749,
+     "dc_capture_error": 0.0,
+     "delay_end_vs_start_samples": -0.00018557717147160702,
+     "delay_samples": -1.645162084074059e-05,
+     "gain_db": 1.8609024405060614e-08,
+     "polarity_correct": true
+    },
+    "residual_spectrum_csv": "residual_spectrum_delay_17p25_samples.csv",
+    "true": {
+     "clock_ratio": 1.0,
+     "dc": 0.0,
+     "delay_samples": 17.25,
+     "gain": 1.0,
+     "polarity": 1
+    }
+   },
+   {
+    "case": "polarity_inverted",
+    "estimated": {
+     "clock_ratio": 0.9999999999992483,
+     "clock_ratio_drift_ppm": -1.6064927166326015e-06,
+     "dc_capture": 0.0,
+     "dc_reference": 0.0,
+     "delay_coarse_samples": 0,
+     "delay_end_check_samples": -3.1031472406628484e-07,
+     "delay_samples": -2.5257831340028965e-08,
+     "delay_seconds": -1.315512048959842e-13,
+     "gain": 1.0000000000000002,
+     "pilot_freq_cap_end_hz": 1999.9999999221645,
+     "pilot_freq_cap_start_hz": 1999.9999999997299,
+     "pilot_freq_ref_end_hz": 1999.9999999252746,
+     "pilot_freq_ref_start_hz": 1999.9999999996269,
+     "polarity": -1
+    },
+    "null_metrics": {
+     "correlation": 1.0,
+     "max_abs_residual_exact_zero": false,
+     "n_samples": 203520,
+     "per_band_residual_db": {
+      "11360-22720Hz": -140.7241299084468,
+      "1420-2840Hz": -157.76605498319918,
+      "177-355Hz": -176.27793192307277,
+      "22-44Hz": -174.20545796363868,
+      "2840-5680Hz": -151.6123427872921,
+      "355-710Hz": -170.27677762778123,
+      "44-88Hz": -188.4328291811267,
+      "5680-11360Hz": -145.83673507645943,
+      "710-1420Hz": -163.5416028036072,
+      "88-177Hz": -182.28613265309116
+     },
+     "residual_peak_abs": 1.658611512023178e-08,
+     "residual_peak_dbfs": -155.60510649219597,
+     "residual_rms": 3.745150130461865e-09,
+     "residual_rms_db_re_signal": -149.08450812045675,
+     "signal_rms": 0.10658464371707518
+    },
+    "recovery_error": {
+     "clock_ratio_ppm": -7.517320099736935e-07,
+     "dc_capture_error": 0.0,
+     "delay_end_vs_start_samples": -2.850568927262559e-07,
+     "delay_samples": -2.5257831340028965e-08,
+     "gain_db": 1.928654933106574e-15,
+     "polarity_correct": true
+    },
+    "residual_spectrum_csv": "residual_spectrum_polarity_inverted.csv",
+    "true": {
+     "clock_ratio": 1.0,
+     "dc": 0.0,
+     "delay_samples": 0.0,
+     "gain": 1.0,
+     "polarity": -1
+    }
+   },
+   {
+    "case": "gain_minus_1dB",
+    "estimated": {
+     "clock_ratio": 0.9999999999992483,
+     "clock_ratio_drift_ppm": -1.6064927166326015e-06,
+     "dc_capture": 0.0,
+     "dc_reference": 0.0,
+     "delay_coarse_samples": 0,
+     "delay_end_check_samples": -3.1031472406628484e-07,
+     "delay_samples": -2.5257831340028965e-08,
+     "delay_seconds": -1.315512048959842e-13,
+     "gain": 0.8912509381337458,
+     "pilot_freq_cap_end_hz": 1999.9999999221645,
+     "pilot_freq_cap_start_hz": 1999.9999999997299,
+     "pilot_freq_ref_end_hz": 1999.9999999252746,
+     "pilot_freq_ref_start_hz": 1999.9999999996269,
+     "polarity": 1
+    },
+    "null_metrics": {
+     "correlation": 1.0,
+     "max_abs_residual_exact_zero": false,
+     "n_samples": 203520,
+     "per_band_residual_db": {
+      "11360-22720Hz": -140.72412990859624,
+      "1420-2840Hz": -157.7660549924512,
+      "177-355Hz": -176.27793140121184,
+      "22-44Hz": -174.17302912238313,
+      "2840-5680Hz": -151.61234278670779,
+      "355-710Hz": -170.2767776387341,
+      "44-88Hz": -188.4328257280519,
+      "5680-11360Hz": -145.83673507745684,
+      "710-1420Hz": -163.5416027746844,
+      "88-177Hz": -182.2861344320455
+     },
+     "residual_peak_abs": 1.6586115175742933e-08,
+     "residual_peak_dbfs": -155.60510646312565,
+     "residual_rms": 3.745150130451485e-09,
+     "residual_rms_db_re_signal": -149.0845081204808,
+     "signal_rms": 0.10658464371707518
+    },
+    "recovery_error": {
+     "clock_ratio_ppm": -7.517320099736935e-07,
+     "dc_capture_error": 0.0,
+     "delay_end_vs_start_samples": -2.850568927262559e-07,
+     "delay_samples": -2.5257831340028965e-08,
+     "gain_db": 1.928654933106574e-15,
+     "polarity_correct": true
+    },
+    "residual_spectrum_csv": "residual_spectrum_gain_minus_1dB.csv",
+    "true": {
+     "clock_ratio": 1.0,
+     "dc": 0.0,
+     "delay_samples": 0.0,
+     "gain": 0.8912509381337456,
+     "polarity": 1
+    }
+   },
+   {
+    "case": "gain_plus_1dB",
+    "estimated": {
+     "clock_ratio": 0.9999999999992483,
+     "clock_ratio_drift_ppm": -1.6064927166326015e-06,
+     "dc_capture": 0.0,
+     "dc_reference": 0.0,
+     "delay_coarse_samples": 0,
+     "delay_end_check_samples": -3.1031472406628484e-07,
+     "delay_samples": -2.5257831340028965e-08,
+     "delay_seconds": -1.315512048959842e-13,
+     "gain": 1.1220184543019636,
+     "pilot_freq_cap_end_hz": 1999.9999999221645,
+     "pilot_freq_cap_start_hz": 1999.9999999997299,
+     "pilot_freq_ref_end_hz": 1999.9999999252746,
+     "pilot_freq_ref_start_hz": 1999.9999999996269,
+     "polarity": 1
+    },
+    "null_metrics": {
+     "correlation": 1.0,
+     "max_abs_residual_exact_zero": false,
+     "n_samples": 203520,
+     "per_band_residual_db": {
+      "11360-22720Hz": -140.72412990835798,
+      "1420-2840Hz": -157.76605499622494,
+      "177-355Hz": -176.27793163285537,
+      "22-44Hz": -174.19900027678585,
+      "2840-5680Hz": -151.61234278529005,
+      "355-710Hz": -170.27677783052437,
+      "44-88Hz": -188.43283033892732,
+      "5680-11360Hz": -145.83673507711052,
+      "710-1420Hz": -163.54160277204096,
+      "88-177Hz": -182.28613308243555
+     },
+     "residual_peak_abs": 1.6586115317990258e-08,
+     "residual_peak_dbfs": -155.60510638863295,
+     "residual_rms": 3.745150130389998e-09,
+     "residual_rms_db_re_signal": -149.0845081206234,
+     "signal_rms": 0.10658464371707518
+    },
+    "recovery_error": {
+     "clock_ratio_ppm": -7.517320099736935e-07,
+     "dc_capture_error": 0.0,
+     "delay_end_vs_start_samples": -2.850568927262559e-07,
+     "delay_samples": -2.5257831340028965e-08,
+     "gain_db": 1.928654933106574e-15,
+     "polarity_correct": true
+    },
+    "residual_spectrum_csv": "residual_spectrum_gain_plus_1dB.csv",
+    "true": {
+     "clock_ratio": 1.0,
+     "dc": 0.0,
+     "delay_samples": 0.0,
+     "gain": 1.1220184543019633,
+     "polarity": 1
+    }
+   },
+   {
+    "case": "dc_plus_0p01",
+    "estimated": {
+     "clock_ratio": 0.9999999999992483,
+     "clock_ratio_drift_ppm": -1.6064927166326015e-06,
+     "dc_capture": 0.01,
+     "dc_reference": 0.0,
+     "delay_coarse_samples": 0,
+     "delay_end_check_samples": -3.1031472406628484e-07,
+     "delay_samples": -2.5257831340028965e-08,
+     "delay_seconds": -1.315512048959842e-13,
+     "gain": 1.0000000000000002,
+     "pilot_freq_cap_end_hz": 1999.9999999221645,
+     "pilot_freq_cap_start_hz": 1999.9999999997299,
+     "pilot_freq_ref_end_hz": 1999.9999999252746,
+     "pilot_freq_ref_start_hz": 1999.9999999996269,
+     "polarity": 1
+    },
+    "null_metrics": {
+     "correlation": 1.0,
+     "max_abs_residual_exact_zero": false,
+     "n_samples": 203520,
+     "per_band_residual_db": {
+      "11360-22720Hz": -140.72412990832277,
+      "1420-2840Hz": -157.7660549905936,
+      "177-355Hz": -176.27793218230534,
+      "22-44Hz": -174.21846030124144,
+      "2840-5680Hz": -151.61234278788683,
+      "355-710Hz": -170.27677763738822,
+      "44-88Hz": -188.43282809738582,
+      "5680-11360Hz": -145.8367350763707,
+      "710-1420Hz": -163.54160280750523,
+      "88-177Hz": -182.28613366878852
+     },
+     "residual_peak_abs": 1.6586115397787538e-08,
+     "residual_peak_dbfs": -155.60510634684437,
+     "residual_rms": 3.745150130400741e-09,
+     "residual_rms_db_re_signal": -149.0845081205985,
+     "signal_rms": 0.10658464371707518
+    },
+    "recovery_error": {
+     "clock_ratio_ppm": -7.517320099736935e-07,
+     "dc_capture_error": 0.0,
+     "delay_end_vs_start_samples": -2.850568927262559e-07,
+     "delay_samples": -2.5257831340028965e-08,
+     "gain_db": 1.928654933106574e-15,
+     "polarity_correct": true
+    },
+    "residual_spectrum_csv": "residual_spectrum_dc_plus_0p01.csv",
+    "true": {
+     "clock_ratio": 1.0,
+     "dc": 0.01,
+     "delay_samples": 0.0,
+     "gain": 1.0,
+     "polarity": 1
+    }
+   },
+   {
+    "case": "combined",
+    "estimated": {
+     "clock_ratio": 1.0000610005053434,
+     "clock_ratio_drift_ppm": 0.0010140090989096961,
+     "dc_capture": -0.004000000000000002,
+     "dc_reference": 0.0,
+     "delay_coarse_samples": 8,
+     "delay_end_check_samples": 7.630210923497822,
+     "delay_samples": 7.630019314246797,
+     "delay_seconds": 3.973968392836874e-05,
+     "gain": 0.7498942119964642,
+     "pilot_freq_cap_end_hz": 2000.1220019499658,
+     "pilot_freq_cap_start_hz": 2000.1219999963046,
+     "pilot_freq_ref_end_hz": 1999.9999999252746,
+     "pilot_freq_ref_start_hz": 1999.9999999996269,
+     "polarity": -1
+    },
+    "null_metrics": {
+     "correlation": 0.9999999997278303,
+     "max_abs_residual_exact_zero": false,
+     "n_samples": 203520,
+     "per_band_residual_db": {
+      "11360-22720Hz": -84.33405681431867,
+      "1420-2840Hz": -101.23346152705727,
+      "177-355Hz": -112.90491025617831,
+      "22-44Hz": -62.3150589040397,
+      "2840-5680Hz": -95.18983844536683,
+      "355-710Hz": -111.5678651666293,
+      "44-88Hz": -105.44285286234447,
+      "5680-11360Hz": -89.44016975600846,
+      "710-1420Hz": -106.6192599488804,
+      "88-177Hz": -110.15281430821553
+     },
+     "residual_peak_abs": 1.088639155359672e-05,
+     "residual_peak_dbfs": -99.26232098717243,
+     "residual_rms": 2.4867407401445778e-06,
+     "residual_rms_db_re_signal": -92.6412825674609,
+     "signal_rms": 0.10658464371707518
+    },
+    "recovery_error": {
+     "clock_ratio_ppm": 0.0005053433227431015,
+     "dc_capture_error": -1.734723475976807e-18,
+     "delay_end_vs_start_samples": 0.00019160925102479354,
+     "delay_samples": 1.9314246797463852e-05,
+     "gain_db": 3.0856729584871405e-08,
+     "polarity_correct": true
+    },
+    "residual_spectrum_csv": "residual_spectrum_combined.csv",
+    "true": {
+     "clock_ratio": 1.000061,
+     "dc": -0.004,
+     "delay_samples": 7.63,
+     "gain": 0.7498942093324559,
+     "polarity": -1
+    }
+   }
+  ],
+  "floor": {
+   "all_polarity_correct": true,
+   "max_abs_clock_ratio_error_ppm": 0.0005053433227431015,
+   "max_abs_delay_error_samples": 1.9314246797463852e-05,
+   "max_abs_gain_error_db": 3.0856729584871405e-08,
+   "max_residual_rms_db_re_signal_over_cases": -92.6412825674609,
+   "none_case_residual_rms_db_re_signal": -149.08450812045675
+  },
+  "identical_array_exact_zero": true
+ },
+ "software": {
+  "numpy": "2.5.3",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "3b53a6b1cb6600800cbc3c5eb6929fff8b3b254c-dirty",
+ "threshold_policy": {
+  "revision": "none",
+  "status": "Identical-array residual must be exactly zero (structural). Nonzero acceptance tolerances are NOT defined here; G-06 (hardware self-null floor) sets them in Sprint 2. The values under 'results.floor' are the measured evaluator floor on this build."
+ },
+ "timestamp_utc": "2026-10-06T23:23:28+00:00",
+ "uncertainty": {
+  "note": "Deterministic simulation; floor values are same-build regression goldens (domain 2), not hardware tolerances."
+ },
+ "unit_routes": "N/A (simulation; no hardware unit)"
+}

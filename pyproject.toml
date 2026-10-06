@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smlsp3000"
+version = "0.1.0.dev1"
+description = "SP-1200 -> MPC3000 full-mix processor: analysis/evidence foundation (Sprint 1). Not a DSP product."
+requires-python = ">=3.12"
+dependencies = ["numpy>=2.0"]
+license = { text = "UNRESOLVED: owner license decision pending (G-01/G-11)" }
+
+[tool.setuptools]
+packages = ["smlsp3000", "smlsp3000.experiments"]

@@ -1,14 +1,14 @@
 # Research debt register
 
-Revision: planning V1 · 2026-10-06
+Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
 
-Status: DRAFT PLANNING CONTRACT. Documentation creation authorized; implementation and release not authorized.
+Status: EXECUTION IN PROGRESS. All 6 P0 + 12 P1 items remain OPEN after Sprint 1.
 
 ## Priority semantics
 
 Source P0 blocks a defensible calibrated reference; it does not prohibit independent documentation, numerical skeleton or self-test work. Source P1 is mandatory before dependent production modeling. Source P2/P3 remain deferred, with AUD-C05 driven-overload exception. All source debt remains OPEN; generating this register closes none.
 
-S1 attempts documentary closure; S2 supplies unit evidence and freezes acceptance before S3/S4 fitting. S5 makes final product choices after comparison/listening. S2 can measure every output without selecting a shipping default; RD-P0-04 closes the physical topology before S3, while factory default stays G-07. Source priority labels are preserved. Any restriction/nonapplicability needs a written evidence-backed owner decision before dependent work, never an autonomous waiver.
+S1 attempted documentary closure on 2026-10-06 and was BLOCKED: SRC-01, SRC-20, SRC-30 and SRC-33 hosts are denied by the execution environment network policy and SRC-32 was not located (reference/sources/sp1200/ACCESS_RECORD.json, reference/sources/mpc3000/ACCESS_RECORD.json). No item changed state; no coefficient was guessed. S2 supplies unit evidence and freezes acceptance before S3/S4 fitting. S5 makes final product choices after comparison/listening. S2 can measure every output without selecting a shipping default; RD-P0-04 closes the physical topology before S3, while factory default stays G-07. Source priority labels are preserved. Any restriction/nonapplicability needs a written evidence-backed owner decision before dependent work, never an autonomous waiver.
 
 ## All P0 and P1 items
 | ID / priority | Exact question | Evidence / resolving test | Affected block/decision | First closure owner / dependency |

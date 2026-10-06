@@ -1,0 +1,15 @@
+{
+  "check": "VAL-028 / REQ-028 — dry review of ordering, dirty-tree case, missing gates, restart and report rules",
+  "reviewed_utc": "2026-10-06",
+  "reviewer": "autonomous executor (self-review of the orchestration rules against the repository), owner review pending",
+  "items": [
+    {"rule": "Exactly 8 ordered contracts", "evidence": "tools/check_repo_integrity.py VAL-001.contracts PASS; docs/SPRINT_PLAN.md order S1..S8 with dependencies", "result": "PASS"},
+    {"rule": "Dirty-tree case", "evidence": "AGENTS.md + AUTONOMOUS_BUILD_PROMPT: no stash/reset/delete/force-switch; tree was clean at start (git status); branch created with checkout -b from 3b53a6b without touching main", "result": "PASS (procedure followed; no dirty work existed)"},
+    {"rule": "Blocked mandatory gate stops dependency", "evidence": "G-03 documentary closure BLOCKED by egress policy → dependent coefficient use not attempted; G-04 hardware absent → S2 will be reported BLOCKED, not executed; no software PASS promoted to hardware", "result": "PASS"},
+    {"rule": "No reset/stash/push/merge/deploy without authorization", "evidence": "Owner instruction authorizes push of claude/autonomous-build and forbids merge to main; no deploy/install/publish performed; no pip install performed", "result": "PASS"},
+    {"rule": "Only accepted milestones resumed; restart rule", "evidence": "docs/PROJECT_HANDOFF.md updated with exact commit/state after each milestone; reports record starting commit; ending hash recorded only after it exists", "result": "PASS"},
+    {"rule": "Report rules", "evidence": "docs/sprint_reports/README.md created (mechanical gap: the owner instruction references it but the planning package did not contain it); SPRINT_01_REPORT.md written after execution", "result": "PASS"},
+    {"rule": "Valid tests preserved", "evidence": "No pre-existing tests in baseline; new tests added; EXP-016 record is a same-build determinism golden, documented as such", "result": "PASS"}
+  ],
+  "open": ["Owner review of this dry review is part of G-01 closure; execution-side items verified"]
+}

@@ -1,14 +1,14 @@
 # Claim and source confidence register
 
-Revision: planning V1 · 2026-10-06
+Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
 
-Status: DRAFT PLANNING CONTRACT. Documentation creation authorized; implementation and release not authorized.
+Status: EXECUTION IN PROGRESS. No claim status changed in Sprint 1 (no new evidence obtained).
 
 ## Evidence taxonomy and approval lanes
 
 Preserve source VERIFIED / STRONGLY SUPPORTED / LITERATURE-DERIVED / SIMULATED / PROVISIONAL / SPECULATIVE / UNKNOWN / NOT EXECUTED. VERIFIED means documentary or published measurement read in the original pass, not a measurement of our unit. SIMULATED rows here include closed-form calculations only; executed simulations remain NO. PARTIAL in source means components/functions partly documented, not calibrated behavior.
 
-Lane 1 evidence: immutable research V1 and future source/unit artifacts. Lane 2 design: source research recommendations and these planning proposals; owner approvals recorded in DECISIONS. Lane 3 implementation: none. Lane 4 release: none. The user approved generation of this package, not source recommendations as production defaults.
+Lane 1 evidence: immutable research V1 and future source/unit artifacts; Sprint 1 added only access-failure records (reference/sources), no new evidence. Lane 2 design: source research recommendations and these planning proposals; owner approvals recorded in DECISIONS (ENG-DEC-011..013 added in Sprint 1). Lane 3 implementation: Sprint 1 analysis foundation (smlsp3000/, tests/, CHAIN-EXP-016 SIMULATION record); no machine block R0–R16 implemented; no claim status changed. Lane 4 release: none. The owner authorized implementation on 2026-10-06, not source recommendations as production defaults.
 
 ## Claim register — all 54 exact source claims
 

@@ -1,0 +1,22 @@
+{
+  "experiment_id": "CHAIN-EXP-020",
+  "question": "MPC schematic extraction and SPICE",
+  "artifact_class": "SOURCE EVIDENCE",
+  "status": "NOT EXECUTED",
+  "disposition": "BLOCKED: required source not accessible from the execution environment",
+  "debt_ids": ["RD-P0-05", "RD-P0-06", "RD-P1-02", "RD-P1-03", "RD-P1-12"],
+  "attempted_utc": "2026-10-06",
+  "attempts": [
+    {"source_id": "SRC-20", "url": "https://archive.org/details/akai_MPC3000_SERVICE_MANUAL", "method": "curl via session proxy", "result": "CONNECT tunnel failed, response 403 (egress policy)"},
+    {"source_id": "SRC-20", "url": "https://archive.org/details/akai_MPC3000_SERVICE_MANUAL", "method": "WebFetch", "result": "EGRESS_BLOCKED: archive.org denied by network egress proxy"},
+    {"source_id": "SRC-32", "url": "web search 'AK5328 datasheet AKM 18-bit stereo ADC pdf'", "method": "WebSearch", "result": "NOT LOCATED: results list AK5358B/AK5388/AK5386/AK5384 only (consistent with research F-05)"},
+    {"source_id": "SRC-33", "url": "https://www.alldatasheet.com/datasheet-pdf/pdf/7704/NPC/SM5841H.html", "method": "WebFetch", "result": "EGRESS_BLOCKED: www.alldatasheet.com"}
+  ],
+  "search_engine_snippets_not_promoted": [
+    {"source_id": "SRC-33", "snippet": "SM5841H: 8x oversampling digital filter; accepts 16/18-bit input; outputs 16/18/20-bit; datasheet ~20 pages", "status": "UNVERIFIED search-result summary; datasheet bytes not read; RD-P1-03 remains OPEN; response/group delay/rounding/de-emphasis still UNKNOWN"}
+  ],
+  "transcription": "NONE — schematics 13-3 (L401203) and 13-4 (L401204M) not accessible; no refdes-to-net assignment made; the OCR value list in research §15 remains unassigned; no SPICE deck created",
+  "rights_note": "Consultation only; no scan redistribution.",
+  "remaining": "RD-P0-05/06 and RD-P1-02/03/12 stay OPEN. Documentary closure requires access to SRC-20 (sheets 13-3, 13-4) and SRC-33; AK5328 (SRC-32) may not be publicly available at all, in which case the ADC decimation response must come from CHAIN-EXP-009 measurement.",
+  "next_action": "Owner: allow archive.org or supply the sheets through an approved evidence route for a targeted re-attempt; otherwise S2 hardware closure (CHAIN-EXP-008/009/010/020)."
+}

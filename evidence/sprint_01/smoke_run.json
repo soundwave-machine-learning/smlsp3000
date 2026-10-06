@@ -1,0 +1,49 @@
+{
+ "record": "Sprint 01 smoke run (VAL-002 / REQ-002)",
+ "recorded_utc": "2026-10-06",
+ "working_directory": "repository root",
+ "commands": [
+  {
+   "id": "CMD-01",
+   "command": "python3 -c \"import numpy, sys; print(sys.version, numpy.__version__)\"",
+   "exit_code": 0,
+   "output": "3.13.16 ... 2.5.3"
+  },
+  {
+   "id": "CMD-02",
+   "command": "python3 tools/check_repo_integrity.py",
+   "exit_code": 0,
+   "output": "5/5 PASS (see evidence/sprint_01/integrity_run.log)"
+  },
+  {
+   "id": "CMD-03",
+   "command": "python3 -m smlsp3000.runner run CHAIN-EXP-016 --out research/sim/CHAIN-EXP-016",
+   "exit_code": 0,
+   "output": "outcome PASS; log evidence/sprint_01/exp016_run.log"
+  },
+  {
+   "id": "CMD-04",
+   "command": "python3 -m smlsp3000.runner verify-manifest research/sim/CHAIN-EXP-016",
+   "exit_code": 0,
+   "output": "all OK (see evidence/sprint_01/verify_manifest_run.log)"
+  },
+  {
+   "id": "CMD-05",
+   "command": "python3 -m unittest discover -s tests -t . -v",
+   "exit_code": 0,
+   "output": "Ran 18 tests ... OK; log evidence/sprint_01/unittest_run.log"
+  },
+  {
+   "id": "CMD-06",
+   "command": "sha256sum -c SHA256SUMS.txt",
+   "exit_code": 1,
+   "output": "planning-V1 manifest; docs/ACCEPTANCE_MATRIX.csv line endings + revised living docs; immutable set verified by CMD-02"
+  }
+ ],
+ "not_executed": [
+  "any native build",
+  "any hardware capture",
+  "any listening trial",
+  "any dependency installation"
+ ]
+}

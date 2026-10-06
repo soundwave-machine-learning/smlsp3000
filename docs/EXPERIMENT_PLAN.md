@@ -1,12 +1,12 @@
 # Twenty experiments and resolving protocols
 
-Revision: planning V1 · 2026-10-06
+Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
 
-Status: DRAFT PLANNING CONTRACT. Documentation creation authorized; implementation and release not authorized.
+Status: EXECUTION IN PROGRESS. CHAIN-EXP-016 EXECUTED (SIMULATION, PASS); CHAIN-EXP-019/020 ATTEMPTED, BLOCKED; all others NOT EXECUTED.
 
 ## Execution status and experiment governance
 
-All twenty original experiments are NOT EXECUTED; no results exist in this package. The table preserves original question/hypothesis/criterion; extensions below define prerequisite discipline. Source short EXP IDs mean CHAIN-EXP IDs, never unrelated project tests. Artifact directories are repository-relative, despite leading slashes in historical source. No absolute filesystem root is an authorized write target.
+Sprint 1 (2026-10-06): CHAIN-EXP-016 EXECUTED — SIMULATION, outcome PASS, record research/sim/CHAIN-EXP-016/result.json; CHAIN-EXP-019 and CHAIN-EXP-020 ATTEMPTED and BLOCKED (source hosts denied by the execution-environment network policy; reference/sources/*/ACCESS_RECORD.json). The other seventeen experiments are NOT EXECUTED. The table below preserves the original planning rows; the living status is in this paragraph, docs/GATE_REGISTER.md and the sprint reports. The table preserves original question/hypothesis/criterion; extensions below define prerequisite discipline. Source short EXP IDs mean CHAIN-EXP IDs, never unrelated project tests. Artifact directories are repository-relative, despite leading slashes in historical source. No absolute filesystem root is an authorized write target.
 
 | ID | Question/hypothesis | Prerequisite | Procedure / metrics | Original decision criterion | Owner sprint / artifact |
 |---|---|---|---|---|---|

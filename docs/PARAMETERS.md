@@ -1,8 +1,8 @@
 # Parameter layers, candidate IDs and state policy
 
-Revision: planning V1 · 2026-10-06
+Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
 
-Status: DRAFT PLANNING CONTRACT. Documentation creation authorized; implementation and release not authorized.
+Status: EXECUTION IN PROGRESS. No parameter created; schema records (smlsp3000/schemas.py) encode the three layers and UNSET semantics only.
 
 ## Status and freeze point
 

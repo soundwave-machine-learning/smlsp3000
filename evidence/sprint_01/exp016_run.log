@@ -1,0 +1,17 @@
+{
+ "experiment_id": "CHAIN-EXP-016",
+ "outcome": "PASS",
+ "floor": {
+  "max_residual_rms_db_re_signal_over_cases": -92.6412825674609,
+  "max_abs_clock_ratio_error_ppm": 0.0005053433227431015,
+  "max_abs_delay_error_samples": 1.9314246797463852e-05,
+  "max_abs_gain_error_db": 3.0856729584871405e-08,
+  "all_polarity_correct": true,
+  "none_case_residual_rms_db_re_signal": -149.08450812045675
+ }
+}
+
+real	1m40.830s
+user	1m43.597s
+sys	0m19.244s
+exit=0

@@ -1,0 +1,25 @@
+{
+  "experiment_id": "CHAIN-EXP-019",
+  "question": "SP schematic extraction and SPICE",
+  "artifact_class": "SOURCE EVIDENCE",
+  "status": "NOT EXECUTED",
+  "disposition": "BLOCKED: required source not accessible from the execution environment",
+  "debt_ids": ["RD-P0-01", "RD-P0-02", "RD-P0-04", "RD-P1-01", "RD-P1-09", "RD-P1-10", "RD-P1-11"],
+  "attempted_utc": "2026-10-06",
+  "attempts": [
+    {"source_id": "SRC-01", "url": "https://archive.org/details/emu-sp-1200-service-manual-1987_202010", "method": "curl via session proxy", "result": "CONNECT tunnel failed, response 403 (egress policy)"},
+    {"source_id": "SRC-01", "url": "https://archive.org/details/emu-sp-1200-service-manual-1987_202010", "method": "WebFetch", "result": "EGRESS_BLOCKED: archive.org denied by network egress proxy"},
+    {"source_id": "SRC-04", "url": "https://ccrma.stanford.edu/~dtyeh/papers/yeh07_icmc_sp12.pdf", "method": "curl via session proxy", "result": "CONNECT tunnel failed (egress policy)"},
+    {"source_id": "SRC-30", "url": "https://www.analog.com/media/en/technical-documentation/data-sheets/AD7541A.pdf", "method": "curl + WebFetch", "result": "EGRESS_BLOCKED: www.analog.com"},
+    {"source_id": "SRC-30", "url": "https://www.farnell.com/datasheets/2250904.pdf", "method": "WebFetch", "result": "EGRESS_BLOCKED: www.farnell.com"},
+    {"source_id": "SRC-30", "url": "https://renesas.com/us/en/document/dst/ad7541-datasheet", "method": "WebFetch", "result": "EGRESS_BLOCKED: renesas.com"},
+    {"source_id": "SRC-30", "url": "https://www.alldatasheet.com/", "method": "WebFetch", "result": "EGRESS_BLOCKED: www.alldatasheet.com"}
+  ],
+  "search_engine_snippets_not_promoted": [
+    {"source_id": "SRC-30", "snippet": "AD7541JN nonlinearity 0.02% (11-bit), AD7541KN 0.01% (12-bit), 0 to 70 C; current settling 1 us to 0.01% FSR", "status": "UNVERIFIED search-result summary; datasheet bytes not read; RD-P1-01 remains OPEN; not usable as a machine asset value"}
+  ],
+  "transcription": "NONE — no schematic sheet was readable; no refdes/value/net recorded; no SPICE deck created; ngspice not installed in this environment",
+  "rights_note": "SRC-01 carries an owner-use-only notice; consultation only, no scan redistribution. Nothing was downloaded.",
+  "remaining": "RD-P0-01/02/04 and RD-P1-01/09/10/11 stay OPEN. Documentary closure requires an execution environment with access to SRC-01 (readable pp. 67–88) and SRC-30, or hardware measurement in S2 (CHAIN-EXP-002/004/005).",
+  "next_action": "Owner: either allow archive.org/analog.com (or supply the sheets through an approved evidence route) for a targeted re-attempt, or proceed to S2 hardware closure."
+}

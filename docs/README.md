@@ -1,12 +1,12 @@
 # Engineering documentation index
 
-Revision: planning V1 · 2026-10-06
+Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
 
-Status: DRAFT PLANNING CONTRACT. Documentation creation authorized; implementation and release not authorized.
+Status: EXECUTION IN PROGRESS. Living documents carry an execution revision line when revised; planning-V1 bytes are recorded in MANIFEST.json/SHA256SUMS.txt as the historical baseline.
 
 ## Authority and exact read order
 
-Read root AGENTS.md/README.md, PROJECT_HANDOFF and PROJECT_BRIEF; then RESEARCH_AUDIT, immutable sourceV1 Markdown/JSON, CONFIDENCE, RESEARCH_DEBT, GATE_REGISTER and DECISIONS; then ENGINE_SPEC, ARCHITECTURE, RATE_GAIN_PLAN, PARAMETERS, EXPERIMENT_PLAN, MEASUREMENT_PLAN, VALIDATION_PLAN, LISTENING_TEST_PLAN, ACCEPTANCE_MATRIX and DSP_CHANGELOG; finally SPRINT_PLAN, all eight exact contracts and AUTONOMOUS_BUILD_PROMPT. Read DELIVERY_SUMMARY/PACKAGE_VALIDATION/manifests for delivery review. Commands, target matrices, threshold policies and execution reports are future artifacts; not missing promised files in this planning package.
+Read root AGENTS.md/README.md, PROJECT_HANDOFF and PROJECT_BRIEF; then RESEARCH_AUDIT, immutable sourceV1 Markdown/JSON, CONFIDENCE, RESEARCH_DEBT, GATE_REGISTER and DECISIONS; then ENGINE_SPEC, ARCHITECTURE, RATE_GAIN_PLAN, PARAMETERS, EXPERIMENT_PLAN, MEASUREMENT_PLAN, VALIDATION_PLAN, LISTENING_TEST_PLAN, ACCEPTANCE_MATRIX and DSP_CHANGELOG; finally SPRINT_PLAN, all eight exact contracts and AUTONOMOUS_BUILD_PROMPT. Read DELIVERY_SUMMARY/PACKAGE_VALIDATION/manifests for delivery review. Commands now exist (BUILD_COMMANDS); target matrices (G-09), threshold policies (G-06) and later execution reports remain future artifacts.
 
 Version: all generated documents planningV1 dated2026-10-06; supplied sourceV1 dated2026-10-05. Research Markdown governs JSON summary; research originals immutable. New engineering proposals do not supersede source evidence. Owner authorization is planning-only; execution/design/release approvals unknown. Vocabulary and authority lanes are in CONFIDENCE and AGENTS.
 
@@ -34,6 +34,9 @@ Version: all generated documents planningV1 dated2026-10-06; supplied sourceV1 d
 | [docs/AUTONOMOUS_BUILD_PROMPT.md](AUTONOMOUS_BUILD_PROMPT.md) | Eight-file read/execute/resume prompt; not launched | Evidence, approved scope, or contract revision changes | Cross-sprint |
 | [docs/PROJECT_HANDOFF.md](PROJECT_HANDOFF.md) | Single durable continuity/state file | Evidence, approved scope, or contract revision changes | Cross-sprint |
 | [docs/DSP_CHANGELOG.md](DSP_CHANGELOG.md) | Planned DSP baseline; execution-only future entries | Evidence, approved scope, or contract revision changes | Cross-sprint |
+| [docs/BUILD_COMMANDS.md](BUILD_COMMANDS.md) | Frozen command manifest with tool versions, exit codes and evidence routes (S1) | Stack, command or check revision | S1+ |
+| [docs/sprint_reports/README.md](sprint_reports/README.md) | Sprint report template, section list and verdict vocabulary | Report policy revision | S1+ |
+| [docs/sprint_reports/SPRINT_01_REPORT.md](sprint_reports/SPRINT_01_REPORT.md) | Executed Sprint 1 report | After Sprint 1 execution only | S1 |
 | [AGENTS.md](../AGENTS.md) | Read order, authority and repository/autonomy policy | Evidence, approved scope, or contract revision changes | Cross-sprint |
 | [README.md](../README.md) | Entry point and honest readiness | Evidence, approved scope, or contract revision changes | Cross-sprint |
 | [docs/DELIVERY_SUMMARY.md](DELIVERY_SUMMARY.md) | Self-contained requested final deliverable summary | Evidence, approved scope, or contract revision changes | Cross-sprint |

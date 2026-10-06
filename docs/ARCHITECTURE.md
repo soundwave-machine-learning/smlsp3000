@@ -1,12 +1,12 @@
 # Architecture, replaceable blocks and state
 
-Revision: planning V1 · 2026-10-06
+Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
 
-Status: DRAFT PLANNING CONTRACT. Documentation creation authorized; implementation and release not authorized.
+Status: EXECUTION IN PROGRESS. R0–R16 not implemented; Sprint 1 foundation layout recorded below.
 
 ## Ownership and dependency direction
 
-Proposed architecture; no source implementation exists. `Configuration and immutable machine assets → shared reference/production engines → tests/offline renderer/plugin adapter → UI`. UI depends on parameter definitions and meters, never the reverse. Research import/fit tools emit reviewed versioned assets; runtime does not fetch sources or fit itself. Do not duplicate DSP in wrapper/GUI or create a second sonic pipeline.
+Proposed architecture. Sprint 1 implemented only the analysis/evidence foundation (no R-block): package `smlsp3000/` — `hashing` (SHA-256 files/arrays, manifests), `schemas` (frozen artifact-class/dataset-role vocabularies; experiment-result, unit, capture-sidecar, machine-asset and research-configuration records with explicit UNSET), `wavio` (PCM 16/24/32 and float32 WAV), `stimuli` (analytic continuous-time synthetic truth), `nullframework` (pilot/alignment/null evaluator), `environment` (provenance), `runner` (experiments by repository ID), `experiments/exp016`; `tests/` (unittest); `tools/check_repo_integrity.py`. Future reference blocks are intended to live under `smlsp3000/reference/` (R0–R16 as separately replaceable modules consuming MachineAsset records) and the production engine in a separately decided stack (G-08/G-09); neither exists yet. `Configuration and immutable machine assets → shared reference/production engines → tests/offline renderer/plugin adapter → UI`. UI depends on parameter definitions and meters, never the reverse. Research import/fit tools emit reviewed versioned assets; runtime does not fetch sources or fit itself. Do not duplicate DSP in wrapper/GUI or create a second sonic pipeline.
 
 An engine instance owns one logical chain: global shared clocks and per-channel signal state; no global mutable buffers. MachineParameters and provenance are immutable for a prepared run; ProductParameters snapshots update through a bounded lock-free handoff; ResearchConfiguration is present only in research builds. Reference and production engines share units/routing/control semantics while numerical implementations differ only by documented G-08-validated substitution. Offline renderer records input/config/assets/source commit hashes.
 

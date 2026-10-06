@@ -1,8 +1,8 @@
 # Design decisions and unresolved selections
 
-Revision: planning V1 · 2026-10-06
+Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
 
-Status: DRAFT PLANNING CONTRACT. Documentation creation authorized; implementation and release not authorized.
+Status: EXECUTION IN PROGRESS. Owner implementation authorization recorded 2026-10-06; product/release approvals still open.
 
 ## Source decisions retained; no hidden approval
 
@@ -34,11 +34,14 @@ Status: DRAFT PLANNING CONTRACT. Documentation creation authorized; implementati
 | ENG-DEC-003 | MPC main L/R as proposed shipping target; measure individual pair separately | §20; G-07 | PROPOSED, NOT OWNER SELECTED |
 | ENG-DEC-004 | S1 framework/documentary work; S2 evidence/threshold gates before S3/S4 fitted references | §§40–43; G-04/05/06 | PLANNED |
 | ENG-DEC-005 | Core shared by tests/offline/plugin; separate reference and production implementations sharing configuration meanings | §43; G-08 | PLANNED |
-| ENG-DEC-006 | No stack/platform inherited from another project; freeze actual toolchain/target commands in S1 | G-01/G-09 | UNKNOWN until future execution |
+| ENG-DEC-006 | No stack/platform inherited from another project; freeze actual toolchain/target commands in S1 | G-01/G-09 | PARTIALLY RESOLVED in S1 by ENG-DEC-011 (reference/analysis stack); native target/framework still UNKNOWN (G-09) |
 | ENG-DEC-007 | Implement scheduler phase/history despite ideal sampler's physical-state notation | AUD-C08; REQ-019 | PLANNED interface clarification |
 | ENG-DEC-008 | Same-build determinism and block invariance exact; cross-rate/platform and fit tolerances separate | §25/32/43; AUD-C09; G-06/G-08 | PLANNED; numeric tolerances UNKNOWN |
 | ENG-DEC-009 | Hardware fidelity uses calibration scalar, listening uses logged excerpt RMS; preserve raw captures | AUD-C11; G-02/G-06 | PLANNED clarification |
-| ENG-DEC-010 | Candidate delivery only in S8; no remote repository write, publishing, merging or installation authorized now | User planning-only | ACTIVE SCOPE CONSTRAINT |
+| ENG-DEC-010 | Candidate delivery only in S8; no remote repository write, publishing, merging or installation authorized now | User planning-only | SUPERSEDED 2026-10-06 by owner execution instruction: pushes to branch claude/autonomous-build authorized; merge to main, publishing, installation remain NOT authorized |
+| ENG-DEC-011 | Reference/analysis stack: Python 3.13 + numpy 2.x + standard library (unittest, wave, json, hashlib); no dependency installation; exact commands in docs/BUILD_COMMANDS.md. Options rejected for now: scipy/pytest (reachable on PyPI but unnecessary for S1 and would add an install step), C++ for the analysis layer (premature before G-07/G-08). Reopen: S6 production engine (G-08) and S7 native wrapper (G-09) need a separate owner-approved production/framework decision | Owner execution instruction 2026-10-06 (G-01A); executor | ACTIVE for S1–S5 analysis/reference work |
+| ENG-DEC-012 | CHAIN-EXP-016 self-test design: analytic continuous-time stimulus evaluated at perturbed instants as independent truth; two-tone pilot burst (2000 + 2300 Hz) for unambiguous cross-correlation; joint least-squares scale fit for the clock ratio; first-order 5 Hz DC high-pass applied identically to both signals. These are evaluator (measurement-side) choices, not machine behaviour. Reopen: if S2 hardware pilots need other frequencies/durations, the evaluator config is revised and the self-test rerun before use | REQ-003; G-02 | ACTIVE; floor recorded in research/sim/CHAIN-EXP-016 |
+| ENG-DEC-013 | Branch naming: owner instruction names claude/autonomous-build; the harness-suggested session branch and the orchestrator's proposed build/sp1200-mpc3000-autonomous are not used. Main is never modified | Owner execution instruction | ACTIVE |
 
 ## Open owner decisions
 

@@ -1,18 +1,18 @@
 # Hardware, human and delivery gates
 
-Revision: planning V1 · 2026-10-06
+Revision: execution V1 (Sprint 1) · 2026-10-06 · supersedes planning V1
 
-Status: DRAFT PLANNING CONTRACT. Documentation creation authorized; implementation and release not authorized.
+Status: EXECUTION IN PROGRESS. Implementation authorized by owner instruction 2026-10-06 (branch claude/autonomous-build); release not authorized.
 
 ## Mandatory dependency gates
 
-Every gate is currently OPEN/NOT EXECUTED. A prior sprint milestone does not waive the next gate. Independent preparation may proceed inside authorized scope; no calibrated fitting/production work may assume favorable missing results. RESEARCH_DEBT retains original priorities; gates are dependency controls, not relabeled evidence.
+Gate states below reflect Sprint 1 execution evidence (docs/sprint_reports/SPRINT_01_REPORT.md); all others remain OPEN/NOT EXECUTED. A prior sprint milestone does not waive the next gate. Independent preparation may proceed inside authorized scope; no calibrated fitting/production work may assume favorable missing results. RESEARCH_DEBT retains original priorities; gates are dependency controls, not relabeled evidence.
 
 | Gate | Name | Required evidence | Current status | Blocks | Owner | First sprint |
 |---|---|---|---|---|---|---|
-| G-01 | Execution activation and capability freeze | G-01A: separate owner execution instruction, repository/baseline/branch, allowed operations/budgets before S1 edits. G-01B: actual toolchain/target plan and smoke-tested command manifest established within S1 before dependent executable work. Full gate closes at S1 exit. | OPEN; current request planning only | G-01A blocks S1 mutations; G-01B blocks dependent executable work | Owner + execution engineer | 1 |
-| G-02 | Null/measurement framework self-test | CHAIN-EXP-016 recovery against independent truth; instrument/evaluation method and numerical floor documented | NOT EXECUTED | Trusting fitted residuals or hardware comparison | Validation engineer | 1 |
-| G-03 | Targeted documentary closure | CHAIN-EXP-019/020, AD7541/AK5328/SM5841 retrieval, stock revision/route scope; each remaining unknown retained | OPEN | Using extracted/guessed coefficients; dependent P0/P1 closure | Research engineer | 1 |
+| G-01 | Execution activation and capability freeze | G-01A: separate owner execution instruction, repository/baseline/branch, allowed operations/budgets before S1 edits. G-01B: actual toolchain/target plan and smoke-tested command manifest established within S1 before dependent executable work. Full gate closes at S1 exit. | G-01A RESOLVED (owner instruction 2026-10-06; repo soundwave-machine-learning/smlsp3000, baseline 3b53a6b, branch claude/autonomous-build). G-01B RESOLVED for the reference/analysis stack (docs/BUILD_COMMANDS.md, evidence/sprint_01/preflight.json); native target matrix still UNKNOWN (G-09) | G-01A blocks S1 mutations; G-01B blocks dependent executable work | Owner + execution engineer | 1 |
+| G-02 | Null/measurement framework self-test | CHAIN-EXP-016 recovery against independent truth; instrument/evaluation method and numerical floor documented | PASS (SIMULATION): research/sim/CHAIN-EXP-016/result.json; identical arrays exactly zero; floor recorded (see report). Hardware tolerances still G-06 | Trusting fitted residuals or hardware comparison | Validation engineer | 1 |
+| G-03 | Targeted documentary closure | CHAIN-EXP-019/020, AD7541/AK5328/SM5841 retrieval, stock revision/route scope; each remaining unknown retained | OPEN — ATTEMPTED AND BLOCKED in S1: every source host denied by the execution environment network policy; AK5328 not located by search; no value guessed (reference/sources/*/ACCESS_RECORD.json). Resolvable by owner-granted source access or S2 measurement | Using extracted/guessed coefficients; dependent P0/P1 closure | Research engineer | 1 |
 | G-04 | Hardware campaign validity | Stock units/revisions identified, import/export demonstrated, calibrated 192k/24 interface, S/PDIF44.1, three repeat captures, pilot/metadata/hash validation; bandwidth exceptions resolved | HARDWARE REQUIRED | All hardware-fit conclusions | Measurement operator | 2 |
 | G-05 | P0/P1 evidence closure | All 6 P0/12 P1 ledger items closed with resolving evidence, or owner-approved restricted scope and justification that dependent behavior does not rely on unresolved item | OPEN: 18 items | Calibrated machine references (S3/S4), cascade/product (S5+) | Evidence reviewer + owner | 2 |
 | G-06 | Acceptance threshold and dataset freeze | Hardware self-null floor, instrument uncertainty, numeric tolerances by metric/domain/material/level, disjoint FIT/VALIDATION IDs; owner acceptance before fit | UNKNOWN thresholds | PASS for hardware fits in S3/S4/S5 | Validation engineer + owner | 2 |

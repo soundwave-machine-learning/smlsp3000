@@ -1,0 +1,28 @@
+test_rerun_reproduces_committed_results_and_hashes (tests.test_exp016_reproduction.Exp016ReproductionTests.test_rerun_reproduces_committed_results_and_hashes) ... ok
+test_array_hash_distinguishes_dtype_and_shape (tests.test_hashing.HashingTests.test_array_hash_distinguishes_dtype_and_shape) ... ok
+test_known_sha256 (tests.test_hashing.HashingTests.test_known_sha256) ... ok
+test_manifest_roundtrip_and_verify (tests.test_hashing.HashingTests.test_manifest_roundtrip_and_verify) ... ok
+test_identical_arrays_null_to_exact_zero_without_preprocessing (tests.test_nullframework.NullFrameworkTests.test_identical_arrays_null_to_exact_zero_without_preprocessing) ... ok
+test_interpolator_is_identity_at_integer_positions (tests.test_nullframework.NullFrameworkTests.test_interpolator_is_identity_at_integer_positions) ... ok
+test_recovers_combined_perturbation_from_independent_truth (tests.test_nullframework.NullFrameworkTests.test_recovers_combined_perturbation_from_independent_truth) ... ok
+test_relative_metric_undefined_on_silence (tests.test_nullframework.NullFrameworkTests.test_relative_metric_undefined_on_silence) ... ok
+test_all_integrity_checks_pass (tests.test_repo_integrity.RepoIntegrityTests.test_all_integrity_checks_pass) ... ok
+test_artifact_entry_rejects_wrong_class (tests.test_schemas.SchemaTests.test_artifact_entry_rejects_wrong_class) ... ok
+test_missing_required_and_bool_type_strictness (tests.test_schemas.SchemaTests.test_missing_required_and_bool_type_strictness) ... ok
+test_unknown_field_is_reported_in_strict_mode (tests.test_schemas.SchemaTests.test_unknown_field_is_reported_in_strict_mode) ... ok
+test_unset_semantics (tests.test_schemas.SchemaTests.test_unset_semantics) ... ok
+test_vocabularies_frozen (tests.test_schemas.SchemaTests.test_vocabularies_frozen) ... ok
+test_float32_exact_for_float32_values (tests.test_wavio.WavIOTests.test_float32_exact_for_float32_values) ... ok
+test_integer_write_clamps_instead_of_wrapping (tests.test_wavio.WavIOTests.test_integer_write_clamps_instead_of_wrapping) ... ok
+test_pcm16 (tests.test_wavio.WavIOTests.test_pcm16) ... ok
+test_pcm24_stereo (tests.test_wavio.WavIOTests.test_pcm24_stereo) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 108.388s
+
+OK
+
+real	1m48.535s
+user	1m52.981s
+sys	0m19.915s
+exit=0
