@@ -108,4 +108,4 @@ Sprint 6 (production engine, numerical optimization) requires G-08 owner budgets
 
 ## 17. Ending commit
 
-Milestone commit: recorded by the follow-up hash back-fill commit.
+Milestone commit `69d64a02ba206a085bfd7b018decdba9e70183f1` on `claude/autonomous-build` (hash back-filled by the follow-up checkpoint commit).

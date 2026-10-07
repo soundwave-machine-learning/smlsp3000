@@ -2,7 +2,7 @@
 
 Revision: execution V5 (after Sprint 5) · 2026-10-07 · supersedes execution V4
 
-Status: EXECUTION IN PROGRESS. Sprint 1 ACCEPTED (PASS, fbd1fac). Sprint 2 hardware campaign BLOCKED / EXTERNAL HARDWARE REQUIRED (1c0fe89, preserved). Governance V2 (8257c2d) approved by the owner 2026-10-07 (OWN-DEC-001..004). Sprint 3 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone `51b72d5`. Sprint 4 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone commit `e8f66008e635b00969b7944277ba72ed6f7c43c9` (OWN-DEC-005..008 applied). Sprint 5 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (human listening, G-07H, G-04); milestone commit recorded below (OWN-DEC-009..013 applied). Sprint 6 NOT started: G-08 owner budgets required. Release NOT authorized.
+Status: EXECUTION IN PROGRESS. Sprint 1 ACCEPTED (PASS, fbd1fac). Sprint 2 hardware campaign BLOCKED / EXTERNAL HARDWARE REQUIRED (1c0fe89, preserved). Governance V2 (8257c2d) approved by the owner 2026-10-07 (OWN-DEC-001..004). Sprint 3 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone `51b72d5`. Sprint 4 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone commit `e8f66008e635b00969b7944277ba72ed6f7c43c9` (OWN-DEC-005..008 applied). Sprint 5 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (human listening, G-07H, G-04); milestone commit `69d64a02ba206a085bfd7b018decdba9e70183f1` (OWN-DEC-009..013 applied). Sprint 6 NOT started: G-08 owner budgets required. Release NOT authorized.
 
 ## Current verified state
 
@@ -53,7 +53,7 @@ Shipping path B CHOSEN in software (G-07S, OWN-DEC-010; G-07H BLOCKED); SP route
 
 ## Last accepted milestone and next action
 
-Last accepted milestone: Sprint 5 — milestone commit hash recorded by the follow-up back-fill commit (see docs/sprint_reports/SPRINT_05_REPORT.md §17). Earlier milestones: Sprint 1 `fbd1fac`, Sprint 3 `51b72d5`, Sprint 4 `e8f6600`. Last activity: Sprint 5 Track A execution (cascade, interstage, chain modes, G-07S software decision, listening kit, regression, docs, report).
+Last accepted milestone: Sprint 5 — commit `69d64a02ba206a085bfd7b018decdba9e70183f1`. Earlier milestones: Sprint 1 `fbd1fac`, Sprint 3 `51b72d5`, Sprint 4 `e8f6600`. Last activity: Sprint 5 Track A execution (cascade, interstage, chain modes, G-07S software decision, listening kit, regression, docs, report).
 
 Next authorized action: NONE autonomously. Sprint 6 (production engine, numerical optimization, REQ-017/018) starts only after the owner supplies EXECUTION_PLAN_V2 §9 item 7 / G-08 budgets: proxy oversampling and kernel convergence budget, cross-rate and precision tolerances, reference-vs-production numerical budget, maximum block size and input domain, CPU and latency budgets, parameter IDs/ranges/defaults/smoothing and state schema version, non-finite input policy, production stack — see docs/sprint_reports/SPRINT_05_REPORT.md §16 and the executor's Sprint 6 owner-input request. Human listening under CHAIN-EXP-018 needs an owner-defined criterion before any score is recorded. For Track B the owner must (a) arrange the stock SP-1200 / MPC3000 campaign per docs/MEASUREMENT_PLAN.md with a calibrated 192 k/24 interface, S/PDIF 44.1 k source, operator and a durable raw-capture route (G-04); (b) optionally grant source access (archive.org, analog.com or an approved copy route) for a CHAIN-EXP-019/020 re-attempt; (c) later: G-06 threshold acceptance, G-07 product selection, G-08 budgets, G-09 target matrix/SDK/licence.
 

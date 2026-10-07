@@ -52,7 +52,7 @@ Not introduced: interstage R10, output trim, cascade, noise, jitter, mismatch, s
 
 ## Sprint 5 — 2026-10-07 — PROVISIONAL SP→MPC SOFTWARE CASCADE (Track A, OWN-DEC-009..013)
 
-Implementation commit: recorded in docs/PROJECT_HANDOFF.md after the milestone commit. Subsystem: `smlsp3000/reference/cascade.py` (cascade-reference-impl-1.0.0), product configuration `sml-sp3000-product-config-track-a` v1, cascade research configuration v1; SP 1.0.4 / MPC 1.0.2 (core entry points exposed; outputs bit-identical to Sprint 3/4 records).
+Implementation commit: `69d64a02ba206a085bfd7b018decdba9e70183f1`. Subsystem: `smlsp3000/reference/cascade.py` (cascade-reference-impl-1.0.0), product configuration `sml-sp3000-product-config-track-a` v1, cascade research configuration v1; SP 1.0.4 / MPC 1.0.2 (core entry points exposed; outputs bit-identical to Sprint 3/4 records).
 
 | Item | Behaviour introduced | Reason / evidence | Status | Audible / behavioural consequence | Test coverage | Replacement point |
 |---|---|---|---|---|---|---|
