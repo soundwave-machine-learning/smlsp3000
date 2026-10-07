@@ -1,6 +1,6 @@
 # DSP changelog
 
-Revision: execution V5 (Sprint 5) · 2026-10-07 · supersedes execution V4
+Revision: execution V6 (Sprint 6) · 2026-10-07 · supersedes execution V5
 
 Status: EXECUTION IN PROGRESS.
 
@@ -64,3 +64,21 @@ Implementation commit: `69d64a02ba206a085bfd7b018decdba9e70183f1`. Subsystem: `s
 | Listening kit | software-only CHAIN-EXP-018 stimuli (synthetic material), RMS-matched, blinded | OWN-DEC-013 | PREPARED; human listening NOT EXECUTED | none (outside the model) | kit record + manifest | human listening; G-07H |
 
 Not introduced: soft clipping, saturation, recovery, transformer/level-dependent analog behaviour, normalization, drive/wet-dry, volts, output trim, plugin bypass. No hardware fidelity is implied.
+
+## Sprint 6 — 2026-10-07 — NATIVE PRODUCTION CORE, PARAMETER FREEZE, OPTIMISATION (Track A, OWN-DEC-014..023)
+
+Implementation commit: recorded in docs/PROJECT_HANDOFF.md after the milestone commit. Subsystem: `native/` (smlsp3000-native-core-1.0.0); reference instrumentation sp1200 1.0.5 / mpc3000 1.0.3 / cascade 1.0.1 (audio unchanged, evidence/sprint_06/instrumentation_regression_run.log).
+
+| Item | Behaviour introduced | Reason / evidence | Status | Audible / behavioural consequence | Test coverage | Replacement point |
+|---|---|---|---|---|---|---|
+| Native core | C++20 port of R1–R16 as composed on the proxy grid; float64; 8x proxy; checkpoint kernels; same quantizer/clamp semantics; no I/O; no allocation in process() | OWN-DEC-014/015 | VALIDATED AGAINST THE SOFTWARE REFERENCE (VAL-021: all cells within 1e-9 of the limits; codes identical); UNVALIDATED AGAINST HARDWARE | none intended: agreement with the reference to ≈1e-16 | VAL-019..022, ctest | reference stays the oracle |
+| Composed operator tables | sampler∘R12 band limitation per residue; R16∘R15 per host phase class (ENG-DEC-021); exact-order path retained for diagnostics | OWN-DEC-017 budgets (29 % → 10 % at 48 kHz; 115 % → 19 % at 192 kHz) | ACTIVE | none beyond float rounding order (VAL-020 production-introduced ≤ −321 dB) | VAL-021 both paths; VAL-020 | — |
+| Output trim (R16 trim) | output_trim_db −60…+12 dB, final host gain, 10 ms linear-in-dB ramp on the host clock | OWN-DEC-020/021 | ACTIVE | plain gain; not a limiter | VAL-021 (static law bit-exact), VAL-022 (ramp bit-exact) | — |
+| Smoothing | 10 ms linear-in-dB ramps for sp_input_level_db and interstage_level_db on the proxy clock, sample-indexed events, no restart, continuation from the current value | OWN-DEC-021 | ACTIVE | no zipper steps on continuous controls; constant parameters identical to the static reference | VAL-022 | — |
+| Discrete switches | sp_input_gain / mpc_input_gain switch at the mapped sample, no interpolation | OWN-DEC-021 | ACTIVE | instantaneous gain step (as the machines' switches) | VAL-022 | — |
+| plugin_bypass | static latency-aligned dry passthrough (no gains, no trim), chain keeps running | OWN-DEC-020 | ACTIVE (transitions Sprint 7) | dry audio delayed by the reported latency | ctest | Sprint 7 transition policy |
+| Input safety | NaN/Inf → 0 + counter; over-range passes to the converter clamps; internal non-finite → silenced chunk, latched fault, cleared signal state | OWN-DEC-019 | ACTIVE | no NaN reaches the host; no hidden limiter | ctest, VAL-022 | — |
+| Meters | host input peak, SP/MPC core-input proxy peaks, SP clip, MPC 18-bit clip, 16-bit clamp, output peak; reference cascade machine peak marked UNAVAILABLE_IN_CASCADE | OWN-DEC-022 | ACTIVE | — | VAL-021 (clamp counters identical) | — |
+| State v1 | schema 1; six controls + identities; explicit rejections; no migrations | OWN-DEC-020 | ACTIVE | — | VAL-022 | — |
+
+Not introduced: any model change (kernels, proxy, precision, Path A/C, ideal SP reconstruction), soft clipping, saturation, noise, limiter, normalization, drive/wet-dry, volts, bypass transitions, plugin wrapper. No hardware fidelity is implied.

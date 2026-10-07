@@ -1,0 +1,45 @@
+{
+ "44100_64": {
+  "max_mean_load": 0.09535884392824774,
+  "limit": 0.2,
+  "p999_target_met": true,
+  "overruns": 0
+ },
+ "48000_64": {
+  "max_mean_load": 0.096341066,
+  "limit": 0.2,
+  "p999_target_met": true,
+  "overruns": 0
+ },
+ "88200_128": {
+  "max_mean_load": 0.09558380193260162,
+  "limit": 0.4,
+  "p999_target_met": true,
+  "overruns": 0
+ },
+ "96000_128": {
+  "max_mean_load": 0.13584945099999984,
+  "limit": 0.4,
+  "p999_target_met": true,
+  "overruns": 0
+ },
+ "176400_256": {
+  "max_mean_load": 0.15533426527576222,
+  "limit": 0.6,
+  "p999_target_met": true,
+  "overruns": 0
+ },
+ "192000_256": {
+  "max_mean_load": 0.20600323899999964,
+  "limit": 0.6,
+  "p999_target_met": true,
+  "overruns": 0
+ },
+ "mean_load_limits_all_pass": true,
+ "p999_target_met_all_pairs": true
+}
+
+real	0m13.373s
+user	0m13.667s
+sys	0m0.073s
+exit=0

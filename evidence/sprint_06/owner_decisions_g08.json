@@ -1,0 +1,62 @@
+{
+  "record": "Sprint 06 owner decisions and G-08 SOFTWARE policy (execution-plan/decision overlay; original contracts and research unchanged)",
+  "recorded_utc": "2026-10-07T02:38:17+00:00",
+  "owner": "project owner, 2026-10-07",
+  "classification": "OWNER-SET SOFTWARE PRODUCT / IMPLEMENTATION REQUIREMENTS \u2014 NOT historical hardware specifications",
+  "decisions": {
+    "OWN-DEC-014 production stack": "C++20, CMake, available native compiler, framework-independent production core, native offline test/render executable; Python/NumPy remains the reference and analysis stack; the production audio path must not require Python, NumPy, an interpreter, a Python binding or filesystem access; no JUCE/plugin SDK/GUI in Sprint 6; core portable to Windows x86_64 and the development OS; record platforms actually compiled/tested; Windows is the intended personal-use deployment target and a Linux result is not Windows validation; no paid/proprietary dependencies or licence acceptance",
+    "OWN-DEC-015 quality and precision": "initial native implementation: float64 internal processing, current 8x proxy, current reference kernel definitions/timing, current machine-rate schedules, current quantizer and converter-clamp semantics, exactly as found at the Sprint 5 checkpoint (research_config_sp_track_a_v1.json / research_config_mpc_track_a_v1.json); no automatic reduction to 4x proxy, shorter kernels, float32, Path A/C, or a different SP reconstruction; optimize computation first (tables, ring buffers, no allocation, cache layout, no redundant coefficients, SIMD only where the numeric contract passes); no fast-math or uncontrolled reassociation; compiler options and FMA/contraction policy recorded; SP sample-and-hold imaging never replaced by an ideal band-limited output",
+    "OWN-DEC-016 numerical acceptance (G-08 software requirements, frozen before evaluation)": {
+      "A exact discrete semantics": "exact agreement for quantizer rules on identical quantizer inputs, code endpoints, tie handling (implemented \u230ar+\u00bd\u230b ties toward +\u221e retained), floor/truncation, clamp decisions, code re-expansion, enum/state mappings, rational scheduler event sequences; ROUND_NEAREST never described as universally unbiased (measured bias characterization preserved: SP12 none measured; R13 ROUND_NEAREST mean bias \u22120.125 LSB16, TRUNCATION +0.375 LSB16 per VAL-012)",
+      "B same-build determinism": "identical input/configuration/reset/sample-timestamped automation \u2192 repeated native renders bit-identical and host-block partitions bit-identical; binary hashes across compilers/CPUs NOT required",
+      "C same-rate reference/production agreement": {
+        "alignment": "declared latency only; no fitted gain/DC/clock/delay",
+        "comparison point": "before final output trim",
+        "rms_limit": "RMS(error) <= max(1e-5 * RMS(input), 1e-7)",
+        "peak_limit": "max |error| <= 1e-4",
+        "aggregation": "per fixture; passing and failing fixtures never averaged",
+        "boundary discrepancies": "adversarial quantizer-boundary tests verify exact discrete rules; any float-evaluation boundary discrepancy is reported with triggering values, stage, code difference and output consequence \u2014 never waived, tolerance never changed",
+        "output trim": "tested separately against its gain law"
+      },
+      "D cross-rate agreement": "rates 44.1/48/88.2/96/176.4/192 kHz; no samplewise identity across rates; common-band analytic stimuli from a common continuous-time origin; existing reference at each rate; separately characterized analysis conversion; production meets the same-rate budget at EVERY rate first; then production cross-rate behaviour vs the reference's own cross-rate behaviour bounded by propagated same-rate budgets plus measured analysis-tool error; propagation recorded before the final tests; no post-hoc tolerance",
+      "E implementation aliasing/convergence": "all existing kernel-derived spectral checks preserved; short deterministic higher-proxy convergence comparisons (VAL-020) with latency and physical time handled consistently; distinguish intentional SP images/fold-back, converter-clamp harmonics, implementation filtering error, and production-introduced aliasing; production adds no error outside the same-rate budget and fails no inherited spectral bound; the 8x reference is not an infinitely accurate analog oracle \u2014 a material limitation is documented and that quality decision stops for review; CHAIN-EXP-016's \u221292.6 dB evaluator floor is not a universal lower bound for known-alignment software comparisons"
+    },
+    "OWN-DEC-017 performance budget": {
+      "what": "native Release core, one stereo CASCADE instance, approved quality configuration, preallocated state, warmed caches, no background jobs",
+      "load": "processing elapsed time / represented audio duration",
+      "limits_mean_load": {
+        "44.1/48 kHz @ 64": "<= 20 % of one core",
+        "88.2/96 kHz @ 128": "<= 40 %",
+        "176.4/192 kHz @ 256": "<= 60 %"
+      },
+      "per_callback": "median, p95, p99, p99.9, max; target p99.9 < 80 % of the callback budget; every overrun reported with scheduling conditions",
+      "record": "CPU, OS, compiler/version/options, threads, container/VM restrictions, duration, warm-up, signal/configuration, raw timing; multiple trials; results apply only to the recorded environment; Windows pending",
+      "if_budgets_fail": "optimize within the frozen model; never shorten kernels, reduce proxy, loosen numeric limits or switch precision; stop with measured alternatives if those become necessary"
+    },
+    "OWN-DEC-018 latency": "current reference latency is the initial native target (310 @ 48 kHz, 449 @ 96 kHz, verified from code and an independent timing test); initial production ceiling 10 ms algorithmic latency at each rate; fixed per prepared configuration/rate; equal across diagnostic chain modes; available to the future wrapper; independent of callback partitioning; no extra host block of latency for batching; frequency-dependent phase/group delay documented separately from the integer delay; no zero-latency claim",
+    "OWN-DEC-019 buffer and input safety": "preallocate for chunks up to 8192 host samples; zero-length, one-sample, irregular, all sizes through 8192, larger buffers via bounded internal chunking; no allocation in process(); event positions/state preserved across internal chunks; normal domain normalized full scale; supported over-range test domain at least \u221216\u2026+16; no host-boundary clamp of finite input (converter clamps remain the modeled overload); NaN/Inf input samples replaced by zero + diagnostic counter, no engine reset for one bad sample; invalid parameter values rejected/sanitized per explicit documented state policy, never silently promoted; unexpected internal non-finite output \u2192 documented fail-safe + fault indication, no NaN to the host, no concealed recurring faults; no hidden limiter/normalization/saturation/noise; no audio-thread allocation, locks, I/O, logging, dependency loading or unbounded work",
+    "OWN-DEC-020 parameters and state v1": "schema version 1; ProductParameters / MachineParameters (assets) / ResearchConfiguration separated; frozen SOFTWARE controls: sp_input_level_db \u221260\u2026+12 default 0 (continuous), sp_input_gain {0,+20,+40} default 0, interstage_level_db \u221260\u2026+24 default 0 (one explicit R10 gain), mpc_input_gain existing enum/mapping default least-gain (LO; sensitivity labels not full-scale calibration), output_trim_db \u221260\u2026+12 default 0 (final output gain only), plugin_bypass default false (separate from diagnostic machine bypass; host integration Sprint 7); ranges are OWNER-SET SOFTWARE CONTROL RANGES, not pot ranges or calibration; first product state: SP route NONE_CH7_8, MPC route MAIN_LR, CASCADE mode, R13 ROUND_NEAREST, other rules/modes research-only, physical calibration UNSET (no fake voltage knob); MPC record trim retained internally at its neutral value; interstage vs record trim ownership audited; no drive/wet-dry/reverse/unpopulated routes/calibration hypotheses in presets; state stores schema version, product values, asset identity/version; presets cannot rewrite calibration or research coefficients; unsupported future schema versions rejected explicitly; no invented migrations",
+    "OWN-DEC-021 smoothing": "continuous dB controls: 10 ms linear-in-dB ramps converted to linear gain at their defined stage; ramps advance by sample time, not host-buffer duration; identical event times \u2192 identical trajectories across partitions; no ramp restart per callback; new target continues from the current smoothed value; reset snaps to the configured initial value; constant parameters preserve the static reference behaviour; clock/event mapping recorded at each rate-domain boundary; separate automation fixtures; old static artifacts not rewritten; discrete switches remain discrete with defined event timing; structural changes never rebuild/allocate in process(); bypass transitions/UI in Sprint 7",
+    "OWN-DEC-022 known meter gap": "machine-level input-peak meters reading zero inside the cascade are not carried into the product as a valid silence reading: the native core meters the documented stage boundaries (host input peak, per-machine core-input proxy peak, converter clamp counts) or exposes an explicit unavailable status; reference instrumentation corrections leave audio unchanged with regression evidence",
+    "OWN-DEC-023 governance": "this authorization sets G-08 SOFTWARE criteria and the C++ core stack; it does not mark G-08 acceptance PASS before tests run; pending human listening does not block implementing/optimizing the owner-selected Path B; human listening NOT EXECUTED; G-04, G-07H and hardware-fit remain BLOCKED/DEFERRED; original contracts and research unchanged; an owner-set value supersedes an old UNSET placeholder; stop on substantive contradiction"
+  },
+  "execution_order": [
+    "record decisions and G-08 policy (this record)",
+    "resolve product-parameter table against code",
+    "freeze fixtures, metric definitions and acceptance limits (evidence/sprint_06/fixture_freeze.json, hashed before results)",
+    "inherited regression",
+    "straightforward float64 native port",
+    "stage-by-stage reference agreement",
+    "optimize only after baseline passes",
+    "smoothing/state/runtime tests",
+    "benchmark",
+    "full validation again"
+  ],
+  "constraints": [
+    "do not merge main",
+    "do not start Sprint 7",
+    "no plugin wrapper build/install",
+    "reference output never modified to make production pass",
+    "genuine reference defect \u2192 reproducible record + affected evidence + proposed correction + owner review before any sonic change"
+  ]
+}

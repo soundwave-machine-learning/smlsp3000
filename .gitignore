@@ -10,3 +10,4 @@ dist/
 *.tmp
 # Listening stimulus audio is regenerated from the committed generation record; hashes are committed, audio is not
 research/listening/**/stimuli/
+native/build/

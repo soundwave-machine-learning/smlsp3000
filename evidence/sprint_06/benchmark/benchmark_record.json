@@ -1,0 +1,392 @@
+{
+ "all_pass": true,
+ "applies_only_to": "the recorded environment; Windows performance pending until measured on Windows",
+ "build": {
+  "CMAKE_BUILD_TYPE": "Release",
+  "CMAKE_CXX_COMPILER": "/usr/bin/c++",
+  "CMAKE_CXX_FLAGS": "",
+  "CMAKE_CXX_FLAGS_RELEASE": "-O2 -DNDEBUG",
+  "CMAKE_GENERATOR": "Ninja",
+  "SMLSP3000_NATIVE_ARCH": "OFF",
+  "binary": "/home/user/smlsp3000/native/build/smlsp3000_native",
+  "build_dir": "/home/user/smlsp3000/native/build",
+  "compiler_version": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "denormal_policy": "none (no FTZ/DAZ; bit-identity with the reference; all filters are feed-forward so denormals cannot self-sustain)",
+  "fast_math": "OFF (-fno-fast-math)",
+  "fma_contraction_policy": "OFF: -ffp-contract=off (GCC default for GNU C++ is 'fast'); products and sums are rounded separately so FIR accumulation reproduces the numpy pairwise order",
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "target_compile_options": "-Wall -Wextra -O2 -ffp-contract=off -fno-fast-math -fexcess-precision=standard (GCC/Clang; see native/CMakeLists.txt); MSVC: /W4 /fp:precise /O2 (not compiled here)"
+ },
+ "container": "Claude Code cloud container (shared virtualised CPU, no real-time scheduling, no CPU pinning, background processes idle during the run)",
+ "cpu_model": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "load_definition": "processing elapsed time / represented audio duration (steady_clock around each process() call)",
+ "p999_target_met_all_pairs": true,
+ "pairs": {
+  "176400_256": {
+   "block": 256,
+   "callback_budget_s": 0.0014512471655328798,
+   "calls_per_trial": 3445,
+   "calls_total": 10335,
+   "limit_mean_load": 0.6,
+   "max_mean_load": 0.15533426527576222,
+   "mean_load_all_trials": [
+    0.15533426527576222,
+    0.1430511153578556,
+    0.143668096719884
+   ],
+   "mean_load_limit_pass": true,
+   "median_over_budget": [
+    0.1517432765625,
+    0.142215609375,
+    0.1432567828125
+   ],
+   "overruns_total": 0,
+   "p999_target_fraction": 0.8,
+   "p999_target_met": true,
+   "pass": true,
+   "rate": 176400,
+   "trials": [
+    {
+     "max_s": 0.000432565,
+     "mean_load": 0.15533426527576222,
+     "median_s": 0.000220217,
+     "min_s": 0.000186366,
+     "overruns": 0,
+     "p95_s": 0.000264327,
+     "p999_over_budget": 0.272994159375,
+     "p999_s": 0.000396182,
+     "p99_s": 0.000362553
+    },
+    {
+     "max_s": 0.000374312,
+     "mean_load": 0.1430511153578556,
+     "median_s": 0.00020639,
+     "min_s": 0.000184515,
+     "overruns": 0,
+     "p95_s": 0.000233145,
+     "p999_over_budget": 0.2329396453125,
+     "p999_s": 0.000338053,
+     "p99_s": 0.00025144
+    },
+    {
+     "max_s": 0.000915098,
+     "mean_load": 0.143668096719884,
+     "median_s": 0.000207901,
+     "min_s": 0.000183065,
+     "overruns": 0,
+     "p95_s": 0.00023311,
+     "p999_over_budget": 0.2724504890625,
+     "p999_s": 0.000395393,
+     "p99_s": 0.000246413
+    }
+   ]
+  },
+  "192000_256": {
+   "block": 256,
+   "callback_budget_s": 0.0013333333333333333,
+   "calls_per_trial": 3750,
+   "calls_total": 11250,
+   "limit_mean_load": 0.6,
+   "max_mean_load": 0.20600323899999964,
+   "mean_load_all_trials": [
+    0.20422546300000022,
+    0.2032790333999998,
+    0.20600323899999964
+   ],
+   "mean_load_limit_pass": true,
+   "median_over_budget": [
+    0.19796625,
+    0.19854524999999998,
+    0.19975350000000003
+   ],
+   "overruns_total": 0,
+   "p999_target_fraction": 0.8,
+   "p999_target_met": true,
+   "pass": true,
+   "rate": 192000,
+   "trials": [
+    {
+     "max_s": 0.000511843,
+     "mean_load": 0.20422546300000022,
+     "median_s": 0.000263955,
+     "min_s": 0.000228662,
+     "overruns": 0,
+     "p95_s": 0.000341358,
+     "p999_over_budget": 0.3499275,
+     "p999_s": 0.00046657,
+     "p99_s": 0.000420656
+    },
+    {
+     "max_s": 0.000480991,
+     "mean_load": 0.2032790333999998,
+     "median_s": 0.000264727,
+     "min_s": 0.0002231,
+     "overruns": 0,
+     "p95_s": 0.000336818,
+     "p999_over_budget": 0.33290325,
+     "p999_s": 0.000443871,
+     "p99_s": 0.000386949
+    },
+    {
+     "max_s": 0.00051705,
+     "mean_load": 0.20600323899999964,
+     "median_s": 0.000266338,
+     "min_s": 0.000220935,
+     "overruns": 0,
+     "p95_s": 0.000346858,
+     "p999_over_budget": 0.35031975000000004,
+     "p999_s": 0.000467093,
+     "p99_s": 0.000415908
+    }
+   ]
+  },
+  "44100_64": {
+   "block": 64,
+   "callback_budget_s": 0.0014512471655328798,
+   "calls_per_trial": 3445,
+   "calls_total": 10335,
+   "limit_mean_load": 0.2,
+   "max_mean_load": 0.09535884392824774,
+   "mean_load_all_trials": [
+    0.09535884392824774,
+    0.06592214793314585,
+    0.07123968724963715
+   ],
+   "mean_load_limit_pass": true,
+   "median_over_budget": [
+    0.087539878125,
+    0.064330875,
+    0.06803251875
+   ],
+   "overruns_total": 0,
+   "p999_target_fraction": 0.8,
+   "p999_target_met": true,
+   "pass": true,
+   "rate": 44100,
+   "trials": [
+    {
+     "max_s": 0.000959662,
+     "mean_load": 0.09535884392824774,
+     "median_s": 0.000127042,
+     "min_s": 8.4215e-05,
+     "overruns": 0,
+     "p95_s": 0.000225104,
+     "p999_over_budget": 0.5728500421875,
+     "p999_s": 0.000831347,
+     "p99_s": 0.000455619
+    },
+    {
+     "max_s": 0.0002037,
+     "mean_load": 0.06592214793314585,
+     "median_s": 9.336e-05,
+     "min_s": 8.2932e-05,
+     "overruns": 0,
+     "p95_s": 0.000122319,
+     "p999_over_budget": 0.12945279375,
+     "p999_s": 0.000187868,
+     "p99_s": 0.000152607
+    },
+    {
+     "max_s": 0.000216504,
+     "mean_load": 0.07123968724963715,
+     "median_s": 9.8732e-05,
+     "min_s": 8.3525e-05,
+     "overruns": 0,
+     "p95_s": 0.000135616,
+     "p999_over_budget": 0.13440164062499999,
+     "p999_s": 0.00019505,
+     "p99_s": 0.000168286
+    }
+   ]
+  },
+  "48000_64": {
+   "block": 64,
+   "callback_budget_s": 0.0013333333333333333,
+   "calls_per_trial": 3750,
+   "calls_total": 11250,
+   "limit_mean_load": 0.2,
+   "max_mean_load": 0.096341066,
+   "mean_load_all_trials": [
+    0.09344852400000028,
+    0.096341066,
+    0.09289100080000032
+   ],
+   "mean_load_limit_pass": true,
+   "median_over_budget": [
+    0.08890875,
+    0.09287925,
+    0.08976675
+   ],
+   "overruns_total": 0,
+   "p999_target_fraction": 0.8,
+   "p999_target_met": true,
+   "pass": true,
+   "rate": 48000,
+   "trials": [
+    {
+     "max_s": 0.000314972,
+     "mean_load": 0.09344852400000028,
+     "median_s": 0.000118545,
+     "min_s": 0.000105684,
+     "overruns": 0,
+     "p95_s": 0.000168751,
+     "p999_over_budget": 0.1710375,
+     "p999_s": 0.00022805,
+     "p99_s": 0.000202598
+    },
+    {
+     "max_s": 0.000286485,
+     "mean_load": 0.096341066,
+     "median_s": 0.000123839,
+     "min_s": 0.000109009,
+     "overruns": 0,
+     "p95_s": 0.000161717,
+     "p999_over_budget": 0.18254250000000002,
+     "p999_s": 0.00024339,
+     "p99_s": 0.000194508
+    },
+    {
+     "max_s": 0.000347312,
+     "mean_load": 0.09289100080000032,
+     "median_s": 0.000119689,
+     "min_s": 0.000108382,
+     "overruns": 0,
+     "p95_s": 0.000150044,
+     "p999_over_budget": 0.172878,
+     "p999_s": 0.000230504,
+     "p99_s": 0.000197318
+    }
+   ]
+  },
+  "88200_128": {
+   "block": 128,
+   "callback_budget_s": 0.0014512471655328798,
+   "calls_per_trial": 3445,
+   "calls_total": 10335,
+   "limit_mean_load": 0.4,
+   "max_mean_load": 0.09558380193260162,
+   "mean_load_all_trials": [
+    0.09439068531340715,
+    0.09558380193260162,
+    0.09001632394593624
+   ],
+   "mean_load_limit_pass": true,
+   "median_over_budget": [
+    0.093727659375,
+    0.09385306875,
+    0.0897000890625
+   ],
+   "overruns_total": 0,
+   "p999_target_fraction": 0.8,
+   "p999_target_met": true,
+   "pass": true,
+   "rate": 88200,
+   "trials": [
+    {
+     "max_s": 0.000303267,
+     "mean_load": 0.09439068531340715,
+     "median_s": 0.000136022,
+     "min_s": 0.000116738,
+     "overruns": 0,
+     "p95_s": 0.000157181,
+     "p999_over_budget": 0.1672967953125,
+     "p999_s": 0.000242789,
+     "p99_s": 0.000180583
+    },
+    {
+     "max_s": 0.000259572,
+     "mean_load": 0.09558380193260162,
+     "median_s": 0.000136204,
+     "min_s": 0.000116986,
+     "overruns": 0,
+     "p95_s": 0.000165292,
+     "p999_over_budget": 0.16092365625,
+     "p999_s": 0.00023354,
+     "p99_s": 0.000205228
+    },
+    {
+     "max_s": 0.000234446,
+     "mean_load": 0.09001632394593624,
+     "median_s": 0.000130177,
+     "min_s": 0.000116161,
+     "overruns": 0,
+     "p95_s": 0.000151613,
+     "p999_over_budget": 0.1532040890625,
+     "p999_s": 0.000222337,
+     "p99_s": 0.000178198
+    }
+   ]
+  },
+  "96000_128": {
+   "block": 128,
+   "callback_budget_s": 0.0013333333333333333,
+   "calls_per_trial": 3750,
+   "calls_total": 11250,
+   "limit_mean_load": 0.4,
+   "max_mean_load": 0.13584945099999984,
+   "mean_load_all_trials": [
+    0.13033066,
+    0.13584945099999984,
+    0.12974706780000003
+   ],
+   "mean_load_limit_pass": true,
+   "median_over_budget": [
+    0.125577,
+    0.12602325,
+    0.126633
+   ],
+   "overruns_total": 0,
+   "p999_target_fraction": 0.8,
+   "p999_target_met": true,
+   "pass": true,
+   "rate": 96000,
+   "trials": [
+    {
+     "max_s": 0.000402404,
+     "mean_load": 0.13033066,
+     "median_s": 0.000167436,
+     "min_s": 0.000146892,
+     "overruns": 0,
+     "p95_s": 0.000233489,
+     "p999_over_budget": 0.25703625,
+     "p999_s": 0.000342715,
+     "p99_s": 0.000279509
+    },
+    {
+     "max_s": 0.000353817,
+     "mean_load": 0.13584945099999984,
+     "median_s": 0.000168031,
+     "min_s": 0.000147675,
+     "overruns": 0,
+     "p95_s": 0.000259803,
+     "p999_over_budget": 0.25289175,
+     "p999_s": 0.000337189,
+     "p99_s": 0.000293939
+    },
+    {
+     "max_s": 0.000327294,
+     "mean_load": 0.12974706780000003,
+     "median_s": 0.000168844,
+     "min_s": 0.000147073,
+     "overruns": 0,
+     "p95_s": 0.000204676,
+     "p999_over_budget": 0.21424200000000002,
+     "p999_s": 0.000285656,
+     "p99_s": 0.000235972
+    }
+   ]
+  }
+ },
+ "record": "Sprint 06 native Release benchmark (OWN-DEC-017)",
+ "recorded_utc": "2026-10-07T03:31:37+00:00",
+ "scheduling_conditions": "shared cloud VM vCPU (Intel Xeon @ 2.10 GHz, 4 vCPU), ordinary process priority, no real-time scheduling, no CPU pinning, no isolated core; callback-time outliers (several times the median) are host preemption/jitter, not steady-state load; every overrun is listed per trial",
+ "signal": "deterministic 3-tone + LCG noise (see tool); stereo; CASCADE product state; preallocated; warm-up before timing",
+ "threads": 1
+}

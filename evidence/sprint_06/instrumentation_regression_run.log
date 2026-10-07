@@ -1,0 +1,17 @@
+== instrumentation-only reference change (sp1200 1.0.5 / mpc3000 1.0.3 / cascade 1.0.1): Sprint 3/4/5 validation re-run and compared with committed records
+s3 exit=0
+s4 exit=0
+s5 exit=0
+REGRESSION cascade/VAL-015_software.json identical: False | differences: 2 | all differences are the cascade machine-level peak_input_normalized meter marked UNAVAILABLE_IN_CASCADE: True | PASS PASS
+     ('/results/interstage/+20dB_clamp/mpc_meters/peak_input_normalized', 0.0, 'UNAVAILABLE_IN_CASCADE (host input peak is host_input_peak)')
+     ('/results/interstage/+20dB_clamp/sp_meters/peak_input_normalized', 0.0, 'UNAVAILABLE_IN_CASCADE (host input peak is host_input_peak)')
+REGRESSION cascade/VAL-016_software.json identical: True | differences: 0 | all differences are the cascade machine-level peak_input_normalized meter marked UNAVAILABLE_IN_CASCADE: n/a | PASS PASS
+REGRESSION mpc3000/analog/VAL-013_software.json identical: True | differences: 0 | all differences are the cascade machine-level peak_input_normalized meter marked UNAVAILABLE_IN_CASCADE: n/a | PASS PASS
+REGRESSION mpc3000/digital/VAL-012_software.json identical: True | differences: 0 | all differences are the cascade machine-level peak_input_normalized meter marked UNAVAILABLE_IN_CASCADE: n/a | PASS PASS
+REGRESSION mpc3000/path_comparison/VAL-014_software.json identical: True | differences: 0 | all differences are the cascade machine-level peak_input_normalized meter marked UNAVAILABLE_IN_CASCADE: n/a | PASS PASS
+REGRESSION sp1200/calibration/VAL-011_software.json identical: True | differences: 0 | all differences are the cascade machine-level peak_input_normalized meter marked UNAVAILABLE_IN_CASCADE: n/a | PASS PASS
+REGRESSION sp1200/digital/VAL-008_software.json identical: True | differences: 0 | all differences are the cascade machine-level peak_input_normalized meter marked UNAVAILABLE_IN_CASCADE: n/a | PASS PASS
+REGRESSION sp1200/input/VAL-009_software.json identical: True | differences: 0 | all differences are the cascade machine-level peak_input_normalized meter marked UNAVAILABLE_IN_CASCADE: n/a | PASS PASS
+REGRESSION sp1200/output/VAL-010_software.json identical: True | differences: 0 | all differences are the cascade machine-level peak_input_normalized meter marked UNAVAILABLE_IN_CASCADE: n/a | PASS PASS
+REGRESSION stereo/VAL-017_software.json identical: True | differences: 0 | all differences are the cascade machine-level peak_input_normalized meter marked UNAVAILABLE_IN_CASCADE: n/a | PASS PASS
+AUDIO_AND_NUMERICS_IDENTICAL True

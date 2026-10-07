@@ -1,0 +1,32 @@
+{
+  "controls_id": "sml-sp3000-product-controls",
+  "schema_version": 1,
+  "status": "OWNER-SET SOFTWARE CONTROL RANGES (OWN-DEC-020, 2026-10-07); not hardware pot ranges, not measured calibration; first product profile",
+  "product_profile": {
+    "sp_output_path": "NONE_CH7_8",
+    "mpc_output_route": "MAIN_LR",
+    "chain_mode": "CASCADE",
+    "reduction_rule": "ROUND_NEAREST",
+    "quantizer_rule": "ROUND_NEAREST",
+    "calibration_mode": "NORMALIZED_RESEARCH",
+    "mpc_record_level_db_internal_fixed": 0.0,
+    "note": "other quantizer/reduction rules, chain modes, quantizer-bypass diagnostics and reverse order are research/diagnostic only and are not reachable from product state; physical calibration UNSET (no voltage control)"
+  },
+  "controls": {
+    "sp_input_level_db": {"type": "float", "unit": "dB", "min": -60.0, "max": 12.0, "default": 0.0, "smoothing": "10 ms linear-in-dB ramp, proxy-rate sample clock", "stage": "R2 (proxy grid, SP core input)", "event_mapping": "event at host input sample m applies from proxy index m*L + R1 delay (lobes*L)"},
+    "sp_input_gain": {"type": "enum", "unit": "dB", "values": [0, 20, 40], "default": 0, "smoothing": "none (discrete)", "stage": "R2", "event_mapping": "same proxy index mapping as sp_input_level_db; switches at that sample, no interpolation"},
+    "interstage_level_db": {"type": "float", "unit": "dB", "min": -60.0, "max": 24.0, "default": 0.0, "smoothing": "10 ms linear-in-dB ramp, proxy-rate sample clock", "stage": "R10 (proxy grid, between SP core and MPC core)", "event_mapping": "event at host input sample m applies from proxy index m*L + R1 delay + SP core delay"},
+    "mpc_input_gain": {"type": "enum", "values": ["LO", "MID", "HI"], "relative_gain_db": {"LO": 0, "MID": 20, "HI": 40}, "default": "LO", "smoothing": "none (discrete)", "stage": "R11", "event_mapping": "event at host input sample m applies from proxy index m*L + R1 delay + SP core delay (same boundary as R10)", "note": "sensitivity labels are not full-scale calibration (OWN-DEC-008)"},
+    "output_trim_db": {"type": "float", "unit": "dB", "min": -60.0, "max": 12.0, "default": 0.0, "smoothing": "10 ms linear-in-dB ramp, host-rate sample clock", "stage": "R16 output (final output gain only; after the reference comparison point)", "event_mapping": "event at host sample m applies from output sample m of the same call (host time; not shifted by latency)"},
+    "plugin_bypass": {"type": "bool", "default": false, "smoothing": "none in Sprint 6 (transition policy Sprint 7)", "stage": "host output selector", "semantics": "latency-aligned dry passthrough (input delayed by the reported latency, no gains, no trim); the processing chain keeps running so state stays warm; separate from diagnostic chain modes", "event_mapping": "switches at the host sample of the event"}
+  },
+  "ramp_ms": 10.0,
+  "state_policy": {
+    "schema_version": 1,
+    "stored_fields": ["schema_version", "product_config identity", "sp asset identity/version/model_version/sha256", "mpc asset identity/version/model_version/sha256", "the six controls above"],
+    "invalid_values": "REJECT the whole record with a named reason (out-of-range float, unknown enum, unknown key, non-finite); nothing is silently sanitized or promoted",
+    "unsupported_schema_version": "REJECT explicitly (UNSUPPORTED_SCHEMA_VERSION); no migration exists because no earlier product format existed",
+    "asset_identity_mismatch": "REJECT (ASSET_IDENTITY_MISMATCH): a state written for another asset version is not applied",
+    "research_fields": "never stored, never accepted"
+  }
+}

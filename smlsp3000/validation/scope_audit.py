@@ -32,6 +32,15 @@ def run(out_path: str | Path, command: str) -> dict:
         for label, rx in FORBIDDEN_TOKENS.items():
             for m in rx.finditer(code_only):
                 hits.setdefault(label, []).append(f"{py.name}: {m.group(0)}")
+    # Sprint 6: the native production core is audited with the same tokens (C/C++ comments and string literals stripped)
+    native_root = Path(sp1200.__file__).resolve().parents[2] / "native"
+    native_files = sorted(list((native_root / "include").rglob("*.hpp")) + list((native_root / "src").glob("*.cpp")) + list((native_root / "tools").glob("*.cpp")) + list((native_root / "generated").glob("*.hpp")))
+    strip_rx = re.compile(r'//[^\n]*|/\*.*?\*/|"(?:\\.|[^"\\])*"', re.S)
+    for cpp in native_files:
+        code_only = strip_rx.sub(" ", cpp.read_text(encoding="utf-8"))
+        for label, rx in FORBIDDEN_TOKENS.items():
+            for m in rx.finditer(code_only):
+                hits.setdefault(label, []).append(f"native/{cpp.relative_to(native_root)}: {m.group(0)}")
     asset, asha = load_asset()
     cfg, rsha = load_research_config()
     product_fields = [f.name for f in fields(sp1200.SPProductParameters)]
@@ -49,7 +58,8 @@ def run(out_path: str | Path, command: str) -> dict:
             "asset_routes_status": {k: v["status"] for k, v in asset["values"]["output_routes"]["value"].items()},
             "research_switches": cfg["switches"],
             "forbidden_token_hits_in_reference_code": hits,
-            "chain_order": "SP only in Sprint 3 (R1-R9, R16); no MPC blocks; no reverse order",
+            "chain_order": "SP → MPC product order; reverse order only behind the research switch reverse_order_research (never product)",
+            "native_files_audited": [str(f.relative_to(native_root)) for f in native_files],
             "noise_jitter_mismatch_sag_limiter": "none implemented",
         },
         "outcome": "PASS" if (not hits and not any("pitch" in f for f in product_fields)) else "FAIL",

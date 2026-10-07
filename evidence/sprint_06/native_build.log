@@ -1,0 +1,45 @@
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/user/smlsp3000/native/build
+[1/10] Building CXX object CMakeFiles/smlsp3000_core.dir/src/mpc_core.cpp.o
+/home/user/smlsp3000/native/src/mpc_core.cpp: In member function 'void smlsp3000::MPCCore::build_composed_tables(const std::vector<double>&, const std::vector<double>&)':
+/home/user/smlsp3000/native/src/mpc_core.cpp:147:15: warning: unused variable 'hw' [-Wunused-variable]
+  147 |     const int hw = cfg_.hw_s, Ws = staps_->width; const std::int64_t H = r12_half_, M12 = static_cast<std::int64_t>(h_r12.size());
+      |               ^~
+[2/10] Building CXX object CMakeFiles/smlsp3000_core.dir/src/kernels.cpp.o
+/home/user/smlsp3000/native/src/kernels.cpp: In member function 'double smlsp3000::StepTable::operator()(double) const':
+/home/user/smlsp3000/native/src/kernels.cpp:69:5: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+   69 |     if (i < 0) i = 0; if (i > last) i = last;
+      |     ^~
+/home/user/smlsp3000/native/src/kernels.cpp:69:23: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+   69 |     if (i < 0) i = 0; if (i > last) i = last;
+      |                       ^~
+[3/10] Building CXX object CMakeFiles/smlsp3000_core.dir/src/sp_core.cpp.o
+[4/10] Building CXX object CMakeFiles/smlsp3000_core.dir/src/streaming.cpp.o
+[5/10] Building CXX object CMakeFiles/smlsp3000_selftest.dir/tests/selftest.cpp.o
+[6/10] Building CXX object CMakeFiles/smlsp3000_core.dir/src/engine.cpp.o
+[7/10] Linking CXX static library libsmlsp3000_core.a
+[8/10] Linking CXX executable smlsp3000_selftest
+[9/10] Building CXX object CMakeFiles/smlsp3000_native.dir/tools/smlsp3000_native.cpp.o
+/home/user/smlsp3000/native/tools/smlsp3000_native.cpp: In function 'bool parse_param(const std::string&, smlsp3000::ParamId&)':
+/home/user/smlsp3000/native/tools/smlsp3000_native.cpp:84:5: warning: this 'for' clause does not guard... [-Wmisleading-indentation]
+   84 |     for (int i = 0; i < 6; ++i) if (s == names[i]) { id = static_cast<ParamId>(i); return true; } return false; }
+      |     ^~~
+/home/user/smlsp3000/native/tools/smlsp3000_native.cpp:84:99: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'for'
+   84 |     for (int i = 0; i < 6; ++i) if (s == names[i]) { id = static_cast<ParamId>(i); return true; } return false; }
+      |                                                                                                   ^~~~~~
+/home/user/smlsp3000/native/tools/smlsp3000_native.cpp: In function 'int main(int, char**)':
+/home/user/smlsp3000/native/tools/smlsp3000_native.cpp:189:5: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+  189 |     if (cmd == "info") return cmd_info(a); if (cmd == "render") return cmd_render(a); if (cmd == "dump-kernels") return cmd_dump_kernels(a); if (cmd == "bench") return cmd_bench(a); if (cmd == "state-load") return cmd_state(a);
+      |     ^~
+/home/user/smlsp3000/native/tools/smlsp3000_native.cpp:189:44: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+  189 |     if (cmd == "info") return cmd_info(a); if (cmd == "render") return cmd_render(a); if (cmd == "dump-kernels") return cmd_dump_kernels(a); if (cmd == "bench") return cmd_bench(a); if (cmd == "state-load") return cmd_state(a);
+      |                                            ^~
+[10/10] Linking CXX executable smlsp3000_native
+exit=0

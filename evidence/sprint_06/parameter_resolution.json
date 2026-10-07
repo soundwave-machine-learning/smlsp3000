@@ -1,0 +1,49 @@
+{
+  "record": "Sprint 06 product-parameter table resolved against current code (execution order step 2)",
+  "recorded_utc": "2026-10-07T02:38:58+00:00",
+  "source_of_truth": "smlsp3000/reference/assets/product_controls_v1.json (schema v1) \u2014 generated into the native core; PARAMETERS.md updated",
+  "identifier_reconciliation": {
+    "sp_input_level_db": "existing identifier (SPProductParameters.sp_input_level_db) \u2014 kept",
+    "sp_input_gain": "existing identifier, int dB {0,20,40} \u2014 kept",
+    "interstage_level_db": "existing identifier (CascadeProductParameters.interstage_level_db) \u2014 kept",
+    "mpc_input_gain": "existing identifier, enum LO/MID/HI with asset relative_gain_db 0/20/40 \u2014 kept; default LO = implemented least-gain position",
+    "output_trim_db": "PARAMETERS.md candidate; not implemented in the reference (reference comparison point is before trim) \u2014 NEW in native core and in the Python reference only as an offline post-gain for the trim law test",
+    "plugin_bypass": "PARAMETERS.md candidate \u2014 NEW in native core (static latency-aligned dry passthrough); host integration Sprint 7",
+    "chain_mode": "existing identifier; product fixed CASCADE; research modes reachable only through the research configuration of the offline tools, never from product state",
+    "mpc_record_level_db": "existing identifier; retained internally, fixed 0.0 dB in the product profile (see ownership audit)",
+    "sp_output_path / mpc_output_route / calibration_mode": "existing identifiers; fixed in the product profile",
+    "input_calibration_dbfs": "NOT exposed (volts UNSET; physical calibration blocked)"
+  },
+  "ownership_audit_interstage_vs_record_trim": {
+    "code_path": "cascade: h = SP core output; h = h * g10 (R10); MPC core: v = v * (g_step * g_trim) (R11) then the R12 band-limit FIR \u2014 all linear scalars applied consecutively with no nonlinear or state-bearing block between R10 and R11",
+    "finding": "interstage_level_db and mpc_record_level_db are mathematically REDUNDANT in the implemented model (effective gain = g10 * g_step * g_trim); the only differences are the record trim's <= 0 dB range restriction and float rounding order; neither has a non-redundant role in Track A",
+    "decision": "expose interstage_level_db only; keep mpc_record_level_db internally fixed at 0.0 dB (neutral) in product profile v1; it remains available to research configurations and to a future Track B asset where the pot law could become a measured non-linear mapping",
+    "distinction_reported": "none required (no non-redundant role proven)"
+  },
+  "research_switches_in_native_core": {
+    "supported": [
+      "quantizer_rule ROUND_NEAREST/FLOOR",
+      "quantizer_bypass_diagnostic",
+      "reduction_rule ROUND_NEAREST/TRUNCATION",
+      "converter_quantization_bypass_diagnostic",
+      "proxy_oversampling (any integer >= 1, used for VAL-020 convergence)",
+      "kernel sizes/betas",
+      "chain_mode research modes",
+      "diagnostic taps (offline tool only)",
+      "reverse_order_research"
+    ],
+    "not_ported": [
+      "slot_skew_enabled / capture_offset_enabled (research-only SP offsets; native prepare rejects non-zero offsets with RESEARCH_SWITCH_NOT_PORTED)",
+      "hold_fraction != 1.0 (blocked in the reference too)",
+      "R3 strategies other than INACTIVE (not populated)"
+    ]
+  },
+  "defaults": {
+    "sp_input_level_db": 0.0,
+    "sp_input_gain": 0,
+    "interstage_level_db": 0.0,
+    "mpc_input_gain": "LO",
+    "output_trim_db": 0.0,
+    "plugin_bypass": false
+  }
+}

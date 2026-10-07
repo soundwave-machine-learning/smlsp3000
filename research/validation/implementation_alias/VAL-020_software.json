@@ -1,0 +1,677 @@
+{
+ "artifact_class": "VALIDATION RESULT",
+ "asset_identity": {
+  "asset_id": "native(cascade-reference oracle; sp1200-track-a-provisional v1 + mpc3000-track-a-provisional v1)",
+  "model_version": "smlsp3000-native-core-1.0.0 vs cascade-reference-impl-1.0.1",
+  "sha256": "11f7b417ccaf990155ec6c50df5f78c442453fbe67d0d6ba9710d927e8c71151",
+  "version": "1"
+ },
+ "check_id": "VAL-020",
+ "command": "python3 -m smlsp3000.runner validate-sprint6 --out research/validation",
+ "dataset_role": "VALIDATION",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "hardware_fit_outcome": "BLOCKED",
+ "limitations": [
+  "The 16x rendering is the same model at a finer proxy, not an analog oracle; convergence says nothing about hardware.",
+  "Historical image/alias level agreement with hardware (G-06) remains BLOCKED."
+ ],
+ "method": "Proxy-rate convergence of the accepted reference (8x vs 16x, research switch proxy_oversampling on both machines) and native-vs-reference at both ratios on short deterministic fixtures (near-Nyquist tone, two-tone, stepped clamp levels, multitone, 1 kHz), each render aligned by its own declared latency and the shared physical origin; spectral categories separated: intentional SP images/fold-back (lines at k*26041.67 \u00b1 f), converter-clamp harmonics (overrange fixture), implementation filtering error (8x vs 16x difference), production-introduced difference (native vs reference at the same ratio). Structural check: the native SP stage renders the band-limited zero-order hold (step table) \u2014 verified by the presence and level of SP image lines equal to the reference's.",
+ "outcome": "PASS",
+ "requirement_id": "REQ-020",
+ "research_config_sha256": "81871c8b52694b188a48f53808979406b25d5c4fd92af746806457ad6a3fe88d",
+ "results": {
+  "cells": {
+   "multitone_mix_m12_48000": {
+    "implementation_filtering_error_max_db_inband_8_vs_16": -119.58005548939553,
+    "kernel_line_bound_relative_8x": 6.21787881594406e-05,
+    "latency_16x": 310,
+    "latency_8x": 310,
+    "lines": {},
+    "model_self_convergence_db_re_signal": -86.38671494956442,
+    "model_self_convergence_rms_8_vs_16": 4.870905144350358e-06,
+    "model_self_convergence_within_kernel_line_bound": true,
+    "native_latency_16x": 310,
+    "native_latency_8x": 310,
+    "pass_production": true,
+    "production_cells_16x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.05735174654752234,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 7.771561172376096e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 1.0976242763010238e-16,
+      "rms_input": 0.1036777857813515,
+      "rms_limit": 1.0367778578135152e-06
+     }
+    ],
+    "production_cells_8x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.0768480909829407,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 5.551115123125783e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 7.567804826763331e-17,
+      "rms_input": 0.1036777857813515,
+      "rms_limit": 1.0367778578135152e-06
+     }
+    ],
+    "production_introduced_max_db_inband": -343.5261544233283,
+    "production_vs_reference_rms_16x": 1.111667134932727e-16,
+    "production_vs_reference_rms_8x": 7.664765712531519e-17
+   },
+   "multitone_mix_m12_96000": {
+    "implementation_filtering_error_max_db_inband_8_vs_16": -115.81683038687248,
+    "kernel_line_bound_relative_8x": 6.21787881594406e-05,
+    "latency_16x": 449,
+    "latency_8x": 449,
+    "lines": {},
+    "model_self_convergence_db_re_signal": -84.52325989355629,
+    "model_self_convergence_rms_8_vs_16": 6.035952019981277e-06,
+    "model_self_convergence_within_kernel_line_bound": true,
+    "native_latency_16x": 449,
+    "native_latency_8x": 449,
+    "pass_production": true,
+    "production_cells_16x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.06196572456951205,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 8.881784197001252e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 1.0984490708407707e-16,
+      "rms_input": 0.10367700616130233,
+      "rms_limit": 1.0367700616130235e-06
+     }
+    ],
+    "production_cells_8x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.0773446766738926,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 6.106226635438361e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 7.748811735609757e-17,
+      "rms_input": 0.10367700616130233,
+      "rms_limit": 1.0367700616130235e-06
+     }
+    ],
+    "production_introduced_max_db_inband": -345.9041418075093,
+    "production_vs_reference_rms_16x": 1.1086571793446535e-16,
+    "production_vs_reference_rms_8x": 7.820831414508447e-17
+   },
+   "near_nyquist_tone_19k_48000": {
+    "implementation_filtering_error_max_db_inband_8_vs_16": -110.08754412523868,
+    "kernel_line_bound_relative_8x": 6.21787881594406e-05,
+    "latency_16x": 310,
+    "latency_8x": 310,
+    "lines": {
+     "input_tone": {
+      "f": 19000.0,
+      "native8_db": -15.7127825296369,
+      "ref16_db": -15.712750380350446,
+      "ref8_db": -15.7127825296369
+     },
+     "sp_image_1-": {
+      "category": "INTENTIONAL SP image / fold-back (band-limited ZOH on the provisional 26.04 kHz grid)",
+      "f": 7041.666666666668,
+      "native8_db": -8.074669029168302,
+      "ref16_db": -8.074634624781066,
+      "ref8_db": -8.074669029168302
+     }
+    },
+    "model_self_convergence_db_re_signal": -82.00571947173358,
+    "model_self_convergence_rms_8_vs_16": 2.6457423064276768e-05,
+    "model_self_convergence_within_kernel_line_bound": true,
+    "native_latency_16x": 310,
+    "native_latency_8x": 310,
+    "pass_production": true,
+    "production_cells_16x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.0586515028432169,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 1.4432899320127035e-15,
+      "peak_limit": 0.0001,
+      "rms_error": 3.577860328230347e-16,
+      "rms_input": 0.35355339059327556,
+      "rms_limit": 3.535533905932756e-06
+     }
+    ],
+    "production_cells_8x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.07993501218521527,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 1.1102230246251565e-15,
+      "peak_limit": 0.0001,
+      "rms_error": 2.5455221436782936e-16,
+      "rms_input": 0.35355339059327556,
+      "rms_limit": 3.535533905932756e-06
+     }
+    ],
+    "production_introduced_max_db_inband": -326.15397117393695,
+    "production_vs_reference_rms_16x": 3.6237278875978335e-16,
+    "production_vs_reference_rms_8x": 2.578170432150807e-16
+   },
+   "near_nyquist_tone_19k_96000": {
+    "implementation_filtering_error_max_db_inband_8_vs_16": -109.89538431520117,
+    "kernel_line_bound_relative_8x": 6.21787881594406e-05,
+    "latency_16x": 449,
+    "latency_8x": 449,
+    "lines": {
+     "input_tone": {
+      "f": 19000.0,
+      "native8_db": -15.712463646636001,
+      "ref16_db": -15.712519348280068,
+      "ref8_db": -15.712463646636001
+     },
+     "sp_image_1+": {
+      "category": "INTENTIONAL SP image / fold-back (band-limited ZOH on the provisional 26.04 kHz grid)",
+      "f": 45041.66666666667,
+      "native8_db": -257.25669843758567,
+      "ref16_db": -257.2967332141616,
+      "ref8_db": -257.256488935492
+     },
+     "sp_image_1-": {
+      "category": "INTENTIONAL SP image / fold-back (band-limited ZOH on the provisional 26.04 kHz grid)",
+      "f": 7041.666666666668,
+      "native8_db": -8.074511509553622,
+      "ref16_db": -8.074564791744551,
+      "ref8_db": -8.074511509553624
+     },
+     "sp_image_2-": {
+      "category": "INTENTIONAL SP image / fold-back (band-limited ZOH on the provisional 26.04 kHz grid)",
+      "f": 33083.333333333336,
+      "native8_db": -244.05151095088553,
+      "ref16_db": -244.0369638122884,
+      "ref8_db": -244.0514954222364
+     }
+    },
+    "model_self_convergence_db_re_signal": -82.13470874203404,
+    "model_self_convergence_rms_8_vs_16": 2.6068536191999528e-05,
+    "model_self_convergence_within_kernel_line_bound": true,
+    "native_latency_16x": 449,
+    "native_latency_8x": 449,
+    "pass_production": true,
+    "production_cells_16x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.05881631150558305,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 1.9984014443252818e-15,
+      "peak_limit": 0.0001,
+      "rms_error": 3.6447547474220897e-16,
+      "rms_input": 0.3535533905932738,
+      "rms_limit": 3.535533905932738e-06
+     }
+    ],
+    "production_cells_8x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.08217104994069287,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 1.3322676295501878e-15,
+      "peak_limit": 0.0001,
+      "rms_error": 2.593693663103623e-16,
+      "rms_input": 0.3535533905932738,
+      "rms_limit": 3.535533905932738e-06
+     }
+    ],
+    "production_introduced_max_db_inband": -327.86806239459025,
+    "production_vs_reference_rms_16x": 3.6786697178103903e-16,
+    "production_vs_reference_rms_8x": 2.61782660593225e-16
+   },
+   "overrange_steps_pm16_48000": {
+    "implementation_filtering_error_max_db_inband_8_vs_16": -136.19445797880803,
+    "kernel_line_bound_relative_8x": 6.21787881594406e-05,
+    "latency_16x": 310,
+    "latency_8x": 310,
+    "lines": {
+     "clamp_harmonic_2": {
+      "category": "converter-clamp harmonics (intentional overload model)",
+      "f": 640.0,
+      "native8_db": -47.66095959893873,
+      "ref16_db": -47.66089611702496,
+      "ref8_db": -47.66095959893873
+     },
+     "clamp_harmonic_3": {
+      "category": "converter-clamp harmonics (intentional overload model)",
+      "f": 960.0,
+      "native8_db": -17.01676986814256,
+      "ref16_db": -17.01676958242214,
+      "ref8_db": -17.01676986814256
+     },
+     "clamp_harmonic_5": {
+      "category": "converter-clamp harmonics (intentional overload model)",
+      "f": 1600.0,
+      "native8_db": -26.65951381084379,
+      "ref16_db": -26.659515210958965,
+      "ref8_db": -26.65951381084379
+     }
+    },
+    "model_self_convergence_db_re_signal": -110.49142060638792,
+    "model_self_convergence_rms_8_vs_16": 2.2035247602551587e-06,
+    "model_self_convergence_within_kernel_line_bound": true,
+    "native_latency_16x": 310,
+    "native_latency_8x": 310,
+    "pass_production": true,
+    "production_cells_16x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.20836718115353373,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 3.3306690738754696e-15,
+      "peak_limit": 0.0001,
+      "rms_error": 7.99992896734976e-16,
+      "rms_input": 1.6985092344212631,
+      "rms_limit": 1.6985092344212634e-05
+     }
+    ],
+    "production_cells_8x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.22591389114541024,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 2.1094237467877974e-15,
+      "peak_limit": 0.0001,
+      "rms_error": 5.447103359404615e-16,
+      "rms_input": 1.6985092344212631,
+      "rms_limit": 1.6985092344212634e-05
+     }
+    ],
+    "production_introduced_max_db_inband": -321.281844857859,
+    "production_vs_reference_rms_16x": 8.102602511288788e-16,
+    "production_vs_reference_rms_8x": 5.517013155903412e-16
+   },
+   "overrange_steps_pm16_96000": {
+    "implementation_filtering_error_max_db_inband_8_vs_16": -130.10549739396447,
+    "kernel_line_bound_relative_8x": 6.21787881594406e-05,
+    "latency_16x": 449,
+    "latency_8x": 449,
+    "lines": {
+     "clamp_harmonic_2": {
+      "category": "converter-clamp harmonics (intentional overload model)",
+      "f": 640.0,
+      "native8_db": -47.54641232715329,
+      "ref16_db": -47.54647365572162,
+      "ref8_db": -47.54641232715329
+     },
+     "clamp_harmonic_3": {
+      "category": "converter-clamp harmonics (intentional overload model)",
+      "f": 960.0,
+      "native8_db": -17.017543361431997,
+      "ref16_db": -17.017544128193308,
+      "ref8_db": -17.017543361431997
+     },
+     "clamp_harmonic_5": {
+      "category": "converter-clamp harmonics (intentional overload model)",
+      "f": 1600.0,
+      "native8_db": -26.663113157463798,
+      "ref16_db": -26.663130727362216,
+      "ref8_db": -26.663113157463798
+     }
+    },
+    "model_self_convergence_db_re_signal": -106.30139393568552,
+    "model_self_convergence_rms_8_vs_16": 3.5697316260243086e-06,
+    "model_self_convergence_within_kernel_line_bound": true,
+    "native_latency_16x": 449,
+    "native_latency_8x": 449,
+    "pass_production": true,
+    "production_cells_16x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.2292527301730132,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 3.774758283725532e-15,
+      "peak_limit": 0.0001,
+      "rms_error": 7.967260344019424e-16,
+      "rms_input": 1.6985092344185126,
+      "rms_limit": 1.698509234418513e-05
+     }
+    ],
+    "production_cells_8x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.23886457523825105,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 2.7755575615628914e-15,
+      "peak_limit": 0.0001,
+      "rms_error": 5.577915744599802e-16,
+      "rms_input": 1.6985092344185126,
+      "rms_limit": 1.698509234418513e-05
+     }
+    ],
+    "production_introduced_max_db_inband": -323.49205799380144,
+    "production_vs_reference_rms_16x": 8.041442078728432e-16,
+    "production_vs_reference_rms_8x": 5.629850719500642e-16
+   },
+   "sine_1k_m20_48000": {
+    "implementation_filtering_error_max_db_inband_8_vs_16": -152.8084047141766,
+    "kernel_line_bound_relative_8x": 6.21787881594406e-05,
+    "latency_16x": 310,
+    "latency_8x": 310,
+    "lines": {
+     "input_tone": {
+      "f": 1000.0,
+      "native8_db": -20.020499954292784,
+      "ref16_db": -20.02049799644118,
+      "ref8_db": -20.020499954292784
+     }
+    },
+    "model_self_convergence_db_re_signal": -101.70216879318767,
+    "model_self_convergence_rms_8_vs_16": 5.79900092103886e-07,
+    "model_self_convergence_within_kernel_line_bound": true,
+    "native_latency_16x": 310,
+    "native_latency_8x": 310,
+    "pass_production": true,
+    "production_cells_16x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.051746547522339564,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 2.7755575615628914e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 7.555732425373771e-17,
+      "rms_input": 0.07071067811865477,
+      "rms_limit": 7.071067811865477e-07
+     }
+    ],
+    "production_cells_8x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.0800974817221771,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 2.0816681711721685e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 5.194113542344044e-17,
+      "rms_input": 0.07071067811865477,
+      "rms_limit": 7.071067811865477e-07
+     }
+    ],
+    "production_introduced_max_db_inband": -338.0907355546409,
+    "production_vs_reference_rms_16x": 7.652660823532539e-17,
+    "production_vs_reference_rms_8x": 5.260759710549645e-17
+   },
+   "sine_1k_m20_96000": {
+    "implementation_filtering_error_max_db_inband_8_vs_16": -152.66373175569262,
+    "kernel_line_bound_relative_8x": 6.21787881594406e-05,
+    "latency_16x": 449,
+    "latency_8x": 449,
+    "lines": {
+     "input_tone": {
+      "f": 1000.0,
+      "native8_db": -20.02032557514145,
+      "ref16_db": -20.020326784105578,
+      "ref8_db": -20.02032557514145
+     },
+     "sp_image_1+": {
+      "category": "INTENTIONAL SP image / fold-back (band-limited ZOH on the provisional 26.04 kHz grid)",
+      "f": 27041.666666666668,
+      "native8_db": -253.3452766754216,
+      "ref16_db": -253.3080172036607,
+      "ref8_db": -253.34528340012434
+     },
+     "sp_image_1-": {
+      "category": "INTENTIONAL SP image / fold-back (band-limited ZOH on the provisional 26.04 kHz grid)",
+      "f": 25041.666666666668,
+      "native8_db": -253.05990776843177,
+      "ref16_db": -253.04924018923768,
+      "ref8_db": -253.05990528160498
+     }
+    },
+    "model_self_convergence_db_re_signal": -101.70315361597213,
+    "model_self_convergence_rms_8_vs_16": 5.798470491645316e-07,
+    "model_self_convergence_within_kernel_line_bound": true,
+    "native_latency_16x": 449,
+    "native_latency_8x": 449,
+    "pass_production": true,
+    "production_cells_16x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.07374534745797375,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 3.3306690738754696e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 7.517936325252956e-17,
+      "rms_input": 0.07071067811865477,
+      "rms_limit": 7.071067811865477e-07
+     }
+    ],
+    "production_cells_8x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.08421612335882858,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 2.498001805406602e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 5.417678511280712e-17,
+      "rms_input": 0.07071067811865477,
+      "rms_limit": 7.071067811865477e-07
+     }
+    ],
+    "production_introduced_max_db_inband": -340.63462847183337,
+    "production_vs_reference_rms_16x": 7.587919231236359e-17,
+    "production_vs_reference_rms_8x": 5.468103015141345e-17
+   },
+   "two_tone_18k_19p5k_48000": {
+    "implementation_filtering_error_max_db_inband_8_vs_16": -137.79992202061112,
+    "kernel_line_bound_relative_8x": 6.21787881594406e-05,
+    "latency_16x": 310,
+    "latency_8x": 310,
+    "lines": {
+     "imd_16p5k": {
+      "f": 16500.0,
+      "native8_db": -109.373537089342,
+      "ref16_db": -109.35986968064698,
+      "ref8_db": -109.3735370893447
+     },
+     "imd_21k": {
+      "f": 21000.0,
+      "native8_db": -120.77304459839527,
+      "ref16_db": -120.61582697202897,
+      "ref8_db": -120.77304459839647
+     },
+     "sp_fold_18k": {
+      "f": 8041.666666666668,
+      "native8_db": -10.350152397132916,
+      "ref16_db": -10.350151282260766,
+      "ref8_db": -10.350152397132922
+     },
+     "sp_fold_19p5k": {
+      "f": 6541.666666666668,
+      "native8_db": -9.86306898552581,
+      "ref16_db": -9.86307245675333,
+      "ref8_db": -9.86306898552581
+     }
+    },
+    "model_self_convergence_db_re_signal": -108.11613525963557,
+    "model_self_convergence_rms_8_vs_16": 1.4768288437742287e-06,
+    "model_self_convergence_within_kernel_line_bound": true,
+    "native_latency_16x": 310,
+    "native_latency_8x": 310,
+    "pass_production": true,
+    "production_cells_16x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.048578391551584076,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 2.1094237467877974e-15,
+      "peak_limit": 0.0001,
+      "rms_error": 4.091066997900505e-16,
+      "rms_input": 0.4000000000000016,
+      "rms_limit": 4.000000000000016e-06
+     }
+    ],
+    "production_cells_8x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.07205523964256702,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 1.2212453270876722e-15,
+      "peak_limit": 0.0001,
+      "rms_error": 2.739989973789471e-16,
+      "rms_input": 0.4000000000000016,
+      "rms_limit": 4.000000000000016e-06
+     }
+    ],
+    "production_introduced_max_db_inband": -324.8220344280091,
+    "production_vs_reference_rms_16x": 4.143490085438072e-16,
+    "production_vs_reference_rms_8x": 2.775113536058617e-16
+   },
+   "two_tone_18k_19p5k_96000": {
+    "implementation_filtering_error_max_db_inband_8_vs_16": -138.1276509432001,
+    "kernel_line_bound_relative_8x": 6.21787881594406e-05,
+    "latency_16x": 449,
+    "latency_8x": 449,
+    "lines": {
+     "imd_16p5k": {
+      "f": 16500.0,
+      "native8_db": -108.86864405759252,
+      "ref16_db": -108.88610967477725,
+      "ref8_db": -108.86864405761388
+     },
+     "imd_21k": {
+      "f": 21000.0,
+      "native8_db": -109.0922557844003,
+      "ref16_db": -108.98340697729546,
+      "ref8_db": -109.09225578437827
+     },
+     "sp_fold_18k": {
+      "f": 8041.666666666668,
+      "native8_db": -10.350200598101331,
+      "ref16_db": -10.350199237221583,
+      "ref8_db": -10.350200598101331
+     },
+     "sp_fold_19p5k": {
+      "f": 6541.666666666668,
+      "native8_db": -9.863235038847586,
+      "ref16_db": -9.863235234309721,
+      "ref8_db": -9.863235038847586
+     }
+    },
+    "model_self_convergence_db_re_signal": -106.7849209988596,
+    "model_self_convergence_rms_8_vs_16": 1.7214794207309556e-06,
+    "model_self_convergence_within_kernel_line_bound": true,
+    "native_latency_16x": 449,
+    "native_latency_8x": 449,
+    "pass_production": true,
+    "production_cells_16x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.05705754836598634,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 2.886579864025407e-15,
+      "peak_limit": 0.0001,
+      "rms_error": 3.988135079500655e-16,
+      "rms_input": 0.3999999999999994,
+      "rms_limit": 3.999999999999995e-06
+     }
+    ],
+    "production_cells_8x": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.07394985479978732,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 1.887379141862766e-15,
+      "peak_limit": 0.0001,
+      "rms_error": 3.0312310698037423e-16,
+      "rms_input": 0.3999999999999994,
+      "rms_limit": 3.999999999999995e-06
+     }
+    ],
+    "production_introduced_max_db_inband": -326.95870417269373,
+    "production_vs_reference_rms_16x": 4.025245263628537e-16,
+    "production_vs_reference_rms_8x": 3.0594179280583977e-16
+   }
+  },
+  "failures": [],
+  "model_self_convergence_within_kernel_bound": {
+   "multitone_mix_m12_48000": true,
+   "multitone_mix_m12_96000": true,
+   "near_nyquist_tone_19k_48000": true,
+   "near_nyquist_tone_19k_96000": true,
+   "overrange_steps_pm16_48000": true,
+   "overrange_steps_pm16_96000": true,
+   "sine_1k_m20_48000": true,
+   "sine_1k_m20_96000": true,
+   "two_tone_18k_19p5k_48000": true,
+   "two_tone_18k_19p5k_96000": true
+  },
+  "note": "model self-convergence (8x vs 16x) is a property of the accepted reference, reported for G-08 review; production acceptance is native-vs-reference at the frozen 8x"
+ },
+ "software": {
+  "native": {
+   "CMAKE_BUILD_TYPE": "Release",
+   "CMAKE_CXX_COMPILER": "/usr/bin/c++",
+   "CMAKE_CXX_FLAGS": "",
+   "CMAKE_CXX_FLAGS_RELEASE": "-O2 -DNDEBUG",
+   "CMAKE_GENERATOR": "Ninja",
+   "SMLSP3000_NATIVE_ARCH": "OFF",
+   "binary": "/home/user/smlsp3000/native/build/smlsp3000_native",
+   "build_dir": "/home/user/smlsp3000/native/build",
+   "compiler_version": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+   "denormal_policy": "none (no FTZ/DAZ; bit-identity with the reference; all filters are feed-forward so denormals cannot self-sustain)",
+   "fast_math": "OFF (-fno-fast-math)",
+   "fma_contraction_policy": "OFF: -ffp-contract=off (GCC default for GNU C++ is 'fast'); products and sums are rounded separately so FIR accumulation reproduces the numpy pairwise order",
+   "machine": "x86_64",
+   "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+   "target_compile_options": "-Wall -Wextra -O2 -ffp-contract=off -fno-fast-math -fexcess-precision=standard (GCC/Clang; see native/CMakeLists.txt); MSVC: /W4 /fp:precise /O2 (not compiled here)"
+  },
+  "numpy": "2.5.3",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "4f4679ac1f24f24855390a37530956697fabb396-dirty",
+ "stimulus": {
+  "fixtures": [
+   "sine_1k_m20",
+   "near_nyquist_tone_19k",
+   "multitone_mix_m12",
+   "overrange_steps_pm16",
+   "two_tone_18k_19p5k"
+  ],
+  "proxy_ratios": [
+   8,
+   16
+  ],
+  "rates": [
+   48000,
+   96000
+  ],
+  "seconds": 0.25
+ },
+ "timestamp_utc": "2026-10-07T03:27:53+00:00",
+ "tolerance_policy": {
+  "images": "native image lines equal reference image lines within the same-rate limits (no band-limited reconstruction substituted for the ZOH)",
+  "model_self_convergence": "REPORTED (8x vs 16x residual vs the kernel-derived line bound); not an acceptance limit \u2014 the 8x reference is the owner-frozen configuration",
+  "production": "native vs reference at the same ratio within the owner same-rate limits"
+ },
+ "track": "A"
+}

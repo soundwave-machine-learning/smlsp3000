@@ -1,0 +1,40 @@
+== CMD-02 integrity
+PASS  VAL-001.sources: both research sources byte-identical to PACKAGE_VALIDATION hashes
+PASS  VAL-001.contracts: found ['SPRINT_01.md', 'SPRINT_02.md', 'SPRINT_03.md', 'SPRINT_04.md', 'SPRINT_05.md', 'SPRINT_06.md', 'SPRINT_07.md', 'SPRINT_08.md']
+PASS  VAL-001.links: all local markdown links resolve
+PASS  VAL-001.matrix: md rows=28 unique=28 csv rows=28
+PASS  VAL-001.sha256sums: revised since planning V1 (living docs, allowed): 19 files
+exit=0
+== CMD-05 unittest
+----------------------------------------------------------------------
+Ran 52 tests in 118.131s
+
+OK
+exit=0
+== CMD-07/10/11 re-runs to scratch
+s3 exit=0
+s4 exit=0
+s5 exit=0
+REGRESSION cascade/VAL-015_software.json numeric results identical (ignoring timestamps/commit/environment/software/command and the render-record machine key): True PASS PASS
+REGRESSION cascade/VAL-016_software.json numeric results identical (ignoring timestamps/commit/environment/software/command and the render-record machine key): True PASS PASS
+REGRESSION mpc3000/analog/VAL-013_software.json numeric results identical (ignoring timestamps/commit/environment/software/command and the render-record machine key): False PASS PASS
+REGRESSION mpc3000/digital/VAL-012_software.json numeric results identical (ignoring timestamps/commit/environment/software/command and the render-record machine key): True PASS PASS
+REGRESSION mpc3000/path_comparison/VAL-014_software.json numeric results identical (ignoring timestamps/commit/environment/software/command and the render-record machine key): True PASS PASS
+REGRESSION sp1200/calibration/VAL-011_software.json numeric results identical (ignoring timestamps/commit/environment/software/command and the render-record machine key): True PASS PASS
+REGRESSION sp1200/digital/VAL-008_software.json numeric results identical (ignoring timestamps/commit/environment/software/command and the render-record machine key): True PASS PASS
+REGRESSION sp1200/input/VAL-009_software.json numeric results identical (ignoring timestamps/commit/environment/software/command and the render-record machine key): False PASS PASS
+REGRESSION sp1200/output/VAL-010_software.json numeric results identical (ignoring timestamps/commit/environment/software/command and the render-record machine key): False PASS PASS
+REGRESSION stereo/VAL-017_software.json numeric results identical (ignoring timestamps/commit/environment/software/command and the render-record machine key): True PASS PASS
+ALL_IDENTICAL False
+== second pass: the only differences above are the render-record 'model_implementation_version' label strings (committed records predate the sp1200 1.0.2->1.0.4 / mpc3000 1.0.1->1.0.2 core-split version bumps whose outputs were verified bit-identical in Sprints 4/5); comparing with that label ignored:
+REGRESSION cascade/VAL-015_software.json numeric results identical: True PASS PASS
+REGRESSION cascade/VAL-016_software.json numeric results identical: True PASS PASS
+REGRESSION mpc3000/analog/VAL-013_software.json numeric results identical: True PASS PASS
+REGRESSION mpc3000/digital/VAL-012_software.json numeric results identical: True PASS PASS
+REGRESSION mpc3000/path_comparison/VAL-014_software.json numeric results identical: True PASS PASS
+REGRESSION sp1200/calibration/VAL-011_software.json numeric results identical: True PASS PASS
+REGRESSION sp1200/digital/VAL-008_software.json numeric results identical: True PASS PASS
+REGRESSION sp1200/input/VAL-009_software.json numeric results identical: True PASS PASS
+REGRESSION sp1200/output/VAL-010_software.json numeric results identical: True PASS PASS
+REGRESSION stereo/VAL-017_software.json numeric results identical: True PASS PASS
+ALL_NUMERICALLY_IDENTICAL True

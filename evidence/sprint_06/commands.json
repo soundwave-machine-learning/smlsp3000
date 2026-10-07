@@ -1,0 +1,69 @@
+{
+  "record": "Sprint 06 commands and exit codes",
+  "working_directory": "repository root",
+  "commands": [
+    {
+      "id": "CMD-02",
+      "command": "python3 tools/check_repo_integrity.py",
+      "exit_code": 0,
+      "log": "evidence/sprint_06/integrity_run.log"
+    },
+    {
+      "id": "CMD-13",
+      "command": "cmake -S native -B native/build -G Ninja -DCMAKE_BUILD_TYPE=Release && cmake --build native/build",
+      "exit_code": 0,
+      "log": "evidence/sprint_06/native_build.log"
+    },
+    {
+      "id": "CMD-14",
+      "command": "ctest --output-on-failure (in native/build)",
+      "exit_code": 0,
+      "log": "evidence/sprint_06/native_selftest.log"
+    },
+    {
+      "id": "CMD-15",
+      "command": "python3 -m smlsp3000.runner validate-sprint6 --out research/validation --evidence evidence/sprint_06",
+      "exit_code": 0,
+      "log": "evidence/sprint_06/validate_sprint6_run.log",
+      "note": "VAL-019 re-run with --only VAL-019 after the analysis-tool correction: evidence/sprint_06/validate_sprint6_val019_rerun.log (exit 0)"
+    },
+    {
+      "id": "CMD-16",
+      "command": "python3 -m smlsp3000.runner native-bench --out evidence/sprint_06/benchmark --seconds 5 --trials 3 --warmup 1",
+      "exit_code": 0,
+      "log": "evidence/sprint_06/native_bench_run.log"
+    },
+    {
+      "id": "CMD-17",
+      "command": "python3 tools/gen_native_assets.py --check",
+      "exit_code": 0,
+      "log": "tests/test_native_assets.py"
+    },
+    {
+      "id": "CMD-09",
+      "command": "python3 -m smlsp3000.runner scope-audit --out evidence/sprint_06/scope_audit.json",
+      "exit_code": 0,
+      "log": "evidence/sprint_06/scope_audit_run.log"
+    },
+    {
+      "id": "CMD-05",
+      "command": "python3 -m unittest discover -s tests -t . -v",
+      "exit_code": 0,
+      "log": "evidence/sprint_06/unittest_run.log",
+      "note": "59 tests OK (native tests executed, none skipped)"
+    },
+    {
+      "id": "regression",
+      "command": "validate-sprint3/4/5 re-runs compared with committed records (before native work; after the instrumentation change)",
+      "exit_code": 0,
+      "log": "evidence/sprint_06/inherited_regression_run.log; instrumentation_regression_run.log"
+    }
+  ],
+  "not_executed": [
+    "Windows build/validation (no toolchain)",
+    "plugin wrapper",
+    "human listening",
+    "any hardware measurement",
+    "dependency installation"
+  ]
+}

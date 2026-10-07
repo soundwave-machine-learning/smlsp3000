@@ -2,7 +2,7 @@
 
 Revision: execution V2 · 2026-10-06 · supersedes the entry-gate wording of docs/sprint_prompts/SPRINT_03.md … SPRINT_08.md where they require accepted Sprint 2 hardware evidence (the contract files themselves stay byte-identical as the planning-V1 record)
 
-Status: OWNER DECISION RECORDED (OWN-DEC-001). The §4 dependency plan was APPROVED by the owner on 2026-10-07 with the Sprint 3 inputs (§9 items 1–4: R3 INACTIVE, quantizer ROUND_NEAREST / FLOOR alternate, NONE_CH7_8 only). Sprint 3 and Sprint 4 executed (software PASS; §9 item 5 received 2026-10-07: R12/R15 TRANSPARENT, R13 ROUND_NEAREST / TRUNCATION, OWN-DEC-005..008). §9 item 6 received 2026-10-07 (interstage 0.0 dB, G-07S path B, OWN-DEC-009..013); Sprint 5 executed (software PASS). §9 item 7 remains open.
+Status: OWNER DECISION RECORDED (OWN-DEC-001). The §4 dependency plan was APPROVED by the owner on 2026-10-07 with the Sprint 3 inputs (§9 items 1–4: R3 INACTIVE, quantizer ROUND_NEAREST / FLOOR alternate, NONE_CH7_8 only). Sprint 3 and Sprint 4 executed (software PASS; §9 item 5 received 2026-10-07: R12/R15 TRANSPARENT, R13 ROUND_NEAREST / TRUNCATION, OWN-DEC-005..008). §9 item 6 received 2026-10-07 (interstage 0.0 dB, G-07S path B, OWN-DEC-009..013); Sprint 5 executed (software PASS). §9 item 7: G-08 software budgets and the C++ stack received 2026-10-07 (OWN-DEC-014..023); Sprint 6 executed. G-09 target matrix/framework/licence remains open.
 
 ## 1. Owner decision OWN-DEC-001
 
@@ -109,4 +109,4 @@ Claude may continue past the Sprint 2 hardware block into Sprint N (3…8) when 
 4. Confirmation that NONE_CH7_8 is the only populated SP output route in Track A. — RECEIVED (OWN-DEC-004).
 5. (Before S4) R12/R15 state; R13 default candidate. — RECEIVED: TRANSPARENT / TRANSPARENT; ROUND_NEAREST default, TRUNCATION alternate (OWN-DEC-005..008).
 6. (Before S5) provisional interstage default; G-07S product selection. — RECEIVED: 0.0 dB (OWN-DEC-009); path B, SP→MPC, routes, abstraction, chain modes, listening preparation (OWN-DEC-010..013).
-7. (Before S6/S7) G-08 software numeric/CPU/latency/parameter budgets; G-09 target matrix, framework, licence.
+7. (Before S6/S7) G-08 software numeric/CPU/latency/parameter budgets; G-09 target matrix, framework, licence. — G-08 PART RECEIVED 2026-10-07 (OWN-DEC-014..023: C++20/CMake stack, float64/8x freeze, numerical limits, CPU/latency budgets, 8192-sample blocks, controls v1, 10 ms ramps); G-09 (plugin formats, OS/DAW matrix, framework/SDK/licence, Windows toolchain) STILL OPEN.

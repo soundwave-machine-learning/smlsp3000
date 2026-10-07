@@ -42,6 +42,7 @@ Version: all generated documents planningV1 dated2026-10-06; supplied sourceV1 d
 | [docs/sprint_reports/SPRINT_03_REPORT.md](sprint_reports/SPRINT_03_REPORT.md) | Executed Sprint 3 report (Track A provisional SP reference) | After Sprint 3 execution only | S3 |
 | [docs/sprint_reports/SPRINT_04_REPORT.md](sprint_reports/SPRINT_04_REPORT.md) | Executed Sprint 4 report (Track A provisional MPC reference) | After Sprint 4 execution only | S4 |
 | [docs/sprint_reports/SPRINT_05_REPORT.md](sprint_reports/SPRINT_05_REPORT.md) | Executed Sprint 5 report (Track A cascade, G-07S software decision, listening kit) | After Sprint 5 execution only | S5 |
+| [docs/sprint_reports/SPRINT_06_REPORT.md](sprint_reports/SPRINT_06_REPORT.md) | Executed Sprint 6 report (native production core, G-08 software acceptance, parameter freeze, benchmark) | After Sprint 6 execution only | S6 |
 | [AGENTS.md](../AGENTS.md) | Read order, authority and repository/autonomy policy | Evidence, approved scope, or contract revision changes | Cross-sprint |
 | [README.md](../README.md) | Entry point and honest readiness | Evidence, approved scope, or contract revision changes | Cross-sprint |
 | [docs/DELIVERY_SUMMARY.md](DELIVERY_SUMMARY.md) | Self-contained requested final deliverable summary | Evidence, approved scope, or contract revision changes | Cross-sprint |

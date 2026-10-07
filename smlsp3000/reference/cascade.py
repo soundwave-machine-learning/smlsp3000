@@ -36,7 +36,7 @@ from .mpc3000 import MPCProductParameters, MPCReferenceEngine
 from .sp1200 import SPProductParameters, SPReferenceEngine
 from .streaming import Decimator, PolyphaseUpsampler
 
-CASCADE_IMPLEMENTATION_VERSION = "cascade-reference-impl-1.0.0"
+CASCADE_IMPLEMENTATION_VERSION = "cascade-reference-impl-1.0.1"
 CHAIN_MODES = ("CASCADE", "SP_ONLY", "MPC_ONLY", "BOTH_MACHINE_BYPASSED")
 PRODUCT_DEFAULT_CHAIN_MODE = "CASCADE"
 RESEARCH_CHAIN_MODES = ("SP_ONLY", "MPC_ONLY", "BOTH_MACHINE_BYPASSED")
@@ -205,5 +205,14 @@ class CascadeReferenceEngine:
         return self.process(np.zeros((self.latency_host, self.channels)))
 
     def meters(self) -> dict:
+        """Cascade meters. Instrumentation note (Sprint 6, OWN-DEC-022): the machine engines' ``peak_input_normalized`` is a
+        host-input meter of the standalone engines and is never fed inside the cascade; it is reported as the explicit string
+        "UNAVAILABLE_IN_CASCADE" instead of a misleading 0.0. ``peak_core_input_normalized`` is the proxy-grid peak at each
+        core's input boundary (before its own gain). Audio is unchanged."""
         self._require()
-        return {"host_input_peak": list(self.peak_in), "sp": self.sp.meters(), "mpc": self.mpc.meters()}
+        def mark(ms):
+            out = []
+            for m in ms:
+                m = dict(m); m["peak_input_normalized"] = "UNAVAILABLE_IN_CASCADE (host input peak is host_input_peak)"; out.append(m)
+            return out
+        return {"host_input_peak": list(self.peak_in), "sp": mark(self.sp.meters()), "mpc": mark(self.mpc.meters())}

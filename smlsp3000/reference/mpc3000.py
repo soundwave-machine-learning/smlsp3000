@@ -30,7 +30,7 @@ from .scheduler import RationalClock
 from .streaming import Decimator, PolyphaseUpsampler, StreamingFIR
 
 SUPPORTED_HOST_RATES = (44100, 48000, 88200, 96000, 176400, 192000)
-MODEL_IMPLEMENTATION_VERSION = "mpc3000-reference-impl-1.0.2"
+MODEL_IMPLEMENTATION_VERSION = "mpc3000-reference-impl-1.0.3"
 
 
 # --- R13 reduction strategies (replaceable registry) -------------------------------------
@@ -110,6 +110,7 @@ class _ChannelState:
         self.clip18_count = 0
         self.clip16_count = 0
         self.peak_in = 0.0
+        self.peak_core_in = 0.0                            # proxy-grid peak at the core input boundary (before R11 gain); Sprint 6 instrumentation
         self.tap_c18: list[float] = []
         self.tap_c16: list[float] = []
 
@@ -293,6 +294,7 @@ class MPCReferenceEngine:
         """R11–R15 on the proxy grid: proxy input v (len N) → proxy output h (len N), delayed by core_delay_proxy.
 
         Exposed for the cascade engine (composition on the proxy grid); standalone use goes through process()."""
+        st.peak_core_in = max(st.peak_core_in, float(np.max(np.abs(v))) if v.size else 0.0)   # instrumentation only (Sprint 6)
         v = v * self.gain                    # R11 (switch step x ideal trim; clamp/coupling INACTIVE)
         v = st.bandlimit.process(v)          # R12 TRANSPARENT: ideal band limitation at the machine Nyquist
         st.proxy_hist = np.concatenate([st.proxy_hist, v])
@@ -369,7 +371,7 @@ class MPCReferenceEngine:
 
     def meters(self) -> list[dict]:
         self._require()
-        return [{"converter_clip_count_18bit": c.clip18_count, "storage_clamp_count_16bit": c.clip16_count, "peak_input_normalized": c.peak_in} for c in self.ch]
+        return [{"converter_clip_count_18bit": c.clip18_count, "storage_clamp_count_16bit": c.clip16_count, "peak_input_normalized": c.peak_in, "peak_core_input_normalized": c.peak_core_in} for c in self.ch]
 
     def tap_codes(self, channel: int, which: str = "c16") -> np.ndarray:
         self._require()

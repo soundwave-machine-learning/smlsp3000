@@ -1,0 +1,419 @@
+{
+ "artifact_class": "VALIDATION RESULT",
+ "asset_identity": {
+  "asset_id": "native(cascade-reference oracle; sp1200-track-a-provisional v1 + mpc3000-track-a-provisional v1)",
+  "model_version": "smlsp3000-native-core-1.0.0 vs cascade-reference-impl-1.0.1",
+  "sha256": "11f7b417ccaf990155ec6c50df5f78c442453fbe67d0d6ba9710d927e8c71151",
+  "version": "1"
+ },
+ "check_id": "VAL-022",
+ "command": "python3 -m smlsp3000.runner validate-sprint6 --out research/validation",
+ "dataset_role": "VALIDATION",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "hardware_fit_outcome": "BLOCKED",
+ "limitations": [
+  "Plugin bypass transitions and host UI interactions are Sprint 7; here plugin_bypass is a static latency-aligned dry selector.",
+  "No preset bank exists; the state record is the only persistence format (v1)."
+ ],
+ "method": "Parameter layers and state v1: native state serialisation round trips (defaults and modified values, exact), explicit rejections (future schema version, unknown key, research key, out-of-range value, unknown enum, asset identity mismatch, malformed record), preset content limited to product fields + identities, assets carry provisional tags, generated asset header in sync with the JSON sources, research switches unreachable from state; smoothing/automation fixtures: event trajectories bit-identical across partitions, output-trim ramp bit-exact against the linear-in-dB law reproduced in Python, proxy-domain ramps measured on a linear SP path (quantizer bypass) against the expected envelope, discrete switches switch at the mapped sample, ramp continuation from the current value.",
+ "outcome": "PASS",
+ "requirement_id": "REQ-022",
+ "research_config_sha256": "81871c8b52694b188a48f53808979406b25d5c4fd92af746806457ad6a3fe88d",
+ "results": {
+  "automation": {
+   "differs_from_static": true,
+   "discrete_switch": {
+    "expected": 10.0,
+    "pass": true,
+    "post_switch_ratio_min_max": [
+     9.999999999999991,
+     10.000000000000009
+    ],
+    "pre_switch_exact": true,
+    "tolerance": "ratio within 1e-12 of 10 (float rounding of the linear path); pre-switch exact"
+   },
+   "events_rejected": 0,
+   "partition_identical": true,
+   "proxy_ramp": {
+    "expected_post_gain": 0.251188643150958,
+    "max_abs_diff_db_in_ramp": 0.013265029862216116,
+    "pass": true,
+    "post_ramp_gain_ratio_min_max": [
+     0.2511886416967358,
+     0.25118864315125755
+    ],
+    "pre_event_max_rel_diff": 0.0,
+    "ramp_envelope": [
+     {
+      "abs_diff_db": 0.013265029862216116,
+      "expected_db": -0.6,
+      "host_offset": 0,
+      "measured_db": -0.6132650298622161
+     },
+     {
+      "abs_diff_db": 0.0123259758938985,
+      "expected_db": -1.8,
+      "host_offset": 48,
+      "measured_db": -1.8123259758938985
+     },
+     {
+      "abs_diff_db": 0.012322955489103116,
+      "expected_db": -3.0,
+      "host_offset": 96,
+      "measured_db": -3.012322955489103
+     },
+     {
+      "abs_diff_db": 0.012320860473931994,
+      "expected_db": -4.2,
+      "host_offset": 144,
+      "measured_db": -4.212320860473932
+     },
+     {
+      "abs_diff_db": 0.012319789656239699,
+      "expected_db": -5.4,
+      "host_offset": 192,
+      "measured_db": -5.41231978965624
+     },
+     {
+      "abs_diff_db": 0.012319753267235,
+      "expected_db": -6.6,
+      "host_offset": 240,
+      "measured_db": -6.612319753267235
+     },
+     {
+      "abs_diff_db": 0.012320617790762434,
+      "expected_db": -7.8,
+      "host_offset": 288,
+      "measured_db": -7.812320617790762
+     },
+     {
+      "abs_diff_db": 0.012322275440041608,
+      "expected_db": -9.0,
+      "host_offset": 336,
+      "measured_db": -9.012322275440042
+     },
+     {
+      "abs_diff_db": 0.012324734913253366,
+      "expected_db": -10.2,
+      "host_offset": 384,
+      "measured_db": -10.212324734913253
+     },
+     {
+      "abs_diff_db": 0.01237578607855383,
+      "expected_db": -11.4,
+      "host_offset": 432,
+      "measured_db": -11.412375786078554
+     }
+    ]
+   },
+   "ramp_host_samples": 480,
+   "retarget_mid_ramp_same_target_identical": true,
+   "trim_ramp_bit_exact": true,
+   "trim_ramp_max_abs_diff": 0.0
+  },
+  "event_mapping": {
+   "interstage_level_db / mpc_input_gain": "host input sample m \u2192 proxy index m*L + 448 (R1 delay + SP core delay)",
+   "output_trim_db / plugin_bypass": "host sample m of the same call (host time)",
+   "ramp_lengths": {
+    "host": 480,
+    "proxy": 3840
+   },
+   "sp_input_level_db / sp_input_gain_db": "host input sample m \u2192 proxy index m*L + 384 (R1 delay)"
+  },
+  "failures": [],
+  "layers": {
+   "assets_valid_with_provisional_tags": true,
+   "controls": {
+    "interstage_level_db": {
+     "default": 0.0,
+     "max": 24.0,
+     "min": -60.0
+    },
+    "mpc_input_gain": {
+     "default": "LO",
+     "values": [
+      "LO",
+      "MID",
+      "HI"
+     ]
+    },
+    "output_trim_db": {
+     "default": 0.0,
+     "max": 12.0,
+     "min": -60.0
+    },
+    "plugin_bypass": {
+     "default": false
+    },
+    "sp_input_gain": {
+     "default": 0,
+     "values": [
+      0,
+      20,
+      40
+     ]
+    },
+    "sp_input_level_db": {
+     "default": 0.0,
+     "max": 12.0,
+     "min": -60.0
+    }
+   },
+   "controls_schema_version": 1,
+   "generated_header_in_sync": true,
+   "only_product_fields_and_identities": true,
+   "state_keys": [
+    "schema_version",
+    "controls",
+    "product_config",
+    "sp_asset",
+    "mpc_asset",
+    "sp_input_level_db",
+    "sp_input_gain_db",
+    "interstage_level_db",
+    "mpc_input_gain",
+    "output_trim_db",
+    "plugin_bypass"
+   ]
+  },
+  "state": {
+   "bad_gain_step": {
+    "expected": [
+     false,
+     "UNKNOWN_ENUM"
+    ],
+    "got": [
+     false,
+     "UNKNOWN_ENUM",
+     "sp_input_gain_db"
+    ],
+    "pass": true
+   },
+   "calibration_key": {
+    "expected": [
+     false,
+     "UNKNOWN_KEY"
+    ],
+    "got": [
+     false,
+     "UNKNOWN_KEY",
+     "volts_per_normalized_unit (research or calibration fields are never accepted)"
+    ],
+    "pass": true
+   },
+   "defaults": {
+    "expected": [
+     true,
+     "OK"
+    ],
+    "got": [
+     true,
+     "OK",
+     ""
+    ],
+    "pass": true
+   },
+   "future_schema_2": {
+    "expected": [
+     false,
+     "UNSUPPORTED_SCHEMA_VERSION"
+    ],
+    "got": [
+     false,
+     "UNSUPPORTED_SCHEMA_VERSION",
+     "schema_version 2 is not supported (only 1); no migration exists"
+    ],
+    "pass": true
+   },
+   "identity_mismatch": {
+    "expected": [
+     false,
+     "ASSET_IDENTITY_MISMATCH"
+    ],
+    "got": [
+     false,
+     "ASSET_IDENTITY_MISMATCH",
+     "SP asset identity differs"
+    ],
+    "pass": true
+   },
+   "missing_field": {
+    "expected": [
+     false,
+     "MISSING_FIELD"
+    ],
+    "got": [
+     false,
+     "MISSING_FIELD",
+     "every product control must be present"
+    ],
+    "pass": true
+   },
+   "modified": {
+    "expected": [
+     true,
+     "OK"
+    ],
+    "got": [
+     true,
+     "OK",
+     ""
+    ],
+    "pass": true
+   },
+   "non_record": {
+    "expected": [
+     false,
+     "NOT_A_STATE_RECORD"
+    ],
+    "got": [
+     false,
+     "NOT_A_STATE_RECORD",
+     "missing header line"
+    ],
+    "pass": true
+   },
+   "nonfinite": {
+    "expected": [
+     false,
+     "NON_FINITE_OR_MALFORMED"
+    ],
+    "got": [
+     false,
+     "NON_FINITE_OR_MALFORMED",
+     "output_trim_db"
+    ],
+    "pass": true
+   },
+   "out_of_range": {
+    "expected": [
+     false,
+     "OUT_OF_RANGE"
+    ],
+    "got": [
+     false,
+     "OUT_OF_RANGE",
+     "output_trim_db"
+    ],
+    "pass": true
+   },
+   "research_key": {
+    "expected": [
+     false,
+     "UNKNOWN_KEY"
+    ],
+    "got": [
+     false,
+     "UNKNOWN_KEY",
+     "quantizer_rule (research or calibration fields are never accepted)"
+    ],
+    "pass": true
+   },
+   "unknown_enum": {
+    "expected": [
+     false,
+     "UNKNOWN_ENUM"
+    ],
+    "got": [
+     false,
+     "UNKNOWN_ENUM",
+     "mpc_input_gain"
+    ],
+    "pass": true
+   },
+   "unknown_key": {
+    "expected": [
+     false,
+     "UNKNOWN_KEY"
+    ],
+    "got": [
+     false,
+     "UNKNOWN_KEY",
+     "drive (research or calibration fields are never accepted)"
+    ],
+    "pass": true
+   }
+  }
+ },
+ "software": {
+  "native": {
+   "CMAKE_BUILD_TYPE": "Release",
+   "CMAKE_CXX_COMPILER": "/usr/bin/c++",
+   "CMAKE_CXX_FLAGS": "",
+   "CMAKE_CXX_FLAGS_RELEASE": "-O2 -DNDEBUG",
+   "CMAKE_GENERATOR": "Ninja",
+   "SMLSP3000_NATIVE_ARCH": "OFF",
+   "binary": "/home/user/smlsp3000/native/build/smlsp3000_native",
+   "build_dir": "/home/user/smlsp3000/native/build",
+   "compiler_version": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+   "denormal_policy": "none (no FTZ/DAZ; bit-identity with the reference; all filters are feed-forward so denormals cannot self-sustain)",
+   "fast_math": "OFF (-fno-fast-math)",
+   "fma_contraction_policy": "OFF: -ffp-contract=off (GCC default for GNU C++ is 'fast'); products and sums are rounded separately so FIR accumulation reproduces the numpy pairwise order",
+   "machine": "x86_64",
+   "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+   "target_compile_options": "-Wall -Wextra -O2 -ffp-contract=off -fno-fast-math -fexcess-precision=standard (GCC/Clang; see native/CMakeLists.txt); MSVC: /W4 /fp:precise /O2 (not compiled here)"
+  },
+  "numpy": "2.5.3",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "4f4679ac1f24f24855390a37530956697fabb396-dirty",
+ "stimulus": {
+  "automation_fixture": "multitone_mix_m12 0.5 s + 1 kHz tone 0.6 s (linear SP path)",
+  "events": [
+   [
+    3000,
+    "sp_input_level_db",
+    -6.0
+   ],
+   [
+    3100,
+    "interstage_level_db",
+    3.0
+   ],
+   [
+    3200,
+    "sp_input_level_db",
+    2.0
+   ],
+   [
+    9000,
+    "output_trim_db",
+    -3.0
+   ],
+   [
+    12000,
+    "sp_input_gain_db",
+    20.0
+   ],
+   [
+    15000,
+    "mpc_input_gain",
+    1.0
+   ],
+   [
+    20000,
+    "plugin_bypass",
+    1.0
+   ],
+   [
+    21000,
+    "plugin_bypass",
+    0.0
+   ]
+  ]
+ },
+ "timestamp_utc": "2026-10-07T03:28:57+00:00",
+ "tolerance_policy": {
+  "partitions": "bit-identical",
+  "proxy_ramps": "envelope within 0.5 dB during the 10 ms ramp (sampling/hold smear), exact (<= 1e-12 relative) outside \u00b148 host samples of the ramp",
+  "state": "exact",
+  "trim_ramp": "bit-exact (same float sequence)"
+ },
+ "track": "A"
+}

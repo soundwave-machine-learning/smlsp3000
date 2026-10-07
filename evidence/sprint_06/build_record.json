@@ -1,0 +1,28 @@
+{
+  "build_dir": "/home/user/smlsp3000/native/build",
+  "binary": "/home/user/smlsp3000/native/build/smlsp3000_native",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "CMAKE_BUILD_TYPE": "Release",
+  "CMAKE_CXX_COMPILER": "/usr/bin/c++",
+  "CMAKE_CXX_FLAGS": "",
+  "CMAKE_CXX_FLAGS_RELEASE": "-O3 -DNDEBUG",
+  "SMLSP3000_NATIVE_ARCH": "OFF",
+  "CMAKE_GENERATOR": "Ninja",
+  "compiler_version": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+  "target_compile_options": "-Wall -Wextra -O2 -ffp-contract=off -fno-fast-math -fexcess-precision=standard (GCC/Clang; see native/CMakeLists.txt); MSVC: /W4 /fp:precise /O2 (not compiled here)",
+  "fma_contraction_policy": "OFF: -ffp-contract=off (GCC default for GNU C++ is 'fast'); products and sums are rounded separately so FIR accumulation reproduces the numpy pairwise order",
+  "fast_math": "OFF (-fno-fast-math)",
+  "denormal_policy": "none (no FTZ/DAZ; bit-identity with the reference; all filters are feed-forward so denormals cannot self-sustain)",
+  "configure_command": "cmake -S native -B native/build -G Ninja -DCMAKE_BUILD_TYPE=Release",
+  "build_command": "cmake --build native/build",
+  "platforms_compiled_and_tested": [
+    "Linux x86_64 (Ubuntu 24.04, GCC 13.3.0, Ninja, CMake 3.28.3) \u2014 compiled, self-tested, validated, benchmarked"
+  ],
+  "platforms_not_compiled": [
+    "Windows x86_64 (intended deployment target): no Windows toolchain or cross-compiler in this container \u2014 NOT RUN; MSVC flags in native/CMakeLists.txt are untested"
+  ],
+  "isa": "generic x86-64 (no -march flag); SMLSP3000_NATIVE_ARCH=OFF; AVX2/AVX-512 not required",
+  "dependencies": "none beyond the C++20 standard library; no paid/proprietary dependencies; no licence accepted",
+  "recorded_utc": "2026-10-07T03:11:27+00:00"
+}

@@ -41,7 +41,7 @@ from .scheduler import RationalClock
 from .streaming import Decimator, PolyphaseUpsampler
 
 SUPPORTED_HOST_RATES = (44100, 48000, 88200, 96000, 176400, 192000)
-MODEL_IMPLEMENTATION_VERSION = "sp1200-reference-impl-1.0.4"
+MODEL_IMPLEMENTATION_VERSION = "sp1200-reference-impl-1.0.5"
 
 # --- R5 quantizer strategies (replaceable registry) -------------------------------------
 
@@ -143,6 +143,7 @@ class _ChannelState:
         self.n_out = 0                                     # next absolute proxy output index
         self.clip_count = 0
         self.peak_in = 0.0
+        self.peak_core_in = 0.0                            # proxy-grid peak at the core input boundary (before R2 gain); Sprint 6 instrumentation
         self.tap_codes: list[int] = []
 
 
@@ -318,6 +319,7 @@ class SPReferenceEngine:
 
         Exposed so the cascade engine can compose SP and MPC cores on the proxy grid (R10 lives there,
         docs/ARCHITECTURE.md) without duplicating R1/R16. Standalone use goes through process()."""
+        st.peak_core_in = max(st.peak_core_in, float(np.max(np.abs(v))) if v.size else 0.0)   # instrumentation only (Sprint 6)
         v = v * self.gain                          # R2 (analog clamp INACTIVE)
         v = st.r3.process(v)                       # R3 (INACTIVE)
         # append to proxy history
@@ -402,7 +404,7 @@ class SPReferenceEngine:
     # ---------------------------------------------------------------- meters / taps
     def meters(self) -> list[dict]:
         self._require()
-        return [{"converter_clip_count": c.clip_count, "peak_input_normalized": c.peak_in} for c in self.ch]
+        return [{"converter_clip_count": c.clip_count, "peak_input_normalized": c.peak_in, "peak_core_input_normalized": c.peak_core_in} for c in self.ch]
 
     def tap_codes(self, channel: int) -> np.ndarray:
         self._require()

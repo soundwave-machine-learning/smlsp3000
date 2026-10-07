@@ -38,6 +38,10 @@ def main(argv: list[str] | None = None) -> int:
     s4.add_argument("--out", required=True)
     s5 = sub.add_parser("validate-sprint5", help="Sprint 5 software-track checks VAL-015/016 (Track A, cascade)")
     s5.add_argument("--out", required=True)
+    s6 = sub.add_parser("validate-sprint6", help="Sprint 6 software-track checks VAL-019/020/021/022 (Track A, native production core vs reference)")
+    s6.add_argument("--out", default="research/validation"); s6.add_argument("--evidence", default="evidence/sprint_06"); s6.add_argument("--quick", action="store_true"); s6.add_argument("--only", default=None, help="run a single check (VAL-019/020/021/022)")
+    nb = sub.add_parser("native-bench", help="Sprint 6 native Release benchmark (OWN-DEC-017)")
+    nb.add_argument("--out", default="evidence/sprint_06/benchmark"); nb.add_argument("--seconds", type=float, default=5.0); nb.add_argument("--trials", type=int, default=3); nb.add_argument("--warmup", type=float, default=1.0)
     lk = sub.add_parser("listening-kit", help="CHAIN-EXP-018 software-only listening kit (preparation only)")
     lk.add_argument("--out", required=True)
     sa = sub.add_parser("scope-audit", help="VAL-018 scope audit")
@@ -69,6 +73,14 @@ def main(argv: list[str] | None = None) -> int:
         res = run4(ns.out, "python3 -m smlsp3000.runner " + " ".join(argv))
         print(json.dumps(res, indent=1))
         return 0 if all(v == "PASS" for v in res.values()) else 1
+    if ns.cmd == "validate-sprint6":
+        from .validation import production_track_a
+        res = production_track_a.run_all(ns.out, ns.evidence, "python3 -m smlsp3000.runner validate-sprint6 --out " + ns.out + (" --quick" if ns.quick else "") + (" --only " + ns.only if ns.only else ""), quick=ns.quick, only=ns.only)
+        print(json.dumps(res, indent=1)); return 0 if all(v == "PASS" for v in res.values()) else 1
+    if ns.cmd == "native-bench":
+        from .validation import production_track_a
+        rec = production_track_a.benchmark(ns.out, ns.seconds, ns.trials, ns.warmup)
+        print(json.dumps({k: {"max_mean_load": v["max_mean_load"], "limit": v["limit_mean_load"], "p999_target_met": v["p999_target_met"], "overruns": v["overruns_total"]} for k, v in rec["pairs"].items()} | {"mean_load_limits_all_pass": rec["all_pass"], "p999_target_met_all_pairs": rec["p999_target_met_all_pairs"]}, indent=1)); return 0 if rec["all_pass"] else 1
     if ns.cmd == "validate-sprint5":
         from .validation.cascade_track_a import run_all as run5
         res = run5(ns.out, "python3 -m smlsp3000.runner " + " ".join(argv))

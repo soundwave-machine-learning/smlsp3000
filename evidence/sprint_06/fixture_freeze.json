@@ -1,0 +1,130 @@
+{
+  "record": "Sprint 06 fixture / metric / acceptance-limit freeze (execution order step 3) \u2014 recorded before any VAL-019..022 result was evaluated",
+  "recorded_utc": "2026-10-07T03:04:41+00:00",
+  "fixtures_module": "smlsp3000/validation/fixtures.py",
+  "fixtures_module_sha256": "34310535db1dc24234c51defbe13dd04086268e85783a4c8e4ab2c0ca479609f",
+  "fixture_names": [
+    "sine_1k_m20",
+    "sine_1k_m60",
+    "sine_1k_0dbfs_boundary",
+    "multitone_mix_m12",
+    "near_nyquist_tone_19k",
+    "transient_bursts",
+    "noise_pink_m18",
+    "overrange_steps_pm16",
+    "dc_step_and_silence",
+    "tie_adversarial_sp"
+  ],
+  "rates_hz": [
+    44100,
+    48000,
+    88200,
+    96000,
+    176400,
+    192000
+  ],
+  "seed": 20261007,
+  "duration_s": 0.5,
+  "channels": 2,
+  "config_states": {
+    "product_default": {},
+    "sp_gain_20": {
+      "sp_gain": 20
+    },
+    "sp_gain_40_level_m30": {
+      "sp_gain": 40,
+      "sp_level": -30.0
+    },
+    "sp_level_p12": {
+      "sp_level": 12.0
+    },
+    "sp_level_m60": {
+      "sp_level": -60.0
+    },
+    "mpc_mid": {
+      "mpc_gain": "MID",
+      "sp_level": -24.0
+    },
+    "mpc_hi": {
+      "mpc_gain": "HI",
+      "sp_level": -46.0
+    },
+    "interstage_m20": {
+      "interstage": -20.0
+    },
+    "interstage_p6": {
+      "interstage": 6.0
+    },
+    "interstage_p24_clamp": {
+      "interstage": 24.0
+    },
+    "interstage_m60": {
+      "interstage": -60.0
+    },
+    "mode_sp_only": {
+      "mode": "SP_ONLY"
+    },
+    "mode_mpc_only": {
+      "mode": "MPC_ONLY"
+    },
+    "mode_both_bypassed": {
+      "mode": "BOTH_MACHINE_BYPASSED"
+    },
+    "research_quantizer_floor": {
+      "quantizer_rule": "FLOOR"
+    },
+    "research_reduction_truncation": {
+      "reduction_rule": "TRUNCATION"
+    },
+    "research_quantizer_bypass": {
+      "quantizer_bypass": 1
+    },
+    "research_converter_bypass": {
+      "converter_bypass": 1
+    },
+    "research_reverse_order": {
+      "reverse": 1
+    }
+  },
+  "metrics": {
+    "alignment": "declared integer latency only (native and reference report the same value; verified); no fitted gain/DC/clock/delay",
+    "comparison_point": "native output before output trim (trim 0 dB in every fixture; trim law tested separately) vs reference cascade output",
+    "rms_limit": "RMS(error) <= max(1e-5 * RMS(input), 1e-7) per channel, RMS(input) over the fixture frames",
+    "peak_limit": "max |error| <= 1e-4 per channel",
+    "per_fixture": "each (fixture, rate, state, channel) cell PASS/FAIL individually; never averaged",
+    "discrete_rules": "SP 12-bit codes, MPC 18-bit codes and 16-bit codes compared exactly per machine sample (native taps vs reference taps); any difference reported with index, native/reference code, the sampler value and the output consequence",
+    "determinism": "two native renders bit-identical (sha256 of the output bytes); block partitions (64 / irregular / seeded / single-call) bit-identical"
+  },
+  "acceptance_limits_owner_set": {
+    "rms": "RMS(error) <= max(1e-5 * RMS(input), 1e-7)",
+    "peak": "max|error| <= 1e-4",
+    "discrete": "exact code agreement; discrepancies reported, never waived",
+    "determinism": "bit-identical renders and partitions"
+  },
+  "cross_rate_method_frozen": {
+    "stimuli": "fixtures multitone_mix_m12, transient_bursts, sine_1k_m20 (common band < 18 kHz, continuous-time origin t=0)",
+    "analysis_conversion": "Kaiser-windowed sinc resampler (smlsp3000.nullframework.kaiser_sinc_interpolate; half_width 64, beta 12) from each host rate to the 44.1 kHz analysis grid followed by an analysis low-pass at 18 kHz (FFT brick wall on the 44.1 kHz grid), both characterised separately on the analytic stimulus itself (tool error = |conv(x_rate) - x_44.1k| in the same metric)",
+    "alignment": "each render aligned by its own declared latency; physical time origin shared (t = 0 at input sample 0)",
+    "comparison": "d_ref(rate) = RMS(conv(ref_rate) - ref_44.1k); d_nat(rate) = RMS(conv(nat_rate) - nat_44.1k); requirement: production meets the same-rate budget at every rate first; then |d_nat - d_ref| <= G * e_rate + e_44.1k + tool_error where e_rate is the measured same-rate native-vs-reference RMS error at that rate and G the resampler's measured gain bound (<= 1.001)",
+    "note": "the quantizer-boundary dependence of the reference's own cross-rate behaviour is reported as is (frozen policy), not claimed as an absolute cross-rate identity"
+  },
+  "convergence_method_frozen": {
+    "proxy_oversampling_compared": [
+      8,
+      16
+    ],
+    "stimuli": "sine_1k_m20, near_nyquist_tone_19k, multitone_mix_m12, overrange_steps_pm16 (stepped clamp), two-tone 18 kHz + 19.5 kHz",
+    "duration_s": 0.25,
+    "rates": [
+      48000,
+      96000
+    ],
+    "alignment": "each render by its own declared integer latency (latency may differ by the D15 rounding between proxy ratios); same physical origin",
+    "metric": "RMS and spectral-line differences 8x vs 16x of the REFERENCE itself (model self-convergence), and native-vs-reference at both ratios; categories: SP images/fold-back (intentional, documented), converter-clamp harmonics (intentional), implementation filtering error (8x vs 16x), production-introduced difference (native vs reference at the same ratio)"
+  },
+  "method_correction_before_final_run": {
+    "what": "cross-rate analysis conversion: the 18 kHz brick-wall low-pass is applied on the SOURCE-rate grid BEFORE the Kaiser-sinc evaluation on the 44.1 kHz grid (the first implementation filtered after the interpolation, so SP images/fold-back products between 22.05 kHz and the source Nyquist aliased into the band and inflated the reference's own cross-rate discrepancy to about \u22127 dB re signal on the multitone fixture, while the 1 kHz tone showed \u221251 dB)",
+    "why_it_is_not_a_tolerance_change": "the bound formula, the fixtures, the metric and the limits are unchanged; only the analysis tool's filter order was corrected to do what the frozen description says (compare the common band); the first run's outcome was already PASS",
+    "recorded": "before the final VAL-019 record was produced (the first record is superseded, not kept as evidence)"
+  }
+}
