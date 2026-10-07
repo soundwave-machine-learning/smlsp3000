@@ -133,4 +133,4 @@ Sprint verdict: **IMPLEMENTATION / REVIEW CHECKPOINT — BLOCKED on mandatory ga
 
 ## 17. Ending commit
 
-Implementation/review checkpoint commit: `<back-filled by the follow-up commit>` on `claude/autonomous-build` (this report does not claim its own hash).
+Implementation/review checkpoint commit: `e333dc3a678a32ed52d382ed4fc8d4f03fd5206d` on `claude/autonomous-build` (this report does not claim its own hash).

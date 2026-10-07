@@ -7,7 +7,7 @@ Purpose: everything needed to build, validate and review the Windows x86_64 VST3
 ## Source
 
 * Repository: https://github.com/soundwave-machine-learning/smlsp3000, branch `claude/autonomous-build`.
-* Source commit: the Sprint 7 implementation commit recorded in docs/sprint_reports/SPRINT_07_REPORT.md §17 (checkpoint commit `git log -1` on the branch).
+* Source commit: `e333dc3a678a32ed52d382ed4fc8d4f03fd5206d` (Sprint 7 implementation/review checkpoint on `claude/autonomous-build`; see docs/sprint_reports/SPRINT_07_REPORT.md §17).
 * Product identity (plugin/product_identity.json): display name "SML SP-3000", company "Soundwave Machine Learning", manufacturer code `SWML`, plugin code `Sp3K`, bundle id `com.soundwavemachinelearning.smlsp3000`, version 0.7.0, VST3 category Fx, stereo in/out. Never install over or next to an SPZERO / SML SP-06 build; the identities differ by design.
 
 ## Required components (owner's Windows machine)

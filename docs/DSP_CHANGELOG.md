@@ -85,7 +85,7 @@ Not introduced: any model change (kernels, proxy, precision, Path A/C, ideal SP 
 
 ## Sprint 7 — 2026-10-07 — WRAPPER TRANSITIONS ONLY (no DSP change; OWN-DEC-028/030)
 
-Implementation commit: recorded in docs/PROJECT_HANDOFF.md after the Sprint 7 implementation commit. Subsystem: `native/include/smlsp3000/host_adapter.hpp` (smlsp3000-host-adapter-1.0.0), `plugin/` (JUCE 8.0.9 wrapper). The native core's audio behaviour is unchanged (VAL-026: plugin == adapter == core bit-for-bit; VAL-021 limits still met against the Python reference); the two core additions (`serialize_state_with_bypass`, `update_product_targets`) are non-sonic API.
+Implementation/review checkpoint commit: `e333dc3a678a32ed52d382ed4fc8d4f03fd5206d`. Subsystem: `native/include/smlsp3000/host_adapter.hpp` (smlsp3000-host-adapter-1.0.0), `plugin/` (JUCE 8.0.9 wrapper). The native core's audio behaviour is unchanged (VAL-026: plugin == adapter == core bit-for-bit; VAL-021 limits still met against the Python reference); the two core additions (`serialize_state_with_bypass`, `update_product_targets`) are non-sonic API.
 
 | Item | Behaviour introduced | Reason / evidence | Status | Audible / behavioural consequence | Test coverage | Replacement point |
 |---|---|---|---|---|---|---|
