@@ -2,7 +2,7 @@
 
 Revision: execution V4 (after Sprint 4) · 2026-10-07 · supersedes execution V3
 
-Status: EXECUTION IN PROGRESS. Sprint 1 ACCEPTED (PASS, fbd1fac). Sprint 2 hardware campaign BLOCKED / EXTERNAL HARDWARE REQUIRED (1c0fe89, preserved). Governance V2 (8257c2d) approved by the owner 2026-10-07 (OWN-DEC-001..004). Sprint 3 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone `51b72d5`. Sprint 4 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone commit recorded below (OWN-DEC-005..008 applied). Sprint 5 NOT started: owner inputs required (interstage default, G-07S). Release NOT authorized.
+Status: EXECUTION IN PROGRESS. Sprint 1 ACCEPTED (PASS, fbd1fac). Sprint 2 hardware campaign BLOCKED / EXTERNAL HARDWARE REQUIRED (1c0fe89, preserved). Governance V2 (8257c2d) approved by the owner 2026-10-07 (OWN-DEC-001..004). Sprint 3 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone `51b72d5`. Sprint 4 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone commit `e8f66008e635b00969b7944277ba72ed6f7c43c9` (OWN-DEC-005..008 applied). Sprint 5 NOT started: owner inputs required (interstage default, G-07S). Release NOT authorized.
 
 ## Current verified state
 

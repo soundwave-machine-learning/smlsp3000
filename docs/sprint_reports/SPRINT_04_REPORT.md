@@ -94,4 +94,4 @@ Sprint 5 (cascade, interstage, G-07S) requires owner inputs that are not hardwar
 
 ## 17. Ending commit
 
-Recorded after the milestone commit exists (docs/PROJECT_HANDOFF.md; `git log claude/autonomous-build`).
+Milestone commit `e8f66008e635b00969b7944277ba72ed6f7c43c9` on `claude/autonomous-build` (hash back-filled by the follow-up checkpoint commit).
