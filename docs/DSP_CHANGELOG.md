@@ -67,7 +67,7 @@ Not introduced: soft clipping, saturation, recovery, transformer/level-dependent
 
 ## Sprint 6 — 2026-10-07 — NATIVE PRODUCTION CORE, PARAMETER FREEZE, OPTIMISATION (Track A, OWN-DEC-014..023)
 
-Implementation commit: recorded in docs/PROJECT_HANDOFF.md after the milestone commit. Subsystem: `native/` (smlsp3000-native-core-1.0.0); reference instrumentation sp1200 1.0.5 / mpc3000 1.0.3 / cascade 1.0.1 (audio unchanged, evidence/sprint_06/instrumentation_regression_run.log).
+Implementation commit: `1a3ecafd98209f1b637b8aa2ba187d6003941c8a`. Subsystem: `native/` (smlsp3000-native-core-1.0.0); reference instrumentation sp1200 1.0.5 / mpc3000 1.0.3 / cascade 1.0.1 (audio unchanged, evidence/sprint_06/instrumentation_regression_run.log).
 
 | Item | Behaviour introduced | Reason / evidence | Status | Audible / behavioural consequence | Test coverage | Replacement point |
 |---|---|---|---|---|---|---|

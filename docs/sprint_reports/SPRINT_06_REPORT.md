@@ -149,4 +149,4 @@ Sprint 7 (plugin wrapper, host integration, bypass transitions, meters/UI, REQ-0
 
 ## 17. Ending commit
 
-Implementation milestone commit: recorded by the follow-up checkpoint commit.
+Implementation milestone commit `1a3ecafd98209f1b637b8aa2ba187d6003941c8a` on `claude/autonomous-build` (hash back-filled by the follow-up checkpoint commit).
