@@ -1,0 +1,63 @@
+{
+ "kit_version": "listening-kit-1.0.0",
+ "host_rate_hz": 48000,
+ "bit_depth": 24,
+ "artifact_class": "LISTENING STIMULUS",
+ "files": [
+  "stim_1626891.wav",
+  "stim_2666072.wav",
+  "stim_2790302.wav",
+  "stim_2896500.wav",
+  "stim_3168845.wav",
+  "stim_3969190.wav",
+  "stim_5026447.wav",
+  "stim_5035829.wav",
+  "stim_5898203.wav",
+  "stim_6586690.wav",
+  "stim_7012897.wav",
+  "stim_7548462.wav",
+  "stim_7658432.wav",
+  "stim_8987099.wav",
+  "stim_9180597.wav",
+  "stim_9768933.wav"
+ ],
+ "trials_blind": [
+  {
+   "excerpt_index": 0,
+   "presentation_order": [
+    "stim_9768933.wav",
+    "stim_7548462.wav",
+    "stim_7658432.wav",
+    "stim_2790302.wav"
+   ]
+  },
+  {
+   "excerpt_index": 1,
+   "presentation_order": [
+    "stim_2666072.wav",
+    "stim_9180597.wav",
+    "stim_7012897.wav",
+    "stim_3969190.wav"
+   ]
+  },
+  {
+   "excerpt_index": 2,
+   "presentation_order": [
+    "stim_5898203.wav",
+    "stim_5035829.wav",
+    "stim_3168845.wav",
+    "stim_8987099.wav"
+   ]
+  },
+  {
+   "excerpt_index": 3,
+   "presentation_order": [
+    "stim_5026447.wav",
+    "stim_6586690.wav",
+    "stim_1626891.wav",
+    "stim_2896500.wav"
+   ]
+  }
+ ],
+ "note": "blinded presentation; the key is in key_DO_NOT_OPEN_BEFORE_SCORING.json"
+}

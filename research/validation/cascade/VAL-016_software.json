@@ -1,0 +1,357 @@
+{
+ "artifact_class": "SIMULATION",
+ "asset_identity": {
+  "asset_id": "cascade(sp1200-track-a-provisional v1 + mpc3000-track-a-provisional v1)",
+  "model_version": "cascade-reference-impl-1.0.0",
+  "sha256": "11f7b417ccaf990155ec6c50df5f78c442453fbe67d0d6ba9710d927e8c71151",
+  "version": "1"
+ },
+ "check_id": "VAL-016",
+ "command": "python3 -m smlsp3000.runner validate-sprint5 --out research/validation",
+ "dataset_role": "NONE",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "hardware_fit_outcome": "BLOCKED",
+ "limitations": [
+  "Software product decision only (OWN-DEC-010); hardware-informed confirmation G-07H BLOCKED; no human listening occurred; CHAIN-EXP-013/014/018 hardware arms NOT EXECUTED."
+ ],
+ "method": "Software product decision (G-07S, OWNER-APPROVED): path B, routes NONE_CH7_8 / MAIN_LR, linked dual mono labelled PRODUCT ABSTRACTION, chain-mode default CASCADE with research modes, no drive/wet-dry; verified structurally against the product configuration record and the engines. INFORMATIONAL software derivatives of CHAIN-EXP-014 (DRY/SP/MPC/SP\u2192MPC metrics) and CHAIN-EXP-013 (reverse order) on a bright multitone; listening kit prepared (CHAIN-EXP-018 software arm), human listening NOT EXECUTED; G-07H BLOCKED.",
+ "outcome": "PASS",
+ "requirement_id": "REQ-016",
+ "research_config_sha256": "81871c8b52694b188a48f53808979406b25d5c4fd92af746806457ad6a3fe88d",
+ "results": {
+  "cascade_order": {
+   "decision_id": "OWN-DEC-011",
+   "product": "SP_TO_MPC",
+   "reverse": "INFORMATIONAL SIMULATION / RESEARCH ONLY (CHAIN-DEC-013); never product/preset/default/marketing"
+  },
+  "chain_exp_013_software_derivative": {
+   "sp_to_mpc_vs_mpc_to_sp_rms_db": [
+    -18.52832334960943,
+    -18.5193115730696
+   ],
+   "status": "INFORMATIONAL SIMULATION (hardware CHAIN-EXP-013 NOT EXECUTED); reverse order is research-only, never product"
+  },
+  "chain_exp_014_software_derivative": {
+   "conditions": {
+    "DRY": {
+     "crest_db": 12.069397346231625,
+     "label": "DRY",
+     "peak_db": -6.273128795368303,
+     "residual_rms_db_re_input_rms": -221.6574166900906,
+     "rms_db": -18.34252614159993,
+     "tone_levels_db_re_input": {
+      "10175.6": 5.451846691737695e-05,
+      "1039.2": 2.4325112173562556e-06,
+      "106.1": 1.525806219839793e-05,
+      "12306.4": 0.0001338925356048954,
+      "1256.8": 7.57803883619215e-05,
+      "128.4": 2.1931807154972296e-05,
+      "14883.4": -3.984013358454375e-05,
+      "1520.0": 0.00014085147547449143,
+      "155.2": 3.126805430886454e-05,
+      "18000.0": -2.0512906705463833e-05,
+      "1838.3": 3.078907268492721e-05,
+      "187.7": 4.404334310820684e-05,
+      "2223.3": 6.235085406538124e-05,
+      "227.1": 6.093410558329931e-05,
+      "2688.8": 9.350932974671216e-05,
+      "274.6": 8.206433695073109e-05,
+      "3251.9": 7.690861692720044e-05,
+      "332.1": 0.00010610104720143031,
+      "3932.8": 2.0631389074558896e-06,
+      "401.7": 0.0001287808716213557,
+      "4756.4": 5.970866242148666e-05,
+      "485.8": 0.00014128970261930473,
+      "5752.4": 5.946063506572936e-05,
+      "587.5": 0.000130603687784522,
+      "60.0": 5.002149641147037e-06,
+      "6957.0": -5.904794004450181e-06,
+      "710.5": 8.703715719877112e-05,
+      "72.6": 7.276028566541169e-06,
+      "8413.8": 0.00014679932161743857,
+      "859.3": 2.4792930153720122e-05,
+      "87.8": 1.0556404164143764e-05
+     }
+    },
+    "MPC": {
+     "crest_db": 12.069300351004319,
+     "label": "MPC",
+     "peak_db": -6.273251281384359,
+     "residual_rms_db_re_input_rms": -82.77652118200518,
+     "rms_db": -18.342551632388677,
+     "tone_levels_db_re_input": {
+      "10175.6": 1.637676813683948e-05,
+      "1039.2": -5.4592436439443506e-05,
+      "106.1": 2.815769509753019e-05,
+      "12306.4": 0.00014981249279388088,
+      "1256.8": 1.660033865361788e-05,
+      "128.4": 1.4972660677502037e-05,
+      "14883.4": -3.6337782688154314e-05,
+      "1520.0": 0.00014675154991201732,
+      "155.2": 6.876717549609263e-06,
+      "18000.0": -9.436483941383841e-05,
+      "1838.3": -2.4023176170798957e-05,
+      "187.7": 1.9705431624548327e-05,
+      "2223.3": 5.945342523013214e-05,
+      "227.1": 7.12359439719643e-06,
+      "2688.8": 5.220432332619809e-05,
+      "274.6": 5.686524043503422e-05,
+      "3251.9": 7.36555307016566e-05,
+      "332.1": 4.0291229699471606e-05,
+      "3932.8": 9.403711234000264e-06,
+      "401.7": 7.407594247054243e-05,
+      "4756.4": 3.260753681931026e-05,
+      "485.8": 0.00010602404782008821,
+      "5752.4": -3.150110052729084e-06,
+      "587.5": 0.00011430928353700492,
+      "60.0": -1.404723327464461e-06,
+      "6957.0": -1.9445224066860306e-05,
+      "710.5": 9.495502865654625e-05,
+      "72.6": -2.784061015952852e-05,
+      "8413.8": 0.00012263237321920943,
+      "859.3": -5.239974776894688e-06,
+      "87.8": 6.297244171709075e-06
+     }
+    },
+    "MPC_TO_SP_informational": {
+     "crest_db": 12.631011481430075,
+     "label": "MPC_TO_SP (CHAIN-DEC-013 research only)",
+     "peak_db": -5.888300091639529,
+     "residual_rms_db_re_input_rms": -11.300385296602343,
+     "rms_db": -18.5193115730696,
+     "tone_levels_db_re_input": {
+      "10175.6": -2.30177712975453,
+      "1039.2": -0.022385156305194286,
+      "106.1": -0.0006310034553847791,
+      "12306.4": -3.4675338991708804,
+      "1256.8": -0.03256023909793778,
+      "128.4": -0.0010123679333249726,
+      "14883.4": -5.309162638201532,
+      "1520.0": -0.049428914645651384,
+      "155.2": 0.00025432864413221665,
+      "18000.0": -8.401750892486707,
+      "1838.3": -0.07129090106877654,
+      "187.7": 0.00043308349920786777,
+      "2223.3": -0.1049605247048422,
+      "227.1": -0.0017138213916070327,
+      "2688.8": -0.15343610668471375,
+      "274.6": -0.0021929673355129938,
+      "3251.9": -0.22388282790280642,
+      "332.1": -0.0019047212450129462,
+      "3932.8": -0.32728599857561985,
+      "401.7": -0.0034261513912406793,
+      "4756.4": -0.4828953214732439,
+      "485.8": -0.00613333353867979,
+      "5752.4": -0.709226893213097,
+      "587.5": -0.008676011681819121,
+      "60.0": 0.00034366332253349814,
+      "6957.0": -1.0435904260538704,
+      "710.5": -0.010676018693539721,
+      "72.6": -0.001055480164037876,
+      "8413.8": -1.5420975632825078,
+      "859.3": -0.015482800832974044,
+      "87.8": -0.0014221132108258236
+     }
+    },
+    "SP": {
+     "crest_db": 12.267010377813445,
+     "label": "SP",
+     "peak_db": -6.252228226552083,
+     "residual_rms_db_re_input_rms": -11.300591997396051,
+     "rms_db": -18.51923860436553,
+     "tone_levels_db_re_input": {
+      "10175.6": -2.3017496728818556,
+      "1039.2": -0.02300039230613392,
+      "106.1": -0.0007163990536204162,
+      "12306.4": -3.464836322197129,
+      "1256.8": -0.03278269722999431,
+      "128.4": -0.00013355601646464929,
+      "14883.4": -5.303467404814619,
+      "1520.0": -0.049439514827422266,
+      "155.2": -0.0007370026218461002,
+      "18000.0": -8.401708035887653,
+      "1838.3": -0.07179092707171257,
+      "187.7": 6.967853393761921e-05,
+      "2223.3": -0.1047069260624662,
+      "227.1": -0.0012504315190797223,
+      "2688.8": -0.15349314970596165,
+      "274.6": -0.0018850447243722102,
+      "3251.9": -0.2243070028273521,
+      "332.1": -0.0022145922745515694,
+      "3932.8": -0.32759411985193765,
+      "401.7": -0.0041517261677999195,
+      "4756.4": -0.48286045970794494,
+      "485.8": -0.005320250813558115,
+      "5752.4": -0.7085452420017446,
+      "587.5": -0.007716237933718645,
+      "60.0": -0.0010294532545049699,
+      "6957.0": -1.0445656107852512,
+      "710.5": -0.01113046550660972,
+      "72.6": -0.00021174924366973617,
+      "8413.8": -1.5400542128005559,
+      "859.3": -0.01546108797366401,
+      "87.8": -0.0011043570496603679
+     }
+    },
+    "SP_TO_MPC": {
+     "crest_db": 12.209234156763006,
+     "label": "SP_TO_MPC",
+     "peak_db": -6.319089192846423,
+     "residual_rms_db_re_input_rms": -11.41941220329127,
+     "rms_db": -18.52832334960943,
+     "tone_levels_db_re_input": {
+      "10175.6": -2.301848583113681,
+      "1039.2": -0.023101793365347012,
+      "106.1": -0.0007519073829452056,
+      "12306.4": -3.4648434237109877,
+      "1256.8": -0.03285738709434912,
+      "128.4": -0.00021147818771282282,
+      "14883.4": -5.303565852432057,
+      "1520.0": -0.04945174497404084,
+      "155.2": -0.0007407698963961977,
+      "18000.0": -8.401884499253775,
+      "1838.3": -0.07182705239706982,
+      "187.7": 2.977162419859699e-05,
+      "2223.3": -0.10477099836348348,
+      "227.1": -0.0012761175504757624,
+      "2688.8": -0.15351968537171304,
+      "274.6": -0.0019133870477274165,
+      "3251.9": -0.22432762412162646,
+      "332.1": -0.002287978367236765,
+      "3932.8": -0.3275886156378739,
+      "401.7": -0.004155028017088329,
+      "4756.4": -0.4828751599439554,
+      "485.8": -0.005335693462792108,
+      "5752.4": -0.7086519356420395,
+      "587.5": -0.00771508972449105,
+      "60.0": -0.0009971607666736022,
+      "6957.0": -1.0446013036863853,
+      "710.5": -0.01112514112472188,
+      "72.6": -0.00017747871554419105,
+      "8413.8": -1.5400966374370286,
+      "859.3": -0.01543175723425462,
+      "87.8": -0.0010987788858071341
+     }
+    }
+   },
+   "reading": "SP-dominated: tones above 13.02 kHz fold back (R3 INACTIVE) and hold droop shapes the top; MPC stage adds only 16-bit quantization and the 22.05 kHz band limit at 0 dB interstage; no hardware meaning",
+   "status": "INFORMATIONAL SIMULATION (hardware CHAIN-EXP-014 NOT EXECUTED)",
+   "stimulus": "31-tone log multitone 60 Hz\u201318 kHz, seed 101, peak 0.5, 1 s at 48 kHz"
+  },
+  "chain_modes": {
+   "decision_id": "OWN-DEC-012",
+   "latency_policy": "all modes share the cascade's integer host latency (constant-delay compensation, software alignment choice); a bypassed machine is replaced by an exact delay of its core delay",
+   "product_default": "CASCADE",
+   "research_diagnostic": [
+    "SP_ONLY",
+    "MPC_ONLY",
+    "BOTH_MACHINE_BYPASSED"
+   ]
+  },
+  "controls": {
+   "candidates_from_PARAMETERS": [
+    "input_calibration_dbfs",
+    "sp_input_level_db",
+    "sp_input_gain",
+    "sp_output_path",
+    "interstage_level_db",
+    "mpc_input_gain",
+    "mpc_record_level_db",
+    "output_trim_db",
+    "chain_mode",
+    "plugin_bypass"
+   ],
+   "excluded": [
+    "drive macro",
+    "wet/dry",
+    "amount",
+    "loudness compensation"
+   ],
+   "implemented_in_reference": [
+    "sp_input_level_db",
+    "sp_input_gain",
+    "sp_output_path",
+    "interstage_level_db",
+    "mpc_input_gain",
+    "mpc_record_level_db",
+    "chain_mode"
+   ],
+   "not_implemented_yet": [
+    "input_calibration_dbfs (volts UNSET)",
+    "output_trim_db (Sprint 6)",
+    "plugin_bypass (Sprint 7)"
+   ],
+   "ranges_defaults_smoothing": "UNKNOWN until G-08"
+  },
+  "listening_kit": {
+   "criterion": "NONE DEFINED (owner/validation lead)",
+   "files": 16,
+   "hardware_arm": "G-07H BLOCKED (slot reserved)",
+   "human_listening": "NOT EXECUTED",
+   "kit_version": "listening-kit-1.0.0",
+   "prepared": true,
+   "record": "research/listening/CHAIN-EXP-018/generation_record.json",
+   "status": "PREPARED \u2014 NOT EXECUTED (no listener data)"
+  },
+  "product_config_sha256": "a2656d0fb22ff937fb095de066e86d3c7a94f6e82693be6db6fd4d8b3ff905d5",
+  "product_path": "B",
+  "routes": {
+   "excluded": [
+    "HEADPHONES"
+   ],
+   "mpc_output_route": "MAIN_LR",
+   "not_populated": [
+    "FIXED_CH3_4",
+    "FIXED_CH5_6",
+    "MIX_OUT",
+    "UNFILTERED_CONTACT_CH1_6",
+    "INDIVIDUAL_PAIR"
+   ],
+   "note": "the only currently populated software-reference routes; not canonical historical outputs (CHAIN-DEC-003 UNDECIDED)",
+   "sp_output_path": "NONE_CH7_8"
+  },
+  "stereo": {
+   "mpc_stage": "true phase-locked stereo (MPC3K-CLM-012)",
+   "sp_stage": "LINKED DUAL MONO \u2014 PRODUCT ABSTRACTION (CHAIN-DEC-005); not a verified historical stereo architecture; parameters linked; phase-consistent"
+  },
+  "structural": {
+   "all_modes": [
+    "CASCADE",
+    "SP_ONLY",
+    "MPC_ONLY",
+    "BOTH_MACHINE_BYPASSED"
+   ],
+   "drive_macro": "NONE",
+   "non_product_route": "REJECTED ROUTE_NOT_PRODUCT",
+   "product_default_chain_mode": "CASCADE",
+   "product_routes_prepare": "OK",
+   "research_modes": [
+    "SP_ONLY",
+    "MPC_ONLY",
+    "BOTH_MACHINE_BYPASSED"
+   ],
+   "reverse_order_default_off": true,
+   "wet_dry": "NONE"
+  }
+ },
+ "software": {
+  "numpy": "2.5.3",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "eefdf8d4fc869d6ba86f0ac2103b0a33becb0d0b-dirty",
+ "stimulus": {
+  "multitone": "31 tones 60 Hz\u201318 kHz seed 101"
+ },
+ "timestamp_utc": "2026-10-07T01:47:47+00:00",
+ "tolerance_policy": {
+  "derivatives": "INFORMATIONAL (no criterion defined; none invented)",
+  "structural": "accept/reject"
+ },
+ "track": "A"
+}

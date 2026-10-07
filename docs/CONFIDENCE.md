@@ -1,8 +1,8 @@
 # Claim and source confidence register
 
-Revision: execution V4 (Sprint 4) · 2026-10-07 · supersedes execution V3
+Revision: execution V5 (Sprint 5) · 2026-10-07 · supersedes execution V4
 
-Status: EXECUTION IN PROGRESS. No claim status changed after Sprint 4 (no new evidence). Lane 3 now also holds a provisional MPC reference (R11–R15, asset mpc3000-track-a-provisional v1, TRANSPARENT R12/R15, ROUND_NEAREST/TRUNCATION R13) whose every value is UNVALIDATED AGAINST HARDWARE; MPC3K-CLM-016/017/018/019/020 stay UNKNOWN. Lane 3 implementation now holds a provisional SP reference (R1–R9, R16; asset sp1200-track-a-provisional v1, model sp1200-provisional-1.0.0, implementation 1.0.1) whose every value is tagged UNVALIDATED AGAINST HARDWARE; software checks VAL-008/009/010/011/017/018 PASS on software evidence only and upgrade nothing in this register.
+Status: EXECUTION IN PROGRESS. No claim status changed after Sprint 5 (no new evidence). CHAIN-CLM-001/002/003/006/007 remain as classified; the cascade's 0 dB interstage is a software convention, not evidence about CHAIN-CLM-001/002; CHAIN-CLM-008 (period practice) stays SPECULATIVE; listening preparation adds no evidence. Lane 3 now also holds a provisional MPC reference (R11–R15, asset mpc3000-track-a-provisional v1, TRANSPARENT R12/R15, ROUND_NEAREST/TRUNCATION R13) whose every value is UNVALIDATED AGAINST HARDWARE; MPC3K-CLM-016/017/018/019/020 stay UNKNOWN. Lane 3 implementation now holds a provisional SP reference (R1–R9, R16; asset sp1200-track-a-provisional v1, model sp1200-provisional-1.0.0, implementation 1.0.1) whose every value is tagged UNVALIDATED AGAINST HARDWARE; software checks VAL-008/009/010/011/017/018 PASS on software evidence only and upgrade nothing in this register.
 
 ## Evidence taxonomy and approval lanes
 

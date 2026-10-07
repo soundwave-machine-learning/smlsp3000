@@ -36,6 +36,10 @@ def main(argv: list[str] | None = None) -> int:
     s3.add_argument("--out", required=True)
     s4 = sub.add_parser("validate-sprint4", help="Sprint 4 software-track checks VAL-012/013/014 (Track A, MPC)")
     s4.add_argument("--out", required=True)
+    s5 = sub.add_parser("validate-sprint5", help="Sprint 5 software-track checks VAL-015/016 (Track A, cascade)")
+    s5.add_argument("--out", required=True)
+    lk = sub.add_parser("listening-kit", help="CHAIN-EXP-018 software-only listening kit (preparation only)")
+    lk.add_argument("--out", required=True)
     sa = sub.add_parser("scope-audit", help="VAL-018 scope audit")
     sa.add_argument("--out", required=True)
     ns = ap.parse_args(argv)
@@ -65,6 +69,16 @@ def main(argv: list[str] | None = None) -> int:
         res = run4(ns.out, "python3 -m smlsp3000.runner " + " ".join(argv))
         print(json.dumps(res, indent=1))
         return 0 if all(v == "PASS" for v in res.values()) else 1
+    if ns.cmd == "validate-sprint5":
+        from .validation.cascade_track_a import run_all as run5
+        res = run5(ns.out, "python3 -m smlsp3000.runner " + " ".join(argv))
+        print(json.dumps(res, indent=1))
+        return 0 if all(v == "PASS" for v in res.values()) else 1
+    if ns.cmd == "listening-kit":
+        from .listening.kit import generate
+        r = generate(ns.out, command="python3 -m smlsp3000.runner " + " ".join(argv))
+        print(json.dumps({"experiment_id": r["experiment_id"], "status": r["status"], "files": len(r["entries"])}, indent=1))
+        return 0
     if ns.cmd == "scope-audit":
         from .validation.scope_audit import run as scope_run
         r = scope_run(ns.out, "python3 -m smlsp3000.runner " + " ".join(argv))

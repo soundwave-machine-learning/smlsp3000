@@ -1,0 +1,17 @@
+{
+ "record": "G-07S OWNER-APPROVED SOFTWARE PRODUCT DECISION (Sprint 5, 2026-10-07)",
+ "classification": "SOFTWARE PRODUCT DECISION — not a hardware-informed product selection; G-07H BLOCKED / DEFERRED",
+ "decisions": {
+  "product_path": {"selected": "B", "decision_id": "OWN-DEC-010", "basis": "repository evidence + implemented mechanism coverage + software validation (VAL-008..015); not listening, not hardware correspondence", "rejected": {"A": "linear-only simplification removes every evidence-backed sampling mechanism (band limit, fold-back, hold images, quantizers, clamps)", "C": "no reduction evidence exists; a hybrid would be arbitrary"}},
+  "cascade_order": {"product": "SP → MPC", "reverse": "INFORMATIONAL SIMULATION / RESEARCH only (CHAIN-DEC-013)", "decision_id": "OWN-DEC-011"},
+  "routes": {"sp": "NONE_CH7_8", "mpc": "MAIN_LR", "status": "the only currently populated software-reference routes; not canonical historical outputs", "decision_ids": ["OWN-DEC-004", "OWN-DEC-008"]},
+  "stereo": {"sp_stage": "LINKED DUAL MONO — PRODUCT ABSTRACTION", "mpc_stage": "true stereo", "decision_id": "CHAIN-DEC-005 retained"},
+  "interstage": {"default_db": 0.0, "status": "OWNER-SET PROVISIONAL SOFTWARE DEFAULT; NON-HISTORICAL; UNVALIDATED AGAINST HARDWARE; volts UNSET", "decision_id": "OWN-DEC-009"},
+  "chain_modes": {"product_default": "CASCADE", "research_diagnostic": ["SP_ONLY", "MPC_ONLY", "BOTH_MACHINE_BYPASSED"], "decision_id": "OWN-DEC-012"},
+  "controls": {"excluded": ["drive macro", "wet/dry"], "candidates": "docs/PARAMETERS.md only; ranges/defaults UNKNOWN until G-08"},
+  "listening": {"software_kit": "PREPARED (CHAIN-EXP-018 software arm, research/listening/CHAIN-EXP-018)", "human_listening": "NOT EXECUTED", "criterion": "NONE DEFINED; not invented", "hardware_arm": "BLOCKED (G-07H)", "decision_id": "OWN-DEC-013"}
+ },
+ "claim_limits": "SML SP-3000 — a software instrument/effect inspired by and informed by documented SP-1200 / MPC3000 architecture and behaviour; not exact emulation, not hardware matched, not component accurate, not measured, not hardware validated",
+ "owner": "project owner (explicit Sprint 5 authorization message, 2026-10-07)",
+ "executor_note": "recorded by the autonomous executor from the owner's explicit instruction; no agent judgment is presented as user preference"
+}

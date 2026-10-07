@@ -1,0 +1,62 @@
+test_rerun_reproduces_committed_results_and_hashes (tests.test_exp016_reproduction.Exp016ReproductionTests.test_rerun_reproduces_committed_results_and_hashes) ... ok
+test_array_hash_distinguishes_dtype_and_shape (tests.test_hashing.HashingTests.test_array_hash_distinguishes_dtype_and_shape) ... ok
+test_known_sha256 (tests.test_hashing.HashingTests.test_known_sha256) ... ok
+test_manifest_roundtrip_and_verify (tests.test_hashing.HashingTests.test_manifest_roundtrip_and_verify) ... ok
+test_identical_arrays_null_to_exact_zero_without_preprocessing (tests.test_nullframework.NullFrameworkTests.test_identical_arrays_null_to_exact_zero_without_preprocessing) ... ok
+test_interpolator_is_identity_at_integer_positions (tests.test_nullframework.NullFrameworkTests.test_interpolator_is_identity_at_integer_positions) ... ok
+test_recovers_combined_perturbation_from_independent_truth (tests.test_nullframework.NullFrameworkTests.test_recovers_combined_perturbation_from_independent_truth) ... ok
+test_relative_metric_undefined_on_silence (tests.test_nullframework.NullFrameworkTests.test_relative_metric_undefined_on_silence) ... ok
+test_cascade_deterministic_partition_invariant_and_distinct (tests.test_reference_cascade.CascadeTests.test_cascade_deterministic_partition_invariant_and_distinct) ... ok
+test_interstage_gain_and_clamp (tests.test_reference_cascade.CascadeTests.test_interstage_gain_and_clamp) ... ok
+test_mpc_only_equals_mpc_engine_on_delayed_input (tests.test_reference_cascade.CascadeTests.test_mpc_only_equals_mpc_engine_on_delayed_input) ... ok
+test_non_product_route_rejected (tests.test_reference_cascade.CascadeTests.test_non_product_route_rejected) ... ok
+test_product_config_owner_decisions (tests.test_reference_cascade.CascadeTests.test_product_config_owner_decisions) ... ok
+test_sp_only_bit_identical_to_sp_engine_and_latency_equal_all_modes (tests.test_reference_cascade.CascadeTests.test_sp_only_bit_identical_to_sp_engine_and_latency_equal_all_modes) ... ok
+test_stereo_linkage (tests.test_reference_cascade.CascadeTests.test_stereo_linkage) ... ok
+test_asset_validates_and_owner_defaults (tests.test_reference_mpc3000.MPCAssetTests.test_asset_validates_and_owner_defaults) ... ok
+test_registries_only_contain_populated_strategies (tests.test_reference_mpc3000.MPCAssetTests.test_registries_only_contain_populated_strategies) ... ok
+test_clamp_meters (tests.test_reference_mpc3000.MPCEngineTests.test_clamp_meters) ... ok
+test_determinism_partition_and_rules_differ (tests.test_reference_mpc3000.MPCEngineTests.test_determinism_partition_and_rules_differ) ... ok
+test_info_and_latency (tests.test_reference_mpc3000.MPCEngineTests.test_info_and_latency) ... ok
+test_rejections (tests.test_reference_mpc3000.MPCEngineTests.test_rejections) ... ok
+test_transparent_in_band_tone_within_kernel_bound (tests.test_reference_mpc3000.MPCEngineTests.test_transparent_in_band_tone_within_kernel_bound) ... ok
+test_true_stereo_identity_and_isolation (tests.test_reference_mpc3000.MPCEngineTests.test_true_stereo_identity_and_isolation) ... ok
+test_definitions_boundaries_zero_negatives_extremes (tests.test_reference_mpc3000.ReductionRuleTests.test_definitions_boundaries_zero_negatives_extremes) ... ok
+test_engine_clamps_overflow_and_counts (tests.test_reference_mpc3000.ReductionRuleTests.test_engine_clamps_overflow_and_counts) ... ok
+test_magic_value_rejected (tests.test_reference_sp1200.AssetTests.test_magic_value_rejected) ... ok
+test_owner_defaults_recorded (tests.test_reference_sp1200.AssetTests.test_owner_defaults_recorded) ... ok
+test_provisional_asset_validates_and_is_tagged (tests.test_reference_sp1200.AssetTests.test_provisional_asset_validates_and_is_tagged) ... ok
+test_clamp_and_meters (tests.test_reference_sp1200.EngineTests.test_clamp_and_meters) ... ok
+test_determinism_and_partition_invariance (tests.test_reference_sp1200.EngineTests.test_determinism_and_partition_invariance) ... ok
+test_hold_droop_matches_closed_form_within_kernel_bound (tests.test_reference_sp1200.EngineTests.test_hold_droop_matches_closed_form_within_kernel_bound) ... ok
+test_latency_and_info (tests.test_reference_sp1200.EngineTests.test_latency_and_info) ... ok
+test_linked_dual_mono_identity_and_isolation (tests.test_reference_sp1200.EngineTests.test_linked_dual_mono_identity_and_isolation) ... ok
+test_registries_only_contain_populated_strategies (tests.test_reference_sp1200.EngineTests.test_registries_only_contain_populated_strategies) ... ok
+test_rejects_unpopulated_routes_physical_mode_and_reserved_r3 (tests.test_reference_sp1200.EngineTests.test_rejects_unpopulated_routes_physical_mode_and_reserved_r3) ... ok
+test_bandlimited_step_limits (tests.test_reference_sp1200.KernelTests.test_bandlimited_step_limits) ... ok
+test_lowpass_unity_dc_and_symmetry (tests.test_reference_sp1200.KernelTests.test_lowpass_unity_dc_and_symmetry) ... ok
+test_streaming_fir_partition_invariant (tests.test_reference_sp1200.KernelTests.test_streaming_fir_partition_invariant) ... ok
+test_upsample_then_decimate_delay_is_integer (tests.test_reference_sp1200.KernelTests.test_upsample_then_decimate_delay_is_integer) ... ok
+test_both_rules_exact_definitions (tests.test_reference_sp1200.QuantizerTests.test_both_rules_exact_definitions) ... ok
+test_rules_produce_different_outputs_and_are_selectable (tests.test_reference_sp1200.QuantizerTests.test_rules_produce_different_outputs_and_are_selectable) ... ok
+test_positions_exact_and_block_independent (tests.test_reference_sp1200.SchedulerTests.test_positions_exact_and_block_independent) ... ok
+test_all_integrity_checks_pass (tests.test_repo_integrity.RepoIntegrityTests.test_all_integrity_checks_pass) ... ok
+test_artifact_entry_rejects_wrong_class (tests.test_schemas.SchemaTests.test_artifact_entry_rejects_wrong_class) ... ok
+test_missing_required_and_bool_type_strictness (tests.test_schemas.SchemaTests.test_missing_required_and_bool_type_strictness) ... ok
+test_unknown_field_is_reported_in_strict_mode (tests.test_schemas.SchemaTests.test_unknown_field_is_reported_in_strict_mode) ... ok
+test_unset_semantics (tests.test_schemas.SchemaTests.test_unset_semantics) ... ok
+test_vocabularies_frozen (tests.test_schemas.SchemaTests.test_vocabularies_frozen) ... ok
+test_float32_exact_for_float32_values (tests.test_wavio.WavIOTests.test_float32_exact_for_float32_values) ... ok
+test_integer_write_clamps_instead_of_wrapping (tests.test_wavio.WavIOTests.test_integer_write_clamps_instead_of_wrapping) ... ok
+test_pcm16 (tests.test_wavio.WavIOTests.test_pcm16) ... ok
+test_pcm24_stereo (tests.test_wavio.WavIOTests.test_pcm24_stereo) ... ok
+
+----------------------------------------------------------------------
+Ran 52 tests in 126.016s
+
+OK
+
+real	2m6.163s
+user	2m11.080s
+sys	0m20.999s
+exit=0

@@ -8,3 +8,5 @@ dist/
 # Local scratch; evidence that is committed lives under evidence/ and research/ explicitly
 .pytest_cache/
 *.tmp
+# Listening stimulus audio is regenerated from the committed generation record; hashes are committed, audio is not
+research/listening/**/stimuli/

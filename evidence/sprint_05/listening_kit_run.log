@@ -1,0 +1,10 @@
+{
+ "experiment_id": "CHAIN-EXP-018",
+ "status": "PREPARED \u2014 NOT EXECUTED (no listener data)",
+ "files": 16
+}
+
+real	1m35.788s
+user	1m27.386s
+sys	0m8.681s
+exit=0

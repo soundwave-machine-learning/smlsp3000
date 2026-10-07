@@ -1,0 +1,110 @@
+{
+ "protocol": "FILL: ABX or MUSHRA-style (one, logged)",
+ "listener_id": "FILL (as permitted)",
+ "playback_chain": "FILL",
+ "level_calibration": "FILL",
+ "trials": [
+  {
+   "excerpt_index": 0,
+   "responses": [
+    {
+     "blind_file": "stim_9768933.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    },
+    {
+     "blind_file": "stim_7548462.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    },
+    {
+     "blind_file": "stim_7658432.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    },
+    {
+     "blind_file": "stim_2790302.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    }
+   ]
+  },
+  {
+   "excerpt_index": 1,
+   "responses": [
+    {
+     "blind_file": "stim_2666072.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    },
+    {
+     "blind_file": "stim_9180597.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    },
+    {
+     "blind_file": "stim_7012897.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    },
+    {
+     "blind_file": "stim_3969190.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    }
+   ]
+  },
+  {
+   "excerpt_index": 2,
+   "responses": [
+    {
+     "blind_file": "stim_5898203.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    },
+    {
+     "blind_file": "stim_5035829.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    },
+    {
+     "blind_file": "stim_3168845.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    },
+    {
+     "blind_file": "stim_8987099.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    }
+   ]
+  },
+  {
+   "excerpt_index": 3,
+   "responses": [
+    {
+     "blind_file": "stim_5026447.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    },
+    {
+     "blind_file": "stim_6586690.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    },
+    {
+     "blind_file": "stim_1626891.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    },
+    {
+     "blind_file": "stim_2896500.wav",
+     "rating_or_choice": null,
+     "notes": ""
+    }
+   ]
+  }
+ ],
+ "criterion": "NONE DEFINED IN REPOSITORY EVIDENCE \u2014 the owner/validation lead freezes a criterion before scoring; the executor does not invent one",
+ "status": "NOT EXECUTED (no human listening has occurred)"
+}

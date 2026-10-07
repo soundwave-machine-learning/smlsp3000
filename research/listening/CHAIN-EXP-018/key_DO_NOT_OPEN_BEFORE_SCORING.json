@@ -1,0 +1,143 @@
+{
+ "blind_map": {
+  "stim_7658432.wav": {
+   "excerpt": "bright_multitone",
+   "condition": "BYPASS",
+   "chain_mode": "BOTH_MACHINE_BYPASSED"
+  },
+  "stim_2790302.wav": {
+   "excerpt": "bright_multitone",
+   "condition": "REFERENCE_B",
+   "chain_mode": "CASCADE"
+  },
+  "stim_7548462.wav": {
+   "excerpt": "bright_multitone",
+   "condition": "SIMPLIFIED_SP_ONLY",
+   "chain_mode": "SP_ONLY"
+  },
+  "stim_9768933.wav": {
+   "excerpt": "bright_multitone",
+   "condition": "SIMPLIFIED_MPC_ONLY",
+   "chain_mode": "MPC_ONLY"
+  },
+  "stim_9180597.wav": {
+   "excerpt": "dense_pink_multitone",
+   "condition": "BYPASS",
+   "chain_mode": "BOTH_MACHINE_BYPASSED"
+  },
+  "stim_2666072.wav": {
+   "excerpt": "dense_pink_multitone",
+   "condition": "REFERENCE_B",
+   "chain_mode": "CASCADE"
+  },
+  "stim_3969190.wav": {
+   "excerpt": "dense_pink_multitone",
+   "condition": "SIMPLIFIED_SP_ONLY",
+   "chain_mode": "SP_ONLY"
+  },
+  "stim_7012897.wav": {
+   "excerpt": "dense_pink_multitone",
+   "condition": "SIMPLIFIED_MPC_ONLY",
+   "chain_mode": "MPC_ONLY"
+  },
+  "stim_5898203.wav": {
+   "excerpt": "transient_bursts",
+   "condition": "BYPASS",
+   "chain_mode": "BOTH_MACHINE_BYPASSED"
+  },
+  "stim_8987099.wav": {
+   "excerpt": "transient_bursts",
+   "condition": "REFERENCE_B",
+   "chain_mode": "CASCADE"
+  },
+  "stim_5035829.wav": {
+   "excerpt": "transient_bursts",
+   "condition": "SIMPLIFIED_SP_ONLY",
+   "chain_mode": "SP_ONLY"
+  },
+  "stim_3168845.wav": {
+   "excerpt": "transient_bursts",
+   "condition": "SIMPLIFIED_MPC_ONLY",
+   "chain_mode": "MPC_ONLY"
+  },
+  "stim_2896500.wav": {
+   "excerpt": "sub_heavy_quiet_tail",
+   "condition": "BYPASS",
+   "chain_mode": "BOTH_MACHINE_BYPASSED"
+  },
+  "stim_1626891.wav": {
+   "excerpt": "sub_heavy_quiet_tail",
+   "condition": "REFERENCE_B",
+   "chain_mode": "CASCADE"
+  },
+  "stim_5026447.wav": {
+   "excerpt": "sub_heavy_quiet_tail",
+   "condition": "SIMPLIFIED_SP_ONLY",
+   "chain_mode": "SP_ONLY"
+  },
+  "stim_6586690.wav": {
+   "excerpt": "sub_heavy_quiet_tail",
+   "condition": "SIMPLIFIED_MPC_ONLY",
+   "chain_mode": "MPC_ONLY"
+  }
+ },
+ "trials": [
+  {
+   "excerpt": "bright_multitone",
+   "presentation_order_blind": [
+    "stim_9768933.wav",
+    "stim_7548462.wav",
+    "stim_7658432.wav",
+    "stim_2790302.wav"
+   ],
+   "hidden_reference_condition": "REFERENCE_B",
+   "protocol_options": [
+    "ABX (REFERENCE_B vs each candidate, BYPASS anchor)",
+    "MUSHRA-style (all conditions, hidden reference REFERENCE_B)"
+   ]
+  },
+  {
+   "excerpt": "dense_pink_multitone",
+   "presentation_order_blind": [
+    "stim_2666072.wav",
+    "stim_9180597.wav",
+    "stim_7012897.wav",
+    "stim_3969190.wav"
+   ],
+   "hidden_reference_condition": "REFERENCE_B",
+   "protocol_options": [
+    "ABX (REFERENCE_B vs each candidate, BYPASS anchor)",
+    "MUSHRA-style (all conditions, hidden reference REFERENCE_B)"
+   ]
+  },
+  {
+   "excerpt": "transient_bursts",
+   "presentation_order_blind": [
+    "stim_5898203.wav",
+    "stim_5035829.wav",
+    "stim_3168845.wav",
+    "stim_8987099.wav"
+   ],
+   "hidden_reference_condition": "REFERENCE_B",
+   "protocol_options": [
+    "ABX (REFERENCE_B vs each candidate, BYPASS anchor)",
+    "MUSHRA-style (all conditions, hidden reference REFERENCE_B)"
+   ]
+  },
+  {
+   "excerpt": "sub_heavy_quiet_tail",
+   "presentation_order_blind": [
+    "stim_5026447.wav",
+    "stim_6586690.wav",
+    "stim_1626891.wav",
+    "stim_2896500.wav"
+   ],
+   "hidden_reference_condition": "REFERENCE_B",
+   "protocol_options": [
+    "ABX (REFERENCE_B vs each candidate, BYPASS anchor)",
+    "MUSHRA-style (all conditions, hidden reference REFERENCE_B)"
+   ]
+  }
+ ],
+ "seed": 20261007
+}

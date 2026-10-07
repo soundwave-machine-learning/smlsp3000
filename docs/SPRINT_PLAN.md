@@ -1,8 +1,8 @@
 # Eight-sprint dependency and ownership index
 
-Revision: execution V4 (Sprint 4) · 2026-10-07 · supersedes execution V3
+Revision: execution V5 (Sprint 5) · 2026-10-07 · supersedes execution V4
 
-Status: EXECUTION IN PROGRESS. Sprint 1 PASS (fbd1fac). Sprint 2 hardware campaign BLOCKED / EXTERNAL HARDWARE REQUIRED (1c0fe89), preserved. Owner approved EXECUTION_PLAN_V2 §4 on 2026-10-07. Sprint 3 Track A PASS (software cells); its hardware-fit cells BLOCKED. Sprint 4 Track A PASS (software cells, 2026-10-07); hardware-fit cells BLOCKED. Sprint 5 awaits owner inputs (interstage default, G-07S). Track B (hardware fit) deferred.
+Status: EXECUTION IN PROGRESS. Sprint 1 PASS (fbd1fac). Sprint 2 hardware campaign BLOCKED / EXTERNAL HARDWARE REQUIRED (1c0fe89), preserved. Owner approved EXECUTION_PLAN_V2 §4 on 2026-10-07. Sprint 3 Track A PASS (software cells); its hardware-fit cells BLOCKED. Sprint 4 Track A PASS (software cells, 2026-10-07); hardware-fit cells BLOCKED. Sprint 5 Track A PASS (software cells, 2026-10-07); human listening and G-07H pending/blocked. Sprint 6 awaits G-08 owner budgets. Track B (hardware fit) deferred.
 
 ## Exactly eight substantive milestones
 
@@ -26,7 +26,7 @@ Eight is explicitly requested by the owner. Boundaries follow evidence dependenc
 | 02 | — | whole sprint (CHAIN-EXP-001..012/015, G-04/G-05/G-06) | BLOCKED / EXTERNAL HARDWARE REQUIRED |
 | 03 | REQ-008/009/010/011 provisional SP reference (class B), REQ-017/018 and CHAIN-EXP-017 (class C); ch 3–6 responses and MIX OUT not populated (class A) | VAL-008..011 hardware-fit cells | EXECUTED 2026-10-07 — software PASS (docs/sprint_reports/SPRINT_03_REPORT.md); hardware-fit BLOCKED |
 | 04 | REQ-012/013/014 provisional MPC reference (class B) | VAL-012..014 hardware-fit cells | EXECUTED 2026-10-07 — software PASS (docs/sprint_reports/SPRINT_04_REPORT.md); hardware-fit BLOCKED |
-| 05 | REQ-015 provisional interstage (B, owner-set), REQ-016 G-07S software product decision with software-only listening (B); CHAIN-EXP-013/014/018 hardware arms (A) | VAL-015 hardware-fit cell; G-07H | Accepted S4 + §9 input 6 |
+| 05 | REQ-015 provisional interstage (B, owner-set), REQ-016 G-07S software product decision with software-only listening (B); CHAIN-EXP-013/014/018 hardware arms (A) | VAL-015 hardware-fit cell; G-07H | EXECUTED 2026-10-07 — software PASS (docs/sprint_reports/SPRINT_05_REPORT.md); human listening NOT EXECUTED; hardware-fit BLOCKED |
 | 06 | REQ-019..022 (class C; G-08 owner budgets) | VAL-020 hardware image agreement cell | Accepted S5 + G-07S + G-08 |
 | 07 | REQ-023..026 (class C; G-09 owner/platform inputs; claim boundary) | — | Accepted S6 + G-09 + G-10 protocol |
 | 08 | REQ-027 software candidate under the claim boundary (C) | hardware-fit release (A) | Accepted S7; G-11 for software candidate |

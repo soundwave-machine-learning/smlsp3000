@@ -1,0 +1,22 @@
+{
+ "VAL-008": "PASS",
+ "VAL-009": "PASS",
+ "VAL-010": "PASS",
+ "VAL-011": "PASS",
+ "VAL-017": "PASS"
+}
+{
+ "VAL-012": "PASS",
+ "VAL-013": "PASS",
+ "VAL-014": "PASS"
+}
+exit=0
+REGRESSION sp1200/digital/VAL-008_software.json numeric results identical (ignoring the render-record 'machine' key added in Sprint 4): True PASS PASS
+REGRESSION sp1200/input/VAL-009_software.json numeric results identical (ignoring the render-record 'machine' key added in Sprint 4): True PASS PASS
+REGRESSION sp1200/output/VAL-010_software.json numeric results identical (ignoring the render-record 'machine' key added in Sprint 4): True PASS PASS
+REGRESSION sp1200/calibration/VAL-011_software.json numeric results identical (ignoring the render-record 'machine' key added in Sprint 4): True PASS PASS
+REGRESSION stereo/VAL-017_software.json numeric results identical (ignoring the render-record 'machine' key added in Sprint 4): True PASS PASS
+REGRESSION mpc3000/digital/VAL-012_software.json numeric results identical (ignoring the render-record 'machine' key added in Sprint 4): True PASS PASS
+REGRESSION mpc3000/analog/VAL-013_software.json numeric results identical (ignoring the render-record 'machine' key added in Sprint 4): True PASS PASS
+REGRESSION mpc3000/path_comparison/VAL-014_software.json numeric results identical (ignoring the render-record 'machine' key added in Sprint 4): True PASS PASS
+ALL_IDENTICAL True

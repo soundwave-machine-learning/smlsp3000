@@ -1,8 +1,8 @@
 # Blind listening and product decision gates
 
-Revision: planning V1 · 2026-10-06
+Revision: execution V5 (Sprint 5) · 2026-10-07 · supersedes planning V1
 
-Status: DRAFT PLANNING CONTRACT. Documentation creation authorized; implementation and release not authorized.
+Status: SOFTWARE ARM PREPARED (research/listening/CHAIN-EXP-018: 16 blinded RMS-matched stimuli, synthetic analytic material, conditions BYPASS / REFERENCE_B / SIMPLIFIED_SP_ONLY / SIMPLIFIED_MPC_ONLY; HARDWARE condition slot reserved). Human listening NOT EXECUTED; no criterion defined; G-07H BLOCKED.
 
 ## Purpose and prerequisites
 

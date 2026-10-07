@@ -30,7 +30,7 @@ from .scheduler import RationalClock
 from .streaming import Decimator, PolyphaseUpsampler, StreamingFIR
 
 SUPPORTED_HOST_RATES = (44100, 48000, 88200, 96000, 176400, 192000)
-MODEL_IMPLEMENTATION_VERSION = "mpc3000-reference-impl-1.0.1"
+MODEL_IMPLEMENTATION_VERSION = "mpc3000-reference-impl-1.0.2"
 
 
 # --- R13 reduction strategies (replaceable registry) -------------------------------------
@@ -207,6 +207,7 @@ class MPCReferenceEngine:
         lookahead = self.hw_r * self.P + self.hw_s
         self.D15 = int(self.L * (-(-lookahead // self.L)))
         self.delay_proxy = lobes * self.L + r12_half + self.D15 + lobes * self.L
+        self.core_delay_proxy = r12_half + self.D15   # delay of core_channel() on the proxy grid (multiple of L)
         assert self.delay_proxy % self.L == 0
         self.latency_host = self.delay_proxy // self.L
         self.taps_enabled = bool(sw["diagnostic_taps"])
@@ -285,8 +286,13 @@ class MPCReferenceEngine:
 
     # ---------------------------------------------------------------- per channel
     def _process_channel(self, st: _ChannelState, x: np.ndarray) -> np.ndarray:
-        st.peak_in = max(st.peak_in, float(np.max(np.abs(x))) if x.size else 0.0)
-        v = st.up.process(x)                 # R1
+        st.peak_in = max(st.peak_in, float(np.max(np.abs(x))) if x.size else 0.0)   # host-input peak meter (unchanged semantics)
+        return st.down.process(self.core_channel(st, st.up.process(x)))   # R1 → core (R11–R15) → R16
+
+    def core_channel(self, st: _ChannelState, v: np.ndarray) -> np.ndarray:
+        """R11–R15 on the proxy grid: proxy input v (len N) → proxy output h (len N), delayed by core_delay_proxy.
+
+        Exposed for the cascade engine (composition on the proxy grid); standalone use goes through process()."""
         v = v * self.gain                    # R11 (switch step x ideal trim; clamp/coupling INACTIVE)
         v = st.bandlimit.process(v)          # R12 TRANSPARENT: ideal band limitation at the machine Nyquist
         st.proxy_hist = np.concatenate([st.proxy_hist, v])
@@ -359,7 +365,7 @@ class MPCReferenceEngine:
         drop = max(0, oldest_needed - st.hist_start)
         if drop > 0:
             st.proxy_hist = st.proxy_hist[drop:]; st.hist_start += drop
-        return st.down.process(h)              # route MAIN_LR identity; R16
+        return h                               # route MAIN_LR identity (R16 applied by the caller)
 
     def meters(self) -> list[dict]:
         self._require()

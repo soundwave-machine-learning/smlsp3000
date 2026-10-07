@@ -1,0 +1,49 @@
+{
+  "record": "Sprint 05 commands and exit codes",
+  "working_directory": "repository root",
+  "commands": [
+    {
+      "id": "CMD-02",
+      "command": "python3 tools/check_repo_integrity.py",
+      "exit_code": 0,
+      "log": "evidence/sprint_05/integrity_run.log"
+    },
+    {
+      "id": "CMD-11",
+      "command": "python3 -m smlsp3000.runner validate-sprint5 --out research/validation",
+      "exit_code": 0,
+      "log": "evidence/sprint_05/validate_sprint5_run.log"
+    },
+    {
+      "id": "CMD-12",
+      "command": "python3 -m smlsp3000.runner listening-kit --out research/listening/CHAIN-EXP-018",
+      "exit_code": 0,
+      "log": "evidence/sprint_05/listening_kit_run.log",
+      "note": "audio written to research/listening/CHAIN-EXP-018/stimuli (ignored by git); hashes in generation_record.json"
+    },
+    {
+      "id": "CMD-07/CMD-10 (regression)",
+      "command": "validate-sprint3 + validate-sprint4 into scratch, compared with committed records",
+      "exit_code": 0,
+      "log": "evidence/sprint_05/prior_sprints_regression_run.log"
+    },
+    {
+      "id": "CMD-09",
+      "command": "python3 -m smlsp3000.runner scope-audit --out evidence/sprint_05/scope_audit.json",
+      "exit_code": 0,
+      "log": "evidence/sprint_05/scope_audit_run.log"
+    },
+    {
+      "id": "CMD-05",
+      "command": "python3 -m unittest discover -s tests -t . -v",
+      "exit_code": 0,
+      "log": "evidence/sprint_05/unittest_run.log",
+      "note": "52 tests OK (re-run after the Sprint 5 report was written; an earlier run failed only on the VAL-001 link check because docs/README.md already linked the not-yet-written report)"
+    }
+  ],
+  "not_executed": [
+    "CHAIN-EXP-012/013/014/018 hardware arms",
+    "human listening",
+    "any dependency installation"
+  ]
+}

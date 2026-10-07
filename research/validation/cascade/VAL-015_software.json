@@ -1,0 +1,131 @@
+{
+ "artifact_class": "SIMULATION",
+ "asset_identity": {
+  "asset_id": "cascade(sp1200-track-a-provisional v1 + mpc3000-track-a-provisional v1)",
+  "model_version": "cascade-reference-impl-1.0.0",
+  "sha256": "11f7b417ccaf990155ec6c50df5f78c442453fbe67d0d6ba9710d927e8c71151",
+  "version": "1"
+ },
+ "check_id": "VAL-015",
+ "command": "python3 -m smlsp3000.runner validate-sprint5 --out research/validation",
+ "dataset_role": "NONE",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "hardware_fit_outcome": "BLOCKED",
+ "limitations": [
+  "Interstage 0 dB is an owner-set provisional software default (OWN-DEC-009), NON-HISTORICAL: SP output volts and MPC volts per full scale are UNKNOWN (RD-P0-02/03/06; CHAIN-EXP-005/009/012 NOT EXECUTED). Hardware-fit cell BLOCKED."
+ ],
+ "method": "Cascade composition on the proxy grid (R1 \u2192 SP core \u2192 R10 \u2192 MPC core \u2192 R16). Identities (bit-exact): SP_ONLY == standalone SP engine; MPC_ONLY == standalone MPC engine fed the input delayed by the SP-core delay, shifted back by that delay (same sampling phase); CASCADE == explicit manual composition of the engines' public cores; same latency for every chain mode; BOTH_MACHINE_BYPASSED == R1/R16 round trip only (no gain, no machine); determinism and block-partition invariance; stereo identities. Interstage: exact 10^(dB/20) mapping on a low-level tone (-60, -20, 0, +6 dB), converter clamp at +20 dB with meters, out-of-range rejected, 0 dB level-neutral within the kernel bound; no hidden normalization or saturation.",
+ "outcome": "PASS",
+ "requirement_id": "REQ-015",
+ "research_config_sha256": "81871c8b52694b188a48f53808979406b25d5c4fd92af746806457ad6a3fe88d",
+ "results": {
+  "identities": {
+   "bypass_round_trip_bound": 0.00017410060684643368,
+   "bypass_round_trip_max_abs_diff_trimmed": 4.771261331470988e-06,
+   "bypass_within_bound": true,
+   "cascade_differs_from_mpc_only": true,
+   "cascade_differs_from_sp_only": true,
+   "cascade_equals_manual_composition": true,
+   "latency_all_modes": {
+    "BOTH_MACHINE_BYPASSED": 310,
+    "CASCADE": 310,
+    "MPC_ONLY": 310,
+    "SP_ONLY": 310
+   },
+   "latency_equal_all_modes": true,
+   "latency_equals_sp_plus_mpc_core_delays_plus_r1_r16": true,
+   "mpc_only_equals_mpc_engine_on_delayed_input": true,
+   "mpc_only_identity_note": "cascade output aligned by the cascade latency equals the standalone MPC engine output (aligned by its own latency) on the input delayed by the SP-core delay, shifted back by that delay: same 44.1 kHz sampling phase",
+   "partition_identical": true,
+   "repeat_identical": true,
+   "sp_only_equals_sp_engine": true
+  },
+  "interstage": {
+   "+20dB_clamp": {
+    "converter_clamp_reached": true,
+    "max_output_abs": 1.0738047513147773,
+    "mpc_meters": {
+     "converter_clip_count_18bit": 7680,
+     "peak_input_normalized": 0.0,
+     "storage_clamp_count_16bit": 3840
+    },
+    "overload_model": "18-bit converter code clamp only; no recovery, no saturation",
+    "sp_meters": {
+     "converter_clip_count": 0,
+     "peak_input_normalized": 0.0
+    },
+    "sp_not_clipped": true
+   },
+   "+6dB": {
+    "expected_linear": 1.9952623149688795,
+    "max_rel_deviation": 8.71579420039098e-16,
+    "within_float_bound": true
+   },
+   "+6dB_clamp_on_0p5_tone": {
+    "converter_clamp_reached": false,
+    "note": "0.5 x 2.0 = 1.0 reaches full scale \u2192 clamp events expected"
+   },
+   "-20dB": {
+    "expected_linear": 0.1,
+    "max_rel_deviation": 1.0868934820665274e-15,
+    "within_float_bound": true
+   },
+   "-60dB": {
+    "expected_linear": 0.001,
+    "max_rel_deviation": 8.491355328644746e-16,
+    "within_float_bound": true
+   },
+   "0dB_level_neutral": {
+    "abs_error": 3.938060413790495e-10,
+    "bound": 1.5573268923957222e-07,
+    "expected_amplitude_with_implemented_behaviour": 0.0009975718324149996,
+    "input_amplitude": 0.001,
+    "output_amplitude": 0.0009975714386089582,
+    "r10_gain_at_0dB": 1.0,
+    "sp_hold_droop_db_at_1k": -0.021078323974766392,
+    "within_bound": true
+   },
+   "default": {
+    "hidden_normalization": "none",
+    "hidden_saturation": "none",
+    "interstage_level_db": 0.0,
+    "status": "OWNER-SET PROVISIONAL SOFTWARE DEFAULT 0.0 dB (OWN-DEC-009); NON-HISTORICAL; UNVALIDATED AGAINST HARDWARE; volts UNSET",
+    "volts": "UNSET"
+   },
+   "range_+25dB": "REJECTED INTERSTAGE_RANGE",
+   "range_-61dB": "REJECTED INTERSTAGE_RANGE"
+  },
+  "stereo": {
+   "equal_input_identical": true,
+   "label": "SP stage linked dual mono (PRODUCT ABSTRACTION) \u2192 MPC true stereo; parameters linked",
+   "left_unaffected": true,
+   "reset_reproduces": true,
+   "silent_channel_exactly_zero": true,
+   "stereo_equals_independent_mono": true
+  }
+ },
+ "software": {
+  "numpy": "2.5.3",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "eefdf8d4fc869d6ba86f0ac2103b0a33becb0d0b-dirty",
+ "stimulus": {
+  "interstage_tone": "1 kHz 0.001 (linear diagnostics) and 0.5 (clamp)",
+  "program": "1234.5 Hz (0.5) + 7777 Hz (0.2), 20000 samples at 48 kHz",
+  "stereo": "a = 1 kHz + 6.1 kHz, b = 440 Hz"
+ },
+ "timestamp_utc": "2026-10-07T01:47:23+00:00",
+ "tolerance_policy": {
+  "0 dB neutrality": "abs error <= amp x (SP + MPC kernel line bounds)",
+  "bypass round trip": "trimmed max abs diff <= 4 x peak x SP kernel line bound (R1/R16 transition products; informational bound derived from the kernel)",
+  "identities": "bit-exact",
+  "interstage_gain": "max relative deviation <= 1e-09 (float64; linear diagnostics)"
+ },
+ "track": "A"
+}

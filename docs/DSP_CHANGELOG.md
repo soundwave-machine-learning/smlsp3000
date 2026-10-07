@@ -1,6 +1,6 @@
 # DSP changelog
 
-Revision: execution V4 (Sprint 4) · 2026-10-07 · supersedes execution V3
+Revision: execution V5 (Sprint 5) · 2026-10-07 · supersedes execution V4
 
 Status: EXECUTION IN PROGRESS.
 
@@ -49,3 +49,18 @@ Implementation commit: recorded in docs/PROJECT_HANDOFF.md after the milestone c
 | Calibration | normalized converter full scale; volts UNSET (physical mode INVALID_CONFIGURATION) | CHAIN-DEC-014 | UNSET | none | VAL-013 | CHAIN-EXP-009/010 |
 
 Not introduced: interstage R10, output trim, cascade, noise, jitter, mismatch, saturation, overload recovery, limiter, normalization, mixer arithmetic, pitch interpolation, reverse order. No hardware fidelity is implied anywhere; the MPC path is UNVALIDATED AGAINST HARDWARE.
+
+## Sprint 5 — 2026-10-07 — PROVISIONAL SP→MPC SOFTWARE CASCADE (Track A, OWN-DEC-009..013)
+
+Implementation commit: recorded in docs/PROJECT_HANDOFF.md after the milestone commit. Subsystem: `smlsp3000/reference/cascade.py` (cascade-reference-impl-1.0.0), product configuration `sml-sp3000-product-config-track-a` v1, cascade research configuration v1; SP 1.0.4 / MPC 1.0.2 (core entry points exposed; outputs bit-identical to Sprint 3/4 records).
+
+| Item | Behaviour introduced | Reason / evidence | Status | Audible / behavioural consequence | Test coverage | Replacement point |
+|---|---|---|---|---|---|---|
+| Composition | R1 → SP core (R2–R9) → R10 → MPC core (R11–R15) → R16 on the proxy grid; no duplicated blocks | docs/ARCHITECTURE.md | PROVISIONAL / UNVALIDATED AGAINST HARDWARE | the 12-bit SP path (band limit, fold-back, hold droop/images, quantization) feeds the 18-bit TRANSPARENT ADC, 18→16 storage and TRANSPARENT DAC: the MPC stage adds only 16-bit quantization (≈ −98 dB re FS) and the 22.05 kHz band limitation on top of the SP result; SP images above 22.05 kHz do not reach storage | VAL-015 identities | CHAIN-EXP-012 |
+| R10 | interstage_level_db, owner default 0.0 dB (SP normalized FS → MPC normalized FS); research range −60…+24 dB | OWN-DEC-009; RD-P0-03 UNKNOWN | OWNER-SET PROVISIONAL SOFTWARE DEFAULT; NON-HISTORICAL; volts UNSET | at 0 dB level-neutral apart from implemented droop/quantization; negative values lower MPC storage level (more relative quantization error); positive values reach the 18-bit converter clamp (hard clamp, no recovery, no saturation) | VAL-015 interstage (−60/−20/0/+6/+20 dB) | CHAIN-EXP-005/009/012 |
+| Chain modes | CASCADE (product default), SP_ONLY, MPC_ONLY, BOTH_MACHINE_BYPASSED; all with the cascade's integer latency (310 host samples at 48 kHz, default kernels); bypassed machine = exact delay of its core delay | OWN-DEC-012 | research/diagnostic except CASCADE | mode switches keep alignment; a bypassed machine contributes nothing (no grid, no quantizer) | VAL-015 | — |
+| Product path | B selected (G-07S software decision); routes NONE_CH7_8 / MAIN_LR; linked dual mono PRODUCT ABSTRACTION; no drive macro / wet-dry | OWN-DEC-010/011/012 | OWNER-APPROVED SOFTWARE PRODUCT DECISION; G-07H BLOCKED | none beyond the implemented path | VAL-016 | G-07H |
+| Reverse order | MPC → SP behind research switch (default off) | CHAIN-DEC-013 | INFORMATIONAL only | never a product mode | VAL-016 derivative | CHAIN-EXP-013 |
+| Listening kit | software-only CHAIN-EXP-018 stimuli (synthetic material), RMS-matched, blinded | OWN-DEC-013 | PREPARED; human listening NOT EXECUTED | none (outside the model) | kit record + manifest | human listening; G-07H |
+
+Not introduced: soft clipping, saturation, recovery, transformer/level-dependent analog behaviour, normalization, drive/wet-dry, volts, output trim, plugin bypass. No hardware fidelity is implied.

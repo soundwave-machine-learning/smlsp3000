@@ -1,6 +1,6 @@
 # Build, test and analysis command manifest
 
-Revision: execution V4 (Sprint 4) · 2026-10-07 · supersedes execution V2
+Revision: execution V5 (Sprint 5) · 2026-10-07 · supersedes execution V4
 
 Status: FROZEN for the reference/analysis stack (ENG-DEC-011). Every command below was executed in Sprint 1 with the recorded exit code (evidence/sprint_01/smoke_run.json, evidence/sprint_01/unittest_run.log, evidence/sprint_01/exp016_run.log). Native plugin build/host commands do not exist yet: G-09 target matrix UNKNOWN; nothing speculative is listed.
 
@@ -31,6 +31,8 @@ Reproduction on another machine requires Python ≥ 3.12 and numpy ≥ 2.0; floa
 | CMD-07 / VAL-008..011, VAL-017 (software cells) | `python3 -m smlsp3000.runner validate-sprint3 --out research/validation` | Sprint 3 Track A checks: rate ratios, quantizer rules, ramp coverage, determinism/partition, fold-back lines, hold droop/images vs closed form, gain/clamp/physical rejection, linked dual-mono properties, research slot skew | 0 = all PASS | research/validation/sp1200/{digital,input,output,calibration}/, research/validation/stereo/ ; evidence/sprint_03/validate_sprint3_run.log | 0 (5/5 PASS; ~21 s) |
 | CMD-08 / CHAIN-EXP-017 | `python3 -m smlsp3000.runner run CHAIN-EXP-017 --out research/sim/CHAIN-EXP-017` | qualitative SP-12 pattern sanity (SIMULATION, INFORMATIONAL) | 0 = record written | research/sim/CHAIN-EXP-017/ ; evidence/sprint_03/exp017_run.log | 0 (pattern consistent; ~4 s) |
 | CMD-10 / VAL-012..014 (software cells) | `python3 -m smlsp3000.runner validate-sprint4 --out research/validation` | Sprint 4 Track A checks: rate ratios, 18/16 code domains, R13 rules over all 262144 codes, R14 identity, determinism/partition, TRANSPARENT R12/R15 line transparency and fold-back, R11 gains/trim, 18-bit clamp, physical rejection, true stereo, route table | 0 = all PASS | research/validation/mpc3000/{digital,analog,path_comparison}/ ; evidence/sprint_04/validate_sprint4_run.log | 0 (3/3 PASS; ~29 s) |
+| CMD-11 / VAL-015, VAL-016 (software cells) | `python3 -m smlsp3000.runner validate-sprint5 --out research/validation` | cascade composition identities, chain modes, latency alignment, interstage mapping/clamp/range, stereo linkage, product configuration, INFORMATIONAL CHAIN-EXP-013/014 software derivatives, listening-kit presence | 0 = all PASS | research/validation/cascade/ ; evidence/sprint_05/validate_sprint5_run.log | 0 (2/2 PASS; ~32 s) |
+| CMD-12 / CHAIN-EXP-018 software arm | `python3 -m smlsp3000.runner listening-kit --out research/listening/CHAIN-EXP-018` | deterministic RMS-matched blinded LISTENING STIMULUS kit (audio to an ignored `stimuli/` directory; hashes, blind manifest, key, result form and generation record committed) | 0 = kit written | research/listening/CHAIN-EXP-018/ ; evidence/sprint_05/listening_kit_run.log | 0 (16 files; ~96 s) |
 | CMD-09 / VAL-018 | `python3 -m smlsp3000.runner scope-audit --out evidence/sprint_03/scope_audit.json` | unity-pitch / non-goal scope audit of the reference code and configuration | 0 = PASS | evidence/sprint_03/scope_audit.json | 0 |
 | CMD-06 | `sha256sum -c SHA256SUMS.txt` | planning-V1 byte manifest (historical); living docs revised after planning V1 legitimately differ; immutable set is enforced by CMD-02 | informational | — | 1 (docs/ACCEPTANCE_MATRIX.csv line endings; revised living docs) |
 

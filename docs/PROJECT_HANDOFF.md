@@ -1,8 +1,8 @@
 # Project handoff and honest current state
 
-Revision: execution V4 (after Sprint 4) · 2026-10-07 · supersedes execution V3
+Revision: execution V5 (after Sprint 5) · 2026-10-07 · supersedes execution V4
 
-Status: EXECUTION IN PROGRESS. Sprint 1 ACCEPTED (PASS, fbd1fac). Sprint 2 hardware campaign BLOCKED / EXTERNAL HARDWARE REQUIRED (1c0fe89, preserved). Governance V2 (8257c2d) approved by the owner 2026-10-07 (OWN-DEC-001..004). Sprint 3 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone `51b72d5`. Sprint 4 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone commit `e8f66008e635b00969b7944277ba72ed6f7c43c9` (OWN-DEC-005..008 applied). Sprint 5 NOT started: owner inputs required (interstage default, G-07S). Release NOT authorized.
+Status: EXECUTION IN PROGRESS. Sprint 1 ACCEPTED (PASS, fbd1fac). Sprint 2 hardware campaign BLOCKED / EXTERNAL HARDWARE REQUIRED (1c0fe89, preserved). Governance V2 (8257c2d) approved by the owner 2026-10-07 (OWN-DEC-001..004). Sprint 3 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone `51b72d5`. Sprint 4 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone commit `e8f66008e635b00969b7944277ba72ed6f7c43c9` (OWN-DEC-005..008 applied). Sprint 5 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (human listening, G-07H, G-04); milestone commit recorded below (OWN-DEC-009..013 applied). Sprint 6 NOT started: G-08 owner budgets required. Release NOT authorized.
 
 ## Current verified state
 
@@ -13,6 +13,13 @@ Repository: https://github.com/soundwave-machine-learning/smlsp3000 · remote or
 Execution environment: Claude Code cloud container, Linux x86_64, Python 3.13.16, numpy 2.5.3, gcc 13.3/cmake 3.28 present but unused; no scipy/pytest (not needed, not installed); network egress allow-listed (PyPI reachable; archive.org and all datasheet hosts DENIED); no hardware, no audio interface, no plugin SDK, no DAW. Stack decision ENG-DEC-011; commands docs/BUILD_COMMANDS.md.
 
 Inputs unchanged: docs/research/*.md/.json byte-identical to PACKAGE_VALIDATION hashes; eight contracts unchanged. Known baseline quirk: docs/ACCEPTANCE_MATRIX.csv was hashed as CRLF in SHA256SUMS/MANIFEST but committed as LF (content identical).
+
+## What exists after Sprint 5 (Track A)
+
+- `smlsp3000/reference/cascade.py`: provisional cascade R1 → SP core → R10 → MPC core → R16 on the proxy grid; interstage_level_db owner default 0.0 dB (NON-HISTORICAL, research range −60…+24 dB); chain modes CASCADE (product default) / SP_ONLY / MPC_ONLY / BOTH_MACHINE_BYPASSED, all latency-aligned (310 host samples at 48 kHz); reverse order research switch; product configuration `sml-sp3000-product-config-track-a` v1 (path B, NONE_CH7_8 / MAIN_LR, linked dual mono PRODUCT ABSTRACTION, no drive/wet-dry); cascade research config v1; implementation cascade-reference-impl-1.0.0 (SP 1.0.4 / MPC 1.0.2 core split, outputs bit-identical). Software validation VAL-015/016 PASS (hardware-fit BLOCKED); 52 tests pass; Sprint 3/4 regression numerically identical.
+- G-07S OWNER-APPROVED SOFTWARE PRODUCT DECISION recorded in evidence/sprint_05/product_decision.json; G-07H BLOCKED.
+- `smlsp3000/listening/kit.py` + research/listening/CHAIN-EXP-018: software-only listening kit PREPARED (16 blinded RMS-matched synthetic stimuli; audio git-ignored and regenerable from CMD-12; hashes committed). Human listening NOT EXECUTED; no criterion, scores or counts exist.
+- Not implemented: R0 volts, output trim, plugin bypass, production engine, wrapper, UI, presets, any hardware response.
 
 ## What exists after Sprint 4 (Track A)
 
@@ -40,14 +47,14 @@ Proceed with provisional software/reference implementation without hardware fit,
 
 ## Gates and blockers
 
-G-01 RESOLVED (A: owner instruction; B: command manifest for the analysis stack; native target matrix stays G-09). G-02 PASS (simulation floor known). G-03 OPEN/BLOCKED (source access; not a Track A prerequisite). G-04 BLOCKED — HARDWARE NOT AVAILABLE, DEFERRED EXTERNAL VALIDATION GATE: blocks Track B and all hardware claims, does not block Track A. G-07 split into G-07S (software product decision) / G-07H (deferred). G-05/G-06/G-07/G-08/G-09/G-10/G-11 OPEN. All 6 P0 + 12 P1 debt items OPEN. 17 of 20 experiments NOT EXECUTED; EXP-016 executed; EXP-019/020 blocked.
+G-01 RESOLVED (A: owner instruction; B: command manifest for the analysis stack; native target matrix stays G-09). G-02 PASS (simulation floor known). G-03 OPEN/BLOCKED (source access; not a Track A prerequisite). G-04 BLOCKED — HARDWARE NOT AVAILABLE, DEFERRED EXTERNAL VALIDATION GATE: blocks Track B and all hardware claims, does not block Track A. G-07 split into G-07S (DECIDED 2026-10-07, software) / G-07H (BLOCKED, deferred). G-05/G-06/G-08/G-09/G-10/G-11 OPEN. All 6 P0 + 12 P1 debt items OPEN. 17 of 20 experiments NOT EXECUTED; EXP-016 executed; EXP-019/020 blocked.
 
-Shipping A/B/C NOT CHOSEN; SP canonical output UNDECIDED; MPC main L/R recommended only; calibration/interstage UNSET; proxy rate UNSET; unity pitch only.
+Shipping path B CHOSEN in software (G-07S, OWN-DEC-010; G-07H BLOCKED); SP route NONE_CH7_8 and MPC route MAIN_LR populated; interstage 0.0 dB provisional (volts UNSET); proxy rate ×8 ESTIMATE (G-08 pending); unity pitch only.
 
 ## Last accepted milestone and next action
 
-Last accepted milestone: Sprint 1 — commit `fbd1facffb84ffd132c17eca8c60a390f7df5d6e`. Follow-up checkpoint commit (Sprint 2 BLOCKED preflight report, hash back-fill): the commit after it on the branch. Last activity: Sprint 4 Track A execution (provisional MPC reference, software validation VAL-012/013/014, regression, docs, report).
+Last accepted milestone: Sprint 5 — milestone commit hash recorded by the follow-up back-fill commit (see docs/sprint_reports/SPRINT_05_REPORT.md §17). Earlier milestones: Sprint 1 `fbd1fac`, Sprint 3 `51b72d5`, Sprint 4 `e8f6600`. Last activity: Sprint 5 Track A execution (cascade, interstage, chain modes, G-07S software decision, listening kit, regression, docs, report).
 
-Next authorized action: NONE autonomously. Sprint 5 (Track A cascade R0/R10/R16 composition, REQ-015/016 software cells, G-07S) starts only after the owner supplies EXECUTION_PLAN_V2 §9 item 6: the provisional interstage default in normalized units (dB re MPC converter full scale, non-historical) and the G-07S software product decision / listening protocol — see docs/sprint_reports/SPRINT_04_REPORT.md §16 and the executor's Sprint 5 owner-input request. For Track B the owner must (a) arrange the stock SP-1200 / MPC3000 campaign per docs/MEASUREMENT_PLAN.md with a calibrated 192 k/24 interface, S/PDIF 44.1 k source, operator and a durable raw-capture route (G-04); (b) optionally grant source access (archive.org, analog.com or an approved copy route) for a CHAIN-EXP-019/020 re-attempt; (c) later: G-06 threshold acceptance, G-07 product selection, G-08 budgets, G-09 target matrix/SDK/licence.
+Next authorized action: NONE autonomously. Sprint 6 (production engine, numerical optimization, REQ-017/018) starts only after the owner supplies EXECUTION_PLAN_V2 §9 item 7 / G-08 budgets: proxy oversampling and kernel convergence budget, cross-rate and precision tolerances, reference-vs-production numerical budget, maximum block size and input domain, CPU and latency budgets, parameter IDs/ranges/defaults/smoothing and state schema version, non-finite input policy, production stack — see docs/sprint_reports/SPRINT_05_REPORT.md §16 and the executor's Sprint 6 owner-input request. Human listening under CHAIN-EXP-018 needs an owner-defined criterion before any score is recorded. For Track B the owner must (a) arrange the stock SP-1200 / MPC3000 campaign per docs/MEASUREMENT_PLAN.md with a calibrated 192 k/24 interface, S/PDIF 44.1 k source, operator and a durable raw-capture route (G-04); (b) optionally grant source access (archive.org, analog.com or an approved copy route) for a CHAIN-EXP-019/020 re-attempt; (c) later: G-06 threshold acceptance, G-07 product selection, G-08 budgets, G-09 target matrix/SDK/licence.
 
 On resume: inspect `git status`, `git log claude/autonomous-build`, this file and docs/sprint_reports/; run `python3 tools/check_repo_integrity.py` and `python3 -m unittest discover -s tests -t . -v`; do not rerun accepted Sprint 1 work without a new reason; do not transfer state from other projects.

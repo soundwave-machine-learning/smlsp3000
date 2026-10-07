@@ -1,0 +1,11 @@
+{
+ "config_id": "cascade-track-a-research-config",
+ "version": "1",
+ "switches": {
+  "reverse_order_research": false
+ },
+ "status": {
+  "reverse_order_research": "INFORMATIONAL SIMULATION only (CHAIN-DEC-013 software derivative); never a product, preset, default or marketing mode"
+ },
+ "notes": "Cascade-level research switches. Machine-level switches live in the SP and MPC research configurations."
+}

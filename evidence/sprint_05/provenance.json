@@ -1,0 +1,190 @@
+{
+  "record": "Sprint 05 provenance (Track A cascade, product decision, listening kit)",
+  "recorded_utc": "2026-10-07",
+  "starting_commit": "eefdf8d",
+  "branch": "claude/autonomous-build",
+  "owner_decisions_applied": {
+    "OWN-DEC-009": "interstage 0.0 dB provisional non-historical default",
+    "OWN-DEC-010": "software product path B",
+    "OWN-DEC-011": "cascade order SP\u2192MPC; reverse research-only",
+    "OWN-DEC-012": "chain modes: CASCADE product default; SP_ONLY/MPC_ONLY/BOTH_MACHINE_BYPASSED research/diagnostic",
+    "OWN-DEC-013": "software-only listening preparation; no criterion; human listening external"
+  },
+  "product_config": {
+    "config_id": "sml-sp3000-product-config-track-a",
+    "version": "1",
+    "sha256": "a2656d0fb22ff937fb095de066e86d3c7a94f6e82693be6db6fd4d8b3ff905d5"
+  },
+  "cascade_research_config": {
+    "config_id": "cascade-track-a-research-config",
+    "version": "1",
+    "sha256": "81871c8b52694b188a48f53808979406b25d5c4fd92af746806457ad6a3fe88d"
+  },
+  "model_implementation_versions": {
+    "cascade": "cascade-reference-impl-1.0.0",
+    "sp1200": "sp1200-reference-impl-1.0.4 (core split; outputs bit-identical)",
+    "mpc3000": "mpc3000-reference-impl-1.0.2 (core split; outputs bit-identical)"
+  },
+  "listening_kit": {
+    "kit_version": "listening-kit-1.0.0",
+    "files": 16,
+    "audio_committed": false,
+    "stimuli_sha256": {
+      "stim_7658432.wav": "d5faabe697d7bfb8580cc2adc51d5b2c995856a92a68a0adfa68dbc7665e0993",
+      "stim_2790302.wav": "9129a622c744191f28f7420341c5250843b90b32ea4ceaca0f2bc746cb889f6c",
+      "stim_7548462.wav": "0b9230b01ae6ca5117dd3c3d719af1ca68882f14bdd4ffc1b0bec1b8ff2bf2ba",
+      "stim_9768933.wav": "0b23c90415730e8fee269f818e79f25a2a5e639972923cfc0d2bd374e4b2b72a",
+      "stim_9180597.wav": "c7918dd96d465ab7200d06822716ec36cace6bf0aba5683bc7320c3c41624cd5",
+      "stim_2666072.wav": "8bcc3859f5ecf45b11702a4c36b7f6573ad12df8a34e6c75612ae7bd3f9c7d70",
+      "stim_3969190.wav": "57c80330241e80c91eed40a229296374828058a6d59a3e5f058c8d95c3ceb1db",
+      "stim_7012897.wav": "e8891baf3be464a86ae33ca066de8025c920ff0e8e37bf896c82c37a844570e3",
+      "stim_5898203.wav": "d621b1e23fc204d0a8dac5219fda423bf428933406969fd0a34697c1e973c673",
+      "stim_8987099.wav": "6cdaabbbc15a1f068f94fd6e9f1127d8c462203f10ead92be5c03f1841e530fc",
+      "stim_5035829.wav": "bd365c6bbc3a8082055330c37bc2c117d1b2e79e754c44a5f2cdaa6063d8f75b",
+      "stim_3168845.wav": "41cde7bc808e96c252dbf3f53a64e16c80efeb70a9399dcf27a42e9dbb85f6d8",
+      "stim_2896500.wav": "a4bedbba063387195491a4522e6c093b8506ce4b291e37105ede5aa16fcf920f",
+      "stim_1626891.wav": "ef7fc6e0b4b248712e4857ae872302c25996984c4a0488ea70c2ae4cb6060ae3",
+      "stim_5026447.wav": "2d70824a9839e2b4a2d1a7963fe86946054e1b45f2949b9c7ac2ceecfe71f7b7",
+      "stim_6586690.wav": "191d4542d30de057384ef0ccdc442e47b0cf79f2857cc3ecc6a296e806fb2684"
+    },
+    "status": "PREPARED \u2014 NOT EXECUTED (no listener data)"
+  },
+  "immutable_sources_unchanged": true,
+  "contracts_unchanged": true,
+  "hardware_claims": "NONE \u2014 G-04 BLOCKED / DEFERRED; G-07H BLOCKED; human listening NOT EXECUTED",
+  "artifacts": {
+    "evidence/sprint_05/scope_audit.json": {
+      "sha256": "734d84736991c625a9e7b7dc309e55bb3d6b3685177411e2706dad0919155f62",
+      "bytes": 2249,
+      "artifact_class": "SIMULATION",
+      "dataset_role": "NONE",
+      "hardware_validation": "N/A (software check)"
+    },
+    "research/validation/cascade/VAL-015_software.json": {
+      "sha256": "246783bf48974fea34f4c3a8925321d425cfe3a17a11d2cdb93a0d553ca49c94",
+      "bytes": 5606,
+      "artifact_class": "SIMULATION",
+      "dataset_role": "NONE",
+      "hardware_validation": "N/A (software check)"
+    },
+    "research/validation/cascade/VAL-016_software.json": {
+      "sha256": "9a4042d7dd27d6dbe7713f912ff550cb1ec761c034dd9d1cb253c0d6a748c546",
+      "bytes": 12850,
+      "artifact_class": "SIMULATION",
+      "dataset_role": "NONE",
+      "hardware_validation": "N/A (software check)"
+    },
+    "research/validation/cascade/manifest.sha256": {
+      "sha256": "139615301c9f3afea61d4fabf414654e980ccbf9e61e6fba8bbdf3b849afe57b",
+      "bytes": 176,
+      "artifact_class": "SIMULATION",
+      "dataset_role": "NONE",
+      "hardware_validation": "N/A (software check)"
+    },
+    "research/listening/CHAIN-EXP-018/blind_manifest.json": {
+      "sha256": "a1ce51a510a04929c1480ce3cf861d94e30acc54357adc69b6952928c4a9a401",
+      "bytes": 1233,
+      "artifact_class": "LISTENING STIMULUS",
+      "dataset_role": "NONE",
+      "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+    },
+    "research/listening/CHAIN-EXP-018/generation_record.json": {
+      "sha256": "93988dd8697a8a6fa6bfb14a28f7a2d904e4d8c199afa0d3b0b782a290e59231",
+      "bytes": 20968,
+      "artifact_class": "LISTENING STIMULUS",
+      "dataset_role": "NONE",
+      "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+    },
+    "research/listening/CHAIN-EXP-018/key_DO_NOT_OPEN_BEFORE_SCORING.json": {
+      "sha256": "4dc53d53aef0c5ec4aab58297345eda93a4443cf70963c55cdbc7f4422aaf68a",
+      "bytes": 3648,
+      "artifact_class": "LISTENING STIMULUS",
+      "dataset_role": "NONE",
+      "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+    },
+    "research/listening/CHAIN-EXP-018/manifest.sha256": {
+      "sha256": "cd2e3e424337dc93832c1acad925efcca1391edf9a7821bc1a06cf2f9324046b",
+      "bytes": 369,
+      "artifact_class": "LISTENING STIMULUS",
+      "dataset_role": "NONE",
+      "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+    },
+    "research/listening/CHAIN-EXP-018/result_form_template.json": {
+      "sha256": "1b8ae38e7b8b9f31d751a6d972b4bfcfa5580c4f31162afdab90d1fe8841bd7f",
+      "bytes": 2202,
+      "artifact_class": "LISTENING STIMULUS",
+      "dataset_role": "NONE",
+      "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+    },
+    "evidence/sprint_05/product_decision.json": {
+      "sha256": "ca96be97416b3a6db0b57ad54af690b5976087ec050e64ebb8b2514b96a91ffe",
+      "bytes": 2343,
+      "artifact_class": "IMPLEMENTATION",
+      "dataset_role": "NONE",
+      "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+    },
+    "smlsp3000/listening/kit.py": {
+      "sha256": "744445200e459627d9d28dfee7c31e5ed17679fc181481fdbd70c18adbdcf20a",
+      "bytes": 10514,
+      "artifact_class": "IMPLEMENTATION",
+      "dataset_role": "NONE",
+      "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+    },
+    "smlsp3000/reference/assets/product_config_track_a_v1.json": {
+      "sha256": "5124afc4ef00cadc6ac4dce337ee983f22fdf717c164f386aeece93af0ee7c91",
+      "bytes": 3273,
+      "artifact_class": "IMPLEMENTATION",
+      "dataset_role": "NONE",
+      "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+    },
+    "smlsp3000/reference/assets/research_config_cascade_track_a_v1.json": {
+      "sha256": "8eef3bf39c83f1cb6264c7783d85faa9d8bce05d1cd923e14e018c07d91ded9d",
+      "bytes": 404,
+      "artifact_class": "IMPLEMENTATION",
+      "dataset_role": "NONE",
+      "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+    },
+    "smlsp3000/reference/cascade.py": {
+      "sha256": "abf882a03d4b3ca0fcc7f737b85f0eb6facd38b67c29af261365eecece928a15",
+      "bytes": 10917,
+      "artifact_class": "IMPLEMENTATION",
+      "dataset_role": "NONE",
+      "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+    },
+    "smlsp3000/reference/mpc3000.py": {
+      "sha256": "9dc25c58e1882602be3ff42324270edfb56f0fcb6b32eecaabf8a5a9f12ce534",
+      "bytes": 22398,
+      "artifact_class": "IMPLEMENTATION",
+      "dataset_role": "NONE",
+      "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+    },
+    "smlsp3000/reference/sp1200.py": {
+      "sha256": "572f992cf45affa1b8362815f0c00b8bbc21fe058013e3fc2b498bec50e1355e",
+      "bytes": 22459,
+      "artifact_class": "IMPLEMENTATION",
+      "dataset_role": "NONE",
+      "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+    },
+    "smlsp3000/runner.py": {
+      "sha256": "a2329b0b2af21aeba11a8203fe38dfc03d1d73fd901cc239909ade6a93ad20cf",
+      "bytes": 4493,
+      "artifact_class": "IMPLEMENTATION",
+      "dataset_role": "NONE",
+      "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+    },
+    "smlsp3000/validation/cascade_track_a.py": {
+      "sha256": "db3714053b7ccf412cc620e3a0c51bf54687a37191efb8010cde2899c873ac64",
+      "bytes": 21249,
+      "artifact_class": "IMPLEMENTATION",
+      "dataset_role": "NONE",
+      "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+    },
+    "tests/test_reference_cascade.py": {
+      "sha256": "658a11140bd8ceaa2aeb22a00ba940c2c31a65f16a22f6028883d0797ecd845f",
+      "bytes": 4803,
+      "artifact_class": "IMPLEMENTATION",
+      "dataset_role": "NONE",
+      "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+    }
+  }
+}

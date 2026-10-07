@@ -1,0 +1,19 @@
+{
+ "config_id": "sml-sp3000-product-config-track-a",
+ "version": "1",
+ "status": "OWNER-APPROVED SOFTWARE PRODUCT DECISION (G-07S, 2026-10-07); G-07H hardware-informed confirmation BLOCKED / DEFERRED",
+ "product_path": {"selected": "B", "meaning": "full sample path as implemented in Sprints 3-4 (SP R2-R9 with provisional clock/quantizer/hold, MPC R11-R15 with TRANSPARENT converters and 18->16 reduction, converter clamps)", "rejected": {"A": "linear-only: removes every evidence-backed sampling mechanism", "C": "hybrid: no reduction evidence exists"}, "decision_id": "OWN-DEC-010", "hardware_informed": "BLOCKED (G-07H)"},
+ "cascade_order": {"product": "SP_TO_MPC", "reverse": "INFORMATIONAL SIMULATION / RESEARCH ONLY (CHAIN-DEC-013); never product/preset/default/marketing", "decision_id": "OWN-DEC-011"},
+ "routes": {"sp_output_path": "NONE_CH7_8", "mpc_output_route": "MAIN_LR", "not_populated": ["FIXED_CH3_4", "FIXED_CH5_6", "MIX_OUT", "UNFILTERED_CONTACT_CH1_6", "INDIVIDUAL_PAIR"], "excluded": ["HEADPHONES"], "note": "the only currently populated software-reference routes; not canonical historical outputs (CHAIN-DEC-003 UNDECIDED)"},
+ "stereo": {"sp_stage": "LINKED DUAL MONO — PRODUCT ABSTRACTION (CHAIN-DEC-005); not a verified historical stereo architecture; parameters linked; phase-consistent", "mpc_stage": "true phase-locked stereo (MPC3K-CLM-012)"},
+ "interstage": {"parameter": "interstage_level_db", "default_db": 0.0, "status": "OWNER-SET PROVISIONAL SOFTWARE DEFAULT; NON-HISTORICAL; UNVALIDATED AGAINST HARDWARE (OWN-DEC-009)", "meaning": "SP normalized full-scale output maps to MPC normalized full-scale input; negative = lower MPC storage level (more relative quantization error); positive = may reach the 18-bit converter clamp (the only overload mechanism)", "research_range_db": [-60.0, 24.0], "volts": "UNSET", "replaced_by": "CHAIN-EXP-005/009/012 (measured SP output volts and MPC volts per full scale at recorded settings)"},
+ "chain_modes": {"product_default": "CASCADE", "research_diagnostic": ["SP_ONLY", "MPC_ONLY", "BOTH_MACHINE_BYPASSED"], "latency_policy": "all modes share the cascade's integer host latency (constant-delay compensation, software alignment choice); a bypassed machine is replaced by an exact delay of its core delay", "decision_id": "OWN-DEC-012"},
+ "controls": {
+  "candidates_from_PARAMETERS": ["input_calibration_dbfs", "sp_input_level_db", "sp_input_gain", "sp_output_path", "interstage_level_db", "mpc_input_gain", "mpc_record_level_db", "output_trim_db", "chain_mode", "plugin_bypass"],
+  "implemented_in_reference": ["sp_input_level_db", "sp_input_gain", "sp_output_path", "interstage_level_db", "mpc_input_gain", "mpc_record_level_db", "chain_mode"],
+  "not_implemented_yet": ["input_calibration_dbfs (volts UNSET)", "output_trim_db (Sprint 6)", "plugin_bypass (Sprint 7)"],
+  "excluded": ["drive macro", "wet/dry", "amount", "loudness compensation"],
+  "ranges_defaults_smoothing": "UNKNOWN until G-08"
+ },
+ "claim_boundary": "SML SP-3000 — a software instrument/effect inspired by and informed by documented SP-1200 / MPC3000 architecture and behaviour; not an exact emulation, not hardware matched, not component accurate, not measured, not hardware validated (docs/EXECUTION_PLAN_V2.md §7)"
+}

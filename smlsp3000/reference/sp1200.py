@@ -41,7 +41,7 @@ from .scheduler import RationalClock
 from .streaming import Decimator, PolyphaseUpsampler
 
 SUPPORTED_HOST_RATES = (44100, 48000, 88200, 96000, 176400, 192000)
-MODEL_IMPLEMENTATION_VERSION = "sp1200-reference-impl-1.0.3"
+MODEL_IMPLEMENTATION_VERSION = "sp1200-reference-impl-1.0.4"
 
 # --- R5 quantizer strategies (replaceable registry) -------------------------------------
 
@@ -234,6 +234,7 @@ class SPReferenceEngine:
         assert self.delay_proxy % self.L == 0
         self.latency_host = self.delay_proxy // self.L
         self.D = self.hw_s + self.hw_z  # internal continuous-time delay of the SP path on the proxy grid
+        self.core_delay_proxy = self.D  # delay of core_channel() on the proxy grid (multiple of L)
         # research-only offsets: playback slot skew (hold edges) and capture offset (sampling instants), per channel index
         self.slot_skew_enabled = bool(sw["slot_skew_enabled"])
         self.slot_skew_seconds = Fraction(asset_value(asset, "slot_skew_seconds_research")).limit_denominator(10**12) if self.slot_skew_enabled else Fraction(0)
@@ -309,8 +310,14 @@ class SPReferenceEngine:
 
     # ---------------------------------------------------------------- per channel
     def _process_channel(self, st: _ChannelState, x: np.ndarray) -> np.ndarray:
-        st.peak_in = max(st.peak_in, float(np.max(np.abs(x))) if x.size else 0.0)
-        v = st.up.process(x)                       # R1
+        st.peak_in = max(st.peak_in, float(np.max(np.abs(x))) if x.size else 0.0)   # host-input peak meter (unchanged semantics)
+        return st.down.process(self.core_channel(st, st.up.process(x)))   # R1 → core (R2–R9) → R16
+
+    def core_channel(self, st: _ChannelState, v: np.ndarray) -> np.ndarray:
+        """R2–R9 on the proxy grid: proxy input v (len N) → proxy output h (len N), delayed by core_delay_proxy.
+
+        Exposed so the cascade engine can compose SP and MPC cores on the proxy grid (R10 lives there,
+        docs/ARCHITECTURE.md) without duplicating R1/R16. Standalone use goes through process()."""
         v = v * self.gain                          # R2 (analog clamp INACTIVE)
         v = st.r3.process(v)                       # R3 (INACTIVE)
         # append to proxy history
@@ -388,10 +395,9 @@ class SPReferenceEngine:
         if drop > 0:
             st.proxy_hist = st.proxy_hist[drop:]
             st.hist_start += drop
-        # R8, R9, R16
+        # R8, R9
         h = st.route.process(h)
-        h = h * self.out_gain
-        return st.down.process(h)
+        return h * self.out_gain
 
     # ---------------------------------------------------------------- meters / taps
     def meters(self) -> list[dict]:
