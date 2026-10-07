@@ -108,4 +108,4 @@ Sprint 4 (MPC reference) requires owner inputs that are not hardware: R12 state,
 
 ## 17. Ending commit
 
-Recorded after the milestone commit exists (docs/PROJECT_HANDOFF.md; `git log claude/autonomous-build`).
+Milestone commit `51b72d51b0d2645da4abd6546079f462a9694512` on `claude/autonomous-build` (hash back-filled by the follow-up checkpoint commit).

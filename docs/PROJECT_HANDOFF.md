@@ -2,7 +2,7 @@
 
 Revision: execution V3 (after Sprint 3) · 2026-10-07 · supersedes execution V2
 
-Status: EXECUTION IN PROGRESS. Sprint 1 ACCEPTED (PASS, fbd1fac). Sprint 2 hardware campaign BLOCKED / EXTERNAL HARDWARE REQUIRED (1c0fe89, preserved). Governance V2 (8257c2d) approved by the owner 2026-10-07 (OWN-DEC-001..004). Sprint 3 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone commit recorded below. Sprint 4 NOT started: owner inputs required (R12 state, R15 state, R13 default). Release NOT authorized.
+Status: EXECUTION IN PROGRESS. Sprint 1 ACCEPTED (PASS, fbd1fac). Sprint 2 hardware campaign BLOCKED / EXTERNAL HARDWARE REQUIRED (1c0fe89, preserved). Governance V2 (8257c2d) approved by the owner 2026-10-07 (OWN-DEC-001..004). Sprint 3 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone commit `51b72d51b0d2645da4abd6546079f462a9694512`. Sprint 4 NOT started: owner inputs required (R12 state, R15 state, R13 default). Release NOT authorized.
 
 ## Current verified state
 
