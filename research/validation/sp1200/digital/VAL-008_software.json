@@ -1,0 +1,113 @@
+{
+ "artifact_class": "SIMULATION",
+ "asset_identity": {
+  "asset_id": "sp1200-track-a-provisional",
+  "model_version": "sp1200-provisional-1.0.0",
+  "sha256": "73b75aadb01cd60c9ae40d7dfb33d1c1dd089b48859b141b3dab77556cb47039",
+  "version": "1"
+ },
+ "check_id": "VAL-008",
+ "command": "python3 -m smlsp3000.runner validate-sprint3 --out research/validation",
+ "dataset_role": "NONE",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "hardware_fit_outcome": "BLOCKED",
+ "limitations": [
+  "Software behaviour only: the exact SP rate (CHAIN-EXP-001) and the historical rounding/offset/encoding rule (CHAIN-EXP-002) remain UNRESOLVED; ROUND_NEAREST is an owner-set provisional software default (OWN-DEC-003)."
+ ],
+ "method": "(a) exact rational SP/host ratios vs docs/RATE_GAIN_PLAN.md; (b) quantizer strategies vs their definitions at every code boundary; (c) slow ramp through the engine covers all 4096 codes monotonically with clamp; (d) same-build determinism; (e) exact block-partition invariance",
+ "outcome": "PASS",
+ "requirement_id": "REQ-008",
+ "research_config_sha256": "4771a2e28d3bb987b19bc57d2a19a3ecf2b8f54c9fe341f5d59b06d86be72b72",
+ "results": {
+  "determinism_and_partition": {
+   "FLOOR": {
+    "output_sha256": "13e568844ab12fc75926970d2d0f54f4016839a62f41051b118e51235b740ac7",
+    "partition_identical": true,
+    "partition_max_abs_diff": 0.0,
+    "repeat_identical": true
+   },
+   "ROUND_NEAREST": {
+    "output_sha256": "a75ab439f399f391b5ba3ed3e8306691ffe6aa8dc5c39d35819d65e51951b78f",
+    "partition_identical": true,
+    "partition_max_abs_diff": 0.0,
+    "repeat_identical": true
+   }
+  },
+  "quantizer_rule_definitions": {
+   "FLOOR": {
+    "boundary_definition_exact": true,
+    "tie_exact": true,
+    "tie_rule": "r = c maps to c"
+   },
+   "ROUND_NEAREST": {
+    "boundary_definition_exact": true,
+    "tie_exact": true,
+    "tie_rule": "r = c - 0.5 maps to c (ties toward +inf)"
+   }
+  },
+  "ramp_coverage": {
+   "FLOOR": {
+    "all_4096": true,
+    "clamped_at_limits": true,
+    "clip_count": 1184,
+    "codes_seen": 4096,
+    "max_code": 2047,
+    "min_code": -2048,
+    "monotone_non_decreasing": true
+   },
+   "ROUND_NEAREST": {
+    "all_4096": true,
+    "clamped_at_limits": true,
+    "clip_count": 1184,
+    "codes_seen": 4096,
+    "max_code": 2047,
+    "min_code": -2048,
+    "monotone_non_decreasing": true
+   }
+  },
+  "rate_ratios": {
+   "all_exact": true,
+   "computed": {
+    "176400": "3125/21168",
+    "192000": "625/4608",
+    "44100": "3125/5292",
+    "48000": "625/1152",
+    "88200": "3125/10584",
+    "96000": "625/2304"
+   },
+   "expected": {
+    "176400": "3125/21168",
+    "192000": "625/4608",
+    "44100": "3125/5292",
+    "48000": "625/1152",
+    "88200": "3125/10584",
+    "96000": "625/2304"
+   },
+   "sp_rate_hz_exact": "78125/3"
+  }
+ },
+ "software": {
+  "numpy": "2.5.3",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "8257c2d150dd32b0902c1b5c71954ea7cf2e1bec-dirty",
+ "stimulus": {
+  "blocks": "[1]*50, 7, 64, 1000, 3000, remainder",
+  "ramp": "linear -1.1..1.1 over 0.5 s at 48 kHz",
+  "tone_pair": "1234.5 Hz (0.5) + 7777 Hz (0.2), 20000 samples at 48 kHz"
+ },
+ "timestamp_utc": "2026-10-07T00:23:02+00:00",
+ "tolerance_policy": {
+  "coverage": "exact set/order properties",
+  "determinism/partition": "bit-exact equality (validation domain 2)",
+  "rate_ratios": "exact rational equality",
+  "rule_definitions": "exact equality at boundaries \u00b1 1e-9 LSB"
+ },
+ "track": "A"
+}

@@ -1,8 +1,8 @@
 # Parameter layers, candidate IDs and state policy
 
-Revision: execution V2 (owner decision OWN-DEC-001) · 2026-10-06 · supersedes execution V1
+Revision: execution V3 (Sprint 3) · 2026-10-07 · supersedes execution V2
 
-Status: EXECUTION IN PROGRESS. No parameter created; schema records (smlsp3000/schemas.py) encode the three layers and UNSET semantics only.
+Status: EXECUTION IN PROGRESS. Sprint 3 implemented the SP subset of ProductParameters as an explicit record with no defaults (`SPProductParameters`: sp_input_level_db, sp_input_gain ∈ {0,20,40}, sp_output_path, calibration_mode ∈ {NORMALIZED_RESEARCH, PHYSICAL}); MachineParameters as the versioned asset `sp1200-track-a-provisional` v1 (every value tagged per EXECUTION_PLAN_V2 §5); ResearchConfiguration as `sp-track-a-research-config` v1 (quantizer rule/offset/bypass, R3 strategy, hold fraction, proxy oversampling, kernels, slot skew, capture offset, taps). Ranges/defaults/smoothing/automation for product release remain UNKNOWN (G-07S/G-08); nothing here is a plugin control.
 
 ## Status and freeze point
 

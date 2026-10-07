@@ -1,6 +1,6 @@
 # Engine specification and requirements
 
-Revision: execution V2 (owner decision OWN-DEC-001) · 2026-10-06 · supersedes execution V1
+Revision: execution V3 (Sprint 3) · 2026-10-07 · supersedes execution V2
 
 Status: EXECUTION IN PROGRESS. Requirements unchanged; REQ-001/002/003/028 have Sprint 1 evidence (ACCEPTANCE_MATRIX); REQ-004 BLOCKED; no R-block implemented.
 
@@ -61,4 +61,4 @@ Until G-04 is actually completed the product is "a software instrument/effect in
 
 ## Readiness and acceptance
 
-Acceptance is the 28-row ACCEPTANCE_MATRIX, split per OWN-DEC-001 into SOFTWARE ACCEPTANCE (Track A) and HARDWARE-FIT ACCEPTANCE (Track B, BLOCKED until G-04); G-06 hardware tolerance, G-08 production tolerance and G-09 target tests are deliberately unresolved. No quantitative hardware PASS can be asserted yet. Unknown criteria keep dependent contracts DRAFT/BLOCKED. Sprint 1 executed under owner authorization of 2026-10-06 (docs/sprint_reports/SPRINT_01_REPORT.md). No production DSP or reference R-block implementation exists; the repository contains analysis/evidence tooling only.
+Acceptance is the 28-row ACCEPTANCE_MATRIX, split per OWN-DEC-001 into SOFTWARE ACCEPTANCE (Track A) and HARDWARE-FIT ACCEPTANCE (Track B, BLOCKED until G-04); G-06 hardware tolerance, G-08 production tolerance and G-09 target tests are deliberately unresolved. No quantitative hardware PASS can be asserted yet. Unknown criteria keep dependent contracts DRAFT/BLOCKED. Sprint 3 (2026-10-07, Track A) implemented the provisional SP reference R1–R9/R16 in `smlsp3000/reference/` under OWN-DEC-001..004: R3 INACTIVE, quantizer ROUND_NEAREST default / FLOOR alternate, route NONE_CH7_8 only, normalized research calibration (volts UNSET → physical runs return INVALID_CONFIGURATION), full-period hold rendered band-limited to the proxy Nyquist (images preserved), exact rational scheduler, integer latency 104 host samples at the default kernels. It is a NORMALIZED RESEARCH SKELETON, UNVALIDATED AGAINST HARDWARE; no MPC block, no production engine (docs/sprint_reports/SPRINT_03_REPORT.md).

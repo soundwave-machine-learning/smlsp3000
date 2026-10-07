@@ -1,6 +1,6 @@
 # Validation domains, thresholds and release proof
 
-Revision: execution V2 (owner decision OWN-DEC-001) · 2026-10-06 · supersedes execution V1
+Revision: execution V3 (Sprint 3) · 2026-10-07 · supersedes execution V2
 
 Status: EXECUTION IN PROGRESS. Commands frozen in docs/BUILD_COMMANDS.md; hardware/production thresholds still UNKNOWN.
 
@@ -11,6 +11,8 @@ Sprint 1 executed VAL-001, VAL-002, VAL-003 (SIMULATION) and VAL-028 with logged
 ## Track split (OWN-DEC-001)
 
 Domains 1–4 below are SOFTWARE ACCEPTANCE (Track A) and may PASS on software evidence; domains 5–6 (hardware fit; hardware-arm listening) are HARDWARE-FIT ACCEPTANCE (Track B) and stay BLOCKED until G-04. Software numeric tolerances (cross-rate, reference/production, implementation alias budget) are owner decisions under G-08 and are never presented as hardware fidelity. Software-only listening comparisons (reference / simplified / bypass, no hardware condition) are permitted as informational LISTENING STIMULUS artifacts for G-07S.
+
+Sprint 3 software cells executed (research/validation/sp1200/*, research/validation/stereo/*, evidence/sprint_03/scope_audit.json): VAL-008 (rate ratios exact, both quantizer rules exact at every boundary, 4096-code ramp coverage, bit-exact determinism and block-partition invariance), VAL-009 (R3 INACTIVE: fold-back lines at fsp − f within the kernel bound; AA response NOT modelled), VAL-010 (NONE_CH7_8: every host-band line within the kernel-derived bound; hold droop −0.53/−2.22/−3.28 dB at 5/10/12 kHz matches SP12-CLM-020 closed form; non-populated routes rejected), VAL-011 (normalized calibration: gain steps exact within 1e-9, converter clamp, physical mode rejected), VAL-017 (linked dual mono identities bit-exact; research playback slot skew 4.8 µs reproduced; both research offsets disabled in product config), VAL-018 (scope audit). Tolerance policy: bit-exact where the property is an identity; otherwise the bound is derived from the kernel design (PreparedInfo.kernel_properties) or float64 arithmetic, recorded in each record's tolerance_policy; quantizer-active line deviations are INFORMATIONAL (12-bit quantization distortion). HARDWARE-FIT cells of the same rows stay BLOCKED.
 
 ## Independent acceptance domains
 

@@ -1,0 +1,127 @@
+{
+ "asset_id": "sp1200-track-a-provisional",
+ "version": "1",
+ "model_version": "sp1200-provisional-1.0.0",
+ "track": "A",
+ "machine": "SP-1200",
+ "block_ids": ["R0", "R2", "R3", "R4", "R5", "R6", "R7", "R8", "R9"],
+ "normalized_research_calibration": true,
+ "validity_conditions": "Track A software/reference only (OWN-DEC-001). Unity pitch. Normalized research calibration: 1.0 = converter full scale; no physical volts. Not a model of a measured SP-1200; UNVALIDATED AGAINST HARDWARE in every value.",
+ "provenance": {
+  "claim_ids": ["SP12-CLM-001", "SP12-CLM-002", "SP12-CLM-003", "SP12-CLM-012", "SP12-CLM-016", "SP12-CLM-018", "SP12-CLM-020", "SP12-CLM-023", "SP12-CLM-024"],
+  "experiment_ids": ["CHAIN-EXP-001", "CHAIN-EXP-002", "CHAIN-EXP-003", "CHAIN-EXP-004", "CHAIN-EXP-005", "CHAIN-EXP-007", "CHAIN-EXP-019"],
+  "source_ids": ["SRC-03", "SRC-04", "SRC-05", "SRC-10", "SRC-13"],
+  "decision_ids": ["CHAIN-DEC-002", "CHAIN-DEC-003", "CHAIN-DEC-005", "CHAIN-DEC-015", "OWN-DEC-001", "OWN-DEC-002", "OWN-DEC-003", "OWN-DEC-004"],
+  "capture_ids": [],
+  "unit_id": "NONE (no hardware)",
+  "route": "NONE_CH7_8 (only populated software-reference route; not the canonical historical output)"
+ },
+ "values": {
+  "sp_rate_hz": {
+   "value": {"numerator": 20000000, "denominator": 768},
+   "unit": "Hz (exact rational)",
+   "evidence_status": "PROVISIONAL",
+   "substitute_kind": "PROVISIONAL",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": ["SRC-10", "SRC-05", "SRC-04"],
+   "claim_ids": ["SP12-CLM-002", "SP12-CLM-001"],
+   "decision_id": "CHAIN-DEC-002",
+   "replaced_by": "CHAIN-EXP-001 (measured unit rate) / CHAIN-EXP-019 (clock divider)",
+   "note": "Nominal 26.04 kHz is VERIFIED (SP12-CLM-001); the exact 20 MHz/768 divider is a clone-builder reading."
+  },
+  "word_bits": {
+   "value": 12, "unit": "bits", "evidence_status": "VERIFIED", "substitute_kind": "VERIFIED-FORMAT",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": ["SRC-05"], "claim_ids": ["SP12-CLM-003"],
+   "decision_id": "OWN-DEC-001", "replaced_by": "CHAIN-EXP-002 (confirms installed behaviour)",
+   "note": "12-bit linear format is source-supported; the installed transfer is not."
+  },
+  "code_range": {
+   "value": {"min": -2048, "max": 2047, "representation": "signed; offset-binary equivalent = code + 2048 (encoding UNKNOWN, SP12-CLM-024)"},
+   "unit": "code", "evidence_status": "PROVISIONAL", "substitute_kind": "PROVISIONAL",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": ["SRC-05"], "claim_ids": ["SP12-CLM-003", "SP12-CLM-024"],
+   "decision_id": "OWN-DEC-001", "replaced_by": "CHAIN-EXP-002 (code clamp / encoding)",
+   "note": "Hard clamp at code limits is presumed (research §8, owner report); representation choice is a software convention."
+  },
+  "quantizer_rule_default": {
+   "value": "ROUND_NEAREST", "unit": "strategy name", "evidence_status": "UNKNOWN", "substitute_kind": "PROVISIONAL",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": [], "claim_ids": ["SP12-CLM-024"],
+   "decision_id": "OWN-DEC-003", "replaced_by": "CHAIN-EXP-002 (code transitions on exported data)",
+   "note": "OWNER-SET PROVISIONAL SOFTWARE DEFAULT; the historical rounding/offset rule is UNRESOLVED. Research alternate FLOOR (SAR hypothesis, research §8) is selectable in ResearchConfiguration."
+  },
+  "quantizer_offset_codes": {
+   "value": 0.0, "unit": "LSB", "evidence_status": "UNKNOWN", "substitute_kind": "ESTIMATE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": [], "claim_ids": ["SP12-CLM-024"],
+   "decision_id": "OWN-DEC-003", "replaced_by": "CHAIN-EXP-002",
+   "note": "Comparator/half-LSB offset trim UNKNOWN; 0 is the neutral software assumption, not a measurement."
+  },
+  "dither": {
+   "value": "NONE", "unit": "policy", "evidence_status": "UNKNOWN", "substitute_kind": "PROVISIONAL",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": [], "claim_ids": ["SP12-CLM-024"],
+   "decision_id": "CHAIN-DEC-015", "replaced_by": "CHAIN-EXP-002 (low-level test)"
+  },
+  "input_gain_steps_db": {
+   "value": [0, 20, 40], "unit": "dB (exact ratios 1, 10, 100)", "evidence_status": "STRONGLY SUPPORTED", "substitute_kind": "PROVISIONAL",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": ["SRC-13"], "claim_ids": ["SP12-CLM-018"],
+   "decision_id": "OWN-DEC-001", "replaced_by": "CHAIN-EXP-005 (measured gain curve)",
+   "note": "Nominal menu values; the measured gain curve, input FS volts and preamp clip are UNKNOWN (SP12-CLM-023)."
+  },
+  "r2_analog_clamp": {
+   "value": "INACTIVE", "unit": "state", "evidence_status": "UNKNOWN", "substitute_kind": "INACTIVE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": [], "claim_ids": ["SP12-CLM-023"],
+   "decision_id": "OWN-DEC-001", "replaced_by": "CHAIN-EXP-002/005 (preamp/AA clip)",
+   "note": "No guessed rail model; only the converter code clamp is active."
+  },
+  "r3_strategy": {
+   "value": "INACTIVE", "unit": "strategy name", "evidence_status": "UNKNOWN", "substitute_kind": "INACTIVE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": ["SRC-04", "SRC-09", "SRC-12"], "claim_ids": ["SP12-CLM-008"],
+   "decision_id": "OWN-DEC-002", "replaced_by": "CHAIN-EXP-019 (SPICE) / CHAIN-EXP-002 (measured response)",
+   "note": "Anti-alias filter class exists (STRONGLY SUPPORTED) but no coefficients; INACTIVE does not represent the hardware. Reserved future slot name: LITERATURE_DERIVED_LOWPASS (not populated)."
+  },
+  "hold_fraction": {
+   "value": 1.0, "unit": "fraction of machine period", "evidence_status": "PROVISIONAL", "substitute_kind": "PROVISIONAL",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": ["SRC-04", "SRC-09"], "claim_ids": ["SP12-CLM-020", "SP12-CLM-006"],
+   "decision_id": "OWN-DEC-001", "replaced_by": "CHAIN-EXP-003 (hold fraction, droop)",
+   "note": "Ideal full-period zero-order hold; hold fraction UNKNOWN (RD-P1-11). Only 1.0 is implemented; other values are a blocked configuration."
+  },
+  "dac_full_scale_normalized": {
+   "value": 1.0, "unit": "normalized (code 2048 = 1.0)", "evidence_status": "UNKNOWN", "substitute_kind": "ESTIMATE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": [], "claim_ids": ["SP12-CLM-023"],
+   "decision_id": "OWN-DEC-001", "replaced_by": "CHAIN-EXP-003/005 (output volts per code)"
+  },
+  "output_routes": {
+   "value": {
+    "NONE_CH7_8": {"status": "POPULATED", "response": "IDENTITY (no filter)", "claim": "SP12-CLM-012 VERIFIED no filter on ch 7-8"},
+    "FIXED_CH5_6": {"status": "NOT POPULATED", "response": "UNKNOWN", "claim": "SP12-CLM-014; coefficients UNKNOWN"},
+    "FIXED_CH3_4": {"status": "NOT POPULATED", "response": "UNKNOWN", "claim": "SP12-CLM-014; coefficients UNKNOWN"},
+    "MIX_OUT": {"status": "NOT POPULATED", "response": "UNKNOWN", "claim": "SP12-CLM-015; summing topology UNKNOWN (RD-P0-04)"},
+    "UNFILTERED_CONTACT_CH1_6": {"status": "NOT POPULATED", "response": "UNKNOWN", "claim": "SP12-CLM-016; contact mapping in conflict C-03"}
+   },
+   "unit": "route table", "evidence_status": "VERIFIED", "substitute_kind": "PROVISIONAL",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": ["SRC-03", "SRC-05"], "claim_ids": ["SP12-CLM-012", "SP12-CLM-014", "SP12-CLM-015", "SP12-CLM-016"],
+   "decision_id": "OWN-DEC-004", "replaced_by": "CHAIN-EXP-004 (per-path complex response) / CHAIN-EXP-019",
+   "note": "NONE_CH7_8 is THE ONLY CURRENTLY POPULATED SOFTWARE-REFERENCE ROUTE; it is NOT the canonical historical output (CHAIN-DEC-003 UNDECIDED)."
+  },
+  "r9_output_gain_normalized": {
+   "value": 1.0, "unit": "normalized", "evidence_status": "UNKNOWN", "substitute_kind": "ESTIMATE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": [], "claim_ids": ["SP12-CLM-023"],
+   "decision_id": "OWN-DEC-001", "replaced_by": "CHAIN-EXP-004/005 (output gain, FS volts)"
+  },
+  "r9_coupling_pole": {
+   "value": "INACTIVE", "unit": "state", "evidence_status": "UNKNOWN", "substitute_kind": "INACTIVE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": [], "claim_ids": ["SP12-CLM-023"],
+   "decision_id": "OWN-DEC-001", "replaced_by": "CHAIN-EXP-004 (LF response)"
+  },
+  "volts_per_normalized_unit": {
+   "value": "UNSET", "unit": "V peak per 1.0", "evidence_status": "UNKNOWN", "substitute_kind": "PROVISIONAL",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": [], "claim_ids": ["SP12-CLM-023", "CHAIN-CLM-001"],
+   "decision_id": "CHAIN-DEC-014", "replaced_by": "CHAIN-EXP-005 (FS volts in/out)",
+   "note": "Physical calibration layer R0/R9 volts: UNSET blocks any physically scaled run (INVALID_CONFIGURATION)."
+  },
+  "slot_skew_seconds_research": {
+   "value": 4.8e-6, "unit": "s per channel slot", "evidence_status": "SIMULATED", "substitute_kind": "SIMULATED",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": ["SRC-09", "SRC-10"], "claim_ids": ["SP12-CLM-006", "SP12-CLM-002"],
+   "decision_id": "CHAIN-DEC-005", "replaced_by": "CHAIN-EXP-007 (measured inter-channel skew)",
+   "note": "Arithmetic 1/(8 x 26041.67 Hz) on the provisional clock; research configuration only, never product."
+  }
+ }
+}

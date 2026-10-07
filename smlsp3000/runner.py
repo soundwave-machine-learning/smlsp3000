@@ -13,11 +13,12 @@ import argparse
 import json
 import sys
 
-from .experiments import exp016
+from .experiments import exp016, exp017
 from .hashing import verify_manifest
 
 EXPERIMENTS = {
     exp016.EXPERIMENT_ID: exp016.run,
+    exp017.EXPERIMENT_ID: exp017.run,
 }
 
 
@@ -31,6 +32,10 @@ def main(argv: list[str] | None = None) -> int:
     v = sub.add_parser("verify-manifest", help="verify manifest.sha256 in a directory")
     v.add_argument("directory")
     sub.add_parser("integrity", help="VAL-001 repository integrity checks")
+    s3 = sub.add_parser("validate-sprint3", help="Sprint 3 software-track checks VAL-008/009/010/011/017 (Track A)")
+    s3.add_argument("--out", required=True)
+    sa = sub.add_parser("scope-audit", help="VAL-018 scope audit")
+    sa.add_argument("--out", required=True)
     ns = ap.parse_args(argv)
 
     if ns.cmd == "run":
@@ -40,7 +45,7 @@ def main(argv: list[str] | None = None) -> int:
             return 2
         record = fn(ns.out, command="python3 -m smlsp3000.runner " + " ".join(argv))
         print(json.dumps({"experiment_id": record["experiment_id"], "outcome": record["outcome"],
-                          "floor": record["results"].get("floor")}, indent=1))
+                          "floor": record["results"].get("floor"), "pattern_consistent": record["results"].get("pattern_consistent")}, indent=1))
         return 0 if record["outcome"] in ("PASS", "INFORMATIONAL") else 1
     if ns.cmd == "verify-manifest":
         res = verify_manifest(ns.directory)
@@ -48,6 +53,16 @@ def main(argv: list[str] | None = None) -> int:
         for k, v in sorted(res.items()):
             print(f"{v:9s} {k}")
         return 0 if not bad else 1
+    if ns.cmd == "validate-sprint3":
+        from .validation.sp1200_track_a import run_all
+        res = run_all(ns.out, "python3 -m smlsp3000.runner " + " ".join(argv))
+        print(json.dumps(res, indent=1))
+        return 0 if all(v == "PASS" for v in res.values()) else 1
+    if ns.cmd == "scope-audit":
+        from .validation.scope_audit import run as scope_run
+        r = scope_run(ns.out, "python3 -m smlsp3000.runner " + " ".join(argv))
+        print(json.dumps({"check_id": r["check_id"], "outcome": r["outcome"]}))
+        return 0 if r["outcome"] == "PASS" else 1
     if ns.cmd == "integrity":
         from tools.check_repo_integrity import main as integrity_main  # noqa: WPS433
         return integrity_main([])

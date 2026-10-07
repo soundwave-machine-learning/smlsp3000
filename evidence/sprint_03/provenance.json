@@ -1,0 +1,272 @@
+{
+ "record": "Sprint 03 provenance (Track A software/reference)",
+ "recorded_utc": "2026-10-07",
+ "starting_commit": "8257c2d",
+ "branch": "claude/autonomous-build",
+ "owner_decisions_applied": {
+  "OWN-DEC-001": "two-track execution (EXECUTION_PLAN_V2)",
+  "OWN-DEC-002": "R3 = INACTIVE",
+  "OWN-DEC-003": "quantizer default ROUND_NEAREST, research alternate FLOOR",
+  "OWN-DEC-004": "populated SP route NONE_CH7_8 only"
+ },
+ "asset_identity": {
+  "asset_id": "sp1200-track-a-provisional",
+  "version": "1",
+  "model_version": "sp1200-provisional-1.0.0",
+  "sha256": "73b75aadb01cd60c9ae40d7dfb33d1c1dd089b48859b141b3dab77556cb47039"
+ },
+ "research_config": {
+  "config_id": "sp-track-a-research-config",
+  "version": "1",
+  "sha256": "4771a2e28d3bb987b19bc57d2a19a3ecf2b8f54c9fe341f5d59b06d86be72b72",
+  "switches": {
+   "quantizer_rule": "ROUND_NEAREST",
+   "quantizer_offset_codes": 0.0,
+   "quantizer_bypass_diagnostic": false,
+   "r3_strategy": "INACTIVE",
+   "hold_fraction": 1.0,
+   "proxy_oversampling": 8,
+   "r1_r16_kernel": {
+    "lobes_per_side": 48,
+    "kaiser_beta": 9.0
+   },
+   "sampler_half_width_host_samples": 4,
+   "hold_kernel_half_width_host_samples": 4,
+   "interpolation_kaiser_beta": 12.0,
+   "slot_skew_enabled": false,
+   "capture_offset_enabled": false,
+   "capture_offset_seconds_per_channel": 0.0,
+   "diagnostic_taps": false
+  }
+ },
+ "model_implementation_version": "sp1200-reference-impl-1.0.2",
+ "immutable_sources_unchanged": true,
+ "contracts_unchanged": true,
+ "hardware_claims": "NONE \u2014 every artifact is SIMULATION or software; G-04 BLOCKED / DEFERRED EXTERNAL VALIDATION unchanged",
+ "artifacts": {
+  "evidence/sprint_03/scope_audit.json": {
+   "sha256": "d81c523e4cf87415f741c862d9e9caa1cfad4d135ca3926251ecbd342961319d",
+   "bytes": 2249,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "N/A (software check)"
+  },
+  "research/sim/CHAIN-EXP-017/manifest.sha256": {
+   "sha256": "ccc1e2ea182e623f7f636fa7d9bf6509e3f519f1c4befed187c05c71fe908475",
+   "bytes": 167,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "N/A (software check)"
+  },
+  "research/sim/CHAIN-EXP-017/result.json": {
+   "sha256": "64a139dad10edb641282294e396162dd36d49869433aabc41de81dcd8a469e47",
+   "bytes": 29111,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "N/A (software check)"
+  },
+  "research/sim/CHAIN-EXP-017/spectrogram_coarse.csv": {
+   "sha256": "16b85d973d36a93c3557a2bc075a1fea90b18e7423f410753582a1a73f0db240",
+   "bytes": 81183,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "N/A (software check)"
+  },
+  "research/validation/sp1200/calibration/VAL-011_software.json": {
+   "sha256": "d0f9d72f156912e3b2f208071b69e449aad118e5c1aa5ec62a5439eb2d64ea78",
+   "bytes": 2844,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "N/A (software check)"
+  },
+  "research/validation/sp1200/calibration/manifest.sha256": {
+   "sha256": "6d3b90da29e8d1e7898e2685f03f80bf6bc0e72999c3ce8d0f177342b2711ace",
+   "bytes": 88,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "N/A (software check)"
+  },
+  "research/validation/sp1200/digital/VAL-008_software.json": {
+   "sha256": "5584337e536d4ab7fe654aca0059d6d7296266472ef1f748c0588d736f05f700",
+   "bytes": 3587,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "N/A (software check)"
+  },
+  "research/validation/sp1200/digital/manifest.sha256": {
+   "sha256": "03c7bf4ec8182af3cc01141407c61ae13c2d43c0ae9e6fecc88ea18f89f93fc2",
+   "bytes": 88,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "N/A (software check)"
+  },
+  "research/validation/sp1200/input/VAL-009_software.json": {
+   "sha256": "73af34bbc9b9be508f47df63638fab3e4af1e22e5f1d887f455521e82b61fcb2",
+   "bytes": 19322,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "N/A (software check)"
+  },
+  "research/validation/sp1200/input/manifest.sha256": {
+   "sha256": "cc83a69f4e13bb037c0c3f4df4d1a7464ec964dd72fb3e350bbf8182d9f44e88",
+   "bytes": 88,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "N/A (software check)"
+  },
+  "research/validation/sp1200/output/VAL-010_software.json": {
+   "sha256": "a48b26f822eddabaaaf4f54f350aa91b7918f11c009811dc24d34b051fdfd33b",
+   "bytes": 55746,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "N/A (software check)"
+  },
+  "research/validation/sp1200/output/manifest.sha256": {
+   "sha256": "def295e5b782b6f22b38cb04d11ca389aa3a4c3d75c63209e96453b347bfa4b6",
+   "bytes": 88,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "N/A (software check)"
+  },
+  "research/validation/stereo/VAL-017_software.json": {
+   "sha256": "4bf15e9671ca71f71102c51607c474e39f31cebc9afb5fd02f458933d1d7b636",
+   "bytes": 2982,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "N/A (software check)"
+  },
+  "research/validation/stereo/manifest.sha256": {
+   "sha256": "05b3ec990d43cd859c2a6d4fff479e6396931f577a93815172d7cdced03f259f",
+   "bytes": 88,
+   "artifact_class": "SIMULATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "N/A (software check)"
+  },
+  "smlsp3000/experiments/exp017.py": {
+   "sha256": "1e85622afa04ed6a36d704981e48968cec78a67ff7123d0c44850dbd32886ed4",
+   "bytes": 6921,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/reference/__init__.py": {
+   "sha256": "8a58c8030eca0707efee7ab21b62f44ada1d2043797300702d4e77591c204579",
+   "bytes": 349,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/reference/assets/research_config_sp_track_a_v1.json": {
+   "sha256": "61e362052f228cf78a4f6d32407cffea79fc8646c94ebe92371407cb7c5ac3d9",
+   "bytes": 2011,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/reference/assets/sp1200_provisional_v1.json": {
+   "sha256": "b67786a53622df98393885a8b258c48afabcc117315e2373f180cc5159088d0a",
+   "bytes": 9302,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/reference/assets.py": {
+   "sha256": "79d51d29dad15b584098098485d7726bc0fd37458bfc403ffb81954b7b32861e",
+   "bytes": 2144,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/reference/errors.py": {
+   "sha256": "e848d7f3eeb824fd53ff56501b302ed359f471b4544f653a7087888ad4d3c1f8",
+   "bytes": 376,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/reference/kernels.py": {
+   "sha256": "7e0490359ace1f481bf8738c3d1693b79bd1b10bced37f68b1d12a1f270549df",
+   "bytes": 4604,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/reference/render.py": {
+   "sha256": "f88e9ee45b519a97634aa5875140795060ee50ea09197b5ffcb60ef118b5b04d",
+   "bytes": 3087,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/reference/scheduler.py": {
+   "sha256": "ea4382fec06a66e6ee4bcc622b16144b325614ccf60faa228db3a219fb78dee4",
+   "bytes": 3518,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/reference/sp1200.py": {
+   "sha256": "4fb5a2a25eaad03a2bbd8c544569cdc10c4da4d92eacff1b05ec626bdcee450d",
+   "bytes": 21441,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/reference/streaming.py": {
+   "sha256": "1b2ad6bf75d0322dfb4acd87c70e4fa09c8d928eb58a66335f89534bb4b54968",
+   "bytes": 3811,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/runner.py": {
+   "sha256": "833c1dfbc97811f99b111b23a28e1a15b507d50ff540d24fb83dd3ccaa1e53fd",
+   "bytes": 3148,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/schemas.py": {
+   "sha256": "960b308e1cf86d160f16d5d26b98950d0053ad2cc46693eb788e96569b12e316",
+   "bytes": 11384,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/validation/__init__.py": {
+   "sha256": "4feed0ff8fad475d325551f3a7e31760bf4ade1cbea2b014c95d5c731af6b50b",
+   "bytes": 90,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/validation/measure.py": {
+   "sha256": "3deb347769d544ae38956668ba358d8594b52980150f01f020c450e4347fe6c7",
+   "bytes": 1885,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/validation/scope_audit.py": {
+   "sha256": "03159a1ecb2d2f3d5629b38f0931bb0060ae770d3798f0ddcf62c848b93ba014",
+   "bytes": 3465,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "smlsp3000/validation/sp1200_track_a.py": {
+   "sha256": "2748865de61f4a32c45664d2618c18a4a53548b902b616f291e4886afb69b4da",
+   "bytes": 27247,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  },
+  "tests/test_reference_sp1200.py": {
+   "sha256": "8a520af90985bee23ce55ef8ee4c3be7b8b3377de5fa550d957acfbb10577523",
+   "bytes": 9759,
+   "artifact_class": "IMPLEMENTATION",
+   "dataset_role": "NONE",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE"
+  }
+ }
+}

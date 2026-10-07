@@ -1,0 +1,65 @@
+{
+ "artifact_class": "SIMULATION",
+ "asset_identity": {
+  "asset_id": "sp1200-track-a-provisional",
+  "model_version": "sp1200-provisional-1.0.0",
+  "sha256": "73b75aadb01cd60c9ae40d7dfb33d1c1dd089b48859b141b3dab77556cb47039",
+  "version": "1"
+ },
+ "check_id": "VAL-017",
+ "command": "python3 -m smlsp3000.runner validate-sprint3 --out research/validation",
+ "dataset_role": "NONE",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "hardware_fit_outcome": "BLOCKED",
+ "limitations": [
+  "Linked dual mono is a PRODUCT ABSTRACTION (CHAIN-DEC-005), not a historical stereo path; measured slot skew/hold fraction (CHAIN-EXP-007) NOT EXECUTED. Hardware-fit cell BLOCKED."
+ ],
+ "method": "Linked dual mono (PRODUCT ABSTRACTION): L=R gives bit-identical channels; a stereo render equals the two mono renders (independent state); a silent channel stays exactly zero; reset() reproduces a fresh engine; the research-only playback slot-skew switch delays channel 1's hold edges by the provisional 4.8 \u00b5s (a pure delay of the staircase, measured by 1 kHz tone phase; codes/sampling instants shared) and is disabled in the product configuration; the separate research capture-offset switch is also disabled.",
+ "outcome": "PASS",
+ "requirement_id": "REQ-017",
+ "research_config_sha256": "4771a2e28d3bb987b19bc57d2a19a3ecf2b8f54c9fe341f5d59b06d86be72b72",
+ "results": {
+  "anti_phase_equals_mono_of_negated": true,
+  "equal_input_identical": true,
+  "left_unaffected_by_silent_right": true,
+  "no_random_mismatch": true,
+  "output_sha256_equal_input_render": "24c9b5ff6dab5ee4f6940142fd9bb074706034ddd1403c1ece7aa23ee876120e",
+  "product_config_capture_offset_enabled": false,
+  "product_config_slot_skew_enabled": false,
+  "research_slot_skew": {
+   "abs_error_s": 5.956724561289516e-10,
+   "bound_s": 9.896061491038785e-09,
+   "channels_differ_when_enabled": true,
+   "expected_delay_s": 4.8e-06,
+   "label": "RESEARCH CONFIGURATION ONLY \u2014 DAC multiplex playback skew, arithmetic on the provisional clock (CHAIN-EXP-007 NOT EXECUTED); capture offset is a separate research term (0 here)",
+   "measured_delay_s": 4.800595672456129e-06,
+   "within_bound": true
+  },
+  "reset_reproduces_fresh": true,
+  "silent_channel_exactly_zero": true,
+  "stereo_equals_independent_mono": true
+ },
+ "software": {
+  "numpy": "2.5.3",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "8257c2d150dd32b0902c1b5c71954ea7cf2e1bec-dirty",
+ "stimulus": {
+  "a": "1 kHz (0.5) + 6.1 kHz (0.1)",
+  "b": "440 Hz (0.4, phase 1 rad)",
+  "frames": 24000,
+  "host_rate_hz": 48000
+ },
+ "timestamp_utc": "2026-10-07T00:23:12+00:00",
+ "tolerance_policy": {
+  "identity checks": "bit-exact equality",
+  "slot_skew": "|measured - 4.8 \u00b5s| <= kernel line_amplitude_bound_relative / (2\u03c0\u00b71 kHz) (small-angle phase bound derived from the kernel)"
+ },
+ "track": "A"
+}

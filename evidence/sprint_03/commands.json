@@ -1,0 +1,49 @@
+{
+ "record": "Sprint 03 commands and exit codes",
+ "working_directory": "repository root",
+ "commands": [
+  {
+   "id": "CMD-02",
+   "command": "python3 tools/check_repo_integrity.py",
+   "exit_code": 0,
+   "log": "evidence/sprint_03/integrity_run.log"
+  },
+  {
+   "id": "CMD-07",
+   "command": "python3 -m smlsp3000.runner validate-sprint3 --out research/validation",
+   "exit_code": 0,
+   "log": "evidence/sprint_03/validate_sprint3_run.log",
+   "outputs": "research/validation/sp1200/{digital,input,output,calibration}/VAL-0xx_software.json, research/validation/stereo/VAL-017_software.json"
+  },
+  {
+   "id": "CMD-08",
+   "command": "python3 -m smlsp3000.runner run CHAIN-EXP-017 --out research/sim/CHAIN-EXP-017",
+   "exit_code": 0,
+   "log": "evidence/sprint_03/exp017_run.log"
+  },
+  {
+   "id": "CMD-09",
+   "command": "python3 -m smlsp3000.runner scope-audit --out evidence/sprint_03/scope_audit.json",
+   "exit_code": 0,
+   "log": "evidence/sprint_03/scope_audit_run.log"
+  },
+  {
+   "id": "CMD-05",
+   "command": "python3 -m unittest discover -s tests -t . -v",
+   "exit_code": "see evidence/sprint_03/unittest_run.log",
+   "log": "evidence/sprint_03/unittest_run.log"
+  },
+  {
+   "id": "CMD-04",
+   "command": "python3 -m smlsp3000.runner verify-manifest <dir>",
+   "exit_code": 0,
+   "log": "inline in sprint report"
+  }
+ ],
+ "not_executed": [
+  "any hardware capture",
+  "any hardware comparison",
+  "any listening trial",
+  "any dependency installation"
+ ]
+}

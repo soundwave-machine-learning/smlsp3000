@@ -1,0 +1,41 @@
+{
+ "config_id": "sp-track-a-research-config",
+ "version": "1",
+ "normalized_research_calibration": true,
+ "switches": {
+  "quantizer_rule": "ROUND_NEAREST",
+  "quantizer_offset_codes": 0.0,
+  "quantizer_bypass_diagnostic": false,
+  "r3_strategy": "INACTIVE",
+  "hold_fraction": 1.0,
+  "proxy_oversampling": 8,
+  "r1_r16_kernel": {
+   "lobes_per_side": 48,
+   "kaiser_beta": 9.0
+  },
+  "sampler_half_width_host_samples": 4,
+  "hold_kernel_half_width_host_samples": 4,
+  "interpolation_kaiser_beta": 12.0,
+  "slot_skew_enabled": false,
+  "capture_offset_enabled": false,
+  "capture_offset_seconds_per_channel": 0.0,
+  "diagnostic_taps": false
+ },
+ "status": {
+  "quantizer_rule": "OWNER-SET PROVISIONAL SOFTWARE DEFAULT (OWN-DEC-003); research alternate FLOOR",
+  "quantizer_offset_codes": "ESTIMATE 0 (hardware UNKNOWN)",
+  "quantizer_bypass_diagnostic": "diagnostic only; never a product state",
+  "r3_strategy": "INACTIVE (OWN-DEC-002); not a model of the hardware",
+  "hold_fraction": "PROVISIONAL full period",
+  "proxy_oversampling": "IMPLEMENTATION, ESTIMATE pending G-08 convergence (S6)",
+  "r1_r16_kernel": "IMPLEMENTATION kernel (windowed sinc), ESTIMATE pending G-08",
+  "sampler_half_width_host_samples": "IMPLEMENTATION, ESTIMATE pending G-08",
+  "hold_kernel_half_width_host_samples": "IMPLEMENTATION, ESTIMATE pending G-08",
+  "interpolation_kaiser_beta": "IMPLEMENTATION",
+  "slot_skew_enabled": "research only: DAC multiplex playback skew of the hold edges per channel index (CHAIN-EXP-007 pending)",
+  "diagnostic_taps": "reference diagnostics only",
+  "capture_offset_enabled": "research only: source capture (sampling-instant) offset per channel index; separate term from playback skew (docs/ARCHITECTURE.md)",
+  "capture_offset_seconds_per_channel": "research only; 0 = shared sampling instants (linked dual mono)"
+ },
+ "notes": "Explicit hypothesis switches for the Track A SP reference. No switch has an implicit default; every value is listed here and hashed into every render record."
+}

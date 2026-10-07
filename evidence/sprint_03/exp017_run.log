@@ -1,0 +1,11 @@
+{
+ "experiment_id": "CHAIN-EXP-017",
+ "outcome": "INFORMATIONAL",
+ "floor": null,
+ "pattern_consistent": true
+}
+
+real	0m3.578s
+user	0m2.924s
+sys	0m1.022s
+exit=0

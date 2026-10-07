@@ -1,8 +1,8 @@
 # Eight-sprint dependency and ownership index
 
-Revision: execution V2 (owner decision OWN-DEC-001) · 2026-10-06 · supersedes planning V1
+Revision: execution V3 (Sprint 3) · 2026-10-07 · supersedes execution V2
 
-Status: EXECUTION IN PROGRESS. Sprint 1 PASS (fbd1fac). Sprint 2 hardware campaign BLOCKED / EXTERNAL HARDWARE REQUIRED (1c0fe89), preserved. Sprints 3–8 run as Track A (software/reference, provisional) under docs/EXECUTION_PLAN_V2.md once the owner approves its §4 plan; Track B (hardware fit) deferred.
+Status: EXECUTION IN PROGRESS. Sprint 1 PASS (fbd1fac). Sprint 2 hardware campaign BLOCKED / EXTERNAL HARDWARE REQUIRED (1c0fe89), preserved. Owner approved EXECUTION_PLAN_V2 §4 on 2026-10-07. Sprint 3 Track A PASS (software cells); its hardware-fit cells BLOCKED. Sprint 4 awaits owner inputs (R12/R15 state, R13 default). Track B (hardware fit) deferred.
 
 ## Exactly eight substantive milestones
 
@@ -24,7 +24,7 @@ Eight is explicitly requested by the owner. Boundaries follow evidence dependenc
 | Sprint | Track A (software/reference, provisional) | Track B (hardware fit) | Entry under V2 |
 |---|---|---|---|
 | 02 | — | whole sprint (CHAIN-EXP-001..012/015, G-04/G-05/G-06) | BLOCKED / EXTERNAL HARDWARE REQUIRED |
-| 03 | REQ-008/009/010/011 provisional SP reference (class B), REQ-017/018 and CHAIN-EXP-017 (class C); ch 3–6 responses and MIX OUT not populated (class A) | VAL-008..011 hardware-fit cells | Owner approval of EXECUTION_PLAN_V2 §4 + §9 inputs 2–4 |
+| 03 | REQ-008/009/010/011 provisional SP reference (class B), REQ-017/018 and CHAIN-EXP-017 (class C); ch 3–6 responses and MIX OUT not populated (class A) | VAL-008..011 hardware-fit cells | EXECUTED 2026-10-07 — software PASS (docs/sprint_reports/SPRINT_03_REPORT.md); hardware-fit BLOCKED |
 | 04 | REQ-012/013/014 provisional MPC reference (class B) | VAL-012..014 hardware-fit cells | Accepted S3 (software) + §9 input 5 |
 | 05 | REQ-015 provisional interstage (B, owner-set), REQ-016 G-07S software product decision with software-only listening (B); CHAIN-EXP-013/014/018 hardware arms (A) | VAL-015 hardware-fit cell; G-07H | Accepted S4 + §9 input 6 |
 | 06 | REQ-019..022 (class C; G-08 owner budgets) | VAL-020 hardware image agreement cell | Accepted S5 + G-07S + G-08 |

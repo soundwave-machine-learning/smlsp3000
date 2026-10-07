@@ -42,6 +42,12 @@ EVIDENCE_STATUSES = (
 
 EXPERIMENT_OUTCOMES = ("PASS", "FAIL", "BLOCKED", "NOT EXECUTED", "INFORMATIONAL")
 
+#: Track A implementation tags (docs/EXECUTION_PLAN_V2.md §5; OWN-DEC-001). They never change an
+#: evidence status; they describe why a provisional software value exists.
+SUBSTITUTE_KINDS = ("PROVISIONAL", "LITERATURE-DERIVED", "SIMULATED", "ESTIMATE", "VERIFIED-FORMAT", "INACTIVE", "NOT POPULATED")
+HARDWARE_VALIDATION_TAGS = ("UNVALIDATED AGAINST HARDWARE", "HARDWARE-FIT")
+TRACKS = ("A", "B")
+
 DEBT_STATES = ("OPEN", "PARTIAL", "CLOSED", "NOT APPLICABLE WITH APPROVED SCOPE")
 
 #: Sentinel for a calibration/asset value that has no evidence yet. A record may
@@ -149,16 +155,59 @@ CAPTURE_SIDECAR = {
     "validity": _t(str, choices=("VALID", "INVALID", "PENDING")),
 }
 
+#: One value inside a machine asset (docs/EXECUTION_PLAN_V2.md §5.2). A value without these tags is
+#: a "magic value" and fails validation; prepare() must then return INVALID_CONFIGURATION.
+ASSET_VALUE = {
+    "value": _t(object, allow_unset=True, doc="number, string, list or dict; UNSET = blocked configuration"),
+    "unit": _t(str),
+    "evidence_status": _t(str, choices=EVIDENCE_STATUSES),
+    "substitute_kind": _t(str, choices=SUBSTITUTE_KINDS),
+    "hardware_validation": _t(str, choices=HARDWARE_VALIDATION_TAGS),
+    "source_ids": _t(list),
+    "claim_ids": _t(list),
+    "decision_id": _t(str),
+    "replaced_by": _t(str, doc="Track B experiment / closure that would replace this value"),
+    "uncertainty": _t(str, required=False),
+    "permitted_range": _t(str, list, required=False),
+    "note": _t(str, required=False),
+}
+
 #: Versioned calibrated machine asset (docs/PARAMETERS.md “MachineParameters”).
 MACHINE_ASSET = {
     "asset_id": _t(str),
     "version": _t(str),
+    "model_version": _t(str),
+    "track": _t(str, choices=TRACKS),
     "machine": _t(str, choices=("SP-1200", "MPC3000", "CASCADE")),
     "block_ids": _t(list, doc="R0..R16"),
-    "values": _t(dict, doc="name -> {value|UNSET, unit, uncertainty, permitted_range, status}"),
+    "values": _t(dict, doc="name -> ASSET_VALUE record"),
     "provenance": _t(dict, doc="claim_ids, experiment_ids, source_ids, capture_ids, unit_id, route"),
     "validity_conditions": _t(str),
+    "normalized_research_calibration": _t(bool, doc="True = non-fidelity skeleton; physical volts UNSET"),
     "sha256": _t(str, required=False),
+}
+
+#: Validation record for a software-track check (VAL-NNN software cell).
+VALIDATION_RECORD = {
+    "check_id": _t(str),
+    "requirement_id": _t(str),
+    "track": _t(str, choices=TRACKS),
+    "artifact_class": _t(str, choices=ARTIFACT_CLASSES),
+    "dataset_role": _t(str, choices=DATASET_ROLES),
+    "asset_identity": _t(dict, doc="asset_id, version, model_version, sha256"),
+    "research_config_sha256": _t(str),
+    "software": _t(dict),
+    "source_commit": _t(str),
+    "environment": _t(dict),
+    "command": _t(str),
+    "stimulus": _t(dict),
+    "method": _t(str),
+    "tolerance_policy": _t(dict, doc="how each nonzero bound is derived; UNKNOWN stays UNKNOWN"),
+    "results": _t(dict),
+    "outcome": _t(str, choices=EXPERIMENT_OUTCOMES),
+    "hardware_fit_outcome": _t(str, choices=("BLOCKED", "NOT RUN", "DEFERRED")),
+    "limitations": _t(list),
+    "timestamp_utc": _t(str),
 }
 
 #: Research configuration: every hypothesis switch explicit (docs/PARAMETERS.md).
@@ -172,6 +221,8 @@ RESEARCH_CONFIGURATION = {
 
 SCHEMAS = {
     "ARTIFACT_ENTRY": ARTIFACT_ENTRY,
+    "ASSET_VALUE": ASSET_VALUE,
+    "VALIDATION_RECORD": VALIDATION_RECORD,
     "EXPERIMENT_RESULT_RECORD": EXPERIMENT_RESULT_RECORD,
     "UNIT_METADATA": UNIT_METADATA,
     "CAPTURE_SIDECAR": CAPTURE_SIDECAR,
@@ -179,7 +230,7 @@ SCHEMAS = {
     "RESEARCH_CONFIGURATION": RESEARCH_CONFIGURATION,
 }
 
-SCHEMA_VERSION = "1"
+SCHEMA_VERSION = "2"
 
 
 def validate(record: dict, schema: dict[str, FieldSpec], *, strict: bool = True) -> list[str]:
@@ -201,7 +252,9 @@ def validate(record: dict, schema: dict[str, FieldSpec], *, strict: bool = True)
             if not spec.allow_unset:
                 problems.append(f"field {name} is UNSET but UNSET is not permitted here")
             continue
-        if not isinstance(v, spec.types) or isinstance(v, bool) and bool not in spec.types:
+        if object in spec.types:
+            pass
+        elif not isinstance(v, spec.types) or isinstance(v, bool) and bool not in spec.types:
             problems.append(f"field {name}: expected {[t.__name__ for t in spec.types]}, got {type(v).__name__}")
             continue
         if spec.choices is not None and v not in spec.choices:
@@ -220,3 +273,18 @@ def is_set(value: Any) -> bool:
 def require_set(record: dict, fields: list[str]) -> list[str]:
     """Names of fields that are UNSET/missing — a non-empty list is a BLOCKED configuration."""
     return [f for f in fields if f not in record or record[f] == UNSET]
+
+
+def validate_machine_asset(asset: dict) -> list[str]:
+    """Validate an asset record and every one of its values (no magic values)."""
+    problems = validate(asset, MACHINE_ASSET)
+    if isinstance(asset.get("values"), dict):
+        for name, rec in asset["values"].items():
+            if not isinstance(rec, dict):
+                problems.append(f"value {name}: not a record")
+                continue
+            for q in validate(rec, ASSET_VALUE):
+                problems.append(f"value {name}: {q}")
+            if asset.get("track") == "A" and rec.get("hardware_validation") != "UNVALIDATED AGAINST HARDWARE":
+                problems.append(f"value {name}: Track A values must be tagged UNVALIDATED AGAINST HARDWARE")
+    return problems

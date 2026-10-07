@@ -1,0 +1,560 @@
+{
+ "artifact_class": "SIMULATION",
+ "asset_identity": {
+  "asset_id": "sp1200-track-a-provisional",
+  "model_version": "sp1200-provisional-1.0.0",
+  "sha256": "73b75aadb01cd60c9ae40d7dfb33d1c1dd089b48859b141b3dab77556cb47039",
+  "version": "1"
+ },
+ "check_id": "VAL-009",
+ "command": "python3 -m smlsp3000.runner validate-sprint3 --out research/validation",
+ "dataset_role": "NONE",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "hardware_fit_outcome": "BLOCKED",
+ "limitations": [
+  "The SP-1200 anti-alias response (RD-P0-01) is not modelled: R3 is INACTIVE and does not represent the hardware; measured fold-back levels of the machine are UNKNOWN. Hardware-fit cell BLOCKED (CHAIN-EXP-002/019)."
+ ],
+ "method": "R3 = INACTIVE (OWN-DEC-002): no anti-alias attenuation is applied. Structural fold-back check: a 15 kHz and a 14 kHz tone at a 48 kHz host must appear in the SP code sequence and the host output at fsp - f (11041.67 / 12041.67 Hz) with the hold response, and the full line model (all images aliased into the host band) must match within the kernel-derived bound (quantizer bypass diagnostic). Quantizer-active runs are informational.",
+ "outcome": "PASS",
+ "requirement_id": "REQ-009",
+ "research_config_sha256": "4771a2e28d3bb987b19bc57d2a19a3ecf2b8f54c9fe341f5d59b06d86be72b72",
+ "results": {
+  "aa_response_applied": false,
+  "cases": {
+   "14000.0": {
+    "linear": {
+     "bound_abs": 3.10893940797203e-05,
+     "fft_bin_hz": 12.0,
+     "fft_peak_above_fundamental_hz": 12042.0,
+     "first_image_position_ok": true,
+     "host_rate_hz": 48000,
+     "input_amplitude": 0.5,
+     "input_hz": 14000.0,
+     "latency_host_samples": 104,
+     "lines": {
+      "12041.666667": {
+       "abs_error": 3.535608067428697e-08,
+       "expected": 0.3417941414745381,
+       "measured": 0.34179410611845745
+      },
+      "14000.0": {
+       "abs_error": 1.2914737779201602e-08,
+       "expected": 0.29398335216178406,
+       "measured": 0.29398336507652184
+      },
+      "16125.0": {
+       "abs_error": 1.8602224011941314e-07,
+       "expected": 4.071371209823648e-08,
+       "measured": 2.2673595221764963e-07
+      },
+      "1750.0": {
+       "abs_error": 8.943246205010627e-08,
+       "expected": 2.6662341939464807e-10,
+       "measured": 8.969908546950092e-08
+      },
+      "18083.333333": {
+       "abs_error": 6.146588928893633e-07,
+       "expected": 4.190304620168823e-08,
+       "measured": 6.565619390910515e-07
+      },
+      "20208.333333": {
+       "abs_error": 3.553453525757795e-08,
+       "expected": 3.032431741257649e-09,
+       "measured": 3.85669669988356e-08
+      },
+      "208.333333": {
+       "abs_error": 1.0846221710098041e-07,
+       "expected": 1.6894819655050546e-09,
+       "measured": 1.1015169906648547e-07
+      },
+      "21750.0": {
+       "abs_error": 1.5598615856001768e-08,
+       "expected": 7.994005221556965e-11,
+       "measured": 1.5678555908217338e-08
+      },
+      "22166.666667": {
+       "abs_error": 3.64843521687007e-08,
+       "expected": 4.927589521747491e-09,
+       "measured": 4.141194169044819e-08
+      },
+      "23708.333333": {
+       "abs_error": 1.0211163418498185e-09,
+       "expected": 1.0121484095200243e-09,
+       "measured": 2.033264751369843e-09
+      },
+      "3875.0": {
+       "abs_error": 2.006244249981007e-07,
+       "expected": 1.3111810724446677e-08,
+       "measured": 2.1373623572254738e-07
+      },
+      "5833.333333": {
+       "abs_error": 1.1143356808996081e-07,
+       "expected": 1.0667166587956693e-08,
+       "measured": 1.221007346779175e-07
+      },
+      "7958.333333": {
+       "abs_error": 9.436650723568008e-07,
+       "expected": 2.4959327865372286e-07,
+       "measured": 1.1932583510105236e-06
+      },
+      "9916.666667": {
+       "abs_error": 1.6269972115740055e-07,
+       "expected": 3.1510495169455666e-07,
+       "measured": 1.5240523053715612e-07
+      }
+     },
+     "n_lines": 14,
+     "predicted_first_image_hz": 12041.666667,
+     "quantizer_bypass_diagnostic": true,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "sp1200-track-a-provisional",
+       "model_version": "sp1200-provisional-1.0.0",
+       "sha256": "73b75aadb01cd60c9ae40d7dfb33d1c1dd089b48859b141b3dab77556cb47039",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 NOT A MODEL OF A MEASURED SP-1200; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 48000,
+      "input_sha256": "ef33953045ec1f3bdbfdcbebd0818c96847af2964577dc90903d72a5aeb1aa2b",
+      "latency_host_samples": 104,
+      "meters": [
+       {
+        "converter_clip_count": 0,
+        "peak_input_normalized": 0.5
+       }
+      ],
+      "model_implementation_version": "sp1200-reference-impl-1.0.2",
+      "output_sha256": "3c27aac145ed076e4dad2919006ef19ae4a23328c5ce532db5ea9d7e4ab1fd62",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "sp_input_gain": 0,
+       "sp_input_level_db": 0.0,
+       "sp_output_path": "NONE_CH7_8"
+      },
+      "research_config_sha256": "fb220e37e767a1a694d07ae74dd33e3440ae6c94db0f1fb64a6663d25b069954",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "8257c2d150dd32b0902c1b5c71954ea7cf2e1bec-dirty"
+     },
+     "residual_rms_db_re_input": -136.93785711858277,
+     "within_bound": true,
+     "worst_abs_error": 9.436650723568008e-07
+    },
+    "quantizer_active_informational": {
+     "bound_abs": 3.10893940797203e-05,
+     "fft_bin_hz": 12.0,
+     "fft_peak_above_fundamental_hz": 12042.0,
+     "first_image_position_ok": true,
+     "host_rate_hz": 48000,
+     "input_amplitude": 0.5,
+     "input_hz": 14000.0,
+     "latency_host_samples": 104,
+     "lines": {
+      "12041.666667": {
+       "abs_error": 1.4995239090653811e-05,
+       "expected": 0.3417941414745381,
+       "measured": 0.3418091367136288
+      },
+      "14000.0": {
+       "abs_error": 1.2968627232601282e-05,
+       "expected": 0.29398335216178406,
+       "measured": 0.29399632078901666
+      },
+      "16125.0": {
+       "abs_error": 5.516898537112732e-06,
+       "expected": 4.071371209823648e-08,
+       "measured": 5.557612249210969e-06
+      },
+      "1750.0": {
+       "abs_error": 3.2664750134014825e-06,
+       "expected": 2.6662341939464807e-10,
+       "measured": 3.2667416368208773e-06
+      },
+      "18083.333333": {
+       "abs_error": 3.4616092281962377e-06,
+       "expected": 4.190304620168823e-08,
+       "measured": 3.5035122743979258e-06
+      },
+      "20208.333333": {
+       "abs_error": 8.028788243085378e-07,
+       "expected": 3.032431741257649e-09,
+       "measured": 8.059112560497954e-07
+      },
+      "208.333333": {
+       "abs_error": 4.765584312723625e-06,
+       "expected": 1.6894819655050546e-09,
+       "measured": 4.76727379468913e-06
+      },
+      "21750.0": {
+       "abs_error": 1.2616982085148211e-06,
+       "expected": 7.994005221556965e-11,
+       "measured": 1.2617781485670367e-06
+      },
+      "22166.666667": {
+       "abs_error": 1.0146887659126429e-06,
+       "expected": 4.927589521747491e-09,
+       "measured": 1.0196163554343903e-06
+      },
+      "23708.333333": {
+       "abs_error": 7.712762034228066e-07,
+       "expected": 1.0121484095200243e-09,
+       "measured": 7.722883518323265e-07
+      },
+      "3875.0": {
+       "abs_error": 5.718686625450651e-06,
+       "expected": 1.3111810724446677e-08,
+       "measured": 5.7317984361750975e-06
+      },
+      "5833.333333": {
+       "abs_error": 2.697262854708993e-06,
+       "expected": 1.0667166587956693e-08,
+       "measured": 2.7079300212969497e-06
+      },
+      "7958.333333": {
+       "abs_error": 7.5136886822115185e-06,
+       "expected": 2.4959327865372286e-07,
+       "measured": 7.763281960865241e-06
+      },
+      "9916.666667": {
+       "abs_error": 8.45423837890546e-06,
+       "expected": 3.1510495169455666e-07,
+       "measured": 8.769343330600017e-06
+      }
+     },
+     "n_lines": 14,
+     "predicted_first_image_hz": 12041.666667,
+     "quantizer_bypass_diagnostic": false,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "sp1200-track-a-provisional",
+       "model_version": "sp1200-provisional-1.0.0",
+       "sha256": "73b75aadb01cd60c9ae40d7dfb33d1c1dd089b48859b141b3dab77556cb47039",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 NOT A MODEL OF A MEASURED SP-1200; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 48000,
+      "input_sha256": "ef33953045ec1f3bdbfdcbebd0818c96847af2964577dc90903d72a5aeb1aa2b",
+      "latency_host_samples": 104,
+      "meters": [
+       {
+        "converter_clip_count": 0,
+        "peak_input_normalized": 0.5
+       }
+      ],
+      "model_implementation_version": "sp1200-reference-impl-1.0.2",
+      "output_sha256": "f362bcce926879203a9fd84a8a6cbd873ea943df226106ad1e8eca0a202700cc",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "sp_input_gain": 0,
+       "sp_input_level_db": 0.0,
+       "sp_output_path": "NONE_CH7_8"
+      },
+      "research_config_sha256": "4771a2e28d3bb987b19bc57d2a19a3ecf2b8f54c9fe341f5d59b06d86be72b72",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "8257c2d150dd32b0902c1b5c71954ea7cf2e1bec-dirty"
+     },
+     "residual_rms_db_re_input": -71.43140132479078,
+     "within_bound": true,
+     "worst_abs_error": 1.4995239090653811e-05
+    },
+    "sp_domain_fold_back": {
+     "abs_error_codes": 0.00010210995424131397,
+     "bound_codes": 0.06367107907526717,
+     "expected_codes_amplitude": 1023.9986427456524,
+     "fold_hz": 12041.666666666668,
+     "measured_codes_amplitude": 1023.9985406356982,
+     "residual_rms_codes": 0.002499626312360181,
+     "within_bound": true
+    }
+   },
+   "15000.0": {
+    "linear": {
+     "bound_abs": 3.10893940797203e-05,
+     "fft_bin_hz": 12.0,
+     "fft_peak_above_fundamental_hz": 11041.5,
+     "first_image_position_ok": true,
+     "host_rate_hz": 48000,
+     "input_amplitude": 0.5,
+     "input_hz": 15000.0,
+     "latency_host_samples": 104,
+     "lines": {
+      "10916.666667": {
+       "abs_error": 1.8101838157253548e-07,
+       "expected": 3.4593792279971125e-07,
+       "measured": 1.6491954122717577e-07
+      },
+      "11041.666667": {
+       "abs_error": 1.6998112029043e-08,
+       "expected": 0.36471633586045477,
+       "measured": 0.3647163528585668
+      },
+      "1208.333333": {
+       "abs_error": 1.0921644860896776e-07,
+       "expected": 1.6249135966197198e-09,
+       "measured": 1.1084136220558748e-07
+      },
+      "15000.0": {
+       "abs_error": 8.151414165880055e-08,
+       "expected": 0.26847140734773517,
+       "measured": 0.26847148886187683
+      },
+      "15125.0": {
+       "abs_error": 1.9955311939118482e-07,
+       "expected": 4.2000826671331187e-08,
+       "measured": 2.41553946062516e-07
+      },
+      "19083.333333": {
+       "abs_error": 5.59062228419891e-07,
+       "expected": 3.90725167414397e-08,
+       "measured": 5.981347451613307e-07
+      },
+      "19208.333333": {
+       "abs_error": 4.220611638891989e-08,
+       "expected": 3.042644572690436e-09,
+       "measured": 4.5248760961610326e-08
+      },
+      "20750.0": {
+       "abs_error": 1.9875937391489617e-08,
+       "expected": 7.388429330283343e-11,
+       "measured": 1.994982168479245e-08
+      },
+      "23166.666667": {
+       "abs_error": 2.5734493709828124e-08,
+       "expected": 4.7151303878319785e-09,
+       "measured": 3.0449624097660104e-08
+      },
+      "23291.666667": {
+       "abs_error": 8.715553058605801e-09,
+       "expected": 9.959650514952442e-10,
+       "measured": 9.711518110101045e-09
+      },
+      "2750.0": {
+       "abs_error": 8.807497920393528e-08,
+       "expected": 2.7076223934043736e-10,
+       "measured": 8.834574144327572e-08
+      },
+      "2875.0": {
+       "abs_error": 2.0974786298000445e-07,
+       "expected": 1.243378436329924e-08,
+       "measured": 2.2218164734330368e-07
+      },
+      "6833.333333": {
+       "abs_error": 1.0583947883404531e-07,
+       "expected": 1.0798412620132953e-08,
+       "measured": 1.1663789145417826e-07
+      },
+      "6958.333333": {
+       "abs_error": 1.131398775073127e-06,
+       "expected": 2.221436827894575e-07,
+       "measured": 1.3535424578625847e-06
+      }
+     },
+     "n_lines": 14,
+     "predicted_first_image_hz": 11041.666667,
+     "quantizer_bypass_diagnostic": true,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "sp1200-track-a-provisional",
+       "model_version": "sp1200-provisional-1.0.0",
+       "sha256": "73b75aadb01cd60c9ae40d7dfb33d1c1dd089b48859b141b3dab77556cb47039",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 NOT A MODEL OF A MEASURED SP-1200; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 48000,
+      "input_sha256": "5e15e27fec0d4768ea953d01ce270337b55926dcd4b7867a4299e19898c13274",
+      "latency_host_samples": 104,
+      "meters": [
+       {
+        "converter_clip_count": 0,
+        "peak_input_normalized": 0.5
+       }
+      ],
+      "model_implementation_version": "sp1200-reference-impl-1.0.2",
+      "output_sha256": "74ab2427b891a5234e347f895b956167507e8101229c1d6af31c57473bd652f5",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "sp_input_gain": 0,
+       "sp_input_level_db": 0.0,
+       "sp_output_path": "NONE_CH7_8"
+      },
+      "research_config_sha256": "fb220e37e767a1a694d07ae74dd33e3440ae6c94db0f1fb64a6663d25b069954",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "8257c2d150dd32b0902c1b5c71954ea7cf2e1bec-dirty"
+     },
+     "residual_rms_db_re_input": -136.56784409283247,
+     "within_bound": true,
+     "worst_abs_error": 1.131398775073127e-06
+    },
+    "quantizer_active_informational": {
+     "bound_abs": 3.10893940797203e-05,
+     "fft_bin_hz": 12.0,
+     "fft_peak_above_fundamental_hz": 11041.5,
+     "first_image_position_ok": true,
+     "host_rate_hz": 48000,
+     "input_amplitude": 0.5,
+     "input_hz": 15000.0,
+     "latency_host_samples": 104,
+     "lines": {
+      "10916.666667": {
+       "abs_error": 3.373893984824761e-06,
+       "expected": 3.4593792279971125e-07,
+       "measured": 3.7198319076244722e-06
+      },
+      "11041.666667": {
+       "abs_error": 3.309354695885114e-05,
+       "expected": 0.36471633586045477,
+       "measured": 0.3647494294074136
+      },
+      "1208.333333": {
+       "abs_error": 4.676242260429543e-06,
+       "expected": 1.6249135966197198e-09,
+       "measured": 4.677867174026163e-06
+      },
+      "15000.0": {
+       "abs_error": 2.4415921149101294e-05,
+       "expected": 0.26847140734773517,
+       "measured": 0.26849582326888427
+      },
+      "15125.0": {
+       "abs_error": 2.416651302242228e-06,
+       "expected": 4.2000826671331187e-08,
+       "measured": 2.458652128913559e-06
+      },
+      "19083.333333": {
+       "abs_error": 1.976981892253716e-06,
+       "expected": 3.90725167414397e-08,
+       "measured": 2.0160544089951556e-06
+      },
+      "19208.333333": {
+       "abs_error": 2.4227322831629535e-06,
+       "expected": 3.042644572690436e-09,
+       "measured": 2.425774927735644e-06
+      },
+      "20750.0": {
+       "abs_error": 1.4373238761154188e-06,
+       "expected": 7.388429330283343e-11,
+       "measured": 1.4373977604087217e-06
+      },
+      "23166.666667": {
+       "abs_error": 5.07852193285328e-07,
+       "expected": 4.7151303878319785e-09,
+       "measured": 5.1256732367316e-07
+      },
+      "23291.666667": {
+       "abs_error": 1.1974886770485732e-07,
+       "expected": 9.959650514952442e-10,
+       "measured": 1.2074483275635255e-07
+      },
+      "2750.0": {
+       "abs_error": 8.825946872767908e-07,
+       "expected": 2.7076223934043736e-10,
+       "measured": 8.828654495161312e-07
+      },
+      "2875.0": {
+       "abs_error": 4.522775058941243e-06,
+       "expected": 1.243378436329924e-08,
+       "measured": 4.5352088433045424e-06
+      },
+      "6833.333333": {
+       "abs_error": 6.748286052276189e-06,
+       "expected": 1.0798412620132953e-08,
+       "measured": 6.7590844648963216e-06
+      },
+      "6958.333333": {
+       "abs_error": 4.9789763359199366e-06,
+       "expected": 2.221436827894575e-07,
+       "measured": 5.201120018709394e-06
+      }
+     },
+     "n_lines": 14,
+     "predicted_first_image_hz": 11041.666667,
+     "quantizer_bypass_diagnostic": false,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "sp1200-track-a-provisional",
+       "model_version": "sp1200-provisional-1.0.0",
+       "sha256": "73b75aadb01cd60c9ae40d7dfb33d1c1dd089b48859b141b3dab77556cb47039",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 NOT A MODEL OF A MEASURED SP-1200; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 48000,
+      "input_sha256": "5e15e27fec0d4768ea953d01ce270337b55926dcd4b7867a4299e19898c13274",
+      "latency_host_samples": 104,
+      "meters": [
+       {
+        "converter_clip_count": 0,
+        "peak_input_normalized": 0.5
+       }
+      ],
+      "model_implementation_version": "sp1200-reference-impl-1.0.2",
+      "output_sha256": "a7458ac485b63e30f2ea6986b9d6ecd1a803604c4c9be5dd2d764862acde9c42",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "sp_input_gain": 0,
+       "sp_input_level_db": 0.0,
+       "sp_output_path": "NONE_CH7_8"
+      },
+      "research_config_sha256": "4771a2e28d3bb987b19bc57d2a19a3ecf2b8f54c9fe341f5d59b06d86be72b72",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "8257c2d150dd32b0902c1b5c71954ea7cf2e1bec-dirty"
+     },
+     "residual_rms_db_re_input": -71.13899982427897,
+     "within_bound": false,
+     "worst_abs_error": 3.309354695885114e-05
+    },
+    "sp_domain_fold_back": {
+     "abs_error_codes": 3.206964549917757e-05,
+     "bound_codes": 0.06367107907526717,
+     "expected_codes_amplitude": 1023.9984686141402,
+     "fold_hz": 11041.666666666668,
+     "measured_codes_amplitude": 1023.9985006837857,
+     "residual_rms_codes": 0.002626927648161401,
+     "within_bound": true
+    }
+   }
+  },
+  "r3_strategy": "INACTIVE"
+ },
+ "software": {
+  "numpy": "2.5.3",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "8257c2d150dd32b0902c1b5c71954ea7cf2e1bec-dirty",
+ "stimulus": {
+  "amplitude": 0.5,
+  "duration_s": 0.25,
+  "host_rate_hz": 48000,
+  "tones": [
+   15000.0,
+   14000.0
+  ]
+ },
+ "timestamp_utc": "2026-10-07T00:23:06+00:00",
+ "tolerance_policy": {
+  "first_image_position": "FFT peak (excluding \u00b14 bins around the fundamental) within 1.5 bins of the model's strongest non-fundamental line",
+  "line_amplitudes": "abs error <= input amplitude x kernel line_amplitude_bound_relative (derived from Kaiser design attenuation + hold-step truncation; see PreparedInfo.kernel_properties)",
+  "quantizer_active": "INFORMATIONAL (12-bit quantization distortion products are expected and not bounded here)"
+ },
+ "track": "A"
+}

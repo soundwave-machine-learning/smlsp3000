@@ -2,7 +2,7 @@
 
 Revision: execution V2 · 2026-10-06 · supersedes the entry-gate wording of docs/sprint_prompts/SPRINT_03.md … SPRINT_08.md where they require accepted Sprint 2 hardware evidence (the contract files themselves stay byte-identical as the planning-V1 record)
 
-Status: OWNER DECISION RECORDED (OWN-DEC-001). Dependency plan below is SUBMITTED FOR OWNER APPROVAL; no Sprint 3 work has started under it.
+Status: OWNER DECISION RECORDED (OWN-DEC-001). The §4 dependency plan was APPROVED by the owner on 2026-10-07 with the Sprint 3 inputs (§9 items 1–4: R3 INACTIVE, quantizer ROUND_NEAREST / FLOOR alternate, NONE_CH7_8 only). Sprint 3 executed (software PASS). §9 items 5–7 remain open.
 
 ## 1. Owner decision OWN-DEC-001
 
@@ -103,10 +103,10 @@ Claude may continue past the Sprint 2 hardware block into Sprint N (3…8) when 
 
 ## 9. Owner inputs still needed before Sprint 3 code
 
-1. Approval of this §4 dependency plan.
-2. R3 state for S3: INACTIVE placeholder, or PROVISIONAL LITERATURE-DERIVED low-pass with an owner-approved ESTIMATE parameter set.
-3. Default SP quantizer rule candidate (FLOOR or ROUND_NEAREST) for the research configuration.
-4. Confirmation that NONE_CH7_8 is the only populated SP output route in Track A (ch 3–6 not estimated).
+1. Approval of this §4 dependency plan. — RECEIVED 2026-10-07.
+2. R3 state for S3. — RECEIVED: INACTIVE (OWN-DEC-002).
+3. Default SP quantizer rule candidate. — RECEIVED: ROUND_NEAREST default, FLOOR research alternate (OWN-DEC-003).
+4. Confirmation that NONE_CH7_8 is the only populated SP output route in Track A. — RECEIVED (OWN-DEC-004).
 5. (Before S4) R12/R15 state: TRANSPARENT or ESTIMATE FIR; R13 default candidate.
 6. (Before S5) provisional interstage default in normalized units; G-07S product selection.
 7. (Before S6/S7) G-08 software numeric/CPU/latency/parameter budgets; G-09 target matrix, framework, licence.

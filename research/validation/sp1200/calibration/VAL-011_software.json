@@ -1,0 +1,75 @@
+{
+ "artifact_class": "SIMULATION",
+ "asset_identity": {
+  "asset_id": "sp1200-track-a-provisional",
+  "model_version": "sp1200-provisional-1.0.0",
+  "sha256": "73b75aadb01cd60c9ae40d7dfb33d1c1dd089b48859b141b3dab77556cb47039",
+  "version": "1"
+ },
+ "check_id": "VAL-011",
+ "command": "python3 -m smlsp3000.runner validate-sprint3 --out research/validation",
+ "dataset_role": "NONE",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "hardware_fit_outcome": "BLOCKED",
+ "limitations": [
+  "No volts: input FS, output volts, preamp/AA clip (RD-P0-02, CHAIN-EXP-005) are UNKNOWN; the gain steps are nominal menu values; the converter clamp is presumed. Hardware-fit cell BLOCKED."
+ ],
+ "method": "Normalized research calibration only: gain steps 0/+20/+40 dB as exact ratios on a -60 dBFS tone (quantizer bypass, linear identity within float64); converter clamp at code limits on a 1.5x full-scale tone with clip meter; physical calibration mode must be rejected (volts UNSET).",
+ "outcome": "PASS",
+ "requirement_id": "REQ-011",
+ "research_config_sha256": "4771a2e28d3bb987b19bc57d2a19a3ecf2b8f54c9fe341f5d59b06d86be72b72",
+ "results": {
+  "analog_clamp": "INACTIVE (no rail model)",
+  "clamp": {
+   "clamped": true,
+   "clip_count": 2784,
+   "codes_within_range": true,
+   "dac_full_scale_normalized": 1.0,
+   "max_code": 2047,
+   "max_output_abs": 1.0431230726414564,
+   "min_code": -2048
+  },
+  "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 NOT A MODEL OF A MEASURED SP-1200; UNVALIDATED AGAINST HARDWARE",
+  "gain_ratios": {
+   "20": {
+    "expected_ratio": 10.0,
+    "max_rel_deviation": 8.691821449377016e-16,
+    "within_float_bound": true
+   },
+   "40": {
+    "expected_ratio": 100.0,
+    "max_rel_deviation": 8.344148591401937e-16,
+    "within_float_bound": true
+   },
+   "trim_-6dB": {
+    "expected_ratio": 0.5011872336272722,
+    "max_rel_deviation": 4.345910724688508e-16,
+    "within_float_bound": true
+   }
+  },
+  "physical_calibration": "REJECTED ASSET_VALUE_UNSET: volts_per_normalized_unit is UNSET (Physical calibration layer R0/R9 volts: UNSET blocks any physically scaled run (INVALID_CONFIGURATION).)",
+  "volts_per_normalized_unit": "UNSET"
+ },
+ "software": {
+  "numpy": "2.5.3",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "8257c2d150dd32b0902c1b5c71954ea7cf2e1bec-dirty",
+ "stimulus": {
+  "clamp_tone": "1 kHz, 1.5 x full scale",
+  "gain_tone": "1 kHz, 0.001 (-60 dBFS), 0.2 s at 48 kHz"
+ },
+ "timestamp_utc": "2026-10-07T00:23:11+00:00",
+ "tolerance_policy": {
+  "clamp": "exact code limits and clip meter > 0",
+  "gain_ratios": "max relative deviation <= 1e-09 (float64 arithmetic; linear pipeline)",
+  "physical": "must raise INVALID_CONFIGURATION"
+ },
+ "track": "A"
+}
