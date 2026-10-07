@@ -1,8 +1,8 @@
 # Parameter layers, candidate IDs and state policy
 
-Revision: execution V3 (Sprint 3) · 2026-10-07 · supersedes execution V2
+Revision: execution V4 (Sprint 4) · 2026-10-07 · supersedes execution V3
 
-Status: EXECUTION IN PROGRESS. Sprint 3 implemented the SP subset of ProductParameters as an explicit record with no defaults (`SPProductParameters`: sp_input_level_db, sp_input_gain ∈ {0,20,40}, sp_output_path, calibration_mode ∈ {NORMALIZED_RESEARCH, PHYSICAL}); MachineParameters as the versioned asset `sp1200-track-a-provisional` v1 (every value tagged per EXECUTION_PLAN_V2 §5); ResearchConfiguration as `sp-track-a-research-config` v1 (quantizer rule/offset/bypass, R3 strategy, hold fraction, proxy oversampling, kernels, slot skew, capture offset, taps). Ranges/defaults/smoothing/automation for product release remain UNKNOWN (G-07S/G-08); nothing here is a plugin control.
+Status: EXECUTION IN PROGRESS. Sprint 3 implemented the SP subset of ProductParameters as an explicit record with no defaults (`SPProductParameters`: sp_input_level_db, sp_input_gain ∈ {0,20,40}, sp_output_path, calibration_mode ∈ {NORMALIZED_RESEARCH, PHYSICAL}); MachineParameters as the versioned asset `sp1200-track-a-provisional` v1 (every value tagged per EXECUTION_PLAN_V2 §5); ResearchConfiguration as `sp-track-a-research-config` v1 (quantizer rule/offset/bypass, R3 strategy, hold fraction, proxy oversampling, kernels, slot skew, capture offset, taps). Sprint 4 added the MPC subset (`MPCProductParameters`: mpc_input_gain ∈ {LO, MID, HI}, mpc_record_level_db ≤ 0 (ideal trim, ESTIMATE), mpc_output_route ∈ {MAIN_LR populated; INDIVIDUAL_PAIR not populated; HEADPHONES excluded}, calibration_mode), the asset `mpc3000-track-a-provisional` v1 and the research configuration `mpc-track-a-research-config` v1 (reduction_rule ROUND_NEAREST/TRUNCATION, r12/r14/r15 strategies, de_emphasis OFF_UNASSERTED, converter-quantization bypass diagnostic, proxy/kernel sizes, taps). Ranges/defaults/smoothing/automation for product release remain UNKNOWN (G-07S/G-08); nothing here is a plugin control.
 
 ## Status and freeze point
 

@@ -34,6 +34,8 @@ def main(argv: list[str] | None = None) -> int:
     sub.add_parser("integrity", help="VAL-001 repository integrity checks")
     s3 = sub.add_parser("validate-sprint3", help="Sprint 3 software-track checks VAL-008/009/010/011/017 (Track A)")
     s3.add_argument("--out", required=True)
+    s4 = sub.add_parser("validate-sprint4", help="Sprint 4 software-track checks VAL-012/013/014 (Track A, MPC)")
+    s4.add_argument("--out", required=True)
     sa = sub.add_parser("scope-audit", help="VAL-018 scope audit")
     sa.add_argument("--out", required=True)
     ns = ap.parse_args(argv)
@@ -56,6 +58,11 @@ def main(argv: list[str] | None = None) -> int:
     if ns.cmd == "validate-sprint3":
         from .validation.sp1200_track_a import run_all
         res = run_all(ns.out, "python3 -m smlsp3000.runner " + " ".join(argv))
+        print(json.dumps(res, indent=1))
+        return 0 if all(v == "PASS" for v in res.values()) else 1
+    if ns.cmd == "validate-sprint4":
+        from .validation.mpc3000_track_a import run_all as run4
+        res = run4(ns.out, "python3 -m smlsp3000.runner " + " ".join(argv))
         print(json.dumps(res, indent=1))
         return 0 if all(v == "PASS" for v in res.values()) else 1
     if ns.cmd == "scope-audit":

@@ -98,3 +98,44 @@ class BandlimitedStepTable:
         i = np.clip(i, 0, self.table.size - 2)
         out[inside] = self.table[i] * (1.0 - f) + self.table[i + 1] * f
         return out
+
+
+def interpolation_kernel_response(half_width: int, beta: float, nu, oversample: int = 64) -> np.ndarray:
+    """Continuous-time Fourier transform magnitude of the windowed-sinc interpolation kernel
+    k(t) = sinc(t)·kaiser(t) (t in samples of the grid being interpolated) at normalised frequency nu = f/fs.
+
+    Used to state the exact passband response of the TRANSPARENT reconstruction / sampler kernels so that
+    software checks compare against the implementation's own documented response, never against an
+    assumed hardware response.
+    """
+    t = np.arange(-half_width * oversample, half_width * oversample + 1, dtype=np.float64) / oversample
+    k = exact_sinc(t) * kaiser_window_fn(t, half_width, beta)
+    nu = np.atleast_1d(np.asarray(nu, dtype=np.float64))
+    return np.array([abs(np.sum(k * np.exp(-2j * np.pi * v * t)) / oversample) for v in nu])
+
+
+class TapTable:
+    """Exact interpolation taps for every fractional position r/den, r = 0..den-1, computed once.
+
+    On a rational grid the fractional part of a position repeats with period ``den``; gathering from this table
+    yields bit-identical taps to calling ``windowed_sinc_taps`` per position (same formula, same float inputs)
+    at a fraction of the cost (the Kaiser window's Bessel evaluation is the dominant cost otherwise).
+    """
+
+    MAX_DEN = 1 << 16
+
+    def __init__(self, half_width: int, beta: float, den: int):
+        self.half_width, self.beta, self.den = int(half_width), float(beta), int(den)
+        self.direct = self.den > self.MAX_DEN
+        if not self.direct:
+            frac = np.arange(self.den, dtype=np.float64) / float(self.den)
+            self.k, self.table = windowed_sinc_taps(frac, self.half_width, self.beta)
+        else:
+            self.k = np.arange(-self.half_width + 1, self.half_width + 1, dtype=np.float64)
+
+    def taps(self, residues: np.ndarray) -> np.ndarray:
+        """taps[len(residues), 2*half_width] for fractional positions residues/den."""
+        residues = np.asarray(residues, dtype=np.int64)
+        if self.direct:
+            return windowed_sinc_taps(residues / float(self.den), self.half_width, self.beta)[1]
+        return self.table[residues]

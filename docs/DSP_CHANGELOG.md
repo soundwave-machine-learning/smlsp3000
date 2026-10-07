@@ -1,6 +1,6 @@
 # DSP changelog
 
-Revision: execution V3 (Sprint 3) · 2026-10-07 · supersedes execution V1
+Revision: execution V4 (Sprint 4) · 2026-10-07 · supersedes execution V3
 
 Status: EXECUTION IN PROGRESS.
 
@@ -32,3 +32,20 @@ Implementation commit: recorded in docs/PROJECT_HANDOFF.md after the milestone c
 | Stereo | linked dual mono (shared instants, per-channel state); research-only playback slot skew and capture offset, both off | CHAIN-DEC-005 PRODUCT ABSTRACTION | PROVISIONAL | no mismatch, no bleed | VAL-017 | CHAIN-EXP-007 |
 
 Not introduced: any MPC block, noise, jitter, mismatch, sag, saturation, limiter, normalization, SSM filter, tuned playback, reverse order, MIX OUT. No hardware behaviour is claimed; the whole path is UNVALIDATED AGAINST HARDWARE.
+
+## Sprint 4 — 2026-10-07 — PROVISIONAL MPC REFERENCE PATH (Track A, OWN-DEC-005..008)
+
+Implementation commit: recorded in docs/PROJECT_HANDOFF.md after the milestone commit. Subsystem: `smlsp3000/reference/mpc3000.py` (R11, R12, R13, R14, R15 of the MPC stage with R1/R16); asset `mpc3000-track-a-provisional` v1 (model mpc3000-provisional-1.0.0), research configuration `mpc-track-a-research-config` v1, implementation mpc3000-reference-impl-1.0.1. SP implementation 1.0.3: exact per-residue tap tables (outputs bit-identical to 1.0.2).
+
+| Block | Behaviour introduced | Reason / evidence | Status | Audible / behavioural consequence | Test coverage | Hardware-fit replacement point |
+|---|---|---|---|---|---|---|
+| R11 | switch gain LO/MID/HI = 1/10/100 from printed sensitivities; ideal dB trim ≤ 0 dB; analog clamp and coupling INACTIVE | MPC3K-CLM-007 VERIFIED text; FS/clip/pot law UNKNOWN | ESTIMATE / UNVALIDATED AGAINST HARDWARE | level only; no preamp clipping, no LF pole | VAL-013 | CHAIN-EXP-009/020 |
+| R12 | TRANSPARENT: ideal band limitation at 22.05 kHz (implementation kernel, transition ≈ 2.2 kHz ESTIMATE) + ideal sampling at 44.1 kHz + 18-bit code (round-nearest representation) + converter clamp | OWN-DEC-005; AK5328 response UNKNOWN | PROVISIONAL SOFTWARE DEFAULT | content above 22.05 kHz removed (SP images above 22.05 kHz do not reach storage); nothing else; no overload recovery | VAL-013 lines/fold-back/stopband/clamp | CHAIN-EXP-009 / SRC-32 |
+| R13 | 18→16 reduction ROUND_NEAREST default (⌊c/4+½⌋), TRUNCATION alternate (⌊c/4⌋), storage clamp | OWN-DEC-007; rule UNRESOLVED | PROVISIONAL SOFTWARE DEFAULT | 16-bit quantization ≈ −98 dB re FS; ROUND_NEAREST bias −0.125 LSB16, TRUNCATION +0.375 LSB16 (mean over codes) | VAL-012 (all 262144 codes), unit tests | CHAIN-EXP-008 |
+| R14 | IDENTITY_UNITY: stored code replayed unchanged, x4 re-expansion | EXECUTION_PLAN_V2 §4; arithmetic UNKNOWN | PROVISIONAL | none | VAL-012 | CHAIN-EXP-008/010 |
+| R15 | TRANSPARENT: ideal band-limited reconstruction (implementation kernel, flat to 21 kHz within 1e-5 dB, −0.005 dB at 21.5 kHz, exact response recorded); de-emphasis OFF_UNASSERTED; coupling INACTIVE; normalized FS | OWN-DEC-005; SM5841/PCM69A/I-V/LP UNKNOWN | PROVISIONAL SOFTWARE DEFAULT | no interpolation images, no ringing, no LF pole; not a hardware reconstruction | VAL-013 | CHAIN-EXP-010/020 / SRC-33 |
+| Routes | MAIN_LR identity; INDIVIDUAL_PAIR represented, NOT POPULATED; HEADPHONES EXCLUDED | OWN-DEC-008 | PROVISIONAL | none | VAL-014 | CHAIN-EXP-011 |
+| Stereo | true phase-locked stereo: shared clock, per-channel state, no offsets | MPC3K-CLM-012 | PROVISIONAL | no mismatch, no bleed | VAL-013 stereo | — |
+| Calibration | normalized converter full scale; volts UNSET (physical mode INVALID_CONFIGURATION) | CHAIN-DEC-014 | UNSET | none | VAL-013 | CHAIN-EXP-009/010 |
+
+Not introduced: interstage R10, output trim, cascade, noise, jitter, mismatch, saturation, overload recovery, limiter, normalization, mixer arithmetic, pitch interpolation, reverse order. No hardware fidelity is implied anywhere; the MPC path is UNVALIDATED AGAINST HARDWARE.

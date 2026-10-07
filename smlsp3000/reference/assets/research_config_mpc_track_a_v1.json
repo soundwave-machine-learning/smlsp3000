@@ -1,0 +1,41 @@
+{
+ "config_id": "mpc-track-a-research-config",
+ "version": "1",
+ "normalized_research_calibration": true,
+ "switches": {
+  "reduction_rule": "ROUND_NEAREST",
+  "r12_strategy": "TRANSPARENT",
+  "r15_strategy": "TRANSPARENT",
+  "r14_strategy": "IDENTITY_UNITY",
+  "converter_quantization_bypass_diagnostic": false,
+  "de_emphasis": "OFF_UNASSERTED",
+  "proxy_oversampling": 8,
+  "r1_r16_kernel": {
+   "lobes_per_side": 48,
+   "kaiser_beta": 9.0
+  },
+  "r12_lowpass_half_width_host_samples": 62,
+  "r12_lowpass_kaiser_beta": 9.0,
+  "sampler_half_width_host_samples": 4,
+  "reconstruction_half_width_machine_samples": 128,
+  "interpolation_kaiser_beta": 12.0,
+  "diagnostic_taps": false
+ },
+ "status": {
+  "reduction_rule": "OWNER-SET PROVISIONAL SOFTWARE DEFAULT (OWN-DEC-007); research alternate TRUNCATION",
+  "r12_strategy": "TRANSPARENT (OWN-DEC-005); not a model of the AK5328",
+  "r15_strategy": "TRANSPARENT (OWN-DEC-005); not a model of SM5841/PCM69A/I-V/LP",
+  "r14_strategy": "IDENTITY_UNITY placeholder (EXECUTION_PLAN_V2 §4)",
+  "converter_quantization_bypass_diagnostic": "diagnostic only (linear-response checks); never a product state",
+  "de_emphasis": "OFF_UNASSERTED; use UNKNOWN (MPC3K-CLM-019)",
+  "proxy_oversampling": "IMPLEMENTATION, ESTIMATE pending G-08",
+  "r1_r16_kernel": "IMPLEMENTATION (as SP reference, ENG-DEC-016)",
+  "r12_lowpass_half_width_host_samples": "IMPLEMENTATION: ideal band limitation at 22.05 kHz for the TRANSPARENT ADC; transition width is an ESTIMATE recorded in PreparedInfo",
+  "r12_lowpass_kaiser_beta": "IMPLEMENTATION",
+  "sampler_half_width_host_samples": "IMPLEMENTATION",
+  "reconstruction_half_width_machine_samples": "IMPLEMENTATION: ideal band-limited reconstruction kernel of the TRANSPARENT DAC (128 x 44.1 kHz samples per side, Kaiser beta 12: flat to 21 kHz within 1e-5 dB, -0.005 dB at 21.5 kHz; exact response recorded per check); ESTIMATE pending G-08",
+  "interpolation_kaiser_beta": "IMPLEMENTATION",
+  "diagnostic_taps": "reference diagnostics only"
+ },
+ "notes": "Explicit hypothesis switches for the Track A MPC reference. No switch has an implicit default; every value is listed here and hashed into every render record."
+}

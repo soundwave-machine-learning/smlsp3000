@@ -1,0 +1,63 @@
+{
+ "artifact_class": "SIMULATION",
+ "asset_identity": {
+  "asset_id": "mpc3000-track-a-provisional",
+  "model_version": "mpc3000-provisional-1.0.0",
+  "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+  "version": "1"
+ },
+ "check_id": "VAL-014",
+ "command": "python3 -m smlsp3000.runner validate-sprint4 --out research/validation",
+ "dataset_role": "NONE",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "hardware_fit_outcome": "BLOCKED",
+ "limitations": [
+  "Measured main vs individual equivalence (RD-P1-08, CHAIN-EXP-011) NOT EXECUTED; no route is aliased to another."
+ ],
+ "method": "Route table: MAIN_LR prepares; INDIVIDUAL_PAIR is represented but NOT POPULATED (rejected at prepare); HEADPHONES is EXCLUDED (rejected); no route aliasing.",
+ "outcome": "PASS",
+ "requirement_id": "REQ-014",
+ "research_config_sha256": "125f0276bcde95bc9c1c3e814523e967b337c17f946265746f1ce691bc6252f0",
+ "results": {
+  "asset_route_table": {
+   "HEADPHONES": {
+    "claim": "M5216L driver; not a line path; excluded (research \u00a720)",
+    "response": "UNKNOWN",
+    "status": "EXCLUDED"
+   },
+   "INDIVIDUAL_PAIR": {
+    "claim": "MPC3K-CLM-005; equivalence to main UNKNOWN (CHAIN-EXP-011, RD-P1-08)",
+    "response": "UNKNOWN",
+    "status": "NOT POPULATED"
+   },
+   "MAIN_LR": {
+    "claim": "MPC3K-CLM-006 block order VERIFIED; response UNKNOWN",
+    "response": "IDENTITY (transparent)",
+    "status": "POPULATED"
+   }
+  },
+  "routes_prepare": {
+   "HEADPHONES": "REJECTED ROUTE_EXCLUDED",
+   "INDIVIDUAL_PAIR": "REJECTED ROUTE_NOT_POPULATED",
+   "MAIN_LR": "PREPARED (populated)"
+  },
+  "statement": "MAIN_LR is THE ONLY CURRENTLY POPULATED SOFTWARE-REFERENCE MPC ROUTE; not a hardware-fit declaration of canonical output behaviour; individual/main equivalence UNKNOWN (CHAIN-EXP-011)"
+ },
+ "software": {
+  "numpy": "2.5.3",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty",
+ "stimulus": {},
+ "timestamp_utc": "2026-10-07T01:18:14+00:00",
+ "tolerance_policy": {
+  "all": "structural (prepare accept/reject)"
+ },
+ "track": "A"
+}

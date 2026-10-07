@@ -1,0 +1,144 @@
+{
+ "artifact_class": "SIMULATION",
+ "asset_identity": {
+  "asset_id": "mpc3000-track-a-provisional",
+  "model_version": "mpc3000-provisional-1.0.0",
+  "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+  "version": "1"
+ },
+ "check_id": "VAL-012",
+ "command": "python3 -m smlsp3000.runner validate-sprint4 --out research/validation",
+ "dataset_role": "NONE",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "hardware_fit_outcome": "BLOCKED",
+ "limitations": [
+  "The historical 18->16 reduction rule (MPC3K-CLM-016) and mixer arithmetic (MPC3K-CLM-017) are UNRESOLVED; ROUND_NEAREST is an owner-set provisional software default (OWN-DEC-007). The 18-bit code representation of the ADC is an ESTIMATE. Hardware-fit cell BLOCKED (CHAIN-EXP-008)."
+ ],
+ "method": "(a) exact MPC/host rational ratios vs docs/RATE_GAIN_PLAN.md; (b) 18-bit converter vs 16-bit storage code domains distinct; (c) R13 rules ROUND_NEAREST and TRUNCATION exact over every 18-bit code (\u2212131072..131071), incl. zero, negatives, extremes, clamp and bias; (d) R14 identity: stored codes replay unchanged and re-expand exactly x4; digital-input (S/PDIF-equivalent) 16-bit patterns stored bit-exact; (e) same-build determinism and exact block-partition invariance for both rules.",
+ "outcome": "PASS",
+ "requirement_id": "REQ-012",
+ "research_config_sha256": "125f0276bcde95bc9c1c3e814523e967b337c17f946265746f1ce691bc6252f0",
+ "results": {
+  "code_domains": {
+   "converter_bits": 18,
+   "converter_range": [
+    -131072,
+    131071
+   ],
+   "distinct": true,
+   "expansion_factor": 4,
+   "storage_bits": 16,
+   "storage_range": [
+    -32768,
+    32767
+   ]
+  },
+  "determinism_and_partition": {
+   "ROUND_NEAREST": {
+    "output_sha256": "dadb3015c42b6602463c9f696c0502b63dce2302967605c463f0f2baab9f86a6",
+    "partition_identical": true,
+    "repeat_identical": true
+   },
+   "TRUNCATION": {
+    "output_sha256": "4b12c077383c2d2dd2d9cac95bba752b86c962adc77f5a74a7c190081ef4ca66",
+    "partition_identical": true,
+    "repeat_identical": true
+   }
+  },
+  "r14_identity": {
+   "digital_input_pattern_bit_exact": true,
+   "expand_x4_exact": true,
+   "note": "16-bit digital input (S/PDIF-equivalent) bypasses R11-R13 and cannot reveal the 18->16 rule (AUD-C04)",
+   "stored_equals_replayed": true
+  },
+  "rate_ratios": {
+   "all_exact": true,
+   "computed": {
+    "176400": "1/4",
+    "192000": "147/640",
+    "44100": "1",
+    "48000": "147/160",
+    "88200": "1/2",
+    "96000": "147/320"
+   },
+   "expected": {
+    "176400": "1/4",
+    "192000": "147/640",
+    "44100": "1",
+    "48000": "147/160",
+    "88200": "1/2",
+    "96000": "147/320"
+   }
+  },
+  "reduction_rules": {
+   "ROUND_NEAREST": {
+    "clamp_events": 2,
+    "clamped_codes": [
+     131070,
+     131071
+    ],
+    "definition_exact_all_262144_codes": true,
+    "extremes": {
+     "c18_max": 32767.0,
+     "c18_min": -32768.0
+    },
+    "max_abs_error_lsb16": 0.75,
+    "mean_error_lsb16_bias": -0.12499809263681516,
+    "monotone_non_decreasing": true,
+    "negatives": {
+     "-1": 0.0,
+     "-2": 0.0,
+     "-3": -1.0,
+     "-4": -1.0
+    },
+    "ties": "ROUND_NEAREST: c18 = 4m+2 maps to m+1 (ties toward +inf); TRUNCATION: floor toward -inf",
+    "zero_maps_to_zero": true
+   },
+   "TRUNCATION": {
+    "clamp_events": 0,
+    "clamped_codes": [],
+    "definition_exact_all_262144_codes": true,
+    "extremes": {
+     "c18_max": 32767.0,
+     "c18_min": -32768.0
+    },
+    "max_abs_error_lsb16": 0.75,
+    "mean_error_lsb16_bias": 0.375,
+    "monotone_non_decreasing": true,
+    "negatives": {
+     "-1": -1.0,
+     "-2": -1.0,
+     "-3": -1.0,
+     "-4": -1.0
+    },
+    "ties": "ROUND_NEAREST: c18 = 4m+2 maps to m+1 (ties toward +inf); TRUNCATION: floor toward -inf",
+    "zero_maps_to_zero": true
+   }
+  },
+  "rules_differ_on_program": {
+   "c16_differ_fraction": 0.49294868357552685,
+   "c18_identical": true,
+   "outputs_differ": true
+  }
+ },
+ "software": {
+  "numpy": "2.5.3",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty",
+ "stimulus": {
+  "codes": "all 262144 18-bit codes",
+  "program": "1234.5 Hz (0.5) + 7777 Hz (0.2), 20000 samples at 48 kHz"
+ },
+ "timestamp_utc": "2026-10-07T01:17:45+00:00",
+ "tolerance_policy": {
+  "all": "exact equality / exact set properties (validation domain 2)"
+ },
+ "track": "A"
+}

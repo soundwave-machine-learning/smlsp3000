@@ -36,12 +36,12 @@ import numpy as np
 from ..schemas import UNSET
 from .assets import asset_identity, asset_value
 from .errors import InvalidConfiguration
-from .kernels import BandlimitedStepTable, kaiser_sinc_lowpass, windowed_sinc_taps
+from .kernels import BandlimitedStepTable, TapTable, kaiser_sinc_lowpass
 from .scheduler import RationalClock
 from .streaming import Decimator, PolyphaseUpsampler
 
 SUPPORTED_HOST_RATES = (44100, 48000, 88200, 96000, 176400, 192000)
-MODEL_IMPLEMENTATION_VERSION = "sp1200-reference-impl-1.0.2"
+MODEL_IMPLEMENTATION_VERSION = "sp1200-reference-impl-1.0.3"
 
 # --- R5 quantizer strategies (replaceable registry) -------------------------------------
 
@@ -228,6 +228,8 @@ class SPReferenceEngine:
         self.hw_z = int(sw["hold_kernel_half_width_host_samples"]) * self.L
         self.interp_beta = float(sw["interpolation_kaiser_beta"])
         self.step = BandlimitedStepTable(self.hw_z, self.interp_beta)
+        period = Fraction(self.proxy_rate) * self.rate_den / self.rate_num     # proxy samples per SP sample
+        self.sampler_taps = TapTable(self.hw_s, self.interp_beta, period.denominator)
         self.delay_proxy = lobes * self.L + self.hw_s + self.hw_z + lobes * self.L
         assert self.delay_proxy % self.L == 0
         self.latency_host = self.delay_proxy // self.L
@@ -321,8 +323,13 @@ class SPReferenceEngine:
             ks = np.array([k for k, _ in new], dtype=np.int64)
             pos = [p for _, p in new]
             base = np.array([p.numerator // p.denominator for p in pos], dtype=np.int64)
-            frac = np.array([float(p - (p.numerator // p.denominator)) for p in pos], dtype=np.float64)
-            kk, taps = windowed_sinc_taps(frac, self.hw_s, self.interp_beta)
+            den = self.sampler_taps.den
+            residues = [(p - (p.numerator // p.denominator)) * den for p in pos]
+            if any(r.denominator != 1 for r in residues):
+                raise RuntimeError("internal invariant violated: sampling residue not on the tap-table grid")
+            residues = np.array([int(r) for r in residues], dtype=np.int64)
+            kk = self.sampler_taps.k
+            taps = self.sampler_taps.taps(residues)
             idx = base[:, None] + kk[None, :].astype(np.int64) - st.hist_start
             if idx.min() < 0 or idx.max() >= st.proxy_hist.size:
                 raise RuntimeError("internal invariant violated: sampler window outside proxy history")

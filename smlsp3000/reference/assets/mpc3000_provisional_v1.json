@@ -1,0 +1,119 @@
+{
+ "asset_id": "mpc3000-track-a-provisional",
+ "version": "1",
+ "model_version": "mpc3000-provisional-1.0.0",
+ "track": "A",
+ "machine": "MPC3000",
+ "block_ids": ["R11", "R12", "R13", "R14", "R15"],
+ "normalized_research_calibration": true,
+ "validity_conditions": "Track A software/reference only (OWN-DEC-001, OWN-DEC-005..008). Unity pitch, main L/R route only, normalized converter full scale (1.0 = 18-bit converter full scale); no physical volts; no measured response. Not a model of a measured MPC3000; UNVALIDATED AGAINST HARDWARE in every value.",
+ "provenance": {
+  "claim_ids": ["MPC3K-CLM-001", "MPC3K-CLM-002", "MPC3K-CLM-003", "MPC3K-CLM-004", "MPC3K-CLM-006", "MPC3K-CLM-007", "MPC3K-CLM-009", "MPC3K-CLM-010", "MPC3K-CLM-012", "MPC3K-CLM-013", "MPC3K-CLM-014", "MPC3K-CLM-016", "MPC3K-CLM-017", "MPC3K-CLM-018", "MPC3K-CLM-019", "MPC3K-CLM-020"],
+  "experiment_ids": ["CHAIN-EXP-008", "CHAIN-EXP-009", "CHAIN-EXP-010", "CHAIN-EXP-011", "CHAIN-EXP-015", "CHAIN-EXP-020"],
+  "source_ids": ["SRC-20", "SRC-21", "SRC-22", "SRC-24", "SRC-26"],
+  "decision_ids": ["CHAIN-DEC-006", "CHAIN-DEC-011", "OWN-DEC-001", "OWN-DEC-005", "OWN-DEC-006", "OWN-DEC-007", "OWN-DEC-008"],
+  "capture_ids": [],
+  "unit_id": "NONE (no hardware)",
+  "route": "MAIN_LR (only populated software-reference route; not a hardware-fit declaration of canonical output behaviour)"
+ },
+ "values": {
+  "mpc_rate_hz": {
+   "value": {"numerator": 44100, "denominator": 1}, "unit": "Hz (exact)", "evidence_status": "VERIFIED", "substitute_kind": "VERIFIED-FORMAT",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": ["SRC-20"], "claim_ids": ["MPC3K-CLM-001", "MPC3K-CLM-009"],
+   "decision_id": "OWN-DEC-001", "replaced_by": "CHAIN-EXP-009/010 (installed clock check)",
+   "note": "33.8688 MHz crystal = 768 x 44.1 kHz; the scheduling of this rate on the software proxy grid is IMPLEMENTATION."
+  },
+  "converter_bits": {
+   "value": 18, "unit": "bits", "evidence_status": "VERIFIED", "substitute_kind": "VERIFIED-FORMAT",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": ["SRC-20", "SRC-21"], "claim_ids": ["MPC3K-CLM-003", "MPC3K-CLM-004", "MPC3K-CLM-010"],
+   "decision_id": "OWN-DEC-008", "replaced_by": "CHAIN-EXP-009/010 (installed converter behaviour)",
+   "note": "AK5328 18-bit ADC and PCM69A 18-bit DAC: architecture only; installed performance NOT EXECUTED."
+  },
+  "storage_bits": {
+   "value": 16, "unit": "bits", "evidence_status": "VERIFIED", "substitute_kind": "VERIFIED-FORMAT",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": ["SRC-20", "SRC-24", "SRC-26"], "claim_ids": ["MPC3K-CLM-002"],
+   "decision_id": "OWN-DEC-001", "replaced_by": "CHAIN-EXP-008 (storage transparency)"
+  },
+  "converter_code_range": {
+   "value": {"min": -131072, "max": 131071, "representation": "signed 18-bit; clamp at limits (converter full-scale clamp required by architecture)"},
+   "unit": "code", "evidence_status": "PROVISIONAL", "substitute_kind": "PROVISIONAL", "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": ["SRC-20"], "claim_ids": ["MPC3K-CLM-003"], "decision_id": "OWN-DEC-005", "replaced_by": "CHAIN-EXP-009 (overload/clip location)",
+   "note": "Delta-sigma modulator overload and recovery UNKNOWN; only a code clamp is represented, no recovery dynamics (AUD-C05)."
+  },
+  "adc_code_representation": {
+   "value": "ROUND_NEAREST_18BIT", "unit": "rule", "evidence_status": "UNKNOWN", "substitute_kind": "ESTIMATE", "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": [], "claim_ids": ["MPC3K-CLM-003"], "decision_id": "OWN-DEC-005", "replaced_by": "CHAIN-EXP-009 (low-level transfer)",
+   "note": "Code-domain representation only: the sampled value is rounded to the nearest 18-bit code (ties toward +inf). The modulator's noise shaping is not represented; no claim about the part."
+  },
+  "storage_code_range": {
+   "value": {"min": -32768, "max": 32767, "representation": "signed 16-bit"}, "unit": "code", "evidence_status": "VERIFIED", "substitute_kind": "VERIFIED-FORMAT",
+   "hardware_validation": "UNVALIDATED AGAINST HARDWARE", "source_ids": ["SRC-20", "SRC-24"], "claim_ids": ["MPC3K-CLM-002"], "decision_id": "OWN-DEC-001", "replaced_by": "CHAIN-EXP-008"
+  },
+  "reduction_rule_default": {
+   "value": "ROUND_NEAREST", "unit": "strategy name", "evidence_status": "UNKNOWN", "substitute_kind": "PROVISIONAL", "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": [], "claim_ids": ["MPC3K-CLM-016"], "decision_id": "OWN-DEC-007", "replaced_by": "CHAIN-EXP-008 (low-level analog export vs S/PDIF)",
+   "note": "OWNER-SET PROVISIONAL SOFTWARE DEFAULT; the historical 18->16 rule is UNRESOLVED. Research alternate TRUNCATION (floor of the two LSBs of the two's-complement word) is selectable. Tie convention as OWN-DEC-003: ties toward +inf."
+  },
+  "r14_arithmetic": {
+   "value": "IDENTITY_UNITY", "unit": "strategy name", "evidence_status": "UNKNOWN", "substitute_kind": "PROVISIONAL", "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": ["SRC-20"], "claim_ids": ["MPC3K-CLM-010", "MPC3K-CLM-017"], "decision_id": "OWN-DEC-001", "replaced_by": "CHAIN-EXP-008/010 (measured arithmetic)",
+   "note": "Stored 16-bit code replayed unchanged at unity; re-expanded to the 18-bit DAC word by exact x4 (two zero LSBs). Mixer scaling/rounding UNKNOWN and not represented."
+  },
+  "input_gain_steps": {
+   "value": {"LO": {"sensitivity_dbs": -18, "relative_gain_db": 0}, "MID": {"sensitivity_dbs": -38, "relative_gain_db": 20}, "HI": {"sensitivity_dbs": -58, "relative_gain_db": 40}},
+   "unit": "dB relative to LO (exact ratios 1, 10, 100)", "evidence_status": "VERIFIED", "substitute_kind": "ESTIMATE", "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": ["SRC-20"], "claim_ids": ["MPC3K-CLM-007"], "decision_id": "OWN-DEC-006", "replaced_by": "CHAIN-EXP-009 (measured switch gains and FS volts)",
+   "note": "Printed sensitivities (0 dBs = 0.775 Vrms) define 20 dB steps; the absolute gain to converter full scale is UNKNOWN, so LO is a normalized reference (1.0). Sensitivity is not full scale."
+  },
+  "record_level_law": {
+   "value": "IDEAL_DB_TRIM", "unit": "strategy name", "evidence_status": "UNKNOWN", "substitute_kind": "ESTIMATE", "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": ["SRC-20"], "claim_ids": ["MPC3K-CLM-007"], "decision_id": "OWN-DEC-006", "replaced_by": "CHAIN-EXP-009 (pot law / position calibration)",
+   "note": "Dual 10 kOhm audio-taper pot represented as an ideal dB trim (<= 0 dB, 0 dB = maximum); taper/position mapping UNKNOWN."
+  },
+  "r11_analog_clamp": {
+   "value": "INACTIVE", "unit": "state", "evidence_status": "UNKNOWN", "substitute_kind": "INACTIVE", "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": [], "claim_ids": ["MPC3K-CLM-007", "CHAIN-CLM-002"], "decision_id": "OWN-DEC-006", "replaced_by": "CHAIN-EXP-009 (clip location before/after pot)"
+  },
+  "r11_coupling_pole": {
+   "value": "INACTIVE", "unit": "state", "evidence_status": "UNKNOWN", "substitute_kind": "INACTIVE", "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": [], "claim_ids": ["MPC3K-CLM-018"], "decision_id": "OWN-DEC-006", "replaced_by": "CHAIN-EXP-009/020"
+  },
+  "r12_strategy": {
+   "value": "TRANSPARENT", "unit": "strategy name", "evidence_status": "UNKNOWN", "substitute_kind": "PROVISIONAL", "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": ["SRC-20"], "claim_ids": ["MPC3K-CLM-003", "MPC3K-CLM-018"], "decision_id": "OWN-DEC-005", "replaced_by": "CHAIN-EXP-009 / AK5328 datasheet (SRC-32)",
+   "note": "TRANSPARENT = ideal band limitation at the machine Nyquist (22.05 kHz) + ideal sampling at 44.1 kHz + 18-bit code clamp. No AK5328 kernel, no invented decimation response, no overload recovery. The implementation kernel's transition band is an ESTIMATE recorded in PreparedInfo, not the part's. Reserved slots (not populated): ESTIMATE_FIR, DATASHEET_RESPONSE, MEASURED_RESPONSE."
+  },
+  "r15_strategy": {
+   "value": "TRANSPARENT", "unit": "strategy name", "evidence_status": "UNKNOWN", "substitute_kind": "PROVISIONAL", "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": ["SRC-20", "SRC-22"], "claim_ids": ["MPC3K-CLM-004", "MPC3K-CLM-006", "MPC3K-CLM-015", "MPC3K-CLM-018"], "decision_id": "OWN-DEC-005", "replaced_by": "CHAIN-EXP-010/020 / SM5841 datasheet (SRC-33)",
+   "note": "TRANSPARENT = unity x4 re-expansion of the stored code to the 18-bit DAC word + ideal band-limited reconstruction (flat to 22.05 kHz) onto the proxy grid; no 8x interpolation-filter response, no I/V, no analog low-pass, no coupling, no de-emphasis. The 8x oversampling domain is architecture only and is not instantiated. Reserved slots (not populated): ESTIMATE_FIR, DATASHEET_RESPONSE, MEASURED_RESPONSE."
+  },
+  "de_emphasis": {
+   "value": "OFF_UNASSERTED", "unit": "state", "evidence_status": "UNKNOWN", "substitute_kind": "INACTIVE", "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": ["SRC-20"], "claim_ids": ["MPC3K-CLM-019"], "decision_id": "OWN-DEC-005", "replaced_by": "CHAIN-EXP-010 (de-emphasis state under normal route)"
+  },
+  "r15_coupling_pole": {
+   "value": "INACTIVE", "unit": "state", "evidence_status": "UNKNOWN", "substitute_kind": "INACTIVE", "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": [], "claim_ids": ["MPC3K-CLM-018", "MPC3K-CLM-012"], "decision_id": "OWN-DEC-005", "replaced_by": "CHAIN-EXP-010/020 (LF response)"
+  },
+  "output_routes": {
+   "value": {
+    "MAIN_LR": {"status": "POPULATED", "response": "IDENTITY (transparent)", "claim": "MPC3K-CLM-006 block order VERIFIED; response UNKNOWN"},
+    "INDIVIDUAL_PAIR": {"status": "NOT POPULATED", "response": "UNKNOWN", "claim": "MPC3K-CLM-005; equivalence to main UNKNOWN (CHAIN-EXP-011, RD-P1-08)"},
+    "HEADPHONES": {"status": "EXCLUDED", "response": "UNKNOWN", "claim": "M5216L driver; not a line path; excluded (research §20)"}
+   },
+   "unit": "route table", "evidence_status": "VERIFIED", "substitute_kind": "PROVISIONAL", "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": ["SRC-20", "SRC-24"], "claim_ids": ["MPC3K-CLM-005", "MPC3K-CLM-006"], "decision_id": "OWN-DEC-008", "replaced_by": "CHAIN-EXP-010/011",
+   "note": "MAIN_LR is THE ONLY CURRENTLY POPULATED SOFTWARE-REFERENCE MPC ROUTE; it is NOT a hardware-fit declaration of canonical output behaviour (ENG-DEC-003 recommendation only)."
+  },
+  "dac_full_scale_normalized": {
+   "value": 1.0, "unit": "normalized (code 131072 = 1.0)", "evidence_status": "UNKNOWN", "substitute_kind": "ESTIMATE", "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": [], "claim_ids": ["MPC3K-CLM-014"], "decision_id": "OWN-DEC-008", "replaced_by": "CHAIN-EXP-010 (FS volts; '6 dBm' meaning)"
+  },
+  "volts_per_normalized_unit": {
+   "value": "UNSET", "unit": "V peak per 1.0", "evidence_status": "UNKNOWN", "substitute_kind": "PROVISIONAL", "hardware_validation": "UNVALIDATED AGAINST HARDWARE",
+   "source_ids": [], "claim_ids": ["MPC3K-CLM-007", "MPC3K-CLM-014", "CHAIN-CLM-001"], "decision_id": "CHAIN-DEC-014", "replaced_by": "CHAIN-EXP-009/010 (ADC/DAC FS volts)",
+   "note": "Physical calibration layer: UNSET blocks any physically scaled run (INVALID_CONFIGURATION)."
+  }
+ }
+}

@@ -1,8 +1,8 @@
 # Project handoff and honest current state
 
-Revision: execution V3 (after Sprint 3) · 2026-10-07 · supersedes execution V2
+Revision: execution V4 (after Sprint 4) · 2026-10-07 · supersedes execution V3
 
-Status: EXECUTION IN PROGRESS. Sprint 1 ACCEPTED (PASS, fbd1fac). Sprint 2 hardware campaign BLOCKED / EXTERNAL HARDWARE REQUIRED (1c0fe89, preserved). Governance V2 (8257c2d) approved by the owner 2026-10-07 (OWN-DEC-001..004). Sprint 3 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone commit `51b72d51b0d2645da4abd6546079f462a9694512`. Sprint 4 NOT started: owner inputs required (R12 state, R15 state, R13 default). Release NOT authorized.
+Status: EXECUTION IN PROGRESS. Sprint 1 ACCEPTED (PASS, fbd1fac). Sprint 2 hardware campaign BLOCKED / EXTERNAL HARDWARE REQUIRED (1c0fe89, preserved). Governance V2 (8257c2d) approved by the owner 2026-10-07 (OWN-DEC-001..004). Sprint 3 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone `51b72d5`. Sprint 4 Track A ACCEPTED — PASS WITH EXTERNAL VALIDATION PENDING (G-04); milestone commit recorded below (OWN-DEC-005..008 applied). Sprint 5 NOT started: owner inputs required (interstage default, G-07S). Release NOT authorized.
 
 ## Current verified state
 
@@ -13,6 +13,11 @@ Repository: https://github.com/soundwave-machine-learning/smlsp3000 · remote or
 Execution environment: Claude Code cloud container, Linux x86_64, Python 3.13.16, numpy 2.5.3, gcc 13.3/cmake 3.28 present but unused; no scipy/pytest (not needed, not installed); network egress allow-listed (PyPI reachable; archive.org and all datasheet hosts DENIED); no hardware, no audio interface, no plugin SDK, no DAW. Stack decision ENG-DEC-011; commands docs/BUILD_COMMANDS.md.
 
 Inputs unchanged: docs/research/*.md/.json byte-identical to PACKAGE_VALIDATION hashes; eight contracts unchanged. Known baseline quirk: docs/ACCEPTANCE_MATRIX.csv was hashed as CRLF in SHA256SUMS/MANIFEST but committed as LF (content identical).
+
+## What exists after Sprint 4 (Track A)
+
+- `smlsp3000/reference/mpc3000.py`: provisional MPC reference R11–R15 with R1/R16 (TRANSPARENT R12/R15, ROUND_NEAREST default / TRUNCATION alternate R13, R14 identity, ideal dB trim with 20 dB steps, MAIN_LR only, true stereo, volts UNSET); asset `mpc3000-track-a-provisional` v1, research config v1, implementation 1.0.1. Software validation VAL-012/013/014 PASS (hardware-fit BLOCKED); 45 tests pass; Sprint 3 regression numerically identical.
+- Not implemented: R10 interstage, output trim, cascade (SP→MPC composition), any machine response, overload recovery, individual/headphone routes, production engine, wrapper, UI, presets.
 
 ## What exists after Sprint 3 (Track A)
 
@@ -41,8 +46,8 @@ Shipping A/B/C NOT CHOSEN; SP canonical output UNDECIDED; MPC main L/R recommend
 
 ## Last accepted milestone and next action
 
-Last accepted milestone: Sprint 1 — commit `fbd1facffb84ffd132c17eca8c60a390f7df5d6e`. Follow-up checkpoint commit (Sprint 2 BLOCKED preflight report, hash back-fill): the commit after it on the branch. Last activity: Sprint 3 Track A execution (provisional SP reference, software validation, CHAIN-EXP-017, docs, report).
+Last accepted milestone: Sprint 1 — commit `fbd1facffb84ffd132c17eca8c60a390f7df5d6e`. Follow-up checkpoint commit (Sprint 2 BLOCKED preflight report, hash back-fill): the commit after it on the branch. Last activity: Sprint 4 Track A execution (provisional MPC reference, software validation VAL-012/013/014, regression, docs, report).
 
-Next authorized action: NONE autonomously. Sprint 4 (Track A MPC reference, REQ-012/013/014 software cells) starts only after the owner supplies EXECUTION_PLAN_V2 §9 item 5: R12 ADC state (TRANSPARENT or ESTIMATE FIR with approved spec), R15 DAC state (TRANSPARENT or ESTIMATE FIR), R13 default 18→16 reduction rule (TRUNCATION or ROUND_NEAREST) — see docs/sprint_reports/SPRINT_03_REPORT.md §16 and the executor's Sprint 4 owner-input request. For Track B the owner must (a) arrange the stock SP-1200 / MPC3000 campaign per docs/MEASUREMENT_PLAN.md with a calibrated 192 k/24 interface, S/PDIF 44.1 k source, operator and a durable raw-capture route (G-04); (b) optionally grant source access (archive.org, analog.com or an approved copy route) for a CHAIN-EXP-019/020 re-attempt; (c) later: G-06 threshold acceptance, G-07 product selection, G-08 budgets, G-09 target matrix/SDK/licence.
+Next authorized action: NONE autonomously. Sprint 5 (Track A cascade R0/R10/R16 composition, REQ-015/016 software cells, G-07S) starts only after the owner supplies EXECUTION_PLAN_V2 §9 item 6: the provisional interstage default in normalized units (dB re MPC converter full scale, non-historical) and the G-07S software product decision / listening protocol — see docs/sprint_reports/SPRINT_04_REPORT.md §16 and the executor's Sprint 5 owner-input request. For Track B the owner must (a) arrange the stock SP-1200 / MPC3000 campaign per docs/MEASUREMENT_PLAN.md with a calibrated 192 k/24 interface, S/PDIF 44.1 k source, operator and a durable raw-capture route (G-04); (b) optionally grant source access (archive.org, analog.com or an approved copy route) for a CHAIN-EXP-019/020 re-attempt; (c) later: G-06 threshold acceptance, G-07 product selection, G-08 budgets, G-09 target matrix/SDK/licence.
 
 On resume: inspect `git status`, `git log claude/autonomous-build`, this file and docs/sprint_reports/; run `python3 tools/check_repo_integrity.py` and `python3 -m unittest discover -s tests -t . -v`; do not rerun accepted Sprint 1 work without a new reason; do not transfer state from other projects.

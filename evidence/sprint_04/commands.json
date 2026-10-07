@@ -1,0 +1,47 @@
+{
+ "record": "Sprint 04 commands and exit codes",
+ "working_directory": "repository root",
+ "commands": [
+  {
+   "id": "CMD-02",
+   "command": "python3 tools/check_repo_integrity.py",
+   "exit_code": 0,
+   "log": "evidence/sprint_04/integrity_run.log"
+  },
+  {
+   "id": "CMD-10",
+   "command": "python3 -m smlsp3000.runner validate-sprint4 --out research/validation",
+   "exit_code": 0,
+   "log": "evidence/sprint_04/validate_sprint4_run.log"
+  },
+  {
+   "id": "CMD-07 (regression)",
+   "command": "python3 -m smlsp3000.runner validate-sprint3 --out <scratch>",
+   "exit_code": 0,
+   "log": "evidence/sprint_04/sprint3_regression_run.log"
+  },
+  {
+   "id": "CMD-09",
+   "command": "python3 -m smlsp3000.runner scope-audit --out evidence/sprint_04/scope_audit.json",
+   "exit_code": 0,
+   "log": "evidence/sprint_04/scope_audit_run.log"
+  },
+  {
+   "id": "CMD-05",
+   "command": "python3 -m unittest discover -s tests -t . -v",
+   "exit_code": 0,
+   "log": "evidence/sprint_04/unittest_run.log"
+  },
+  {
+   "id": "CMD-04",
+   "command": "python3 -m smlsp3000.runner verify-manifest <dir>",
+   "exit_code": 0,
+   "log": "inline"
+  }
+ ],
+ "not_executed": [
+  "CHAIN-EXP-008/009/010/011/015/020 (hardware, Track B)",
+  "any listening",
+  "any dependency installation"
+ ]
+}

@@ -1,0 +1,76 @@
+{
+ "artifact_class": "SIMULATION",
+ "asset_identity": {
+  "asset_id": "sp1200-track-a-provisional",
+  "model_version": "sp1200-provisional-1.0.0",
+  "sha256": "73b75aadb01cd60c9ae40d7dfb33d1c1dd089b48859b141b3dab77556cb47039",
+  "version": "1"
+ },
+ "check_id": "VAL-018",
+ "command": "python3 -m smlsp3000.runner scope-audit --out evidence/sprint_04/scope_audit.json",
+ "hardware_fit_outcome": "NOT RUN",
+ "inspection": {
+  "asset_routes_status": {
+   "FIXED_CH3_4": "NOT POPULATED",
+   "FIXED_CH5_6": "NOT POPULATED",
+   "MIX_OUT": "NOT POPULATED",
+   "NONE_CH7_8": "POPULATED",
+   "UNFILTERED_CONTACT_CH1_6": "NOT POPULATED"
+  },
+  "chain_order": "SP only in Sprint 3 (R1-R9, R16); no MPC blocks; no reverse order",
+  "forbidden_token_hits_in_reference_code": {},
+  "no_pitch_parameter": true,
+  "noise_jitter_mismatch_sag_limiter": "none implemented",
+  "product_parameters": [
+   "sp_input_level_db",
+   "sp_input_gain",
+   "sp_output_path",
+   "calibration_mode"
+  ],
+  "quantizer_rules_registered": [
+   "FLOOR",
+   "ROUND_NEAREST"
+  ],
+  "r3_reserved_slots_not_populated": [
+   "LITERATURE_DERIVED_LOWPASS",
+   "MEASURED_RESPONSE"
+  ],
+  "r3_strategies_registered": [
+   "INACTIVE"
+  ],
+  "r6_machine_domain": "identity at unity (no tuned-playback block)",
+  "r8_routes_registered": [
+   "NONE_CH7_8"
+  ],
+  "research_switches": {
+   "capture_offset_enabled": false,
+   "capture_offset_seconds_per_channel": 0.0,
+   "diagnostic_taps": false,
+   "hold_fraction": 1.0,
+   "hold_kernel_half_width_host_samples": 4,
+   "interpolation_kaiser_beta": 12.0,
+   "proxy_oversampling": 8,
+   "quantizer_bypass_diagnostic": false,
+   "quantizer_offset_codes": 0.0,
+   "quantizer_rule": "ROUND_NEAREST",
+   "r1_r16_kernel": {
+    "kaiser_beta": 9.0,
+    "lobes_per_side": 48
+   },
+   "r3_strategy": "INACTIVE",
+   "sampler_half_width_host_samples": 4,
+   "slot_skew_enabled": false
+  }
+ },
+ "outcome": "PASS",
+ "requirement_id": "REQ-018",
+ "research_config_sha256": "4771a2e28d3bb987b19bc57d2a19a3ecf2b8f54c9fe341f5d59b06d86be72b72",
+ "software": {
+  "numpy": "2.5.3",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty",
+ "timestamp_utc": "2026-10-07T01:22:49+00:00",
+ "track": "A"
+}

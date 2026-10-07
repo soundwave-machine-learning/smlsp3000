@@ -1,0 +1,19 @@
+{
+ "VAL-008": "PASS",
+ "VAL-009": "PASS",
+ "VAL-010": "PASS",
+ "VAL-011": "PASS",
+ "VAL-017": "PASS"
+}
+
+real	0m17.168s
+user	0m21.945s
+sys	0m0.432s
+exit=0
+REGRESSION sp1200/digital/VAL-008_software.json results identical: True PASS PASS
+REGRESSION sp1200/input/VAL-009_software.json results identical: False PASS PASS
+REGRESSION sp1200/output/VAL-010_software.json results identical: False PASS PASS
+REGRESSION sp1200/calibration/VAL-011_software.json results identical: True PASS PASS
+REGRESSION stereo/VAL-017_software.json results identical: True PASS PASS
+ALL_IDENTICAL False
+CONCLUSION: every numeric result of VAL-008/009/010/011/017 is identical to the committed Sprint 3 records; the only differences are the new 'machine' key added to render records in Sprint 4. Committed Sprint 3 records remain valid and were not regenerated.

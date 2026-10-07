@@ -40,6 +40,7 @@ Version: all generated documents planningV1 dated2026-10-06; supplied sourceV1 d
 | [docs/sprint_reports/SPRINT_01_REPORT.md](sprint_reports/SPRINT_01_REPORT.md) | Executed Sprint 1 report | After Sprint 1 execution only | S1 |
 | [docs/sprint_reports/SPRINT_02_REPORT.md](sprint_reports/SPRINT_02_REPORT.md) | Sprint 2 BLOCKED preflight (hardware campaign; preserved) | Hardware availability | S2 |
 | [docs/sprint_reports/SPRINT_03_REPORT.md](sprint_reports/SPRINT_03_REPORT.md) | Executed Sprint 3 report (Track A provisional SP reference) | After Sprint 3 execution only | S3 |
+| [docs/sprint_reports/SPRINT_04_REPORT.md](sprint_reports/SPRINT_04_REPORT.md) | Executed Sprint 4 report (Track A provisional MPC reference) | After Sprint 4 execution only | S4 |
 | [AGENTS.md](../AGENTS.md) | Read order, authority and repository/autonomy policy | Evidence, approved scope, or contract revision changes | Cross-sprint |
 | [README.md](../README.md) | Entry point and honest readiness | Evidence, approved scope, or contract revision changes | Cross-sprint |
 | [docs/DELIVERY_SUMMARY.md](DELIVERY_SUMMARY.md) | Self-contained requested final deliverable summary | Evidence, approved scope, or contract revision changes | Cross-sprint |

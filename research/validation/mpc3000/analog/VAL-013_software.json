@@ -1,0 +1,1114 @@
+{
+ "artifact_class": "SIMULATION",
+ "asset_identity": {
+  "asset_id": "mpc3000-track-a-provisional",
+  "model_version": "mpc3000-provisional-1.0.0",
+  "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+  "version": "1"
+ },
+ "check_id": "VAL-013",
+ "command": "python3 -m smlsp3000.runner validate-sprint4 --out research/validation",
+ "dataset_role": "NONE",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "hardware_fit_outcome": "BLOCKED",
+ "limitations": [
+  "AK5328 decimation response/latency/FS/overload, SM5841/PCM69A/I-V/analog low-pass/coupling/de-emphasis responses, FS volts, THD/IMD/noise and driven recovery are UNKNOWN (RD-P0-06, RD-P1-02/03/07/12); the TRANSPARENT strategies contain no such behaviour. Hardware-fit cell BLOCKED (CHAIN-EXP-009/010/015/020)."
+ ],
+ "method": "TRANSPARENT R12/R15 (OWN-DEC-005): in-band tones (1/10/15/20 kHz) at 48 and 96 kHz hosts must pass with amplitude = amp*|H1|*|H12|*|K|*|H16| (all implementation kernels, documented) within the kernel bound; an above-Nyquist tone (23 kHz at 96 kHz) folds to 21.1 kHz with the band-limitation transition applied and leaves no line at 23 kHz; a stopband tone (30 kHz) is suppressed; R11 LO/MID/HI = 1/10/100 and ideal trim exact within float64; 18-bit converter clamp with meters on a 1.5x tone; no overload recovery; de-emphasis OFF_UNASSERTED; physical calibration rejected; true stereo: equal inputs identical, channels independent, silent channel zero, reset reproducible.",
+ "outcome": "PASS",
+ "requirement_id": "REQ-013",
+ "research_config_sha256": "125f0276bcde95bc9c1c3e814523e967b337c17f946265746f1ce691bc6252f0",
+ "results": {
+  "clamp": {
+   "c16_max": 32767,
+   "c16_min": -32768,
+   "c18_max": 131071,
+   "c18_min": -131072,
+   "clamped_18": true,
+   "max_output_abs": 1.0141696532424038,
+   "meters": {
+    "converter_clip_count_18bit": 4720,
+    "peak_input_normalized": 1.5,
+    "storage_clamp_count_16bit": 2360
+   },
+   "overload_recovery": "NOT MODELLED (UNKNOWN, AUD-C05)"
+  },
+  "de_emphasis": "OFF_UNASSERTED",
+  "latency": {
+   "host_samples_48k": 302,
+   "note": "software kernel delay only; not a measured converter latency"
+  },
+  "lines": {
+   "48000:1000": {
+    "linear": {
+     "abs_error": 1.0742821132669889e-07,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.49999780568666724,
+     "host_rate_hz": 48000,
+     "input_hz": 1000.0,
+     "latency_host_samples": 302,
+     "measured": 0.4999976982584559,
+     "output_line_hz": 1000.0,
+     "quantization_bypass": true,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 48000,
+      "input_sha256": "15dcc9b79256b3a0a830e5aab85a88a61bf3d4a210d81d00a6ed0f75f24d1003",
+      "latency_host_samples": 302,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "760d1844f1b0328554a0e1ffdb5fe1c1b701f2ba95ab4626bcb8ba7dc3f68a69",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "5f852ea9a8d4573c9e3da54f89f4a1337c9414a64fad4cb0c27c5ec7402e1518",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_rms_db_re_input": -141.8396064492522,
+     "within_bound": true
+    },
+    "quantized_informational": {
+     "abs_error": 2.2897427592871722e-07,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.49999780568666724,
+     "host_rate_hz": 48000,
+     "input_hz": 1000.0,
+     "latency_host_samples": 302,
+     "measured": 0.49999803466094317,
+     "output_line_hz": 1000.0,
+     "quantization_bypass": false,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 48000,
+      "input_sha256": "15dcc9b79256b3a0a830e5aab85a88a61bf3d4a210d81d00a6ed0f75f24d1003",
+      "latency_host_samples": 302,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "9ebbba4b6226312207be4d8a7ee2fa0bbf34354c0418014dbc9ce3512411cc34",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "125f0276bcde95bc9c1c3e814523e967b337c17f946265746f1ce691bc6252f0",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_rms_db_re_input": -94.93664035614901,
+     "within_bound": true
+    }
+   },
+   "48000:10000": {
+    "linear": {
+     "abs_error": 7.144459246433144e-08,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.49999967491871905,
+     "host_rate_hz": 48000,
+     "input_hz": 10000.0,
+     "latency_host_samples": 302,
+     "measured": 0.4999996034741266,
+     "output_line_hz": 10000.0,
+     "quantization_bypass": true,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 48000,
+      "input_sha256": "79579e8ebcb2673acf36d8f3a8f59b011c9df86dc323d4dffd474e9c21316904",
+      "latency_host_samples": 302,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "457c8a6bc82a5596cfa70fbabea8e463922729dbb0a0fa584affa30cc43ca36c",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "5f852ea9a8d4573c9e3da54f89f4a1337c9414a64fad4cb0c27c5ec7402e1518",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_rms_db_re_input": -140.18522437831433,
+     "within_bound": true
+    },
+    "quantized_informational": {
+     "abs_error": 8.96862845489732e-07,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.49999967491871905,
+     "host_rate_hz": 48000,
+     "input_hz": 10000.0,
+     "latency_host_samples": 302,
+     "measured": 0.49999877805587356,
+     "output_line_hz": 10000.0,
+     "quantization_bypass": false,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 48000,
+      "input_sha256": "79579e8ebcb2673acf36d8f3a8f59b011c9df86dc323d4dffd474e9c21316904",
+      "latency_host_samples": 302,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "ca065ca4cbe04f14e9406b7fc1ed74e0b20ce254090445402fedceddc6537c14",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "125f0276bcde95bc9c1c3e814523e967b337c17f946265746f1ce691bc6252f0",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_rms_db_re_input": -95.22127162421717,
+     "within_bound": true
+    }
+   },
+   "48000:15000": {
+    "linear": {
+     "abs_error": 1.5979932210807846e-08,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.49999386814204627,
+     "host_rate_hz": 48000,
+     "input_hz": 15000.0,
+     "latency_host_samples": 302,
+     "measured": 0.4999938841219785,
+     "output_line_hz": 15000.0,
+     "quantization_bypass": true,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 48000,
+      "input_sha256": "469d241f8a4a7bca990cfd6f53598428a992bcfecddeb39afe1cff8bca8cbf14",
+      "latency_host_samples": 302,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "a5f5519e8db199d475627035ce3af89880c71ea7ffd6ac9c257fb5039630856a",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "5f852ea9a8d4573c9e3da54f89f4a1337c9414a64fad4cb0c27c5ec7402e1518",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_rms_db_re_input": -139.90405677681468,
+     "within_bound": true
+    },
+    "quantized_informational": {
+     "abs_error": 1.2378466349716177e-06,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.49999386814204627,
+     "host_rate_hz": 48000,
+     "input_hz": 15000.0,
+     "latency_host_samples": 302,
+     "measured": 0.4999926302954113,
+     "output_line_hz": 15000.0,
+     "quantization_bypass": false,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 48000,
+      "input_sha256": "469d241f8a4a7bca990cfd6f53598428a992bcfecddeb39afe1cff8bca8cbf14",
+      "latency_host_samples": 302,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "ea81619a5845f7e7486dc04ed21c12a3050fc5a20d93a4988e7b449c8d75301d",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "125f0276bcde95bc9c1c3e814523e967b337c17f946265746f1ce691bc6252f0",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_rms_db_re_input": -94.53618450753532,
+     "within_bound": true
+    }
+   },
+   "48000:20000": {
+    "linear": {
+     "abs_error": 4.3367226809643e-08,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.500001183062607,
+     "host_rate_hz": 48000,
+     "input_hz": 20000.0,
+     "latency_host_samples": 302,
+     "measured": 0.5000012264298338,
+     "output_line_hz": 20000.0,
+     "quantization_bypass": true,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 48000,
+      "input_sha256": "c06ca80f38ffb01be99aef50190abf2bd7500961b11bcc7b00b5727c7cd24684",
+      "latency_host_samples": 302,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "979713e9e155ad51732609a916a254a3a11d4b8385216b6f2d3d734b6ad55b47",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "5f852ea9a8d4573c9e3da54f89f4a1337c9414a64fad4cb0c27c5ec7402e1518",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_rms_db_re_input": -137.7249836679274,
+     "within_bound": true
+    },
+    "quantized_informational": {
+     "abs_error": 1.4692984339204074e-06,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.500001183062607,
+     "host_rate_hz": 48000,
+     "input_hz": 20000.0,
+     "latency_host_samples": 302,
+     "measured": 0.5000026523610409,
+     "output_line_hz": 20000.0,
+     "quantization_bypass": false,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 48000,
+      "input_sha256": "c06ca80f38ffb01be99aef50190abf2bd7500961b11bcc7b00b5727c7cd24684",
+      "latency_host_samples": 302,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "f774a56b65e29ed202e616e3ce178883657429f3dc68970ea1f70767dafb0a89",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "125f0276bcde95bc9c1c3e814523e967b337c17f946265746f1ce691bc6252f0",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_rms_db_re_input": -94.82821817634674,
+     "within_bound": true
+    }
+   },
+   "48000:23000": {
+    "linear": {
+     "abs_error": 8.158217656116518e-11,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.0008910024538615371,
+     "host_rate_hz": 48000,
+     "input_frequency_suppressed": true,
+     "input_hz": 23000.0,
+     "latency_host_samples": 302,
+     "measured": 0.0008910023722793606,
+     "output_line_hz": 21100.0,
+     "quantization_bypass": true,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 48000,
+      "input_sha256": "56855c1f62e29c556e960a512d9d338aae27e2cc2b650530d81d7ceed46a1a4f",
+      "latency_host_samples": 302,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "546b6e961ed99be7c069de263b308a57653047a50b5e0bc5f46f93ce944556d6",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "5f852ea9a8d4573c9e3da54f89f4a1337c9414a64fad4cb0c27c5ec7402e1518",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_at_input_frequency": 8.804359011670975e-10,
+     "residual_rms_db_re_input": -138.9552523143219,
+     "within_bound": true
+    },
+    "quantized_informational": {
+     "abs_error": 5.138331111825259e-07,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.0008910024538615371,
+     "host_rate_hz": 48000,
+     "input_frequency_suppressed": true,
+     "input_hz": 23000.0,
+     "latency_host_samples": 302,
+     "measured": 0.0008904886207503546,
+     "output_line_hz": 21100.0,
+     "quantization_bypass": false,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 48000,
+      "input_sha256": "56855c1f62e29c556e960a512d9d338aae27e2cc2b650530d81d7ceed46a1a4f",
+      "latency_host_samples": 302,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "786a4602681903668ec6e75d6de6bf7e28c28cd150c423c1a01cc4cf80dc342e",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "125f0276bcde95bc9c1c3e814523e967b337c17f946265746f1ce691bc6252f0",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_at_input_frequency": 4.9036828206274925e-09,
+     "residual_rms_db_re_input": -95.3376283512229,
+     "within_bound": true
+    }
+   },
+   "96000:1000": {
+    "linear": {
+     "abs_error": 1.2027048568175047e-07,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.5000104295054298,
+     "host_rate_hz": 96000,
+     "input_hz": 1000.0,
+     "latency_host_samples": 441,
+     "measured": 0.5000103092349442,
+     "output_line_hz": 1000.0,
+     "quantization_bypass": true,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 96000,
+      "input_sha256": "03ae7f4f6b2898aca325be19da7aaf27fdaf3931cb33b52be1d881769737b160",
+      "latency_host_samples": 441,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "bb1c391179f0fa97b13430571681f2dc43ae4a4a28a3f0e09ed704b2d4cd9bb5",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "5f852ea9a8d4573c9e3da54f89f4a1337c9414a64fad4cb0c27c5ec7402e1518",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_rms_db_re_input": -141.95699845226684,
+     "within_bound": true
+    },
+    "quantized_informational": {
+     "abs_error": 1.1424276599170113e-06,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.5000104295054298,
+     "host_rate_hz": 96000,
+     "input_hz": 1000.0,
+     "latency_host_samples": 441,
+     "measured": 0.5000092870777699,
+     "output_line_hz": 1000.0,
+     "quantization_bypass": false,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 96000,
+      "input_sha256": "03ae7f4f6b2898aca325be19da7aaf27fdaf3931cb33b52be1d881769737b160",
+      "latency_host_samples": 441,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "b1dff126334b5f1f3c4a5e862f9426d29562a95a7a9189c808c1ce632ef76208",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "125f0276bcde95bc9c1c3e814523e967b337c17f946265746f1ce691bc6252f0",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_rms_db_re_input": -94.80770931840446,
+     "within_bound": true
+    }
+   },
+   "96000:10000": {
+    "linear": {
+     "abs_error": 1.1058332127777959e-07,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.5000034458682706,
+     "host_rate_hz": 96000,
+     "input_hz": 10000.0,
+     "latency_host_samples": 441,
+     "measured": 0.5000035564515919,
+     "output_line_hz": 10000.0,
+     "quantization_bypass": true,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 96000,
+      "input_sha256": "985c68bbe7734c62e3e118b4c01544a599037fb86f4ef96c76588a256690751f",
+      "latency_host_samples": 441,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "e0ef69953b5c3a99d7ef2c587cd6493cb0162fefc533ca17a36b3c8b333c9198",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "5f852ea9a8d4573c9e3da54f89f4a1337c9414a64fad4cb0c27c5ec7402e1518",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_rms_db_re_input": -140.81600123538232,
+     "within_bound": true
+    },
+    "quantized_informational": {
+     "abs_error": 7.905752095194174e-07,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.5000034458682706,
+     "host_rate_hz": 96000,
+     "input_hz": 10000.0,
+     "latency_host_samples": 441,
+     "measured": 0.5000042364434801,
+     "output_line_hz": 10000.0,
+     "quantization_bypass": false,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 96000,
+      "input_sha256": "985c68bbe7734c62e3e118b4c01544a599037fb86f4ef96c76588a256690751f",
+      "latency_host_samples": 441,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "2c4e2304a772d3cab2c93a3d95945c3981c653ae104abfcdc02b001437ae8bba",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "125f0276bcde95bc9c1c3e814523e967b337c17f946265746f1ce691bc6252f0",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_rms_db_re_input": -94.84258274485397,
+     "within_bound": true
+    }
+   },
+   "96000:20000": {
+    "linear": {
+     "abs_error": 7.143743407933556e-08,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.499748153888984,
+     "host_rate_hz": 96000,
+     "input_hz": 20000.0,
+     "latency_host_samples": 441,
+     "measured": 0.49974808245154995,
+     "output_line_hz": 20000.0,
+     "quantization_bypass": true,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 96000,
+      "input_sha256": "fee19a810475b7954a3e98223ec92a7c07bcdc370d1015fd0971df40c9a29b23",
+      "latency_host_samples": 441,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "45318309ae1a4c4635cb1e68d84c907effd90fd91b7bc1e040f8affafd161601",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "5f852ea9a8d4573c9e3da54f89f4a1337c9414a64fad4cb0c27c5ec7402e1518",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_rms_db_re_input": -132.09729393225373,
+     "within_bound": true
+    },
+    "quantized_informational": {
+     "abs_error": 2.8721116268615177e-07,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.499748153888984,
+     "host_rate_hz": 96000,
+     "input_hz": 20000.0,
+     "latency_host_samples": 441,
+     "measured": 0.49974786667782134,
+     "output_line_hz": 20000.0,
+     "quantization_bypass": false,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 96000,
+      "input_sha256": "fee19a810475b7954a3e98223ec92a7c07bcdc370d1015fd0971df40c9a29b23",
+      "latency_host_samples": 441,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "a70e9051cda2c4345525337ec0fb2e9793a2951bffe6a13922e6c738c6bbc789",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "125f0276bcde95bc9c1c3e814523e967b337c17f946265746f1ce691bc6252f0",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_rms_db_re_input": -94.46663784397671,
+     "within_bound": true
+    }
+   },
+   "96000:23000": {
+    "linear": {
+     "abs_error": 1.1934632060395245e-08,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.04839605317129089,
+     "host_rate_hz": 96000,
+     "input_frequency_suppressed": true,
+     "input_hz": 23000.0,
+     "latency_host_samples": 441,
+     "measured": 0.04839604123665883,
+     "output_line_hz": 21100.0,
+     "quantization_bypass": true,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 96000,
+      "input_sha256": "931879f499c4a7de8d575d9fddf88ff5dfe856639db1baf29c11a3e4aecab79b",
+      "latency_host_samples": 441,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "548bb794a2ba105114e744cf874d27d7da49cb8ab162d341b6aa13129fd98f5c",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "5f852ea9a8d4573c9e3da54f89f4a1337c9414a64fad4cb0c27c5ec7402e1518",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_at_input_frequency": 4.662263988538333e-08,
+     "residual_rms_db_re_input": -162.2799860695576,
+     "within_bound": true
+    },
+    "quantized_informational": {
+     "abs_error": 8.163055890478277e-07,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 0.04839605317129089,
+     "host_rate_hz": 96000,
+     "input_frequency_suppressed": true,
+     "input_hz": 23000.0,
+     "latency_host_samples": 441,
+     "measured": 0.04839686947687994,
+     "output_line_hz": 21100.0,
+     "quantization_bypass": false,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 96000,
+      "input_sha256": "931879f499c4a7de8d575d9fddf88ff5dfe856639db1baf29c11a3e4aecab79b",
+      "latency_host_samples": 441,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "cb483175df821d741fce3e4fa3aa99a1fc73299f7895000efc3fbd3432014f22",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "125f0276bcde95bc9c1c3e814523e967b337c17f946265746f1ce691bc6252f0",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_at_input_frequency": 4.709203087757309e-08,
+     "residual_rms_db_re_input": -95.16579586231825,
+     "within_bound": true
+    }
+   },
+   "96000:30000": {
+    "linear": {
+     "abs_error": 1.543597013582568e-13,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 4.788523357030089e-06,
+     "host_rate_hz": 96000,
+     "input_frequency_suppressed": true,
+     "input_hz": 30000.0,
+     "latency_host_samples": 441,
+     "measured": 4.78852351138979e-06,
+     "output_line_hz": 14100.0,
+     "quantization_bypass": true,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 96000,
+      "input_sha256": "384fad5235d51d9ee0914ee85f3056dd8add4e9ba2a26f10d5f17aafb315176a",
+      "latency_host_samples": 441,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "28c50db684532174e5ede1a41cc193fc03a26e10fe42a1ed3b565032666aab51",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "5f852ea9a8d4573c9e3da54f89f4a1337c9414a64fad4cb0c27c5ec7402e1518",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_at_input_frequency": 4.762319350288739e-13,
+     "residual_rms_db_re_input": -227.7965801762073,
+     "within_bound": true
+    },
+    "quantized_informational": {
+     "abs_error": 4.788523357030089e-06,
+     "amplitude": 0.5,
+     "bound_abs": 4.67769505400658e-05,
+     "expected": 4.788523357030089e-06,
+     "host_rate_hz": 96000,
+     "input_frequency_suppressed": true,
+     "input_hz": 30000.0,
+     "latency_host_samples": 441,
+     "measured": 0.0,
+     "output_line_hz": 14100.0,
+     "quantization_bypass": false,
+     "render_record": {
+      "asset_identity": {
+       "asset_id": "mpc3000-track-a-provisional",
+       "model_version": "mpc3000-provisional-1.0.0",
+       "sha256": "e100bec14ede080328b17b4e48e45360c9651d5a07a0c3f82f528d6f650f46ca",
+       "version": "1"
+      },
+      "fidelity": "NORMALIZED RESEARCH SKELETON \u2014 TRANSPARENT ADC/DAC STRATEGIES; NOT A MODEL OF A MEASURED MPC3000; UNVALIDATED AGAINST HARDWARE",
+      "host_rate_hz": 96000,
+      "input_sha256": "384fad5235d51d9ee0914ee85f3056dd8add4e9ba2a26f10d5f17aafb315176a",
+      "latency_host_samples": 441,
+      "machine": "MPC3000",
+      "meters": [
+       {
+        "converter_clip_count_18bit": 0,
+        "peak_input_normalized": 0.5,
+        "storage_clamp_count_16bit": 0
+       }
+      ],
+      "model_implementation_version": "mpc3000-reference-impl-1.0.1",
+      "output_sha256": "63a7e57e584f77f5aa180235e075486fad3ae82a2f283b86f81ce728989e4e79",
+      "product_parameters": {
+       "calibration_mode": "NORMALIZED_RESEARCH",
+       "mpc_input_gain": "LO",
+       "mpc_output_route": "MAIN_LR",
+       "mpc_record_level_db": 0.0
+      },
+      "research_config_sha256": "125f0276bcde95bc9c1c3e814523e967b337c17f946265746f1ce691bc6252f0",
+      "software": {
+       "numpy": "2.5.3",
+       "python": "3.13.16",
+       "smlsp3000": "0.1.0.dev1"
+      },
+      "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty"
+     },
+     "residual_at_input_frequency": 0.0,
+     "residual_rms_db_re_input": -5993.9794000867205,
+     "within_bound": true
+    }
+   }
+  },
+  "physical_calibration": "REJECTED ASSET_VALUE_UNSET: volts_per_normalized_unit is UNSET (Physical calibration layer: UNSET blocks any physically scaled run (INVALID_CONFIGURATION).)",
+  "r11_gain": {
+   "HI": {
+    "expected_ratio_vs_LO": 100.0,
+    "max_rel_deviation": 9.714494398173546e-16,
+    "within_float_bound": true
+   },
+   "MID": {
+    "expected_ratio_vs_LO": 10.0,
+    "max_rel_deviation": 1.040838685518594e-15,
+    "within_float_bound": true
+   },
+   "trim_-12dB": {
+    "expected_ratio": 0.251188643150958,
+    "max_rel_deviation": 2.1684139281637376e-16,
+    "within_float_bound": true
+   },
+   "trim_positive": "REJECTED RECORD_LEVEL"
+  },
+  "r12_strategy": "TRANSPARENT",
+  "r15_strategy": "TRANSPARENT",
+  "reserved_de_emphasis_ON": "REJECTED DE_EMPHASIS",
+  "reserved_r12_strategy_ESTIMATE_FIR": "REJECTED R12_STRATEGY",
+  "reserved_r15_strategy_DATASHEET_RESPONSE": "REJECTED R15_STRATEGY",
+  "stereo": {
+   "equal_input_identical": true,
+   "label": "true phase-locked stereo (MPC3K-CLM-012); no mismatch",
+   "left_unaffected": true,
+   "reset_reproduces": true,
+   "shared_clock_no_offsets": true,
+   "silent_channel_exactly_zero": true,
+   "stereo_equals_independent_mono": true
+  }
+ },
+ "software": {
+  "numpy": "2.5.3",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "e3acb866c2d018a29bfb74099dedf63b8ef0342a-dirty",
+ "stimulus": {
+  "clamp_tone": "1 kHz 1.5",
+  "gain_tone": "1 kHz 0.001",
+  "stereo": "a = 1 kHz + 6.1 kHz, b = 440 Hz",
+  "tones": "0.5 amplitude, 0.25 s, hosts 48/96 kHz"
+ },
+ "timestamp_utc": "2026-10-07T01:17:51+00:00",
+ "tolerance_policy": {
+  "gains": "max relative deviation <= 1e-09",
+  "identities": "bit-exact",
+  "lines": "abs error <= amp x kernel line_amplitude_bound_relative (design-derived; expected includes the exact implementation kernel responses)",
+  "quantized lines": "INFORMATIONAL (16-bit storage quantization expected)"
+ },
+ "track": "A"
+}

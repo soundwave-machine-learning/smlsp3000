@@ -1,6 +1,6 @@
 # Build, test and analysis command manifest
 
-Revision: execution V2 (Sprint 3) · 2026-10-07 · supersedes execution V1
+Revision: execution V4 (Sprint 4) · 2026-10-07 · supersedes execution V2
 
 Status: FROZEN for the reference/analysis stack (ENG-DEC-011). Every command below was executed in Sprint 1 with the recorded exit code (evidence/sprint_01/smoke_run.json, evidence/sprint_01/unittest_run.log, evidence/sprint_01/exp016_run.log). Native plugin build/host commands do not exist yet: G-09 target matrix UNKNOWN; nothing speculative is listed.
 
@@ -30,6 +30,7 @@ Reproduction on another machine requires Python ≥ 3.12 and numpy ≥ 2.0; floa
 | CMD-05 (inherited regression) | `python3 -m unittest discover -s tests -t . -v` | full unit/regression suite incl. VAL-001 integrity, VAL-003 structural checks, CHAIN-EXP-016 same-build reproduction and the Sprint 3 reference tests (assets, kernels, scheduler, quantizer rules, engine) | 0 = all tests pass | evidence/sprint_NN/unittest_run.log | 0 (Sprint 1: 18 tests; Sprint 3: see evidence/sprint_03/unittest_run.log) |
 | CMD-07 / VAL-008..011, VAL-017 (software cells) | `python3 -m smlsp3000.runner validate-sprint3 --out research/validation` | Sprint 3 Track A checks: rate ratios, quantizer rules, ramp coverage, determinism/partition, fold-back lines, hold droop/images vs closed form, gain/clamp/physical rejection, linked dual-mono properties, research slot skew | 0 = all PASS | research/validation/sp1200/{digital,input,output,calibration}/, research/validation/stereo/ ; evidence/sprint_03/validate_sprint3_run.log | 0 (5/5 PASS; ~21 s) |
 | CMD-08 / CHAIN-EXP-017 | `python3 -m smlsp3000.runner run CHAIN-EXP-017 --out research/sim/CHAIN-EXP-017` | qualitative SP-12 pattern sanity (SIMULATION, INFORMATIONAL) | 0 = record written | research/sim/CHAIN-EXP-017/ ; evidence/sprint_03/exp017_run.log | 0 (pattern consistent; ~4 s) |
+| CMD-10 / VAL-012..014 (software cells) | `python3 -m smlsp3000.runner validate-sprint4 --out research/validation` | Sprint 4 Track A checks: rate ratios, 18/16 code domains, R13 rules over all 262144 codes, R14 identity, determinism/partition, TRANSPARENT R12/R15 line transparency and fold-back, R11 gains/trim, 18-bit clamp, physical rejection, true stereo, route table | 0 = all PASS | research/validation/mpc3000/{digital,analog,path_comparison}/ ; evidence/sprint_04/validate_sprint4_run.log | 0 (3/3 PASS; ~29 s) |
 | CMD-09 / VAL-018 | `python3 -m smlsp3000.runner scope-audit --out evidence/sprint_03/scope_audit.json` | unity-pitch / non-goal scope audit of the reference code and configuration | 0 = PASS | evidence/sprint_03/scope_audit.json | 0 |
 | CMD-06 | `sha256sum -c SHA256SUMS.txt` | planning-V1 byte manifest (historical); living docs revised after planning V1 legitimately differ; immutable set is enforced by CMD-02 | informational | — | 1 (docs/ACCEPTANCE_MATRIX.csv line endings; revised living docs) |
 
@@ -41,6 +42,5 @@ Rules: a command absent from this table is not an approved check. Adding a comma
 |---|---|---|
 | VAL-004 documentary extraction / SPICE | G-03 | source access (archive.org, datasheet hosts) or sheets supplied through an approved route; ngspice or equivalent if AC analysis is to run |
 | VAL-005…VAL-016 HARDWARE-FIT cells, thresholds, hardware-arm listening | G-04/G-05/G-06/G-07H | stock units, calibrated interface, operator, owner (Track B, deferred) |
-| VAL-012…VAL-014 software cells (MPC reference) | Sprint 4 owner inputs (R12/R15 state, R13 default) | owner decision |
 | VAL-019…VAL-022 production engine | G-08 | owner numeric/parameter budgets; production stack decision |
 | VAL-023…VAL-027 native plugin/host/release | G-09/G-10/G-11 | approved formats/OS/DAW matrix, SDK/licence, native hosts |

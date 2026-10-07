@@ -13,6 +13,7 @@ import numpy as np
 from .. import environment as env
 from ..hashing import sha256_array
 from .assets import load_asset, load_research_config
+from .mpc3000 import MODEL_IMPLEMENTATION_VERSION as MPC_IMPL_VERSION, MPCProductParameters, MPCReferenceEngine
 from .sp1200 import MODEL_IMPLEMENTATION_VERSION, SPProductParameters, SPReferenceEngine
 
 
@@ -26,17 +27,19 @@ def with_switches(research: dict, **overrides) -> dict:
     return {**research, "switches": sw}
 
 
-def render_offline(x: np.ndarray, host_rate_hz: int, product: SPProductParameters, research: dict | None = None,
+def render_offline(x: np.ndarray, host_rate_hz: int, product, research: dict | None = None,
                    asset: dict | None = None, block_sizes: list[int] | None = None, align: bool = True):
-    """Returns (y aligned to x, info, record, engine)."""
+    """Returns (y aligned to x, info, record, engine). The machine is selected by the product-parameter type."""
+    is_mpc = isinstance(product, MPCProductParameters)
+    machine = "MPC3000" if is_mpc else "SP-1200"
     if asset is None:
-        asset, asha = load_asset()
+        asset, asha = load_asset(machine=machine)
     else:
         from .assets import canonical_bytes
         from ..hashing import sha256_bytes
         asha = sha256_bytes(canonical_bytes(asset))
     if research is None:
-        research, rsha = load_research_config()
+        research, rsha = load_research_config(machine=machine)
     else:
         from .assets import canonical_bytes
         from ..hashing import sha256_bytes
@@ -44,7 +47,7 @@ def render_offline(x: np.ndarray, host_rate_hz: int, product: SPProductParameter
     x = np.asarray(x, dtype=np.float64)
     if x.ndim == 1:
         x = x[:, None]
-    eng = SPReferenceEngine()
+    eng = MPCReferenceEngine() if is_mpc else SPReferenceEngine()
     info = eng.prepare(host_rate_hz, x.shape[1], asset, asha, product, research, rsha)
     outs = []
     if block_sizes is None:
@@ -62,7 +65,8 @@ def render_offline(x: np.ndarray, host_rate_hz: int, product: SPProductParameter
     y_full = np.concatenate(outs, axis=0)
     y = y_full[info.latency_host_samples:info.latency_host_samples + x.shape[0]] if align else y_full
     record = {
-        "model_implementation_version": MODEL_IMPLEMENTATION_VERSION,
+        "model_implementation_version": MPC_IMPL_VERSION if is_mpc else MODEL_IMPLEMENTATION_VERSION,
+        "machine": machine,
         "asset_identity": info.asset_identity,
         "research_config_sha256": rsha,
         "product_parameters": product.__dict__,
