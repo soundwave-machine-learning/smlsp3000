@@ -43,6 +43,10 @@ Version: all generated documents planningV1 dated2026-10-06; supplied sourceV1 d
 | [docs/sprint_reports/SPRINT_04_REPORT.md](sprint_reports/SPRINT_04_REPORT.md) | Executed Sprint 4 report (Track A provisional MPC reference) | After Sprint 4 execution only | S4 |
 | [docs/sprint_reports/SPRINT_05_REPORT.md](sprint_reports/SPRINT_05_REPORT.md) | Executed Sprint 5 report (Track A cascade, G-07S software decision, listening kit) | After Sprint 5 execution only | S5 |
 | [docs/sprint_reports/SPRINT_06_REPORT.md](sprint_reports/SPRINT_06_REPORT.md) | Executed Sprint 6 report (native production core, G-08 software acceptance, parameter freeze, benchmark) | After Sprint 6 execution only | S6 |
+| [docs/sprint_reports/SPRINT_07_REPORT.md](sprint_reports/SPRINT_07_REPORT.md) | Executed Sprint 7 report (JUCE wrapper, host bridge, bypass, state, UI prototype, Linux validation, Windows handoff) | After Sprint 7 execution only | S7 |
+| [docs/USER_CONTROL_GUIDE.md](USER_CONTROL_GUIDE.md) | User and control guide of the software build (prototype, pending G-10) | S7 | S7 |
+| [docs/WINDOWS_HANDOFF.md](WINDOWS_HANDOFF.md) | Windows build/test/review procedure and status table | S7 | S7 |
+| [docs/design_issues/DI-001_clock_anchor.md](design_issues/DI-001_clock_anchor.md) | Tracked design issue: host-rate-dependent machine-clock sampling phase (kept unchanged, OWN-DEC-027) | S7 | S7 |
 | [AGENTS.md](../AGENTS.md) | Read order, authority and repository/autonomy policy | Evidence, approved scope, or contract revision changes | Cross-sprint |
 | [README.md](../README.md) | Entry point and honest readiness | Evidence, approved scope, or contract revision changes | Cross-sprint |
 | [docs/DELIVERY_SUMMARY.md](DELIVERY_SUMMARY.md) | Self-contained requested final deliverable summary | Evidence, approved scope, or contract revision changes | Cross-sprint |

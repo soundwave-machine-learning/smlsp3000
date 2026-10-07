@@ -11,3 +11,8 @@ dist/
 # Listening stimulus audio is regenerated from the committed generation record; hashes are committed, audio is not
 research/listening/**/stimuli/
 native/build/
+# approved local dependency checkouts (pinned; see plugin/JUCE_PIN.json); never committed
+third_party/
+# external validation tools (pluginval) kept out of the repository
+tools_external/
+native/build-asan/

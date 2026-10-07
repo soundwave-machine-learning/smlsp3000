@@ -213,6 +213,11 @@ void Engine::snap_params() {
     sw_sp_step_.reset(static_cast<double>(product_.sp_input_gain_db)); sw_mpc_step_.reset(static_cast<double>(static_cast<int>(product_.mpc_input_gain))); sw_bypass_.reset(product_.plugin_bypass ? 1.0 : 0.0);
 }
 
+void Engine::update_product_targets(const ProductParameters& p) {
+    product_.sp_input_level_db = p.sp_input_level_db; product_.sp_input_gain_db = p.sp_input_gain_db; product_.interstage_level_db = p.interstage_level_db;
+    product_.mpc_input_gain = p.mpc_input_gain; product_.output_trim_db = p.output_trim_db; product_.plugin_bypass = p.plugin_bypass;
+}
+
 void Engine::reset() {
     if (!prepared_) return;
     for (int c = 0; c < channels_; ++c) {
@@ -336,7 +341,7 @@ void Engine::process_chunk(const double* const* in, double* const* out, std::siz
 // ---------------------------------------------------------------- state v1
 static std::string fmt17(double v) { char b[64]; std::snprintf(b, sizeof b, "%.17g", v); return b; }
 
-std::string Engine::serialize_state() const {
+std::string Engine::serialize_state_with_bypass(bool plugin_bypass) const {
     std::string s;
     s += "smlsp3000-state\n";
     s += "schema_version=" + std::to_string(A::CONTROLS_SCHEMA_VERSION) + "\n";
@@ -349,7 +354,7 @@ std::string Engine::serialize_state() const {
     s += "interstage_level_db=" + fmt17(product_.interstage_level_db) + "\n";
     s += std::string("mpc_input_gain=") + mpc_gain_name(product_.mpc_input_gain) + "\n";
     s += "output_trim_db=" + fmt17(product_.output_trim_db) + "\n";
-    s += std::string("plugin_bypass=") + (product_.plugin_bypass ? "1" : "0") + "\n";
+    s += std::string("plugin_bypass=") + (plugin_bypass ? "1" : "0") + "\n";
     return s;
 }
 

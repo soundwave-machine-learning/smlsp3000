@@ -1,0 +1,12 @@
+{
+ "VAL-026": "PASS",
+ "VAL-023": "PASS",
+ "VAL-024": "PASS",
+ "VAL-025": "PASS",
+ "pluginval": "PASS"
+}
+
+real	2m43.922s
+user	2m11.063s
+sys	0m6.882s
+exit=0

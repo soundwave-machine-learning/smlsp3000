@@ -1,0 +1,6 @@
+PASS  VAL-001.sources: both research sources byte-identical to PACKAGE_VALIDATION hashes
+PASS  VAL-001.contracts: found ['SPRINT_01.md', 'SPRINT_02.md', 'SPRINT_03.md', 'SPRINT_04.md', 'SPRINT_05.md', 'SPRINT_06.md', 'SPRINT_07.md', 'SPRINT_08.md']
+PASS  VAL-001.links: all local markdown links resolve
+PASS  VAL-001.matrix: md rows=28 unique=28 csv rows=28
+PASS  VAL-001.sha256sums: revised since planning V1 (living docs, allowed): 19 files
+exit=0

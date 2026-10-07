@@ -1,0 +1,65 @@
+[0/2] Re-checking globbed directories...
+[1/6] Building CXX object CMakeFiles/smlsp3000_editor_snapshot.dir/src/PluginEditor.cpp.o
+In file included from /home/user/smlsp3000/native/include/smlsp3000/scheduler.hpp:5,
+                 from /home/user/smlsp3000/native/include/smlsp3000/mpc_core.hpp:7,
+                 from /home/user/smlsp3000/native/include/smlsp3000/engine.hpp:13,
+                 from /home/user/smlsp3000/native/include/smlsp3000/host_adapter.hpp:17,
+                 from /home/user/smlsp3000/plugin/src/PluginProcessor.h:6,
+                 from /home/user/smlsp3000/plugin/src/PluginEditor.h:7,
+                 from /home/user/smlsp3000/plugin/src/PluginEditor.cpp:1:
+/home/user/smlsp3000/native/include/smlsp3000/numerics.hpp: In function 'double smlsp3000::num::pairwise_sum(const double*, std::size_t)':
+/home/user/smlsp3000/native/include/smlsp3000/numerics.hpp:52:55: warning: conversion to 'std::size_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+   52 |             for (int j = 0; j < 8; ++j) r[j] += a[i + j];
+      |                                                       ^
+/home/user/smlsp3000/native/include/smlsp3000/numerics.hpp: In function 'double smlsp3000::num::exact_sinc(double)':
+/home/user/smlsp3000/native/include/smlsp3000/numerics.hpp:92:11: warning: comparing floating-point with '==' or '!=' is unsafe [-Wfloat-equal]
+   92 |     if (d == std::round(d)) return d == 0.0 ? 1.0 : 0.0;
+      |         ~~^~~~~~~~~~~~~~~~
+/home/user/smlsp3000/native/include/smlsp3000/numerics.hpp:92:38: warning: comparing floating-point with '==' or '!=' is unsafe [-Wfloat-equal]
+   92 |     if (d == std::round(d)) return d == 0.0 ? 1.0 : 0.0;
+      |                                    ~~^~~~~~
+/home/user/smlsp3000/native/include/smlsp3000/host_adapter.hpp: In member function 'double smlsp3000::HostAdapter::parameter(smlsp3000::ParamId) const':
+/home/user/smlsp3000/native/include/smlsp3000/host_adapter.hpp:44:58: warning: conversion to 'std::array<std::atomic<double>, 6>::size_type' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+   44 |     double parameter(ParamId id) const { return targets_[static_cast<int>(id)].load(std::memory_order_relaxed); }
+      |                                                          ^~~~~~~~~~~~~~~~~~~~
+/home/user/smlsp3000/plugin/src/PluginEditor.cpp: In member function 'virtual void SMLEditor::resized()':
+/home/user/smlsp3000/plugin/src/PluginEditor.cpp:76:10: warning: variable 'cmb' set but not used [-Wunused-but-set-variable]
+   76 |     auto cmb = [&](juce::Rectangle<int> a, juce::Label& title, juce::Label& name, juce::ComboBox& c, juce::Component* extra) { title.setBounds(a.removeFromTop(20)); name.setBounds(a.removeFromTop(18)); c.setBounds(a.removeFromTop(26).reduced(6, 0)); if (extra) extra->setBounds(a.removeFromTop(48).reduced(2)); };
+      |          ^~~
+[2/6] Building CXX object CMakeFiles/SMLSP3000.dir/src/PluginEditor.cpp.o
+In file included from /home/user/smlsp3000/native/include/smlsp3000/scheduler.hpp:5,
+                 from /home/user/smlsp3000/native/include/smlsp3000/mpc_core.hpp:7,
+                 from /home/user/smlsp3000/native/include/smlsp3000/engine.hpp:13,
+                 from /home/user/smlsp3000/native/include/smlsp3000/host_adapter.hpp:17,
+                 from /home/user/smlsp3000/plugin/src/PluginProcessor.h:6,
+                 from /home/user/smlsp3000/plugin/src/PluginEditor.h:7,
+                 from /home/user/smlsp3000/plugin/src/PluginEditor.cpp:1:
+/home/user/smlsp3000/native/include/smlsp3000/numerics.hpp: In function 'double smlsp3000::num::pairwise_sum(const double*, std::size_t)':
+/home/user/smlsp3000/native/include/smlsp3000/numerics.hpp:52:55: warning: conversion to 'std::size_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+   52 |             for (int j = 0; j < 8; ++j) r[j] += a[i + j];
+      |                                                       ^
+/home/user/smlsp3000/native/include/smlsp3000/numerics.hpp: In function 'double smlsp3000::num::exact_sinc(double)':
+/home/user/smlsp3000/native/include/smlsp3000/numerics.hpp:92:11: warning: comparing floating-point with '==' or '!=' is unsafe [-Wfloat-equal]
+   92 |     if (d == std::round(d)) return d == 0.0 ? 1.0 : 0.0;
+      |         ~~^~~~~~~~~~~~~~~~
+/home/user/smlsp3000/native/include/smlsp3000/numerics.hpp:92:38: warning: comparing floating-point with '==' or '!=' is unsafe [-Wfloat-equal]
+   92 |     if (d == std::round(d)) return d == 0.0 ? 1.0 : 0.0;
+      |                                    ~~^~~~~~
+/home/user/smlsp3000/native/include/smlsp3000/host_adapter.hpp: In member function 'double smlsp3000::HostAdapter::parameter(smlsp3000::ParamId) const':
+/home/user/smlsp3000/native/include/smlsp3000/host_adapter.hpp:44:58: warning: conversion to 'std::array<std::atomic<double>, 6>::size_type' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+   44 |     double parameter(ParamId id) const { return targets_[static_cast<int>(id)].load(std::memory_order_relaxed); }
+      |                                                          ^~~~~~~~~~~~~~~~~~~~
+/home/user/smlsp3000/plugin/src/PluginEditor.cpp: In member function 'virtual void SMLEditor::resized()':
+/home/user/smlsp3000/plugin/src/PluginEditor.cpp:76:10: warning: variable 'cmb' set but not used [-Wunused-but-set-variable]
+   76 |     auto cmb = [&](juce::Rectangle<int> a, juce::Label& title, juce::Label& name, juce::ComboBox& c, juce::Component* extra) { title.setBounds(a.removeFromTop(20)); name.setBounds(a.removeFromTop(18)); c.setBounds(a.removeFromTop(26).reduced(6, 0)); if (extra) extra->setBounds(a.removeFromTop(48).reduced(2)); };
+      |          ^~~
+[3/6] Linking CXX executable smlsp3000_editor_snapshot_artefacts/Release/smlsp3000_editor_snapshot
+[4/6] Linking CXX static library "SMLSP3000_artefacts/Release/libSML SP-3000_SharedCode.a"
+[5/6] Linking CXX executable "SMLSP3000_artefacts/Release/Standalone/SML SP-3000"
+[6/6] Linking CXX shared module "SMLSP3000_artefacts/Release/VST3/SML SP-3000.vst3/Contents/x86_64-linux/SML SP-3000.so"
+removing moduleinfo.json
+
+real	0m4.825s
+user	0m8.636s
+sys	0m0.878s
+exit=0

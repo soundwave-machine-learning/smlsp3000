@@ -1,0 +1,672 @@
+{
+ "artifact_class": "VALIDATION RESULT",
+ "asset_identity": {
+  "asset_id": "plugin(SML SP-3000 VST3 Linux dev build) vs native adapter vs reference",
+  "model_version": "JUCE 8.0.9 (f72bad64d297); native core + host adapter",
+  "sha256": "e6a9371def06760bb32bcdc67334ab608c64bee0b4d4b26d1f282226144a9582",
+  "version": "0.7.0"
+ },
+ "check_id": "VAL-024",
+ "command": "python3 -m smlsp3000.runner validate-sprint7 --evidence evidence/sprint_07",
+ "dataset_role": "VALIDATION",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "hardware_fit_outcome": "BLOCKED",
+ "limitations": [
+  "Lock/I-O freedom in the audio path is established by construction and code review of the adapter/processor (no locks, no I/O, no logging) plus the allocation counter; no OS-level syscall tracer was run.",
+  "Timing applies only to this Linux container; Windows timing pending."
+ ],
+ "method": "Adapter allocation instrumentation (global operator new/delete counted inside process(); ctest host_adapter_test), ASan+UBSan build of the native core running the core self-test and the adapter test (stream start, pre-padding, ring/history boundaries), NaN/Inf/over-range/silence through the plugin (finite output, equals the adapter path), rapid automation, state handoff during processing, multiple instances, and callback timing of the complete plugin (wrapper + conversion + bypass + metering) through the harness at the owner's rate/block pairs in float32 and float64 (all trials retained, including outliers).",
+ "outcome": "PASS",
+ "requirement_id": "REQ-024",
+ "research_config_sha256": "n/a (product state only)",
+ "results": {
+  "bench": {
+   "176400_256": {
+    "limit": 0.6,
+    "max_mean_load": 0.169133,
+    "mean_limit_pass": true,
+    "overruns_total": 0,
+    "p999_target_met": true,
+    "trials": [
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.000516145,
+      "mean_load": 0.167613,
+      "median_s": 0.000233515,
+      "overruns": 0,
+      "p95_s": 0.000309148,
+      "p999_over_budget": 0.312213608957795,
+      "p999_s": 0.0004531,
+      "p99_s": 0.000384355,
+      "precision": 32,
+      "trial": 0
+     },
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.000462932,
+      "mean_load": 0.162152,
+      "median_s": 0.0002286,
+      "overruns": 0,
+      "p95_s": 0.000296341,
+      "p999_over_budget": 0.30700637381567614,
+      "p999_s": 0.000445543,
+      "p99_s": 0.000380958,
+      "precision": 32,
+      "trial": 1
+     },
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.000550106,
+      "mean_load": 0.169133,
+      "median_s": 0.000234805,
+      "overruns": 0,
+      "p95_s": 0.000320081,
+      "p999_over_budget": 0.31710318690783806,
+      "p999_s": 0.000460196,
+      "p99_s": 0.000394932,
+      "precision": 32,
+      "trial": 2
+     },
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.000451788,
+      "mean_load": 0.156639,
+      "median_s": 0.000221657,
+      "overruns": 0,
+      "p95_s": 0.000264406,
+      "p999_over_budget": 0.29080516795865635,
+      "p999_s": 0.000422031,
+      "p99_s": 0.000389775,
+      "precision": 64,
+      "trial": 0
+     },
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.000495104,
+      "mean_load": 0.152559,
+      "median_s": 0.000219985,
+      "overruns": 0,
+      "p95_s": 0.000251531,
+      "p999_over_budget": 0.30072764857881135,
+      "p999_s": 0.000436431,
+      "p99_s": 0.000292666,
+      "precision": 64,
+      "trial": 1
+     },
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.000825494,
+      "mean_load": 0.157815,
+      "median_s": 0.000222654,
+      "overruns": 0,
+      "p95_s": 0.000306641,
+      "p999_over_budget": 0.28461808785529713,
+      "p999_s": 0.000413052,
+      "p99_s": 0.000380675,
+      "precision": 64,
+      "trial": 2
+     }
+    ]
+   },
+   "192000_256": {
+    "limit": 0.6,
+    "max_mean_load": 0.221943,
+    "mean_limit_pass": true,
+    "overruns_total": 0,
+    "p999_target_met": true,
+    "trials": [
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000663496,
+      "mean_load": 0.19989,
+      "median_s": 0.000262797,
+      "overruns": 0,
+      "p95_s": 0.000299505,
+      "p999_over_budget": 0.3843399608499022,
+      "p999_s": 0.000512452,
+      "p99_s": 0.000369473,
+      "precision": 32,
+      "trial": 0
+     },
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000642189,
+      "mean_load": 0.213612,
+      "median_s": 0.000278844,
+      "overruns": 0,
+      "p95_s": 0.000343155,
+      "p999_over_budget": 0.4079035197587994,
+      "p999_s": 0.00054387,
+      "p99_s": 0.000416873,
+      "precision": 32,
+      "trial": 1
+     },
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000603542,
+      "mean_load": 0.215485,
+      "median_s": 0.000279356,
+      "overruns": 0,
+      "p95_s": 0.00035515,
+      "p999_over_budget": 0.3548971372428431,
+      "p999_s": 0.000473195,
+      "p99_s": 0.000415131,
+      "precision": 32,
+      "trial": 2
+     },
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000589555,
+      "mean_load": 0.214437,
+      "median_s": 0.000276048,
+      "overruns": 0,
+      "p95_s": 0.000361099,
+      "p999_over_budget": 0.39598148995372484,
+      "p999_s": 0.000527974,
+      "p99_s": 0.000426445,
+      "precision": 64,
+      "trial": 0
+     },
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000647986,
+      "mean_load": 0.211229,
+      "median_s": 0.000272608,
+      "overruns": 0,
+      "p95_s": 0.000359183,
+      "p999_over_budget": 0.3804002010005025,
+      "p999_s": 0.000507199,
+      "p99_s": 0.000432249,
+      "precision": 64,
+      "trial": 1
+     },
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000562112,
+      "mean_load": 0.221943,
+      "median_s": 0.00028603,
+      "overruns": 0,
+      "p95_s": 0.000378458,
+      "p999_over_budget": 0.374561436403591,
+      "p999_s": 0.000499414,
+      "p99_s": 0.000455555,
+      "precision": 64,
+      "trial": 2
+     }
+    ]
+   },
+   "44100_64": {
+    "limit": 0.2,
+    "max_mean_load": 0.0789425,
+    "mean_limit_pass": true,
+    "overruns_total": 0,
+    "p999_target_met": true,
+    "trials": [
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.000231731,
+      "mean_load": 0.0732187,
+      "median_s": 0.000100711,
+      "overruns": 0,
+      "p95_s": 0.000148021,
+      "p999_over_budget": 0.150699052540913,
+      "p999_s": 0.000218702,
+      "p99_s": 0.00017634,
+      "precision": 32,
+      "trial": 0
+     },
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.000222769,
+      "mean_load": 0.068589,
+      "median_s": 9.6731e-05,
+      "overruns": 0,
+      "p95_s": 0.000129033,
+      "p999_over_budget": 0.13778191214470284,
+      "p999_s": 0.000199956,
+      "p99_s": 0.000158976,
+      "precision": 32,
+      "trial": 1
+     },
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.000211424,
+      "mean_load": 0.0705479,
+      "median_s": 9.8988e-05,
+      "overruns": 0,
+      "p95_s": 0.000139989,
+      "p999_over_budget": 0.13576571920757965,
+      "p999_s": 0.00019703,
+      "p99_s": 0.000166429,
+      "precision": 32,
+      "trial": 2
+     },
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.000541585,
+      "mean_load": 0.0789425,
+      "median_s": 0.000100644,
+      "overruns": 0,
+      "p95_s": 0.000162914,
+      "p999_over_budget": 0.229056330749354,
+      "p999_s": 0.000332418,
+      "p99_s": 0.000230955,
+      "precision": 64,
+      "trial": 0
+     },
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.000208748,
+      "mean_load": 0.0716346,
+      "median_s": 9.8949e-05,
+      "overruns": 0,
+      "p95_s": 0.000149242,
+      "p999_over_budget": 0.13371162790697674,
+      "p999_s": 0.000194049,
+      "p99_s": 0.00016881,
+      "precision": 64,
+      "trial": 1
+     },
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.00025254,
+      "mean_load": 0.0704752,
+      "median_s": 9.8931e-05,
+      "overruns": 0,
+      "p95_s": 0.000133945,
+      "p999_over_budget": 0.16055331610680446,
+      "p999_s": 0.000233003,
+      "p99_s": 0.000202937,
+      "precision": 64,
+      "trial": 2
+     }
+    ]
+   },
+   "48000_64": {
+    "limit": 0.2,
+    "max_mean_load": 0.109899,
+    "mean_limit_pass": true,
+    "overruns_total": 0,
+    "p999_target_met": true,
+    "trials": [
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000507106,
+      "mean_load": 0.108144,
+      "median_s": 0.000135375,
+      "overruns": 0,
+      "p95_s": 0.00019605,
+      "p999_over_budget": 0.2396458491146228,
+      "p999_s": 0.000319527,
+      "p99_s": 0.000237987,
+      "precision": 32,
+      "trial": 0
+     },
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000442123,
+      "mean_load": 0.0980639,
+      "median_s": 0.000123567,
+      "overruns": 0,
+      "p95_s": 0.000180077,
+      "p999_over_budget": 0.2362265905664764,
+      "p999_s": 0.000314968,
+      "p99_s": 0.000224412,
+      "precision": 32,
+      "trial": 1
+     },
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000432163,
+      "mean_load": 0.105646,
+      "median_s": 0.00012981,
+      "overruns": 0,
+      "p95_s": 0.000202845,
+      "p999_over_budget": 0.2843684609211523,
+      "p999_s": 0.000379157,
+      "p99_s": 0.000259707,
+      "precision": 32,
+      "trial": 2
+     },
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000429034,
+      "mean_load": 0.105985,
+      "median_s": 0.000133498,
+      "overruns": 0,
+      "p95_s": 0.000199172,
+      "p999_over_budget": 0.20961802404506014,
+      "p999_s": 0.00027949,
+      "p99_s": 0.000232331,
+      "precision": 64,
+      "trial": 0
+     },
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000947172,
+      "mean_load": 0.106583,
+      "median_s": 0.00013025,
+      "overruns": 0,
+      "p95_s": 0.000203792,
+      "p999_over_budget": 0.2773739434348586,
+      "p999_s": 0.000369831,
+      "p99_s": 0.000255866,
+      "precision": 64,
+      "trial": 1
+     },
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000318335,
+      "mean_load": 0.109899,
+      "median_s": 0.000131931,
+      "overruns": 0,
+      "p95_s": 0.000210021,
+      "p999_over_budget": 0.22579556448891125,
+      "p999_s": 0.00030106,
+      "p99_s": 0.000250688,
+      "precision": 64,
+      "trial": 2
+     }
+    ]
+   },
+   "88200_128": {
+    "limit": 0.4,
+    "max_mean_load": 0.139787,
+    "mean_limit_pass": true,
+    "overruns_total": 0,
+    "p999_target_met": true,
+    "trials": [
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.00035672,
+      "mean_load": 0.121553,
+      "median_s": 0.000164857,
+      "overruns": 0,
+      "p95_s": 0.000240416,
+      "p999_over_budget": 0.2330287683031869,
+      "p999_s": 0.000338183,
+      "p99_s": 0.000299018,
+      "precision": 32,
+      "trial": 0
+     },
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.000399371,
+      "mean_load": 0.139787,
+      "median_s": 0.000198645,
+      "overruns": 0,
+      "p95_s": 0.000267464,
+      "p999_over_budget": 0.2457977605512489,
+      "p999_s": 0.000356714,
+      "p99_s": 0.000319689,
+      "precision": 32,
+      "trial": 1
+     },
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.000335085,
+      "mean_load": 0.11335,
+      "median_s": 0.000151411,
+      "overruns": 0,
+      "p95_s": 0.000248568,
+      "p999_over_budget": 0.21904633936261841,
+      "p999_s": 0.000317891,
+      "p99_s": 0.000286533,
+      "precision": 32,
+      "trial": 2
+     },
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.000326803,
+      "mean_load": 0.106927,
+      "median_s": 0.000148538,
+      "overruns": 0,
+      "p95_s": 0.000192532,
+      "p999_over_budget": 0.1919180017226529,
+      "p999_s": 0.000278521,
+      "p99_s": 0.000235133,
+      "precision": 64,
+      "trial": 0
+     },
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.00050252,
+      "mean_load": 0.109106,
+      "median_s": 0.000149227,
+      "overruns": 0,
+      "p95_s": 0.000209547,
+      "p999_over_budget": 0.19685236864771746,
+      "p999_s": 0.000285682,
+      "p99_s": 0.000245231,
+      "precision": 64,
+      "trial": 1
+     },
+     {
+      "budget_s": 0.00145125,
+      "calls": 3446,
+      "max_s": 0.000303818,
+      "mean_load": 0.110345,
+      "median_s": 0.000146589,
+      "overruns": 0,
+      "p95_s": 0.000240815,
+      "p999_over_budget": 0.19991180017226529,
+      "p999_s": 0.000290122,
+      "p99_s": 0.000266431,
+      "precision": 64,
+      "trial": 2
+     }
+    ]
+   },
+   "96000_128": {
+    "limit": 0.4,
+    "max_mean_load": 0.148389,
+    "mean_limit_pass": true,
+    "overruns_total": 0,
+    "p999_target_met": true,
+    "trials": [
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.00047268,
+      "mean_load": 0.148389,
+      "median_s": 0.000186558,
+      "overruns": 0,
+      "p95_s": 0.000264325,
+      "p999_over_budget": 0.28375195937989844,
+      "p999_s": 0.000378335,
+      "p99_s": 0.000312113,
+      "precision": 32,
+      "trial": 0
+     },
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000563878,
+      "mean_load": 0.139266,
+      "median_s": 0.000174883,
+      "overruns": 0,
+      "p95_s": 0.00025673,
+      "p999_over_budget": 0.2868164670411676,
+      "p999_s": 0.000382421,
+      "p99_s": 0.000307838,
+      "precision": 32,
+      "trial": 1
+     },
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000915686,
+      "mean_load": 0.138816,
+      "median_s": 0.000174342,
+      "overruns": 0,
+      "p95_s": 0.000255926,
+      "p999_over_budget": 0.39086647716619294,
+      "p999_s": 0.000521154,
+      "p99_s": 0.000308883,
+      "precision": 32,
+      "trial": 2
+     },
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.00042807,
+      "mean_load": 0.137328,
+      "median_s": 0.000174294,
+      "overruns": 0,
+      "p95_s": 0.000239405,
+      "p999_over_budget": 0.24603661509153774,
+      "p999_s": 0.000328048,
+      "p99_s": 0.000285326,
+      "precision": 64,
+      "trial": 0
+     },
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000425122,
+      "mean_load": 0.140343,
+      "median_s": 0.000178098,
+      "overruns": 0,
+      "p95_s": 0.000254337,
+      "p999_over_budget": 0.26854792136980343,
+      "p999_s": 0.000358063,
+      "p99_s": 0.00029354,
+      "precision": 64,
+      "trial": 1
+     },
+     {
+      "budget_s": 0.00133333,
+      "calls": 3750,
+      "max_s": 0.000406971,
+      "mean_load": 0.143616,
+      "median_s": 0.000179682,
+      "overruns": 0,
+      "p95_s": 0.00025232,
+      "p999_over_budget": 0.2858699646749117,
+      "p999_s": 0.000381159,
+      "p99_s": 0.00032281,
+      "precision": 64,
+      "trial": 2
+     }
+    ]
+   }
+  },
+  "bench_conditions": "complete VST3 through the JUCE harness (wrapper, float conversion where precision=32, bypass toggles every 40 blocks, metering); shared cloud VM, no RT priority; all trials retained",
+  "ctest": {
+   "exit": 0,
+   "tail": "Test project /home/user/smlsp3000/plugin/build/native\n    Start 1: native_selftest\n1/2 Test #1: native_selftest ..................   Passed    2.95 sec\n    Start 2: host_adapter_test\n2/2 Test #2: host_adapter_test ................   Passed    1.35 sec\n\n100% tests passed, 0 tests failed out of 2\n\nTotal Test time (real) =   4.30 sec\n"
+  },
+  "failures": [],
+  "numerics": {
+   "adapter_meters": {
+    "bypass_weight": 1,
+    "events_rejected": 0,
+    "faults": 0,
+    "mpc_clip18": [
+     0,
+     4158
+    ],
+    "nonfinite_input_samples": 2,
+    "output_peak": [
+     0.27737689681611255,
+     1.1289557265551153
+    ],
+    "over_range": [
+     false,
+     true
+    ],
+    "sp_clip": [
+     0,
+     5047
+    ]
+   },
+   "denormal_input_finite": true,
+   "nan_inf_overrange_plugin_finite": true,
+   "plugin_vs_adapter_identical": true,
+   "silence_output_all_zero": true
+  },
+  "rapid_automation": {
+   "events": 47,
+   "finite": true,
+   "plugin_vs_adapter_identical": true
+  },
+  "sanitizers": {
+   "build_exit": 0,
+   "configure_exit": 0,
+   "ctest_exit": 0,
+   "report_lines": [],
+   "tail": "Test project /home/user/smlsp3000/native/build-asan\n    Start 1: native_selftest\n1/2 Test #1: native_selftest ..................   Passed   18.77 sec\n    Start 2: host_adapter_test\n2/2 Test #2: host_adapter_test ................   Passed    8.23 sec\n\n100% tests passed, 0 tests failed out of 2\n\nTotal Test time (real) =  27.00 sec\n"
+  }
+ },
+ "software": {
+  "native": {
+   "CMAKE_BUILD_TYPE": "Release",
+   "CMAKE_CXX_COMPILER": "/usr/bin/c++",
+   "CMAKE_CXX_FLAGS": "",
+   "CMAKE_CXX_FLAGS_RELEASE": "-O2 -DNDEBUG",
+   "CMAKE_GENERATOR": "Ninja",
+   "SMLSP3000_NATIVE_ARCH": "OFF",
+   "binary": "/home/user/smlsp3000/native/build/smlsp3000_native",
+   "build_dir": "/home/user/smlsp3000/native/build",
+   "compiler_version": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+   "denormal_policy": "none (no FTZ/DAZ; bit-identity with the reference; all filters are feed-forward so denormals cannot self-sustain)",
+   "fast_math": "OFF (-fno-fast-math)",
+   "fma_contraction_policy": "OFF: -ffp-contract=off (GCC default for GNU C++ is 'fast'); products and sums are rounded separately so FIR accumulation reproduces the numpy pairwise order",
+   "machine": "x86_64",
+   "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+   "target_compile_options": "-Wall -Wextra -O2 -ffp-contract=off -fno-fast-math -fexcess-precision=standard (GCC/Clang; see native/CMakeLists.txt); MSVC: /W4 /fp:precise /O2 (not compiled here)"
+  },
+  "numpy": "2.5.3",
+  "plugin_build": "plugin/build (Linux, GCC 13.3, -O2, -ffp-contract=off on the core)",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "4b8d24e15a07d8aea78b65310a1f4cc927d14f78-dirty",
+ "stimulus": {
+  "bench": "3-tone + stereo inverse at the six rate/block pairs",
+  "numerics": "multitone with NaN/Inf samples and x16 over-range channel; silence; 1e-300 input"
+ },
+ "timestamp_utc": "2026-10-07T05:05:26+00:00",
+ "tolerance_policy": {
+  "allocations": "0 inside process()",
+  "cpu": "OWN-DEC-017 mean-load limits (20/40/60 %); p99.9 < 80 % target reported",
+  "numerics": "finite output; plugin == adapter bit-identical",
+  "sanitizers": "no report",
+  "trials": "all retained"
+ },
+ "track": "A"
+}

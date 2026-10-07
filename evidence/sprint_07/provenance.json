@@ -1,0 +1,488 @@
+{
+ "record": "Sprint 07 provenance",
+ "recorded_utc": "2026-10-07T05:26:10+00:00",
+ "starting_commit": "4b8d24e15a07d8aea78b65310a1f4cc927d14f78",
+ "branch": "claude/autonomous-build",
+ "owner_decisions_applied": [
+  "OWN-DEC-024..038"
+ ],
+ "engineering_decisions": [
+  "ENG-DEC-025..028"
+ ],
+ "native_implementation_version": "smlsp3000-native-core-1.0.0 (audio behaviour unchanged; two non-sonic API additions)",
+ "host_adapter_version": "smlsp3000-host-adapter-1.0.0",
+ "plugin": {
+  "display_name": "SML SP-3000",
+  "version": "0.7.0",
+  "formats_built_linux": [
+   "VST3 (plugin/build/SMLSP3000_artefacts/Release/VST3/SML SP-3000.vst3, Linux x86_64 .so)",
+   "Standalone (plugin/build/SMLSP3000_artefacts/Release/Standalone/SML SP-3000, Linux, no audio backend)"
+  ],
+  "formats_not_built": [
+   "Windows x86_64 VST3 and Standalone (docs/WINDOWS_HANDOFF.md)"
+  ],
+  "vst3_sha256": "a8f0625c6cd7b828ec9c839d1f147a11bd998989ddbdeee6632439b664e67225",
+  "note": "Linux .so hash of the local build (not committed, not an artefact for the owner's Windows machine)"
+ },
+ "framework": {
+  "name": "JUCE",
+  "pinned_release": "8.0.9",
+  "pinned_commit": "f72bad64d29715216226685810c5196bd0d79d77",
+  "license_route": "GNU AGPLv3 (JUCE dual-licence open-source option) for this unpublished personal-use build; the JUCE 8 End User Licence Agreement was NOT accepted on the owner's behalf; JUCE_DISPLAY_SPLASH_SCREEN=0 and JUCE_REPORT_APP_USAGE=0 as permitted under the AGPLv3 option"
+ },
+ "pluginval": {
+  "version": "1.0.4",
+  "strictness": 8,
+  "zip_sha256": "c01c49d8063965c4c2dea8324468336768f5c9139e0b1caebde14c2400b55352",
+  "result": "PASS (Linux)"
+ },
+ "clock_anchor": "UNCHANGED (OWN-DEC-027; docs/design_issues/DI-001_clock_anchor.md)",
+ "immutable_sources_unchanged": true,
+ "contracts_unchanged": true,
+ "hardware_claims": "none; everything UNVALIDATED AGAINST HARDWARE",
+ "windows_build": "NOT RUN",
+ "fl_studio": "NOT RUN",
+ "owner_g10": "NOT EXECUTED",
+ "installed": "NOT PERFORMED",
+ "published": "NO",
+ "artifacts": {
+  "evidence/sprint_07/build_record.json": {
+   "sha256": "94deff743ccba34f4daf2eda3d15c0ea433c0d24df8de0141285bf48282527c3",
+   "bytes": 7545,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/commands.json": {
+   "sha256": "dce7979c2aeba71288c5d04aa2f41635fed58aa1345e244f4847994a460c9864",
+   "bytes": 4287,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/host_matrix/VAL-026_software.json": {
+   "sha256": "3d78e8950af9dac5073d3104ac5057817e0e27b18cb2244f0fb81b4c511ba134",
+   "bytes": 20071,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/host_matrix/manifest.sha256": {
+   "sha256": "cb246c5eeffad3339ffab2f9812967020a7c6d97ea24ad503b1726e61b0caeb3",
+   "bytes": 88,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/inherited_regression_run.log": {
+   "sha256": "8351b06c0d8a72bef4c1c0a50cb76e579a0f1cd72855bd829ed3b5fb1e16d118",
+   "bytes": 1924,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/integrity_run.log": {
+   "sha256": "8cb2f4e5fb572e4140d00f33f08d89016de2e7bb7f255c5110100969d6ad82f1",
+   "bytes": 450,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/latency_bypass/VAL-023_software.json": {
+   "sha256": "2d4ff2e8a96c964a95af3cec7db60024758e0c0171b616ba24a34c5a7b68f28c",
+   "bytes": 8281,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/latency_bypass/manifest.sha256": {
+   "sha256": "b1678d996ede5b91c20376a7f5a6ccebfc08161bc4a881d7f22d04bba8e37f29",
+   "bytes": 88,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/native_ctest.log": {
+   "sha256": "e8a852659eba161e1be33639e919db4eed334fda96908f2905df6998479064fc",
+   "bytes": 333,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/owner_decisions_sprint7.json": {
+   "sha256": "3d644230f08ace4b0f0361993011520c02102e67a477d2361a902cdbf8c530fe",
+   "bytes": 6153,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/plugin_build.log": {
+   "sha256": "d010320b11c0b27c88c4b757fc9bb6191c9c302411e122d5fa7af31cfcbd94ac",
+   "bytes": 6300,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/plugin_configure.log": {
+   "sha256": "722d2dea8a8b7d59fb0c488750b0feed84b08fbb6701c013e4ce630ffbc8dd05",
+   "bytes": 3700,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/pluginval/Soundwave Machine Learning - SML SP-3000 0.7.0 - Linux VST3_20261007T050659.182Z.txt": {
+   "sha256": "78980ea4090372ae9b2191c6bb406e8666fd776c5f40ada7b1d6876d71887722",
+   "bytes": 11796,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/pluginval/pluginval_record.json": {
+   "sha256": "03cc9414997569c1e4cc3632877429a877323fef92c5dad3d3fc97a435604df5",
+   "bytes": 811,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/pluginval/pluginval_stdout.log": {
+   "sha256": "46d01c99ebb87e768d9281025a04bce0da5147ecd44276f7d1ddfcebe9521c2e",
+   "bytes": 11916,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/VAL-024_software.json": {
+   "sha256": "35977bfa5679595a03b26cebd5b4468c79369346bc0e2d842a5422efe331fcd5",
+   "bytes": 18792,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_176400_256_f32_t0.f64": {
+   "sha256": "479ea3b1ae8ea26774631902e78addd9166975383df68db6819975f7790b15a4",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_176400_256_f32_t1.f64": {
+   "sha256": "24a557cf1193c35da45e2a3eb64a20bb192e8df50803cc3d11c27d239e2c7a64",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_176400_256_f32_t2.f64": {
+   "sha256": "b547e9876f41a5f41bf1d591d1a7a40619a1868be686d6355bee1571ab15d84b",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_176400_256_f64_t0.f64": {
+   "sha256": "77672d1ab2944f0d61d105b4a26d42b59793340cba1cde0ebc6f6f9a7a1c68e5",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_176400_256_f64_t1.f64": {
+   "sha256": "66eafc34cfec01faea239604017e82c6a2b9f3c1e6a975fb14c79710cc257c40",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_176400_256_f64_t2.f64": {
+   "sha256": "b2c98cb562fd79688631dbe653d812f83226f22a344fb81b06f5a64b7d27f193",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_192000_256_f32_t0.f64": {
+   "sha256": "5e82f30641a97d22c4064d071e025b2ce91d0478d3f94e639c76ad68cf523795",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_192000_256_f32_t1.f64": {
+   "sha256": "314846ef3bcd6f69e9156e90ad0d534ce41166ab04e6776db4ddb295ce87993f",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_192000_256_f32_t2.f64": {
+   "sha256": "f8a4c4f572bce150d32afbb69dad4e2ec2f773ddd370602276cf68d8aa8d12dd",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_192000_256_f64_t0.f64": {
+   "sha256": "4972c766469a69b2b0a048db4fdfc6eb05a1185432ad90094bcd70e086d6ae67",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_192000_256_f64_t1.f64": {
+   "sha256": "fae916aada589f599551386c9348e63bbc2bc38b2e4114899187cd30efbc7ba2",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_192000_256_f64_t2.f64": {
+   "sha256": "2964ea1224a0489768bbf8ac575b644e65e89c89af10317b56e59c2629e61f17",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_44100_64_f32_t0.f64": {
+   "sha256": "886115dcbf7089357749d87fc8deb8e1e149204dcf45398e9b63d2d56a629a58",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_44100_64_f32_t1.f64": {
+   "sha256": "3b964fb8f7a92457131e634f8783e33e0e1bbc4d528b80244e32e39a2795753d",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_44100_64_f32_t2.f64": {
+   "sha256": "7c7ec68d38b8a1b78db5210201aced58c4f59512337a4adacb4adfe415d04c0d",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_44100_64_f64_t0.f64": {
+   "sha256": "245b9dce30d2f999821bf539666c38e6f799d48860a5814f20b19c66316094d2",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_44100_64_f64_t1.f64": {
+   "sha256": "1bddff0ca023d6f7c456c6389812cde55220db866842e866e404ea281f99eb4b",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_44100_64_f64_t2.f64": {
+   "sha256": "7be1c1846f766640e1759645581f9a72a09b69fd80248b94a18a5c2aae5486b3",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_48000_64_f32_t0.f64": {
+   "sha256": "ac66ad9fe8e92d10658419438709afbb6b105bcb86c9a25732d7b85ee992e549",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_48000_64_f32_t1.f64": {
+   "sha256": "3f31718b688b5f6b0af49d61adc8af3f6db634b7cb8ee21248175187241027b8",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_48000_64_f32_t2.f64": {
+   "sha256": "4bb8c776c2454d4cdc3e17dbecd3d5f4776b0417a36673dc17b646697bc3adea",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_48000_64_f64_t0.f64": {
+   "sha256": "07dd6965d85f086410935fb76524b27854304e6b95308681d10326561dc5dcae",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_48000_64_f64_t1.f64": {
+   "sha256": "a039da35e632c5bb353644187a53aa7c199c910a838dbae9f58d2eeaa8895a4b",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_48000_64_f64_t2.f64": {
+   "sha256": "f4b28a849822608c079ae7d6940ad749b9709bcd5cafa7a0f836254d6a11cd55",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_88200_128_f32_t0.f64": {
+   "sha256": "691bb067040e9e0aa6c370d8c2c0d882b92331508503ba2032f4b9501aa84d43",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_88200_128_f32_t1.f64": {
+   "sha256": "569b57569fc19237ecb90f81fc81c14a934c4cf39b74e8f513a89dadb65078f5",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_88200_128_f32_t2.f64": {
+   "sha256": "ec3a6f28bf1fac10613faa6f9b13e94844749d8d06d1624a27b5f8d5af5e4054",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_88200_128_f64_t0.f64": {
+   "sha256": "6a248561dac64828661d1a27cf51a55382cff6cb1c14b4178d729954980fe3fe",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_88200_128_f64_t1.f64": {
+   "sha256": "c722e708c310da73b54f56f493ae9741fce04fd9a38776594fb886cc41793cce",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_88200_128_f64_t2.f64": {
+   "sha256": "fd0ee1f8683c14e1e1155e8f049a21c0c1686b798404d0f4034c0eb4b4bf7d2a",
+   "bytes": 27568,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_96000_128_f32_t0.f64": {
+   "sha256": "de401818391eb55dac9e28df35eebdba3f5d3700ca9be131be0d3b21620cc6c1",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_96000_128_f32_t1.f64": {
+   "sha256": "170c62fec79002e1e4d5dd3a4f414fcecb126a7cc1bb813bb600797e7022dc71",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_96000_128_f32_t2.f64": {
+   "sha256": "87e1062c4ee4ba8960aa2f32f4d34372f0dbd239ab45c1d47baef9c9b951aa8e",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_96000_128_f64_t0.f64": {
+   "sha256": "a7301c32a8d5b9d9f7a08708796a8c473f82cbe8fb3aaf4dd3f425026bd1f582",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_96000_128_f64_t1.f64": {
+   "sha256": "a3ddf5b99d9438789521b6b5586a4dc8d44813b104586a8fde621ad9be48e492",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/bench_raw/raw_96000_128_f64_t2.f64": {
+   "sha256": "17242853a818a6d2e33ba9398cec60af037e9fb1beda62040683e3da5509028f",
+   "bytes": 30000,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/realtime_state/manifest.sha256": {
+   "sha256": "83815e34fd415faad7016bf313d19d3ac6948ff207a5f54cf41e80b36edabcf4",
+   "bytes": 3724,
+   "artifact_class": "SIMULATION",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/safety_ui/VAL-025_software.json": {
+   "sha256": "0cac1fbde28a572638e4e0859480b8dfa50467944d78bbcf0ed237772c1a0e99",
+   "bytes": 5719,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/safety_ui/manifest.sha256": {
+   "sha256": "fdd3b59eaef246d71f003c5c22e7896526bf511f7d2e4f1142ee175315deac02",
+   "bytes": 706,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/safety_ui/owner_review_checklist.md": {
+   "sha256": "ce75a402f1a385934dfa0a663a45122ae3e4e52258a9a50572b26015f54f27d2",
+   "bytes": 1381,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/safety_ui/screenshots/editor_before_prepare_920x540.png": {
+   "sha256": "8f9ce9ed0a2649a39b4bfac874ad7455c2883e1e9b82509c06bba6978be6a065",
+   "bytes": 114159,
+   "artifact_class": "SCREENSHOT (Linux Xvfb render; not Windows)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/safety_ui/screenshots/editor_bypassed_920x540.png": {
+   "sha256": "399c9daf0280544d84ddf418b781b3c4dfbd2e54960308c4b0d306339df4c9f8",
+   "bytes": 127144,
+   "artifact_class": "SCREENSHOT (Linux Xvfb render; not Windows)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/safety_ui/screenshots/editor_default_920x540.png": {
+   "sha256": "0477696fd9d80ed306fd7a6690ea100ab91e94a102c669192afb9bf34f9d1e3f",
+   "bytes": 125667,
+   "artifact_class": "SCREENSHOT (Linux Xvfb render; not Windows)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/safety_ui/screenshots/editor_max_1520x880.png": {
+   "sha256": "f829cf13437fccced71fa831cfae2af54b2977df61f74ac1d85324d0641ea516",
+   "bytes": 146621,
+   "artifact_class": "SCREENSHOT (Linux Xvfb render; not Windows)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/safety_ui/screenshots/editor_min_760x440.png": {
+   "sha256": "5138ebaa64c6aa89c80cfb774d49dd3453eb4d9e1f79d78119ea7df128be596b",
+   "bytes": 107909,
+   "artifact_class": "SCREENSHOT (Linux Xvfb render; not Windows)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/scope_audit.json": {
+   "sha256": "75dfe1fd37a8b358f40119816f9cd03ee39076fc268b8394fbb1afea624493f7",
+   "bytes": 2837,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/scope_audit_run.log": {
+   "sha256": "778ee6d794f74468294e687526f06fe291dfa15b34fda4100684397a46f2e14f",
+   "bytes": 50,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/unittest_run.log": {
+   "sha256": "67ce1a501da901f56867a675ea645c622c58853ee02fa086658f376f9eda2067",
+   "bytes": 7600,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/validate_sprint7_run.log": {
+   "sha256": "c7e8634fb6bae6ecf69a3f486344c48dc7ea9ddf9f306754087f7473fe7f6ffd",
+   "bytes": 156,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/validate_sprint7_val023_rerun.log": {
+   "sha256": "b95cf96cc7631d90b20205850ba739db9796f1d3361f853a6d2c4dc31c33259c",
+   "bytes": 72,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "evidence/sprint_07/validate_sprint7_val025_rerun.log": {
+   "sha256": "4b22f717ca589a45ffc83bf9b86443d1fb70ced61f8f2d7ea457b396e6f9ff29",
+   "bytes": 23,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "docs/sprint_reports/SPRINT_07_REPORT.md": {
+   "sha256": "cbcc5f5fab73ecc004b6ac0b8eebba7050b2bc3d91bb419b68e63853ea280162",
+   "bytes": 23562,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "docs/WINDOWS_HANDOFF.md": {
+   "sha256": "546d497408ef6b357bccf736b90764744ca1028c1b90f719a244d4a2e5d3fed9",
+   "bytes": 6227,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "docs/USER_CONTROL_GUIDE.md": {
+   "sha256": "23d1092a74dff30bd1e91b6ded9183f1f14957b5855769affdaebfab139d1fc2",
+   "bytes": 4491,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "docs/design_issues/DI-001_clock_anchor.md": {
+   "sha256": "4e3dce2af1ced6d84ca9d3d16c4680f7693cbc798eef9a9497ccdd66402f3043",
+   "bytes": 4230,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "plugin/product_identity.json": {
+   "sha256": "c4a65e4bdbe5542fbaaee4a9fcdf89c2e2c25137b35bc368890f6e1355b62e8b",
+   "bytes": 1163,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  },
+  "plugin/JUCE_PIN.json": {
+   "sha256": "57d10c5b7260c2ce1a106336252214f0b8f86e72a7d55ed0726b286b2612a647",
+   "bytes": 1617,
+   "artifact_class": "SOURCE/EVIDENCE (software)",
+   "hardware_validation": "N/A (software)"
+  }
+ }
+}

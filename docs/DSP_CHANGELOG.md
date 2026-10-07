@@ -1,6 +1,6 @@
 # DSP changelog
 
-Revision: execution V6 (Sprint 6) · 2026-10-07 · supersedes execution V5
+Revision: execution V7 (Sprint 7) · 2026-10-07 · supersedes execution V6
 
 Status: EXECUTION IN PROGRESS.
 
@@ -82,3 +82,16 @@ Implementation commit: `1a3ecafd98209f1b637b8aa2ba187d6003941c8a`. Subsystem: `n
 | State v1 | schema 1; six controls + identities; explicit rejections; no migrations | OWN-DEC-020 | ACTIVE | — | VAL-022 | — |
 
 Not introduced: any model change (kernels, proxy, precision, Path A/C, ideal SP reconstruction), soft clipping, saturation, noise, limiter, normalization, drive/wet-dry, volts, bypass transitions, plugin wrapper. No hardware fidelity is implied.
+
+## Sprint 7 — 2026-10-07 — WRAPPER TRANSITIONS ONLY (no DSP change; OWN-DEC-028/030)
+
+Implementation commit: recorded in docs/PROJECT_HANDOFF.md after the Sprint 7 implementation commit. Subsystem: `native/include/smlsp3000/host_adapter.hpp` (smlsp3000-host-adapter-1.0.0), `plugin/` (JUCE 8.0.9 wrapper). The native core's audio behaviour is unchanged (VAL-026: plugin == adapter == core bit-for-bit; VAL-021 limits still met against the Python reference); the two core additions (`serialize_state_with_bypass`, `update_product_targets`) are non-sonic API.
+
+| Item | Behaviour introduced | Reason / evidence | Status | Audible / behavioural consequence | Test coverage | Replacement point |
+|---|---|---|---|---|---|---|
+| Plugin bypass crossfade | host-facing plugin_bypass selects the latency-aligned ORIGINAL input (before every product gain and both machines, no output trim) with a 10 ms linear crossfade of complementary weights; the core and the dry delay keep running; rapid toggles continue from the current weight; reset/startup in bypass snap to fully dry | OWN-DEC-030 | ACTIVE (adapter, not core) | a 10 ms blend between processed and dry during toggles; nothing else | adapter ctest; VAL-023 | Sprint 7 only; no wet/dry feature |
+| Input sanitisation at the adapter boundary | NaN/Inf host samples → 0 (counted) before BOTH the core and the dry path | ENG-DEC-026 | ACTIVE | no NaN can enter the crossfade sum | adapter ctest; VAL-024 | — |
+| Block-boundary parameter delivery | host parameter changes become native events at offset 0 of the next block; the core's 10 ms ramps and discrete switches are unchanged | OWN-DEC-031 (JUCE/VST3 path) | ACTIVE | automation steps land on block boundaries (≤ one block late); no wrapper smoothing | VAL-026 automation | sample-offset delivery if a future wrapper provides it |
+| Float32 host path | promotion to float64, unchanged core, final float32 cast with preallocated buffers | OWN-DEC-029 | ACTIVE | float32 interface rounding only | VAL-026 (same-input/same-cast oracle) | — |
+
+Not introduced: any sonic processing, denormal guard, limiter, normalisation, extra rate conversion, wet/dry, drive, routes. Clock anchor unchanged (OWN-DEC-027, DI-001).

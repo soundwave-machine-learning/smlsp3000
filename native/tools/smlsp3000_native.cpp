@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include "smlsp3000/engine.hpp"
+#include "smlsp3000/host_adapter.hpp"
 
 using namespace smlsp3000;
 
@@ -117,6 +118,26 @@ static int cmd_render(const Args& a) {
     else blocks.push_back(static_cast<std::size_t>(std::atoll(a.get("block", "8192").c_str())));
     std::vector<const double*> ip(static_cast<std::size_t>(ch)); std::vector<double*> op(static_cast<std::size_t>(ch));
     std::size_t done = 0, bi = 0, ev_i = 0; int faults = 0; std::vector<ParamEvent> evbuf;
+    if (a.has("adapter")) {   // HostAdapter path (what a plugin wrapper runs): block-boundary parameter delivery, bypass crossfade, sanitised dry path
+        if (ch != 2) { std::cout << "{\"ok\":false,\"code\":\"ADAPTER_CHANNELS\",\"detail\":\"adapter path is stereo only\"}\n"; return 2; }
+        HostAdapter ad; auto ar = ad.prepare(rate, max_block, p, &r); if (!ar.ok) { std::cout << "{\"ok\":false,\"code\":" << q(ar.code) << "}\n"; return 3; }
+        const bool f32 = a.get("precision", "64") == "32"; std::vector<float> fi[2], fo[2]; for (int c = 0; c < 2; ++c) { fi[c].resize(total); fo[c].resize(total); for (std::size_t m = 0; m < total; ++m) fi[c][m] = static_cast<float>(in[static_cast<std::size_t>(c)][m]); }
+        while (done < total) {
+            std::size_t n = blocks[bi % blocks.size()]; ++bi; if (n > total - done) n = total - done;
+            while (ev_i < events.size() && events[ev_i].offset <= static_cast<long long>(done)) { ad.set_parameter(events[ev_i].id, events[ev_i].value); ++ev_i; }
+            if (f32) { const float* ipf[2] = {fi[0].data() + done, fi[1].data() + done}; float* opf[2] = {fo[0].data() + done, fo[1].data() + done}; ad.process(ipf, opf, n); }
+            else { for (int c = 0; c < ch; ++c) { ip[static_cast<std::size_t>(c)] = in[static_cast<std::size_t>(c)].data() + done; op[static_cast<std::size_t>(c)] = out[static_cast<std::size_t>(c)].data() + done; } ad.process(ip.data(), op.data(), n); }
+            done += n;
+        }
+        if (f32) for (int c = 0; c < 2; ++c) for (std::size_t m = 0; m < total; ++m) out[static_cast<std::size_t>(c)][m] = static_cast<double>(fo[c][m]);
+        std::vector<double> outer(total * static_cast<std::size_t>(ch));
+        for (std::size_t m = 0; m < total; ++m) for (int c = 0; c < ch; ++c) outer[m * static_cast<std::size_t>(ch) + static_cast<std::size_t>(c)] = out[static_cast<std::size_t>(c)][m];
+        if (!write_f64(a.get("out"), outer.data(), outer.size())) { std::cout << "{\"ok\":false,\"code\":\"IO\"}\n"; return 2; }
+        const auto ms = ad.meters();
+        std::cout << "{\"ok\":true,\"adapter\":true,\"precision\":" << (f32 ? 32 : 64) << ",\"frames_in\":" << frames << ",\"frames_out\":" << total << ",\"tail\":" << tail << ",\"latency\":" << ad.latency() << ",\"blocks_used\":" << bi
+                  << ",\"meters\":{\"nonfinite_input_samples\":" << ms.nonfinite_input_samples << ",\"faults\":" << ms.faults << ",\"events_rejected\":" << ms.events_rejected << ",\"bypass_weight\":" << f17(ms.bypass_weight) << ",\"sp_clip\":[" << ms.sp_clip[0] << "," << ms.sp_clip[1] << "],\"mpc_clip18\":[" << ms.mpc_clip18[0] << "," << ms.mpc_clip18[1] << "],\"output_peak\":[" << f17(ms.output_peak[0]) << "," << f17(ms.output_peak[1]) << "],\"over_range\":[" << (ms.output_over_range[0] ? "true" : "false") << "," << (ms.output_over_range[1] ? "true" : "false") << "]},\"state\":" << q(ad.save_state()) << "}\n";
+        return 0;
+    }
     while (done < total) {
         std::size_t n = blocks[bi % blocks.size()]; ++bi; if (n > total - done) n = total - done;
         for (int c = 0; c < ch; ++c) { ip[static_cast<std::size_t>(c)] = in[static_cast<std::size_t>(c)].data() + done; op[static_cast<std::size_t>(c)] = out[static_cast<std::size_t>(c)].data() + done; }

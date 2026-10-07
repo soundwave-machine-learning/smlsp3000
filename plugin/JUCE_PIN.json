@@ -1,0 +1,13 @@
+{
+  "dependency": "JUCE",
+  "pinned_release": "8.0.9",
+  "pinned_commit": "f72bad64d29715216226685810c5196bd0d79d77",
+  "source": "https://github.com/juce-framework/JUCE (tag 8.0.9)",
+  "dependency_method": "approved local checkout at third_party/JUCE (git-ignored; depth-1 clone of the tag); plugin/CMakeLists.txt verifies the checkout commit against this pin before configuring",
+  "retrieval_command": "git clone --depth 1 --branch 8.0.9 https://github.com/juce-framework/JUCE third_party/JUCE",
+  "license_route_selected": "GNU AGPLv3 (JUCE dual-licence open-source option) for this unpublished personal-use build; the JUCE 8 End User Licence Agreement was NOT accepted on the owner's behalf; JUCE_DISPLAY_SPLASH_SCREEN=0 and JUCE_REPORT_APP_USAGE=0 as permitted under the AGPLv3 option",
+  "bundled_sdks": {"VST3 SDK (Steinberg, bundled in modules/juce_audio_processors/format_types/VST3_SDK)": "used under its GPLv3 option (consistent with the AGPLv3 route); the proprietary Steinberg VST3 licence was not accepted"},
+  "required_notices_if_distributed": ["AGPLv3 text and corresponding source for the combined work", "JUCE copyright notice", "Steinberg VST3 SDK notice (GPLv3 option)", "VST is a trademark of Steinberg Media Technologies GmbH"],
+  "owner_action_still_required": "none for private personal use without distribution; if the owner intends to distribute or prefers the commercial/Personal JUCE EULA route (splash screen, revenue limits) or the proprietary Steinberg VST3 licence, the owner must accept those terms personally — not performed here, no purchase made",
+  "no_moving_branch": true
+}

@@ -1,0 +1,132 @@
+{
+ "artifact_class": "VALIDATION RESULT",
+ "asset_identity": {
+  "asset_id": "plugin(SML SP-3000 VST3 Linux dev build) vs native adapter vs reference",
+  "model_version": "JUCE 8.0.9 (f72bad64d297); native core + host adapter",
+  "sha256": "e6a9371def06760bb32bcdc67334ab608c64bee0b4d4b26d1f282226144a9582",
+  "version": "0.7.0"
+ },
+ "check_id": "VAL-025",
+ "command": "python3 -m smlsp3000.runner validate-sprint7 --evidence evidence/sprint_07 --only VAL-025",
+ "dataset_role": "VALIDATION",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "hardware_fit_outcome": "BLOCKED",
+ "limitations": [
+  "Owner G-10 visual/musical acceptance NOT EXECUTED; screenshots are from the Linux build under Xvfb (software rendering), Windows look not captured.",
+  "No LUFS/RMS/true-peak metering exists; sample-peak only."
+ ],
+ "method": "Editor rendered under a virtual display (screenshots at default/min/max/bypassed sizes and before audio preparation); clip/over-range meter semantics on clip and inter-sample-peak stimuli through the adapter path (modelled converter clamps counted; finite over-range output indicated and never clamped); exposed parameter list limited to the six product controls; state contains no research/calibration fields; standalone binary smoke test (headless, no audio device). Owner UI/listening acceptance NOT EXECUTED (G-10).",
+ "outcome": "PASS",
+ "requirement_id": "REQ-025",
+ "research_config_sha256": "n/a (product state only)",
+ "results": {
+  "exposed_parameters": [
+   "interstage_level_db",
+   "mpc_input_gain",
+   "output_trim_db",
+   "plugin_bypass",
+   "sp_input_gain",
+   "sp_input_level_db"
+  ],
+  "failures": [],
+  "indicators": {
+   "isp_trim_plus3": {
+    "last_block_output_peak": [
+     1.458391546632545,
+     1.458391546632545
+    ],
+    "last_block_over_range_flag": [
+     true,
+     true
+    ],
+    "note": "sample-peak meter only; inter-sample peaks between samples are not measured (no true-peak claim)",
+    "render_max_abs": 1.6675714316274008
+   },
+   "overrange_fixture": {
+    "mpc_clip18_total": [
+     4110,
+     3417
+    ],
+    "note": "converter clamps bound the machine CODES (counted); reconstruction/trim can exceed \u00b11.0 and the plugin leaves it (no limiter)",
+    "output_not_clamped_by_plugin": true,
+    "render_max_abs": 1.1129289187173488,
+    "sp_clip_total": [
+     5696,
+     4616
+    ]
+   }
+  },
+  "review_checklist": "evidence/sprint_07/safety_ui/owner_review_checklist.md",
+  "screenshots": {
+   "exit": 0,
+   "files": [
+    "editor_before_prepare_920x540.png",
+    "editor_bypassed_920x540.png",
+    "editor_default_920x540.png",
+    "editor_max_1520x880.png",
+    "editor_min_760x440.png"
+   ],
+   "stdout": ", 44.1 kHz)  ->  OUTPUT\npath_label_text=SP INPUT\nwrote /home/user/smlsp3000/evidence/sprint_07/safety_ui/screenshots/editor_before_prepare_920x540.png (920x540)\nwrote /home/user/smlsp3000/evidence/sprint_07/safety_ui/screenshots/editor_default_920x540.png (920x540)\nwrote /home/user/smlsp3000/evidence/sprint_07/safety_ui/screenshots/editor_min_760x440.png (760x440)\nwrote /home/user/smlsp3000/evidence/sprint_07/safety_ui/screenshots/editor_max_1520x880.png (1520x880)\nwrote /home/user/smlsp3000/evidence/sprint_07/safety_ui/screenshots/editor_bypassed_920x540.png (920x540)\nsnapshot tool done rc=0\n"
+  },
+  "standalone_smoke": {
+   "binary_exists": true,
+   "exit": "terminated after 8 s (alive, no crash)",
+   "exited_early": false,
+   "note": "Linux standalone built without an audio backend (no ALSA headers in the container); launched headless under Xvfb for 8 s; monitoring requires explicit activation (JUCE standalone mutes input by default)",
+   "pass": true,
+   "size_bytes": 12077776
+  },
+  "state_fields": [
+   "schema_version",
+   "controls",
+   "product_config",
+   "sp_asset",
+   "mpc_asset",
+   "sp_input_level_db",
+   "sp_input_gain_db",
+   "interstage_level_db",
+   "mpc_input_gain",
+   "output_trim_db",
+   "plugin_bypass"
+  ]
+ },
+ "software": {
+  "native": {
+   "CMAKE_BUILD_TYPE": "Release",
+   "CMAKE_CXX_COMPILER": "/usr/bin/c++",
+   "CMAKE_CXX_FLAGS": "",
+   "CMAKE_CXX_FLAGS_RELEASE": "-O2 -DNDEBUG",
+   "CMAKE_GENERATOR": "Ninja",
+   "SMLSP3000_NATIVE_ARCH": "OFF",
+   "binary": "/home/user/smlsp3000/native/build/smlsp3000_native",
+   "build_dir": "/home/user/smlsp3000/native/build",
+   "compiler_version": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+   "denormal_policy": "none (no FTZ/DAZ; bit-identity with the reference; all filters are feed-forward so denormals cannot self-sustain)",
+   "fast_math": "OFF (-fno-fast-math)",
+   "fma_contraction_policy": "OFF: -ffp-contract=off (GCC default for GNU C++ is 'fast'); products and sums are rounded separately so FIR accumulation reproduces the numpy pairwise order",
+   "machine": "x86_64",
+   "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+   "target_compile_options": "-Wall -Wextra -O2 -ffp-contract=off -fno-fast-math -fexcess-precision=standard (GCC/Clang; see native/CMakeLists.txt); MSVC: /W4 /fp:precise /O2 (not compiled here)"
+  },
+  "numpy": "2.5.3",
+  "plugin_build": "plugin/build (Linux, GCC 13.3, -O2, -ffp-contract=off on the core)",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "4b8d24e15a07d8aea78b65310a1f4cc927d14f78-dirty",
+ "stimulus": {
+  "isp": "11.025 kHz sine 0.98 with +3 dB trim",
+  "overrange": "overrange_steps_pm16"
+ },
+ "timestamp_utc": "2026-10-07T05:19:47+00:00",
+ "tolerance_policy": {
+  "indicators": "exact semantics (counts from the core; over-range = |out| > 1.0 finite)",
+  "ui": "structural checks only; owner review pending"
+ },
+ "track": "A"
+}

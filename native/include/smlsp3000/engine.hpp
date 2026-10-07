@@ -110,6 +110,7 @@ public:
     PrepareResult prepare(int host_rate, int channels, std::size_t max_block, const ProductParameters& product, const ResearchConfiguration* research = nullptr);
     bool prepared() const { return prepared_; }
     void reset();                                              // stream start: clears state, snaps ramps to the configured values, clears meters
+    void update_product_targets(const ProductParameters& p);   // NON-REALTIME (before reset/prepare): adopt the six control values as the configured values (ramps snap at the next reset)
     std::int64_t latency() const { return info_.latency_host; }
     const PreparedInfo& info() const { return info_; }
     // planar float64 in/out; frames may be 0..any (internal chunking at max_block); events sorted by offset (0 <= offset < frames)
@@ -119,7 +120,8 @@ public:
     void reset_meters();
     const ProductParameters& product() const { return product_; }
     // state v1 (non-audio thread): product controls + asset identity; research never serialized
-    std::string serialize_state() const;
+    std::string serialize_state() const { return serialize_state_with_bypass(product_.plugin_bypass); }
+    std::string serialize_state_with_bypass(bool plugin_bypass) const;   // host adapters own the bypass crossfade; the stored value is theirs
     static StateLoadResult parse_state(std::string_view text, ProductParameters& out);   // out keeps its profile-fixed fields
     // offline diagnostics only
     void set_tap_sinks(int channel, TapSink* sp_codes, TapSink* mpc_c18, TapSink* mpc_c16);

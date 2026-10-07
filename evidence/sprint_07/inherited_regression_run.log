@@ -1,0 +1,43 @@
+== CMD-02
+PASS  VAL-001.sources: both research sources byte-identical to PACKAGE_VALIDATION hashes
+PASS  VAL-001.contracts: found ['SPRINT_01.md', 'SPRINT_02.md', 'SPRINT_03.md', 'SPRINT_04.md', 'SPRINT_05.md', 'SPRINT_06.md', 'SPRINT_07.md', 'SPRINT_08.md']
+PASS  VAL-001.links: all local markdown links resolve
+PASS  VAL-001.matrix: md rows=28 unique=28 csv rows=28
+PASS  VAL-001.sha256sums: revised since planning V1 (living docs, allowed): 19 files
+exit=0
+== CMD-13 (existing build dir reused: cmake --build)
+ninja: no work to do.
+exit=0
+== CMD-14
+
+Total Test time (real) =   2.90 sec
+exit=0
+== CMD-05
+Ran 59 tests in 122.008s
+
+OK
+exit=0
+== CMD-15 --quick
+{
+ "VAL-021": "PASS",
+ "VAL-019": "PASS",
+ "VAL-020": "PASS",
+ "VAL-022": "PASS"
+}
+exit=0
+== sprint 3/4/5 re-runs vs committed
+REGRESSION cascade/VAL-015_software.json identical: False
+REGRESSION cascade/VAL-016_software.json identical: True
+REGRESSION mpc3000/analog/VAL-013_software.json identical: False
+REGRESSION mpc3000/digital/VAL-012_software.json identical: True
+REGRESSION mpc3000/path_comparison/VAL-014_software.json identical: True
+REGRESSION sp1200/calibration/VAL-011_software.json identical: True
+REGRESSION sp1200/digital/VAL-008_software.json identical: True
+REGRESSION sp1200/input/VAL-009_software.json identical: False
+REGRESSION sp1200/output/VAL-010_software.json identical: False
+REGRESSION stereo/VAL-017_software.json identical: True
+ALL_IDENTICAL False
+== second pass: nature of the differences in the two non-identical records
+sp1200/input/VAL-009_software.json differences: 4 | only the Sprint 6 instrumentation key peak_core_input_normalized (added to re-runs, absent from the committed golden): True
+sp1200/output/VAL-010_software.json differences: 8 | only the Sprint 6 instrumentation key peak_core_input_normalized (added to re-runs, absent from the committed golden): True
+GOLDENS_NUMERICALLY_IDENTICAL_EXCEPT_NEW_METER_KEY True

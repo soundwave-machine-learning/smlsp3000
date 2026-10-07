@@ -1,0 +1,18 @@
+{
+  "record": "SML SP-3000 product identity (Sprint 7, owner decision §5) — centralised; recorded before any wrapper/session fixture",
+  "product_display_name": "SML SP-3000",
+  "company": "Soundwave Machine Learning",
+  "company_code": "SWML",
+  "plugin_code": "Sp3K",
+  "bundle_id": "com.soundwavemachinelearning.smlsp3000",
+  "vst3_class_identity": "derived by JUCE from company_code + plugin_code (stable as long as these codes are unchanged); never shared with SPZERO / SML SP-06",
+  "state_root_tag": "SMLSP3000_STATE_V1",
+  "state_payload": "native schema version 1 text record (smlsp3000-state) wrapped in the state root element; no research/calibration fields",
+  "preset_directory_name": "SML SP-3000",
+  "version": "0.7.0",
+  "formats_configured": ["VST3", "Standalone"],
+  "bus_layout": "stereo in / stereo out only",
+  "category": "Fx",
+  "not_reused_from_other_projects": ["SPZERO plugin identifier", "SML SP-06 VST3 class identity", "bundle identifier", "state root", "preset directory", "DSP or UI code"],
+  "rename_policy": "fixed from this record onward; renaming after state/host fixtures exist is not permitted without an owner decision"
+}

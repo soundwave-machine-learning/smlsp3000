@@ -40,6 +40,8 @@ def main(argv: list[str] | None = None) -> int:
     s5.add_argument("--out", required=True)
     s6 = sub.add_parser("validate-sprint6", help="Sprint 6 software-track checks VAL-019/020/021/022 (Track A, native production core vs reference)")
     s6.add_argument("--out", default="research/validation"); s6.add_argument("--evidence", default="evidence/sprint_06"); s6.add_argument("--quick", action="store_true"); s6.add_argument("--only", default=None, help="run a single check (VAL-019/020/021/022)")
+    s7 = sub.add_parser("validate-sprint7", help="Sprint 7 plugin-wrapper checks VAL-023/024/025/026 + pluginval (Linux build)")
+    s7.add_argument("--evidence", default="evidence/sprint_07"); s7.add_argument("--quick", action="store_true"); s7.add_argument("--only", default=None)
     nb = sub.add_parser("native-bench", help="Sprint 6 native Release benchmark (OWN-DEC-017)")
     nb.add_argument("--out", default="evidence/sprint_06/benchmark"); nb.add_argument("--seconds", type=float, default=5.0); nb.add_argument("--trials", type=int, default=3); nb.add_argument("--warmup", type=float, default=1.0)
     lk = sub.add_parser("listening-kit", help="CHAIN-EXP-018 software-only listening kit (preparation only)")
@@ -73,6 +75,10 @@ def main(argv: list[str] | None = None) -> int:
         res = run4(ns.out, "python3 -m smlsp3000.runner " + " ".join(argv))
         print(json.dumps(res, indent=1))
         return 0 if all(v == "PASS" for v in res.values()) else 1
+    if ns.cmd == "validate-sprint7":
+        from .validation import plugin_track_a
+        res = plugin_track_a.run_all(ns.evidence, "python3 -m smlsp3000.runner validate-sprint7 --evidence " + ns.evidence + (" --quick" if ns.quick else "") + (" --only " + ns.only if ns.only else ""), quick=ns.quick, only=ns.only)
+        print(json.dumps(res, indent=1)); return 0 if all(v == "PASS" for v in res.values()) else 1
     if ns.cmd == "validate-sprint6":
         from .validation import production_track_a
         res = production_track_a.run_all(ns.out, ns.evidence, "python3 -m smlsp3000.runner validate-sprint6 --out " + ns.out + (" --quick" if ns.quick else "") + (" --only " + ns.only if ns.only else ""), quick=ns.quick, only=ns.only)

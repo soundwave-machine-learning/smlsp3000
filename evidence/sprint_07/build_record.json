@@ -1,0 +1,76 @@
+{
+  "record": "Sprint 07 plugin build record (Linux dev container)",
+  "recorded_utc": "2026-10-07T04:56:25+00:00",
+  "native_core_record": {
+    "build_dir": "/home/user/smlsp3000/native/build",
+    "binary": "/home/user/smlsp3000/native/build/smlsp3000_native",
+    "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "CMAKE_BUILD_TYPE": "Release",
+    "CMAKE_CXX_COMPILER": "/usr/bin/c++",
+    "CMAKE_CXX_FLAGS": "",
+    "CMAKE_CXX_FLAGS_RELEASE": "-O2 -DNDEBUG",
+    "SMLSP3000_NATIVE_ARCH": "OFF",
+    "CMAKE_GENERATOR": "Ninja",
+    "compiler_version": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "target_compile_options": "-Wall -Wextra -O2 -ffp-contract=off -fno-fast-math -fexcess-precision=standard (GCC/Clang; see native/CMakeLists.txt); MSVC: /W4 /fp:precise /O2 (not compiled here)",
+    "fma_contraction_policy": "OFF: -ffp-contract=off (GCC default for GNU C++ is 'fast'); products and sums are rounded separately so FIR accumulation reproduces the numpy pairwise order",
+    "fast_math": "OFF (-fno-fast-math)",
+    "denormal_policy": "none (no FTZ/DAZ; bit-identity with the reference; all filters are feed-forward so denormals cannot self-sustain)"
+  },
+  "juce_pin": {
+    "dependency": "JUCE",
+    "pinned_release": "8.0.9",
+    "pinned_commit": "f72bad64d29715216226685810c5196bd0d79d77",
+    "source": "https://github.com/juce-framework/JUCE (tag 8.0.9)",
+    "dependency_method": "approved local checkout at third_party/JUCE (git-ignored; depth-1 clone of the tag); plugin/CMakeLists.txt verifies the checkout commit against this pin before configuring",
+    "retrieval_command": "git clone --depth 1 --branch 8.0.9 https://github.com/juce-framework/JUCE third_party/JUCE",
+    "license_route_selected": "GNU AGPLv3 (JUCE dual-licence open-source option) for this unpublished personal-use build; the JUCE 8 End User Licence Agreement was NOT accepted on the owner's behalf; JUCE_DISPLAY_SPLASH_SCREEN=0 and JUCE_REPORT_APP_USAGE=0 as permitted under the AGPLv3 option",
+    "bundled_sdks": {
+      "VST3 SDK (Steinberg, bundled in modules/juce_audio_processors/format_types/VST3_SDK)": "used under its GPLv3 option (consistent with the AGPLv3 route); the proprietary Steinberg VST3 licence was not accepted"
+    },
+    "required_notices_if_distributed": [
+      "AGPLv3 text and corresponding source for the combined work",
+      "JUCE copyright notice",
+      "Steinberg VST3 SDK notice (GPLv3 option)",
+      "VST is a trademark of Steinberg Media Technologies GmbH"
+    ],
+    "owner_action_still_required": "none for private personal use without distribution; if the owner intends to distribute or prefers the commercial/Personal JUCE EULA route (splash screen, revenue limits) or the proprietary Steinberg VST3 licence, the owner must accept those terms personally \u2014 not performed here, no purchase made",
+    "no_moving_branch": true
+  },
+  "juce_checkout_commit": "f72bad64d29715216226685810c5196bd0d79d77",
+  "configure_command": "CXXFLAGS=\"-DJUCE_USE_XRANDR=0 -DJUCE_USE_XINERAMA=0 -DJUCE_USE_XCURSOR=0 -DJUCE_USE_CURL=0 -DJUCE_WEB_BROWSER=0 -DJUCE_ALSA=0 -DJUCE_JACK=0\" cmake -S plugin -B plugin/build -G Ninja -DCMAKE_BUILD_TYPE=Release",
+  "build_command": "cmake --build plugin/build",
+  "core_objects_in_plugin_tree": {
+    "FLAGS": "-DJUCE_USE_XRANDR=0 -DJUCE_USE_XINERAMA=0 -DJUCE_USE_XCURSOR=0 -DJUCE_USE_CURL=0 -DJUCE_WEB_BROWSER=0 -DJUCE_ALSA=0 -DJUCE_JACK=0 -O2 -DNDEBUG -std=c++20 -fPIC -Wall -Wextra -ffp-contract=off -fno-fast-math -fexcess-precision=standard",
+    "DEFINES_excerpt": null
+  },
+  "vst3_wrapper_objects": {
+    "FLAGS": "-DJUCE_USE_XRANDR=0 -DJUCE_USE_XINERAMA=0 -DJUCE_USE_XCURSOR=0 -DJUCE_USE_CURL=0 -DJUCE_WEB_BROWSER=0 -DJUCE_ALSA=0 -DJUCE_JACK=0 -O2 -DNDEBUG -std=c++20 -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -O3 -Wall -Wextra -Wpedantic -Wstrict-aliasing -Wuninitialized -Wunused-parameter -Wsign-compare -Wsign-conversion -Wunreachable-code -Wcast-align -Wno-implicit-fallthrough -Wno-maybe-uninitialized -Wno-ignored-qualifiers -Wno-multichar -Wswitch-enum -Wredundant-decls -Wno-strict-overflow -Wshadow -Wfloat-equal -Wmissing-field-initializers -Woverloaded-virtual -Wreorder -Wzero-as-null-pointer-constant",
+    "DEFINES_excerpt": "-DJUCE_ALSA=0 -DJUCE_DISPLAY_SPLASH_SCREEN=0 -DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1 -DJUCE_JACK=0 -DJUCE_MODAL_LOOPS_PERMITTED=0 -DJUCE_MODULE_AVAILABLE_juce_audio_basics=1 -DJUCE_MODULE_AVAILABLE_juce_audio_devices=1 -DJUCE_MODULE_AVAILABLE_juce_audio_formats=1 -DJUCE_MODULE_AVAILABLE_juce_audio_plugin_client=1 -DJUCE_MODULE_AVAILABLE_juce_audio_processors=1 -DJUCE_MODULE_AVAILABLE_juce_audio_utils=1 -DJUCE_MODULE_AVAILABLE_juce_core=1 -DJUCE_MODULE_AVAILABLE_juce_data_structures=1 -DJUCE_MODULE_AVAILABLE_juce_events=1 -DJUCE_MODULE_AVAILABLE_juce_graphics=1 -DJUCE_MODULE_AVAILABLE_juce_gui"
+  },
+  "shared_code_objects": {
+    "FLAGS": "-DJUCE_USE_XRANDR=0 -DJUCE_USE_XINERAMA=0 -DJUCE_USE_XCURSOR=0 -DJUCE_USE_CURL=0 -DJUCE_WEB_BROWSER=0 -DJUCE_ALSA=0 -DJUCE_JACK=0 -O2 -DNDEBUG -std=c++20 -fPIC -fvisibility=hidden -fvisibility-inlines-hidden -Wall -Wextra -ffp-contract=off -fno-fast-math -fexcess-precision=standard -O3 -Wpedantic -Wstrict-aliasing -Wuninitialized -Wunused-parameter -Wsign-compare -Wsign-conversion -Wunreachable-code -Wcast-align -Wno-implicit-fallthrough -Wno-maybe-uninitialized -Wno-ignored-qualifiers -Wno-multichar -Wswitch-enum -Wredundant-decls -Wno-strict-overflow -Wshadow -Wfloat-equal -Wmissing-field-initializers -Woverloaded-virtual -Wreorder -Wzero-as-null-pointer-constant",
+    "DEFINES_excerpt": "-DJUCE_ALSA=0 -DJUCE_DISPLAY_SPLASH_SCREEN=0 -DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1 -DJUCE_JACK=0 -DJUCE_MODAL_LOOPS_PERMITTED=0 -DJUCE_MODULE_AVAILABLE_juce_audio_basics=1 -DJUCE_MODULE_AVAILABLE_juce_audio_devices=1 -DJUCE_MODULE_AVAILABLE_juce_audio_formats=1 -DJUCE_MODULE_AVAILABLE_juce_audio_plugin_client=1 -DJUCE_MODULE_AVAILABLE_juce_audio_processors=1 -DJUCE_MODULE_AVAILABLE_juce_audio_utils=1 -DJUCE_MODULE_AVAILABLE_juce_core=1 -DJUCE_MODULE_AVAILABLE_juce_data_structures=1 -DJUCE_MODULE_AVAILABLE_juce_events=1 -DJUCE_MODULE_AVAILABLE_juce_graphics=1 -DJUCE_MODULE_AVAILABLE_juce_gui"
+  },
+  "floating_point_policy": "core: -O2 -ffp-contract=off -fno-fast-math -fexcess-precision=standard (PUBLIC on the core target, visible in the core object FLAGS above); PIC enabled for the shared module (no code change); no LTO (juce_recommended_lto_flags not used); JUCE recommended config flags add no fast-math; no FTZ/DAZ guard (juce::ScopedNoDenormals deliberately not used)",
+  "cxxflags_workaround": "the CXXFLAGS environment adds only -D definitions (module options) so that JUCE's juceaide bootstrap compiles without Xrandr/Xinerama/Xcursor/ALSA headers; it contains no floating-point flags; not needed on Windows",
+  "formats_built": [
+    "VST3 (plugin/build/SMLSP3000_artefacts/Release/VST3/SML SP-3000.vst3, Linux x86_64 .so)",
+    "Standalone (plugin/build/SMLSP3000_artefacts/Release/Standalone/SML SP-3000, Linux, no audio backend)"
+  ],
+  "formats_configured_not_built": [
+    "Windows x86_64 VST3 and Standalone (docs/WINDOWS_HANDOFF.md)"
+  ],
+  "dev_tools_built": [
+    "smlsp3000_host_harness (JUCE VST3 host)",
+    "smlsp3000_editor_snapshot",
+    "native smlsp3000_native / smlsp3000_selftest / smlsp3000_adapter_test"
+  ],
+  "platform": {
+    "platform": "Linux-6.18.44-fc-v77-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64",
+    "python_implementation": "CPython"
+  }
+}
