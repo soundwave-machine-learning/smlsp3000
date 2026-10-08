@@ -15,7 +15,7 @@ static Candidate demo() { Candidate c; c.id = "cand_test_000000"; c.name = "test
 
 static juce::AudioBuffer<double> synth(int rate, double seconds, double amp) {
     const int n = static_cast<int>(rate * seconds); juce::AudioBuffer<double> b(2, n);
-    for (int i = 0; i < n; ++i) { const double t = static_cast<double>(i) / rate; const double env = std::exp(-6.0 * std::fmod(t, 0.25)); const double v = amp * env * (std::sin(2 * M_PI * 55.0 * t) + 0.3 * std::sin(2 * M_PI * 1870.0 * t)); b.setSample(0, i, v); b.setSample(1, i, 0.8 * v); }
+    for (int i = 0; i < n; ++i) { const double t = static_cast<double>(i) / rate; const double env = std::exp(-6.0 * std::fmod(t, 0.25)); const double v = amp * env * (std::sin(2 * juce::MathConstants<double>::pi * 55.0 * t) + 0.3 * std::sin(2 * juce::MathConstants<double>::pi * 1870.0 * t)); b.setSample(0, i, v); b.setSample(1, i, 0.8 * v); }
     return b;
 }
 

@@ -71,3 +71,4 @@ Evidence change updates CONFIDENCE/debt/gates; material design change records DE
 - [Full troubleshooting report](WINDOWS_TROUBLESHOOTING_REPORT.md)
 - [UI/preset engineering handoff](UI_PRESET_HANDOFF.md)
 - [Next-task prompt](NEXT_UI_PRESET_TASK.md)
+- [Windows reconciliation report](sprint_reports/WINDOWS_RECONCILIATION_REPORT.md)
