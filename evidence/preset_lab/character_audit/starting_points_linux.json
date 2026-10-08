@@ -1,0 +1,454 @@
+{
+ "record": "character-audit starting points (Linux renders on the synthetic demo beat)",
+ "generated_utc": "2026-10-08",
+ "status": "STARTING POINTS for the owner's character audit; NOT factory presets; NOT auditioned; values rule-derived, not tuned",
+ "source": {
+  "file": "reference/preset_lab/sources/demo_beat_48000.wav",
+  "note": "synthetic demo beat (reference/preset_lab/sources/demo_beat_48000.json); the owner re-records these numbers on real finished beats on Windows"
+ },
+ "environment": "Linux x86_64 container build of the Preset Lab (product DSP identical to 38ff483); Windows numbers NOT RECORDED",
+ "rule": "LIGHT = +6 dB continuous at the stage; HARD = +12 dB continuous plus the +20 dB step (SP input gain 20 / MPC MID); DUAL LIGHT +6/+6; DUAL MEDIUM +12/+12 no steps; DUAL HARD = HARD at both; output trim = -(gain added), clipped to the -60 dB range end",
+ "clamp_counts_note": "per sample per channel over the 8 s render incl. the 310-sample tail; information only, not classified as good or bad",
+ "points": [
+  {
+   "id": "ca_init",
+   "name": "INIT",
+   "category": "UTILITY",
+   "product_parameters": {
+    "sp_input_level_db": 0.0,
+    "sp_input_gain_db": 0,
+    "interstage_level_db": 0.0,
+    "mpc_input_gain": "LO",
+    "output_trim_db": 0.0,
+    "plugin_bypass": false
+   },
+   "effective_host_mapped_values": {
+    "sp_input_level_db": 0.0,
+    "sp_input_gain_db": 0.0,
+    "interstage_level_db": 0.0,
+    "mpc_input_gain": 0.0,
+    "output_trim_db": 0.0,
+    "plugin_bypass": 0.0
+   },
+   "sp_clip": [
+    0,
+    0
+   ],
+   "mpc_clip18": [
+    0,
+    0
+   ],
+   "mpc_clamp16": [
+    0,
+    0
+   ],
+   "output_over_range": [
+    false,
+    false
+   ],
+   "input_peak": [
+    0.664381742477417,
+    0.707945823669434
+   ],
+   "output_peak": [
+    0.672384497280501,
+    0.721442109010835
+   ],
+   "input_rms": [
+    0.109121110232835,
+    0.11003507657005
+   ],
+   "output_rms": [
+    0.108518506019088,
+    0.109396120135302
+   ],
+   "output_f64_sha256": "a0fa6f4ce15eafe193905996fcd2e7be3daaf57802c369d49236cfb49fdac6a3",
+   "render_record": "reference/preset_lab/renders/ca_init_r1/demo_beat_48000_48000.render.json"
+  },
+  {
+   "id": "ca_sp_light",
+   "name": "SP LIGHT",
+   "category": "SP CHARACTER",
+   "product_parameters": {
+    "sp_input_level_db": 6.0,
+    "sp_input_gain_db": 0,
+    "interstage_level_db": 0.0,
+    "mpc_input_gain": "LO",
+    "output_trim_db": -6.0,
+    "plugin_bypass": false
+   },
+   "effective_host_mapped_values": {
+    "sp_input_level_db": 6.0,
+    "sp_input_gain_db": 0.0,
+    "interstage_level_db": 0.0,
+    "mpc_input_gain": 0.0,
+    "output_trim_db": -6.0,
+    "plugin_bypass": 0.0
+   },
+   "sp_clip": [
+    106,
+    166
+   ],
+   "mpc_clip18": [
+    99,
+    159
+   ],
+   "mpc_clamp16": [
+    70,
+    104
+   ],
+   "output_over_range": [
+    false,
+    false
+   ],
+   "input_peak": [
+    0.664381742477417,
+    0.707945823669434
+   ],
+   "output_peak": [
+    0.539129432811485,
+    0.546675082325618
+   ],
+   "input_rms": [
+    0.109121110232835,
+    0.11003507657005
+   ],
+   "output_rms": [
+    0.108416901362278,
+    0.109210006507091
+   ],
+   "output_f64_sha256": "6d2bf529d427371a27c3fcca4102040b86779baeb5a32751bcfa3711434c1242",
+   "render_record": "reference/preset_lab/renders/ca_sp_light_r1/demo_beat_48000_48000.render.json"
+  },
+  {
+   "id": "ca_sp_hard",
+   "name": "SP HARD",
+   "category": "SP CHARACTER",
+   "product_parameters": {
+    "sp_input_level_db": 12.0,
+    "sp_input_gain_db": 20,
+    "interstage_level_db": 0.0,
+    "mpc_input_gain": "LO",
+    "output_trim_db": -32.0,
+    "plugin_bypass": false
+   },
+   "effective_host_mapped_values": {
+    "sp_input_level_db": 12.0,
+    "sp_input_gain_db": 20.0,
+    "interstage_level_db": 0.0,
+    "mpc_input_gain": 0.0,
+    "output_trim_db": -32.0,
+    "plugin_bypass": 0.0
+   },
+   "sp_clip": [
+    152417,
+    153168
+   ],
+   "mpc_clip18": [
+    53725,
+    54379
+   ],
+   "mpc_clamp16": [
+    21718,
+    22210
+   ],
+   "output_over_range": [
+    false,
+    false
+   ],
+   "input_peak": [
+    0.664381742477417,
+    0.707945823669434
+   ],
+   "output_peak": [
+    0.032419737010779,
+    0.032920389895934
+   ],
+   "input_rms": [
+    0.109121110232835,
+    0.11003507657005
+   ],
+   "output_rms": [
+    0.022506643509602,
+    0.022550485692592
+   ],
+   "output_f64_sha256": "4b0711fa12969f7d4266b683754d622597d6c600d11a62396a0538e70e71cdc1",
+   "render_record": "reference/preset_lab/renders/ca_sp_hard_r1/demo_beat_48000_48000.render.json"
+  },
+  {
+   "id": "ca_mpc_light",
+   "name": "MPC LIGHT",
+   "category": "MPC CHARACTER",
+   "product_parameters": {
+    "sp_input_level_db": 0.0,
+    "sp_input_gain_db": 0,
+    "interstage_level_db": 6.0,
+    "mpc_input_gain": "LO",
+    "output_trim_db": -6.0,
+    "plugin_bypass": false
+   },
+   "effective_host_mapped_values": {
+    "sp_input_level_db": 0.0,
+    "sp_input_gain_db": 0.0,
+    "interstage_level_db": 6.0,
+    "mpc_input_gain": 0.0,
+    "output_trim_db": -6.0,
+    "plugin_bypass": 0.0
+   },
+   "sp_clip": [
+    0,
+    0
+   ],
+   "mpc_clip18": [
+    150,
+    232
+   ],
+   "mpc_clamp16": [
+    106,
+    149
+   ],
+   "output_over_range": [
+    false,
+    false
+   ],
+   "input_peak": [
+    0.664381742477417,
+    0.707945823669434
+   ],
+   "output_peak": [
+    0.569547559747632,
+    0.580333356378312
+   ],
+   "input_rms": [
+    0.109121110232835,
+    0.11003507657005
+   ],
+   "output_rms": [
+    0.108441649795377,
+    0.10925141184728
+   ],
+   "output_f64_sha256": "8e4e0f87c87b75ba56aab2942fe624fc7623d1b6670b1fc7ff83c9a58f67abbd",
+   "render_record": "reference/preset_lab/renders/ca_mpc_light_r1/demo_beat_48000_48000.render.json"
+  },
+  {
+   "id": "ca_mpc_hard",
+   "name": "MPC HARD",
+   "category": "MPC CHARACTER",
+   "product_parameters": {
+    "sp_input_level_db": 0.0,
+    "sp_input_gain_db": 0,
+    "interstage_level_db": 12.0,
+    "mpc_input_gain": "MID",
+    "output_trim_db": -32.0,
+    "plugin_bypass": false
+   },
+   "effective_host_mapped_values": {
+    "sp_input_level_db": 0.0,
+    "sp_input_gain_db": 0.0,
+    "interstage_level_db": 12.0,
+    "mpc_input_gain": 1.0,
+    "output_trim_db": -32.0,
+    "plugin_bypass": 0.0
+   },
+   "sp_clip": [
+    0,
+    0
+   ],
+   "mpc_clip18": [
+    258084,
+    259416
+   ],
+   "mpc_clamp16": [
+    130358,
+    130864
+   ],
+   "output_over_range": [
+    false,
+    false
+   ],
+   "input_peak": [
+    0.664381742477417,
+    0.707945823669434
+   ],
+   "output_peak": [
+    0.044571029143794,
+    0.04482592592537
+   ],
+   "input_rms": [
+    0.109121110232835,
+    0.11003507657005
+   ],
+   "output_rms": [
+    0.022689682070568,
+    0.022736094046676
+   ],
+   "output_f64_sha256": "b4b97c7bade71932b66b2e9334e8a377c8b696e7a8bf7782d2ffee7de6f1816b",
+   "render_record": "reference/preset_lab/renders/ca_mpc_hard_r1/demo_beat_48000_48000.render.json"
+  },
+  {
+   "id": "ca_dual_light",
+   "name": "DUAL LIGHT",
+   "category": "DUAL STAGE",
+   "product_parameters": {
+    "sp_input_level_db": 6.0,
+    "sp_input_gain_db": 0,
+    "interstage_level_db": 6.0,
+    "mpc_input_gain": "LO",
+    "output_trim_db": -12.0,
+    "plugin_bypass": false
+   },
+   "effective_host_mapped_values": {
+    "sp_input_level_db": 6.0,
+    "sp_input_gain_db": 0.0,
+    "interstage_level_db": 6.0,
+    "mpc_input_gain": 0.0,
+    "output_trim_db": -12.0,
+    "plugin_bypass": 0.0
+   },
+   "sp_clip": [
+    106,
+    166
+   ],
+   "mpc_clip18": [
+    14242,
+    14909
+   ],
+   "mpc_clamp16": [
+    7203,
+    7556
+   ],
+   "output_over_range": [
+    false,
+    false
+   ],
+   "input_peak": [
+    0.664381742477417,
+    0.707945823669434
+   ],
+   "output_peak": [
+    0.312746568439878,
+    0.319067107712712
+   ],
+   "input_rms": [
+    0.109121110232835,
+    0.11003507657005
+   ],
+   "output_rms": [
+    0.100276061537647,
+    0.10053594171176
+   ],
+   "output_f64_sha256": "17611ad42134139d6600b7710871bfec52bff62a39a948a4f34159ae16876225",
+   "render_record": "reference/preset_lab/renders/ca_dual_light_r1/demo_beat_48000_48000.render.json"
+  },
+  {
+   "id": "ca_dual_medium",
+   "name": "DUAL MEDIUM",
+   "category": "DUAL STAGE",
+   "product_parameters": {
+    "sp_input_level_db": 12.0,
+    "sp_input_gain_db": 0,
+    "interstage_level_db": 12.0,
+    "mpc_input_gain": "LO",
+    "output_trim_db": -24.0,
+    "plugin_bypass": false
+   },
+   "effective_host_mapped_values": {
+    "sp_input_level_db": 12.0,
+    "sp_input_gain_db": 0.0,
+    "interstage_level_db": 12.0,
+    "mpc_input_gain": 0.0,
+    "output_trim_db": -24.0,
+    "plugin_bypass": 0.0
+   },
+   "sp_clip": [
+    8556,
+    8988
+   ],
+   "mpc_clip18": [
+    161131,
+    162334
+   ],
+   "mpc_clamp16": [
+    81327,
+    82014
+   ],
+   "output_over_range": [
+    false,
+    false
+   ],
+   "input_peak": [
+    0.664381742477417,
+    0.707945823669434
+   ],
+   "output_peak": [
+    0.101302088874374,
+    0.103255266085252
+   ],
+   "input_rms": [
+    0.109121110232835,
+    0.11003507657005
+   ],
+   "output_rms": [
+    0.049159954092535,
+    0.049180261824025
+   ],
+   "output_f64_sha256": "583906a64d7a0ebbf9aa4e4be486fd456af629df5bb9b61c237e872a6fb7e207",
+   "render_record": "reference/preset_lab/renders/ca_dual_medium_r1/demo_beat_48000_48000.render.json"
+  },
+  {
+   "id": "ca_dual_hard",
+   "name": "DUAL HARD",
+   "category": "DUAL STAGE",
+   "product_parameters": {
+    "sp_input_level_db": 12.0,
+    "sp_input_gain_db": 20,
+    "interstage_level_db": 12.0,
+    "mpc_input_gain": "MID",
+    "output_trim_db": -60.0,
+    "plugin_bypass": false
+   },
+   "effective_host_mapped_values": {
+    "sp_input_level_db": 12.0,
+    "sp_input_gain_db": 20.0,
+    "interstage_level_db": 12.0,
+    "mpc_input_gain": 1.0,
+    "output_trim_db": -60.0,
+    "plugin_bypass": 0.0
+   },
+   "sp_clip": [
+    152417,
+    153168
+   ],
+   "mpc_clip18": [
+    350281,
+    350537
+   ],
+   "mpc_clamp16": [
+    175741,
+    175844
+   ],
+   "output_over_range": [
+    false,
+    false
+   ],
+   "input_peak": [
+    0.664381742477417,
+    0.707945823669434
+   ],
+   "output_peak": [
+    0.002022613566524,
+    0.001877022811418
+   ],
+   "input_rms": [
+    0.109121110232835,
+    0.11003507657005
+   ],
+   "output_rms": [
+    0.00099715956586,
+    0.000997386017023
+   ],
+   "output_f64_sha256": "af2a63d3c87d9f54f5717e4709236601c45e038b49196107001023b61c5346c4",
+   "render_record": "reference/preset_lab/renders/ca_dual_hard_r1/demo_beat_48000_48000.render.json"
+  }
+ ]
+}

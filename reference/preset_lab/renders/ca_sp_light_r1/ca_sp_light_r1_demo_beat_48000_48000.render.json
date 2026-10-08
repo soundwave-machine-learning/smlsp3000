@@ -1,0 +1,83 @@
+{
+  "record": "smlsp3000-preset-lab-render",
+  "schema": 1,
+  "ok": true,
+  "tool_version": "smlsp3000-preset-lab-0.1.0",
+  "tool_build_id": "38ff483ed6f75d080bfc5e06e32465e4804294ca",
+  "native_core_version": "smlsp3000-native-core-1.0.0",
+  "adapter_version": "smlsp3000-host-adapter-1.0.0",
+  "product_version": "0.7.0",
+  "candidate_id": "ca_sp_light",
+  "candidate_revision": 1,
+  "source_path": "/home/user/smlsp3000/reference/preset_lab/sources/demo_beat_48000.wav",
+  "source_sha256": "3aa7b2b6bf69ef8162df75d810893703988e6d3dba4498193a0ae749efb65bf1",
+  "output_path": "/home/user/smlsp3000/reference/preset_lab/renders/ca_sp_light_r1/ca_sp_light_r1_demo_beat_48000_48000.wav",
+  "output_file_sha256": "fa10f0b856c0106d98b07c562b08b1e7b7ee659be3018ae7de03c79f90e51bed",
+  "output_f64_sha256": "6d2bf529d427371a27c3fcca4102040b86779baeb5a32751bcfa3711434c1242",
+  "rate": 48000,
+  "block": 512,
+  "frames_in": 384000,
+  "frames_out": 384310,
+  "latency": 310,
+  "product_parameters": {
+    "sp_input_level_db": 6.0,
+    "sp_input_gain_db": 0,
+    "interstage_level_db": 0.0,
+    "mpc_input_gain": "LO",
+    "output_trim_db": -6.0,
+    "plugin_bypass": false
+  },
+  "effective_host_mapped_values": {
+    "sp_input_level_db": 6.0,
+    "sp_input_gain_db": 0.0,
+    "interstage_level_db": 0.0,
+    "mpc_input_gain": 0.0,
+    "output_trim_db": -6.0,
+    "plugin_bypass": 0.0
+  },
+  "effective_note": "values the adapter holds after the plugin's float32 normalised parameter mapping (what a DAW or a session restore delivers); the render used these",
+  "clamp_report": {
+    "sp_clip": [
+      106,
+      166
+    ],
+    "mpc_clip18": [
+      99,
+      159
+    ],
+    "mpc_clamp16": [
+      70,
+      104
+    ],
+    "output_over_range": [
+      false,
+      false
+    ],
+    "nonfinite_input": 0,
+    "faults": 0
+  },
+  "source_analysis": {
+    "sample_peak": [
+      0.664381742477417,
+      0.707945823669434
+    ],
+    "rms": [
+      0.109121110232835,
+      0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+  },
+  "output_analysis": {
+    "sample_peak": [
+      0.539129432811485,
+      0.546675082325618
+    ],
+    "rms": [
+      0.108416901362278,
+      0.109210006507091
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+  }
+}
