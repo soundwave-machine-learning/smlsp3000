@@ -1,0 +1,18 @@
+{
+ "tool": "pluginval",
+ "version": "pluginval - 1.0.4",
+ "command": "xvfb-run -a -s -screen 0 1600x1000x24 /home/user/smlsp3000/tools_external/pluginval/pluginval --strictness-level 8 --validate-in-process --verbose --output-dir /tmp/smlsp3000_sprint7/evd_lab/pluginval /home/user/smlsp3000/plugin/build/SMLSP3000_artefacts/Release/VST3/SML SP-3000.vst3",
+ "exit_code": 0,
+ "seconds": 18.8,
+ "strictness": 8,
+ "platform": {
+  "platform": "Linux-6.18.44-fc-v80-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "binary_sha256": "d3d342ea92293b0699a5c983937211e3faf2b0f38145b31cb8d78424a25e10ba",
+ "zip_sha256": "c01c49d8063965c4c2dea8324468336768f5c9139e0b1caebde14c2400b55352",
+ "log": "/tmp/smlsp3000_sprint7/evd_lab/pluginval/pluginval_stdout.log",
+ "result": "PASS"
+}

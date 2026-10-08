@@ -1,0 +1,735 @@
+{
+ "artifact_class": "VALIDATION RESULT",
+ "asset_identity": {
+  "asset_id": "plugin(SML SP-3000 VST3 Linux dev build) vs native adapter vs reference",
+  "model_version": "JUCE 8.0.9 (f72bad64d297); native core + host adapter",
+  "sha256": "e6a9371def06760bb32bcdc67334ab608c64bee0b4d4b26d1f282226144a9582",
+  "version": "0.7.0"
+ },
+ "check_id": "VAL-026",
+ "command": "python3 -m smlsp3000.runner validate-sprint7 --evidence /tmp/smlsp3000_sprint7/evd_lab --only VAL-026",
+ "dataset_role": "VALIDATION",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v80-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "hardware_fit_outcome": "BLOCKED",
+ "limitations": [
+  "Linux VST3 development build hosted by a JUCE harness: this is plugin/offline equivalence on Linux, NOT Windows native validation and NOT a DAW session test (FL Studio rows NOT RUN).",
+  "Automation is delivered at block boundaries (wrapper limitation); the native sample-timestamped event contract is unchanged."
+ ],
+ "method": "The built VST3 (Linux dev build) is loaded by the JUCE host harness and rendered on the frozen fixtures at every supported rate in float64 and float32; compared bit-for-bit with the native adapter path (same block schedule) and against the Python reference under the G-08 limits; the float32 oracle is the reference run on the same float32 input promoted to double with the same final float32 cast; partition invariance (irregular block lists incl. 1-sample blocks and blocks larger than the prepared size), offline mode, automation (block-boundary delivery, delivered schedule recorded), state round trip / fresh-instance restore / restore during processing, multiple instances, reprepare, editor open/close under a virtual display. Linux only: not Windows, not a DAW.",
+ "outcome": "PASS",
+ "requirement_id": "REQ-026",
+ "research_config_sha256": "n/a (product state only)",
+ "results": {
+  "automation": {
+   "delivered_block_boundary": [
+    [
+     3072,
+     "sp_input_level_db",
+     -6.0
+    ],
+    [
+     9216,
+     "interstage_level_db",
+     3.0
+    ],
+    [
+     12288,
+     "sp_input_gain",
+     20.0
+    ],
+    [
+     15360,
+     "mpc_input_gain",
+     1.0
+    ],
+    [
+     18432,
+     "output_trim_db",
+     -3.0
+    ],
+    [
+     20992,
+     "plugin_bypass",
+     1.0
+    ],
+    [
+     22016,
+     "plugin_bypass",
+     0.0
+    ]
+   ],
+   "delivery": "BLOCK-BOUNDARY (JUCE AudioProcessor parameter path: host changes are applied before processBlock; the VST3 wrapper does not pass sample offsets to the processor)",
+   "differs_from_static": true,
+   "plugin_vs_adapter_same_delivered_schedule": {
+    "identical": true,
+    "length_equal": true,
+    "max_abs_diff": 0.0
+   },
+   "requested": [
+    [
+     3000,
+     "sp_input_level_db",
+     -6.0
+    ],
+    [
+     9100,
+     "interstage_level_db",
+     3.0
+    ],
+    [
+     12000,
+     "sp_input_gain",
+     20.0
+    ],
+    [
+     15050,
+     "mpc_input_gain",
+     1.0
+    ],
+    [
+     18000,
+     "output_trim_db",
+     -3.0
+    ],
+    [
+     20500,
+     "plugin_bypass",
+     1.0
+    ],
+    [
+     22000,
+     "plugin_bypass",
+     0.0
+    ]
+   ]
+  },
+  "failures": [],
+  "instances_reprepare_editor": {
+   "editor_open_close": 5,
+   "instances": 4,
+   "instances_identical": true,
+   "latency": 310,
+   "reprepare_latency": 310
+  },
+  "per_rate": {
+   "44100": {
+    "double_supported": true,
+    "float32_interface_rounding_rms": 2.207820334406489e-09,
+    "latency_native": 298,
+    "latency_plugin": 298,
+    "offline_vs_realtime": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "pass": true,
+    "plugin32_vs_adapter32": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "plugin32_vs_reference_same_float32_input_and_cast": [
+     {
+      "channel": 0,
+      "identical_fraction": 1.0,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 0.0,
+      "peak_limit": 0.0001,
+      "rms_error": 0.0,
+      "rms_input": 0.10353381972411105,
+      "rms_limit": 1.0353381972411105e-06
+     },
+     {
+      "channel": 1,
+      "identical_fraction": 1.0,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 0.0,
+      "peak_limit": 0.0001,
+      "rms_error": 0.0,
+      "rms_input": 0.07247367377563554,
+      "rms_limit": 7.247367377563555e-07
+     }
+    ],
+    "plugin64_irregular_vs_block512": {
+     "identical": true,
+     "length_equal": false,
+     "max_abs_diff": 0.0
+    },
+    "plugin64_vs_adapter64": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "plugin64_vs_reference": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.28029353857168426,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 1.6653345369377348e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 1.8464101038806756e-17,
+      "rms_input": 0.10353381968765037,
+      "rms_limit": 1.0353381968765037e-06
+     },
+     {
+      "channel": 1,
+      "identical_fraction": 0.282038661177734,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 1.1102230246251565e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 1.2744218201215612e-17,
+      "rms_input": 0.07247367378135525,
+      "rms_limit": 7.247367378135526e-07
+     }
+    ]
+   },
+   "48000": {
+    "double_supported": true,
+    "float32_interface_rounding_rms": 2.196871767767092e-09,
+    "latency_native": 310,
+    "latency_plugin": 310,
+    "offline_vs_realtime": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "pass": true,
+    "plugin32_vs_adapter32": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "plugin32_vs_reference_same_float32_input_and_cast": [
+     {
+      "channel": 0,
+      "identical_fraction": 1.0,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 0.0,
+      "peak_limit": 0.0001,
+      "rms_error": 0.0,
+      "rms_input": 0.10353369729999709,
+      "rms_limit": 1.035336972999971e-06
+     },
+     {
+      "channel": 1,
+      "identical_fraction": 1.0,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 0.0,
+      "peak_limit": 0.0001,
+      "rms_error": 0.0,
+      "rms_input": 0.07247358813562008,
+      "rms_limit": 7.247358813562008e-07
+     }
+    ],
+    "plugin64_irregular_vs_block512": {
+     "identical": true,
+     "length_equal": false,
+     "max_abs_diff": 0.0
+    },
+    "plugin64_vs_adapter64": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "plugin64_vs_reference": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.07614150555327026,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 7.771561172376096e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 7.594078768364582e-17,
+      "rms_input": 0.10353369732271536,
+      "rms_limit": 1.0353369732271537e-06
+     },
+     {
+      "channel": 1,
+      "identical_fraction": 0.07342657342657342,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 3.885780586188048e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 5.324885275457007e-17,
+      "rms_input": 0.07247358812590075,
+      "rms_limit": 7.247358812590076e-07
+     }
+    ]
+   },
+   "88200": {
+    "double_supported": true,
+    "float32_interface_rounding_rms": 2.2108930137828297e-09,
+    "latency_native": 426,
+    "latency_plugin": 426,
+    "offline_vs_realtime": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "pass": true,
+    "plugin32_vs_adapter32": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "plugin32_vs_reference_same_float32_input_and_cast": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.9999775412118762,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 1.3877787807814457e-17,
+      "peak_limit": 0.0001,
+      "rms_error": 6.576781322368949e-20,
+      "rms_input": 0.10353309782364128,
+      "rms_limit": 1.035330978236413e-06
+     },
+     {
+      "channel": 1,
+      "identical_fraction": 1.0,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 0.0,
+      "peak_limit": 0.0001,
+      "rms_error": 0.0,
+      "rms_input": 0.07247316847185306,
+      "rms_limit": 7.247316847185307e-07
+     }
+    ],
+    "plugin64_irregular_vs_block512": {
+     "identical": true,
+     "length_equal": false,
+     "max_abs_diff": 0.0
+    },
+    "plugin64_vs_adapter64": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "plugin64_vs_reference": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.05985267034990792,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 4.996003610813204e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 7.95006124207864e-17,
+      "rms_input": 0.10353309782640063,
+      "rms_limit": 1.0353309782640064e-06
+     },
+     {
+      "channel": 1,
+      "identical_fraction": 0.061155280061087905,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 3.3306690738754696e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 5.558237624298654e-17,
+      "rms_input": 0.07247316847848044,
+      "rms_limit": 7.247316847848045e-07
+     }
+    ]
+   },
+   "96000": {
+    "double_supported": true,
+    "float32_interface_rounding_rms": 2.2140583700121042e-09,
+    "latency_native": 449,
+    "latency_plugin": 449,
+    "offline_vs_realtime": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "pass": true,
+    "plugin32_vs_adapter32": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "plugin32_vs_reference_same_float32_input_and_cast": [
+     {
+      "channel": 0,
+      "identical_fraction": 1.0,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 0.0,
+      "peak_limit": 0.0001,
+      "rms_error": 0.0,
+      "rms_input": 0.10353304493586901,
+      "rms_limit": 1.0353304493586902e-06
+     },
+     {
+      "channel": 1,
+      "identical_fraction": 1.0,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 0.0,
+      "peak_limit": 0.0001,
+      "rms_error": 0.0,
+      "rms_input": 0.07247313146237722,
+      "rms_limit": 7.247313146237722e-07
+     }
+    ],
+    "plugin64_irregular_vs_block512": {
+     "identical": true,
+     "length_equal": false,
+     "max_abs_diff": 0.0
+    },
+    "plugin64_vs_adapter64": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "plugin64_vs_reference": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.07698817313050837,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 8.326672684688674e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 7.788764269336716e-17,
+      "rms_input": 0.1035330449472386,
+      "rms_limit": 1.0353304494723861e-06
+     },
+     {
+      "channel": 1,
+      "identical_fraction": 0.07781378356622427,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 5.273559366969494e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 5.4546915626451554e-17,
+      "rms_input": 0.07247313146306701,
+      "rms_limit": 7.247313146306701e-07
+     }
+    ]
+   },
+   "176400": {
+    "double_supported": true,
+    "float32_interface_rounding_rms": 2.202855899944501e-09,
+    "latency_native": 682,
+    "latency_plugin": 682,
+    "offline_vs_realtime": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "pass": true,
+    "plugin32_vs_adapter32": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "plugin32_vs_reference_same_float32_input_and_cast": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.9999887491280575,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 1.0842021724855044e-19,
+      "peak_limit": 0.0001,
+      "rms_error": 3.636665562066786e-22,
+      "rms_input": 0.10353278855730069,
+      "rms_limit": 1.035327885573007e-06
+     },
+     {
+      "channel": 1,
+      "identical_fraction": 1.0,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 0.0,
+      "peak_limit": 0.0001,
+      "rms_error": 0.0,
+      "rms_input": 0.07247295197756959,
+      "rms_limit": 7.247295197756959e-07
+     }
+    ],
+    "plugin64_irregular_vs_block512": {
+     "identical": true,
+     "length_equal": false,
+     "max_abs_diff": 0.0
+    },
+    "plugin64_vs_adapter64": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "plugin64_vs_reference": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.08932067235210729,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 3.3306690738754696e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 4.674896457961296e-17,
+      "rms_input": 0.10353278855164465,
+      "rms_limit": 1.0353278855164465e-06
+     },
+     {
+      "channel": 1,
+      "identical_fraction": 0.09004072815643212,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 2.7755575615628914e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 3.2770898343445574e-17,
+      "rms_input": 0.07247295198615125,
+      "rms_limit": 7.247295198615126e-07
+     }
+    ]
+   },
+   "192000": {
+    "double_supported": true,
+    "float32_interface_rounding_rms": 2.2113256136703833e-09,
+    "latency_native": 728,
+    "latency_plugin": 728,
+    "offline_vs_realtime": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "pass": true,
+    "plugin32_vs_adapter32": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "plugin32_vs_reference_same_float32_input_and_cast": [
+     {
+      "channel": 0,
+      "identical_fraction": 1.0,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 0.0,
+      "peak_limit": 0.0001,
+      "rms_error": 0.0,
+      "rms_input": 0.10353276508990594,
+      "rms_limit": 1.0353276508990596e-06
+     },
+     {
+      "channel": 1,
+      "identical_fraction": 1.0,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 0.0,
+      "peak_limit": 0.0001,
+      "rms_error": 0.0,
+      "rms_input": 0.07247293556429586,
+      "rms_limit": 7.247293556429587e-07
+     }
+    ],
+    "plugin64_irregular_vs_block512": {
+     "identical": true,
+     "length_equal": false,
+     "max_abs_diff": 0.0
+    },
+    "plugin64_vs_adapter64": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "plugin64_vs_reference": [
+     {
+      "channel": 0,
+      "identical_fraction": 0.0780539244065834,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 7.216449660063518e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 7.662897983006703e-17,
+      "rms_input": 0.10353276510768855,
+      "rms_limit": 1.0353276510768855e-06
+     },
+     {
+      "channel": 1,
+      "identical_fraction": 0.07819866016044992,
+      "length_equal": true,
+      "pass": true,
+      "peak_error": 6.106226635438361e-16,
+      "peak_limit": 0.0001,
+      "rms_error": 5.371729023085302e-17,
+      "rms_input": 0.072472935575382,
+      "rms_limit": 7.2472935575382e-07
+     }
+    ]
+   }
+  },
+  "state": {
+   "fresh_instance_render_identical": {
+    "identical": true,
+    "length_equal": true,
+    "max_abs_diff": 0.0
+   },
+   "mutated_future_schema": {
+    "mutation": "future_schema: wrapper schema_version=2, 1207 bytes",
+    "ok": true,
+    "params_unchanged_from_restored": true
+   },
+   "mutated_garbage": {
+    "mutation": "garbage: 4096 pseudo-random bytes, 4096 bytes",
+    "ok": true,
+    "params_unchanged_from_restored": true
+   },
+   "mutated_identity": {
+    "mutation": "identity: native sp_asset identity altered, 1207 bytes",
+    "ok": true,
+    "params_unchanged_from_restored": true
+   },
+   "mutated_out_of_range": {
+    "mutation": "out_of_range: output_trim_db=40 (out of range), 1204 bytes",
+    "ok": true,
+    "params_unchanged_from_restored": true
+   },
+   "mutated_oversize": {
+    "mutation": "oversize: 3 MiB of 'A', 3145728 bytes",
+    "ok": true,
+    "params_unchanged_from_restored": true
+   },
+   "mutated_research_key": {
+    "mutation": "research_key: research key appended, 1235 bytes",
+    "ok": true,
+    "params_unchanged_from_restored": true
+   },
+   "mutated_truncate": {
+    "mutation": "truncate: first half of a valid blob, 624 bytes",
+    "ok": true,
+    "params_unchanged_from_restored": true
+   },
+   "params_after_restore": {
+    "interstage_level_db": {
+     "name": "Interstage Level",
+     "normalized": 0.78869,
+     "text": "6.25 dB"
+    },
+    "mpc_input_gain": {
+     "name": "MPC Input Gain",
+     "normalized": 1,
+     "text": "HI"
+    },
+    "output_trim_db": {
+     "name": "Output Trim",
+     "normalized": 0.8125,
+     "text": "-1.50 dB"
+    },
+    "plugin_bypass": {
+     "name": "Bypass",
+     "normalized": 0,
+     "text": "Off"
+    },
+    "sp_input_gain": {
+     "name": "SP Input Gain",
+     "normalized": 0.5,
+     "text": "+20 dB"
+    },
+    "sp_input_level_db": {
+     "name": "SP Input Level",
+     "normalized": 0.659722,
+     "text": "-12.50 dB"
+    }
+   },
+   "params_after_set": {
+    "interstage_level_db": {
+     "name": "Interstage Level",
+     "normalized": 0.78869,
+     "text": "6.25 dB"
+    },
+    "mpc_input_gain": {
+     "name": "MPC Input Gain",
+     "normalized": 1,
+     "text": "HI"
+    },
+    "output_trim_db": {
+     "name": "Output Trim",
+     "normalized": 0.8125,
+     "text": "-1.50 dB"
+    },
+    "plugin_bypass": {
+     "name": "Bypass",
+     "normalized": 0,
+     "text": "Off"
+    },
+    "sp_input_gain": {
+     "name": "SP Input Gain",
+     "normalized": 0.5,
+     "text": "+20 dB"
+    },
+    "sp_input_level_db": {
+     "name": "SP Input Level",
+     "normalized": 0.659722,
+     "text": "-12.50 dB"
+    }
+   },
+   "params_equal": true,
+   "pass": true,
+   "plugin_with_params_vs_adapter_mapped_values": {
+    "identical": true,
+    "length_equal": true,
+    "max_abs_diff": 0.0
+   },
+   "restore_during_processing_applied_at": 8192,
+   "restore_during_processing_vs_adapter_events": {
+    "identical": true,
+    "length_equal": true,
+    "max_abs_diff": 0.0
+   },
+   "state_bytes": 1248,
+   "state_hash_round_trip_equal": true
+  }
+ },
+ "software": {
+  "native": {
+   "CMAKE_BUILD_TYPE": "Release",
+   "CMAKE_CXX_COMPILER": "/usr/bin/c++",
+   "CMAKE_CXX_FLAGS": "",
+   "CMAKE_CXX_FLAGS_RELEASE": "-O2 -DNDEBUG",
+   "CMAKE_GENERATOR": "Ninja",
+   "SMLSP3000_NATIVE_ARCH": "OFF",
+   "binary": "/home/user/smlsp3000/native/build/smlsp3000_native",
+   "build_dir": "/home/user/smlsp3000/native/build",
+   "compiler_version": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+   "denormal_policy": "none (no FTZ/DAZ; bit-identity with the reference; all filters are feed-forward so denormals cannot self-sustain)",
+   "fast_math": "OFF (-fno-fast-math)",
+   "fma_contraction_policy": "OFF: -ffp-contract=off (GCC default for GNU C++ is 'fast'); products and sums are rounded separately so FIR accumulation reproduces the numpy pairwise order",
+   "machine": "x86_64",
+   "platform": "Linux-6.18.44-fc-v80-x86_64-with-glibc2.39",
+   "target_compile_options": "-Wall -Wextra -O2 -ffp-contract=off -fno-fast-math -fexcess-precision=standard (GCC/Clang; see native/CMakeLists.txt); MSVC: /W4 /fp:precise /O2 (not compiled here)"
+  },
+  "numpy": "2.5.3",
+  "plugin_build": "plugin/build (Linux, GCC 13.3, -O2, -ffp-contract=off on the core)",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "38ff483ed6f75d080bfc5e06e32465e4804294ca-dirty",
+ "stimulus": {
+  "fixture": "multitone_mix_m12 0.5 s stereo at each rate",
+  "rates": [
+   44100,
+   48000,
+   88200,
+   96000,
+   176400,
+   192000
+  ]
+ },
+ "timestamp_utc": "2026-10-08T01:06:57+00:00",
+ "tolerance_policy": {
+  "automation": "plugin == adapter with the delivered (block-boundary) schedule, bit-identical; requested vs delivered offsets recorded",
+  "plugin_vs_adapter": "bit-identical (same code path through the wrapper)",
+  "plugin_vs_reference": "G-08 limits (OWN-DEC-016 C) on the same precision oracle"
+ },
+ "track": "A"
+}

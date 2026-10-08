@@ -46,6 +46,9 @@ Version: all generated documents planningV1 dated2026-10-06; supplied sourceV1 d
 | [docs/sprint_reports/SPRINT_07_REPORT.md](sprint_reports/SPRINT_07_REPORT.md) | Executed Sprint 7 report (JUCE wrapper, host bridge, bypass, state, UI prototype, Linux validation, Windows handoff) | After Sprint 7 execution only | S7 |
 | [docs/USER_CONTROL_GUIDE.md](USER_CONTROL_GUIDE.md) | User and control guide of the software build (prototype, pending G-10) | S7 | S7 |
 | [docs/WINDOWS_HANDOFF.md](WINDOWS_HANDOFF.md) | Windows build/test/review procedure and status table | S7 | S7 |
+| [docs/SML_SP3000_MANUAL.md](SML_SP3000_MANUAL.md) | Operating manual of the software build (user-facing / implementation detail / unresolved research claim labelled; gain staging, telemetry, workflows, limitations, claims) | Product behaviour or claim revision | post-S7 |
+| [docs/PRESET_LAB.md](PRESET_LAB.md) | SML SP-3000 Preset Lab development authoring tool (exact product processor; A/B, renders, clamp reports, candidates, manifest; headless modes; validation) | Tool revision | post-S7 |
+| [docs/PRESET_FORMAT.md](PRESET_FORMAT.md) | Candidate preset manifest format (schema 1, physical values, rejection policy; not the plugin state, not a factory bank) | Format revision | post-S7 |
 | [docs/design_issues/DI-001_clock_anchor.md](design_issues/DI-001_clock_anchor.md) | Tracked design issue: host-rate-dependent machine-clock sampling phase (kept unchanged, OWN-DEC-027) | S7 | S7 |
 | [AGENTS.md](../AGENTS.md) | Read order, authority and repository/autonomy policy | Evidence, approved scope, or contract revision changes | Cross-sprint |
 | [README.md](../README.md) | Entry point and honest readiness | Evidence, approved scope, or contract revision changes | Cross-sprint |

@@ -1,0 +1,41 @@
+== native ctest
+2/2 Test #2: host_adapter_test ................   Passed    1.51 sec
+
+100% tests passed, 0 tests failed out of 2
+
+Total Test time (real) =   4.92 sec
+exit=0
+== plugin rebuild (product targets, unchanged sources)
+[0/2] Re-checking globbed directories...
+ninja: no work to do.
+exit=0
+== preset_lab ctest
+100% tests passed, 0 tests failed out of 1
+== VAL-026 (plugin == adapter == reference) + VAL-023 + pluginval on the rebuilt plugin
+{
+ "VAL-026": "PASS"
+}
+exit=0
+{
+ "VAL-023": "PASS"
+}
+exit=0
+{
+ "pluginval": "PASS"
+}
+exit=0
+== unit suite
+
+----------------------------------------------------------------------
+Ran 66 tests in 163.274s
+
+OK
+exit=0
+== integrity
+PASS  VAL-001.links: all local markdown links resolve
+PASS  VAL-001.matrix: md rows=28 unique=28 csv rows=28
+PASS  VAL-001.sha256sums: revised since planning V1 (living docs, allowed): 19 files
+exit=0
+== scope audit
+{"check_id": "VAL-018", "outcome": "PASS"}
+exit=0

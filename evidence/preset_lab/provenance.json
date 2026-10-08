@@ -1,0 +1,69 @@
+{
+ "record": "manual + Preset Lab task provenance",
+ "recorded_utc": "2026-10-08T01:12:21+00:00",
+ "starting_branch": "claude/autonomous-build",
+ "starting_commit": "38ff483ed6f75d080bfc5e06e32465e4804294ca",
+ "development_branch": "claude/manual-preset-lab",
+ "stabilization_commit": "NOT PERFORMED HERE: the owner's Windows dirty tree is not in this container or on origin (see docs/PROJECT_HANDOFF.md)",
+ "product_audio_changed": false,
+ "product_sources_diff_vs_38ff483": "(empty)",
+ "installed_vst3_changed": "NO (nothing installed from this container)",
+ "windows_build": "NOT RUN (Linux container)",
+ "validation": {
+  "native_ctest": "PASS 2/2",
+  "preset_lab_ctest": "PASS",
+  "tests/test_preset_lab.py": "7 tests OK",
+  "unit_suite": "66 tests OK",
+  "VAL-026": "PASS",
+  "VAL-023": "PASS",
+  "pluginval": "PASS (1.0.4, strictness 8)",
+  "integrity": "PASS",
+  "scope_audit": "PASS",
+  "log": "evidence/preset_lab/validation/validation_run.log"
+ },
+ "known_baseline_failures_unchanged": [
+  "CHAIN-EXP-016 exact reproduction (cross-platform)",
+  "CRLF checkout integrity on Windows",
+  "p99.9 callback timing target (Windows)",
+  "combined Windows sanitizer proof",
+  "owner UI/listening acceptance G-10",
+  "DI-001 clock anchor",
+  "licensing/distribution",
+  "hardware fit G-04/G-06/G-07H"
+ ],
+ "preset_lab_binary_sha256_linux": "18c17297da3cbec08e8dd3e81c3ac41fd0f279fec2e5055220a112f7491589da",
+ "demo_source": {
+  "record": "smlsp3000-preset-lab-demo-source",
+  "schema": 1,
+  "file": "demo_beat_48000.wav",
+  "rate": 48000,
+  "seconds": 8.0,
+  "bpm": 92.0,
+  "generator": "smlsp3000.preset_lab.demo_source.render_demo_beat (seed 20261008)",
+  "wav_sha256": "be35b5b4e3fd5fb2c3b7e50f96688239bf4074d949c2890c49845897b412ccea",
+  "samples_sha256": "9f6d72fceaf4439f6ca2410b63c7cba8e16ed709880433e65531fa64fd19d2a4",
+  "peak_dbfs": -3.0,
+  "note": "synthetic stimulus for tool demonstration and tests only; not a musical reference; the owner auditions real beats",
+  "regenerate": "python3 -m smlsp3000.runner preset-lab-demo-source --out reference/preset_lab/sources --rate 48000"
+ },
+ "demo_candidates": {
+  "demo_dual_stage_r1.json": "076c82e7e0312a4c76a086010e313ca9b2f140f9f48c271e9e0b7aa435c030b2",
+  "demo_heavy_r1.json": "f5a7063840e9ac9d9d4a35d8ee4e88e2ad48f1891efcc3808f924b5e8111ad50",
+  "demo_light_mpc_drive_r1.json": "3abfc11423642042af112560bd21bf4e0c5c2056ca6f0e6c7efeb35fa89c8884",
+  "demo_light_sp_drive_r1.json": "f15d0e18b731e64b998e279e9cc83185f369d3116b33a357206bc9d56982fec2"
+ },
+ "screenshots": {
+  "preset_lab_01_init.png": "ab8ebc8cba419bea554c77c3182112531a93bee55c5ad165e74edbd6b7a0b7a4",
+  "preset_lab_02_demo_light_sp_drive_r1.png": "685bad4f714c8fc8d3a2761adfd0df99a1f9082df0f7c33deb131a735aed6ee2",
+  "preset_lab_03_demo_light_mpc_drive_r1.png": "4cbe4d587e548c802965a2a2c2430500f1eed90845d4387f2c57630e0b5c290b",
+  "preset_lab_04_demo_dual_stage_r1.png": "2a080f01202c42dc9cceaf713ee943b3658ddfc6f1796ead2b419b500aaedcb4",
+  "preset_lab_05_demo_heavy_r1.png": "b30e5a7d05b29eda95fa99153342c1d962e7ed75960b41417f2d37720d09358d",
+  "preset_lab_06_metadata_modified_save_view.png": "a7c0974a1fada5b6a3eb903a0970b0e3e9e26e24506c2753df1f8cd94485cc36"
+ },
+ "render_records": {
+  "reference/preset_lab/renders/demo_dual_stage_r1/demo_beat_48000_48000.render.json": "9c20299428f072d68778e5753bd8fceec5399332921d0010d185531b9efb845d",
+  "reference/preset_lab/renders/demo_heavy_r1/demo_beat_48000_48000.render.json": "8bdfa5f272095c2d567454dbb9c4c52316728786d718599da4e9f583eecfef7d",
+  "reference/preset_lab/renders/demo_light_mpc_drive_r1/demo_beat_48000_48000.render.json": "b649dcf4e1620bbf6ffb703213978df3be1e53a65ee1621fa163e82a89f9d835",
+  "reference/preset_lab/renders/demo_light_sp_drive_r1/demo_beat_48000_48000.render.json": "a8b1ee0e36bffd3010ca3d205a283fedccc6bb64ac76d18ba38eb9ff060a44e2"
+ }
+}

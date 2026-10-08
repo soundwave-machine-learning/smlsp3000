@@ -1,0 +1,249 @@
+{
+ "artifact_class": "VALIDATION RESULT",
+ "asset_identity": {
+  "asset_id": "plugin(SML SP-3000 VST3 Linux dev build) vs native adapter vs reference",
+  "model_version": "JUCE 8.0.9 (f72bad64d297); native core + host adapter",
+  "sha256": "e6a9371def06760bb32bcdc67334ab608c64bee0b4d4b26d1f282226144a9582",
+  "version": "0.7.0"
+ },
+ "check_id": "VAL-023",
+ "command": "python3 -m smlsp3000.runner validate-sprint7 --evidence /tmp/smlsp3000_sprint7/evd_lab --only VAL-023",
+ "dataset_role": "VALIDATION",
+ "environment": {
+  "machine": "x86_64",
+  "platform": "Linux-6.18.44-fc-v80-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "python_implementation": "CPython"
+ },
+ "hardware_fit_outcome": "BLOCKED",
+ "limitations": [
+  "Host suspension: the plugin cannot process callbacks the host does not deliver; state continues from the last delivered block (documented, not testable here).",
+  "Linux harness only; host compensation of the reported latency is the DAW's responsibility (FL Studio NOT RUN)."
+ ],
+ "method": "Reported plugin latency vs native at every rate; impulse alignment through the bypass path (parameter bypass and host processBlockBypassed route through the same mechanism); full dry endpoint (latency-aligned input, no trim/gain), full processed endpoint (equals the un-bypassed render), 10 ms linear crossfade with complementary weights, rapid toggles continuing from the current weight, startup in bypass, reset in bypass (reprepare), automation of the bypass parameter; float32 and float64 paths; plugin vs adapter bit-identical for the same delivered schedule. Machine bypass (chain modes) stays a research configuration of the native core (VAL-015).",
+ "outcome": "PASS",
+ "requirement_id": "REQ-023",
+ "research_config_sha256": "n/a (product state only)",
+ "results": {
+  "bypass": {
+   "32": {
+    "crossfade_linear_10ms": true,
+    "dry_before_unbypass": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "events": [
+     [
+      6144,
+      "plugin_bypass",
+      0.0
+     ],
+     [
+      12288,
+      "plugin_bypass",
+      1.0
+     ],
+     [
+      12800,
+      "plugin_bypass",
+      0.0
+     ],
+     [
+      13312,
+      "plugin_bypass",
+      1.0
+     ],
+     [
+      20480,
+      "plugin_bypass",
+      0.0
+     ]
+    ],
+    "full_processed_after_fade": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "pass": true,
+    "plugin_toggles_vs_adapter_toggles": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "startup_in_bypass_fully_dry": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "toggle_bounded": true
+   },
+   "64": {
+    "crossfade_linear_10ms": true,
+    "dry_before_unbypass": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "events": [
+     [
+      6144,
+      "plugin_bypass",
+      0.0
+     ],
+     [
+      12288,
+      "plugin_bypass",
+      1.0
+     ],
+     [
+      12800,
+      "plugin_bypass",
+      0.0
+     ],
+     [
+      13312,
+      "plugin_bypass",
+      1.0
+     ],
+     [
+      20480,
+      "plugin_bypass",
+      0.0
+     ]
+    ],
+    "full_processed_after_fade": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "pass": true,
+    "plugin_toggles_vs_adapter_toggles": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "startup_in_bypass_fully_dry": {
+     "identical": true,
+     "length_equal": true,
+     "max_abs_diff": 0.0
+    },
+    "toggle_bounded": true
+   }
+  },
+  "failures": [],
+  "latency": {
+   "44100": {
+    "dry_exact_amplitude": true,
+    "host_bypass_mechanism": "hosted processBlockBypassed \u2192 plugin bypass parameter (one mechanism); differs from bypass-at-prepare only by the initial 10 ms crossfade",
+    "host_bypass_same_output_as_parameter_bypass_event_at_frame0": true,
+    "impulse_index_ch0": 298,
+    "impulse_index_ch1": 298,
+    "ms": 6.757369614512472,
+    "native_latency": 298,
+    "pass": true,
+    "plugin_latency": 298
+   },
+   "48000": {
+    "dry_exact_amplitude": true,
+    "host_bypass_mechanism": "hosted processBlockBypassed \u2192 plugin bypass parameter (one mechanism); differs from bypass-at-prepare only by the initial 10 ms crossfade",
+    "host_bypass_same_output_as_parameter_bypass_event_at_frame0": true,
+    "impulse_index_ch0": 310,
+    "impulse_index_ch1": 310,
+    "ms": 6.458333333333333,
+    "native_latency": 310,
+    "pass": true,
+    "plugin_latency": 310
+   },
+   "88200": {
+    "dry_exact_amplitude": true,
+    "host_bypass_mechanism": "hosted processBlockBypassed \u2192 plugin bypass parameter (one mechanism); differs from bypass-at-prepare only by the initial 10 ms crossfade",
+    "host_bypass_same_output_as_parameter_bypass_event_at_frame0": true,
+    "impulse_index_ch0": 426,
+    "impulse_index_ch1": 426,
+    "ms": 4.829931972789116,
+    "native_latency": 426,
+    "pass": true,
+    "plugin_latency": 426
+   },
+   "96000": {
+    "dry_exact_amplitude": true,
+    "host_bypass_mechanism": "hosted processBlockBypassed \u2192 plugin bypass parameter (one mechanism); differs from bypass-at-prepare only by the initial 10 ms crossfade",
+    "host_bypass_same_output_as_parameter_bypass_event_at_frame0": true,
+    "impulse_index_ch0": 449,
+    "impulse_index_ch1": 449,
+    "ms": 4.677083333333333,
+    "native_latency": 449,
+    "pass": true,
+    "plugin_latency": 449
+   },
+   "176400": {
+    "dry_exact_amplitude": true,
+    "host_bypass_mechanism": "hosted processBlockBypassed \u2192 plugin bypass parameter (one mechanism); differs from bypass-at-prepare only by the initial 10 ms crossfade",
+    "host_bypass_same_output_as_parameter_bypass_event_at_frame0": true,
+    "impulse_index_ch0": 682,
+    "impulse_index_ch1": 682,
+    "ms": 3.8662131519274374,
+    "native_latency": 682,
+    "pass": true,
+    "plugin_latency": 682
+   },
+   "192000": {
+    "dry_exact_amplitude": true,
+    "host_bypass_mechanism": "hosted processBlockBypassed \u2192 plugin bypass parameter (one mechanism); differs from bypass-at-prepare only by the initial 10 ms crossfade",
+    "host_bypass_same_output_as_parameter_bypass_event_at_frame0": true,
+    "impulse_index_ch0": 728,
+    "impulse_index_ch1": 728,
+    "ms": 3.7916666666666665,
+    "native_latency": 728,
+    "pass": true,
+    "plugin_latency": 728
+   }
+  }
+ },
+ "software": {
+  "native": {
+   "CMAKE_BUILD_TYPE": "Release",
+   "CMAKE_CXX_COMPILER": "/usr/bin/c++",
+   "CMAKE_CXX_FLAGS": "",
+   "CMAKE_CXX_FLAGS_RELEASE": "-O2 -DNDEBUG",
+   "CMAKE_GENERATOR": "Ninja",
+   "SMLSP3000_NATIVE_ARCH": "OFF",
+   "binary": "/home/user/smlsp3000/native/build/smlsp3000_native",
+   "build_dir": "/home/user/smlsp3000/native/build",
+   "compiler_version": "c++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+   "denormal_policy": "none (no FTZ/DAZ; bit-identity with the reference; all filters are feed-forward so denormals cannot self-sustain)",
+   "fast_math": "OFF (-fno-fast-math)",
+   "fma_contraction_policy": "OFF: -ffp-contract=off (GCC default for GNU C++ is 'fast'); products and sums are rounded separately so FIR accumulation reproduces the numpy pairwise order",
+   "machine": "x86_64",
+   "platform": "Linux-6.18.44-fc-v80-x86_64-with-glibc2.39",
+   "target_compile_options": "-Wall -Wextra -O2 -ffp-contract=off -fno-fast-math -fexcess-precision=standard (GCC/Clang; see native/CMakeLists.txt); MSVC: /W4 /fp:precise /O2 (not compiled here)"
+  },
+  "numpy": "2.5.3",
+  "plugin_build": "plugin/build (Linux, GCC 13.3, -O2, -ffp-contract=off on the core)",
+  "python": "3.13.16",
+  "smlsp3000": "0.1.0.dev1"
+ },
+ "source_commit": "a02785b93670023d1f361a7132caef75f51aa72f-dirty",
+ "stimulus": {
+  "impulse": "unit impulse ch0 @200, -0.5 ch1 @300, 50 ms",
+  "rates": [
+   44100,
+   48000,
+   88200,
+   96000,
+   176400,
+   192000
+  ],
+  "toggles_fixture": "multitone_mix_m12 0.5 s @48 kHz"
+ },
+ "timestamp_utc": "2026-10-08T01:08:39+00:00",
+ "tolerance_policy": {
+  "crossfade": "|y - (w*processed + (1-w)*dry)| <= 1e-12 with linear w over 10 ms",
+  "endpoints": "bit-exact",
+  "impulse": "exact index",
+  "latency": "plugin == native == reference integer latency; <= 10 ms",
+  "plugin_vs_adapter": "bit-identical"
+ },
+ "track": "A"
+}
