@@ -1,0 +1,2021 @@
+{
+ "record": "drum-authority-windows-demo-beat-telemetry",
+ "generated_from": "smlsp3000_preset_lab.exe --render, Windows Release build e5276d79bcf52cd1236708a1da476225609bcfb0",
+ "note": "PREPARATION ONLY: synthetic demo beat (reference/preset_lab/sources/demo_beat_48000.wav, peak -3 dBFS) and the same beat scaled to -0.5 dBFS peak. Not owner material, not a listening result, not an intensity classification. Clamp counts are per sample per channel over the whole render including the drained latency tail.",
+ "rows": [
+  {
+   "file": "presets/candidates/character_audit/ca_dual_light_r1.json",
+   "name": "Character audit: DUAL LIGHT",
+   "status": "DRAFT",
+   "source": "demo_-3dBFS",
+   "sp_level_db": 6.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": 6.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": -12.0,
+   "sp_clamps_LR": [
+    106,
+    166
+   ],
+   "mpc_clamps_LR": [
+    14242,
+    14909
+   ],
+   "storage_clamps_LR": [
+    7203,
+    7556
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.312746568439878,
+     0.319067107712712
+    ],
+    "rms": [
+     0.100276061537647,
+     0.10053594171176
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "75b06fe623d711e5824b90dc5d84f2ebfc52c1b1c79ee0612283adc6e5270b24"
+  },
+  {
+   "file": "presets/candidates/character_audit/ca_dual_light_r1.json",
+   "name": "Character audit: DUAL LIGHT",
+   "status": "DRAFT",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": 6.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": 6.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": -12.0,
+   "sp_clamps_LR": [
+    1427,
+    1622
+   ],
+   "mpc_clamps_LR": [
+    30266,
+    30723
+   ],
+   "storage_clamps_LR": [
+    15559,
+    15476
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.326142667590294,
+     0.354039203228051
+    ],
+    "rms": [
+     0.122279489734779,
+     0.122297393603407
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "c448496d36fbe39f36379963106cf2908f8f3859c3d9f29cc401e888699704e3"
+  },
+  {
+   "file": "presets/candidates/drum_authority_2001/da2001_a_sp_less_r1.json",
+   "name": "2001 DRUM AUTHORITY: A  SP -1 (slightly less SP drive)",
+   "status": "DRAFT",
+   "source": "demo_-3dBFS",
+   "sp_level_db": 1.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -4.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.599382626340982,
+     0.642850577297987
+    ],
+    "rms": [
+     0.096717809528244,
+     0.097499709561787
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "cee8eacd861a16aaecbbd3aa06f33c3b51bb19bd0253d5ebc465d4da20c05760"
+  },
+  {
+   "file": "presets/candidates/drum_authority_2001/da2001_a_sp_less_r1.json",
+   "name": "2001 DRUM AUTHORITY: A  SP -1 (slightly less SP drive)",
+   "status": "DRAFT",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": 1.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -4.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    0,
+    3
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.799159947544608,
+     0.840975698162885
+    ],
+    "rms": [
+     0.128974344334488,
+     0.130015984256041
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "24af2bbb2c503564671ce92d89cda73818a9b068eee13f957e3ae5c890dff21a"
+  },
+  {
+   "file": "presets/candidates/drum_authority_2001/da2001_b_sp_more_r1.json",
+   "name": "2001 DRUM AUTHORITY: B  SP +1 (slightly more SP drive)",
+   "status": "DRAFT",
+   "source": "demo_-3dBFS",
+   "sp_level_db": 3.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -4.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.754603155774607,
+     0.809356965969224
+    ],
+    "rms": [
+     0.12176016020314,
+     0.122744976324788
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "a9888c99f7187ad137058d4b2d0dfb9958bec29d7f4a35abe33e1be6fa97bd00"
+  },
+  {
+   "file": "presets/candidates/drum_authority_2001/da2001_b_sp_more_r1.json",
+   "name": "2001 DRUM AUTHORITY: B  SP +1 (slightly more SP drive)",
+   "status": "DRAFT",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": 3.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -4.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    45,
+    75
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.844540673779429,
+     0.859437934885359
+    ],
+    "rms": [
+     0.162311609397132,
+     0.163557128877707
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "fcbd126d620853fcb1c965ed7d4a22b4f693f3e074be05c9e65003fa17cd3d61"
+  },
+  {
+   "file": "presets/candidates/drum_authority_2001/da2001_c_mpc_less_r1.json",
+   "name": "2001 DRUM AUTHORITY: C  interstage -2 (less MPC feed)",
+   "status": "DRAFT",
+   "source": "demo_-3dBFS",
+   "sp_level_db": 2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -6.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.534267332173508,
+     0.573213796506347
+    ],
+    "rms": [
+     0.086199309618851,
+     0.086896854547968
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "718b7d0ebeac48f1b75b03e8606256890bb924a36891a53e42808e9963f34703"
+  },
+  {
+   "file": "presets/candidates/drum_authority_2001/da2001_c_mpc_less_r1.json",
+   "name": "2001 DRUM AUTHORITY: C  interstage -2 (less MPC feed)",
+   "status": "DRAFT",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": 2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -6.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    9,
+    18
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.659845501953016,
+     0.669308292239866
+    ],
+    "rms": [
+     0.114942053373201,
+     0.115857539615887
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "f5a57018cbc441689cacebd0a5a5060f977a5e5d224e6c99d638437298dc6bc0"
+  },
+  {
+   "file": "presets/candidates/drum_authority_2001/da2001_d_mpc_more_r1.json",
+   "name": "2001 DRUM AUTHORITY: D  interstage +2 (slightly more MPC feed)",
+   "status": "DRAFT",
+   "source": "demo_-3dBFS",
+   "sp_level_db": 2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -2.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.846772370210971,
+     0.908512449860454
+    ],
+    "rms": [
+     0.136616721131554,
+     0.137722175107213
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "743e9929a44794b8746a32513563790eff5a58d33ace1dfa2f46350f4999a4cd"
+  },
+  {
+   "file": "presets/candidates/drum_authority_2001/da2001_d_mpc_more_r1.json",
+   "name": "2001 DRUM AUTHORITY: D  interstage +2 (slightly more MPC feed)",
+   "status": "DRAFT",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": 2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -2.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    9,
+    18
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     1.045774111063863,
+     1.06074295315882
+    ],
+    "rms": [
+     0.182170862593593,
+     0.183621819866058
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "c776dce252b61493740b3ba1cda7484912dea48b52acebbdb4829a7636cb7ff6"
+  },
+  {
+   "file": "presets/candidates/drum_authority_2001/da2001_e_trim_0_r1.json",
+   "name": "2001 DRUM AUTHORITY: E  output 0 dB (trim variation)",
+   "status": "DRAFT",
+   "source": "demo_-3dBFS",
+   "sp_level_db": 2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -4.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 0.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.534293079343875,
+     0.573214581129071
+    ],
+    "rms": [
+     0.086199333312944,
+     0.086896833573735
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "71232b7ef75f37ea154f8e1392d29f92ba4b814924b0fcb39c96b5dc73a6efc0"
+  },
+  {
+   "file": "presets/candidates/drum_authority_2001/da2001_e_trim_0_r1.json",
+   "name": "2001 DRUM AUTHORITY: E  output 0 dB (trim variation)",
+   "status": "DRAFT",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": 2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -4.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 0.0,
+   "sp_clamps_LR": [
+    9,
+    18
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.659856817499974,
+     0.669304232742252
+    ],
+    "rms": [
+     0.114942036490243,
+     0.115857532542707
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "8de2e3de6bbd6fc825d2300751d38e386e0cb45b86b34a86a4055d44c07d1b52"
+  },
+  {
+   "file": "presets/candidates/drum_authority_2001/da2001_e_trim_p4_r1.json",
+   "name": "2001 DRUM AUTHORITY: E  output +4 dB (trim variation)",
+   "status": "DRAFT",
+   "source": "demo_-3dBFS",
+   "sp_level_db": 2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -4.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 4.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.846797464231193,
+     0.908483887450913
+    ],
+    "rms": [
+     0.136616736562373,
+     0.137722199977437
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "19e83821cf429a63f1a9e7e85692525c9fa85c46e9fa890ad60d1b184800791c"
+  },
+  {
+   "file": "presets/candidates/drum_authority_2001/da2001_e_trim_p4_r1.json",
+   "name": "2001 DRUM AUTHORITY: E  output +4 dB (trim variation)",
+   "status": "DRAFT",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": 2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -4.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 4.0,
+   "sp_clamps_LR": [
+    9,
+    18
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     1.045802578054765,
+     1.060775722158604
+    ],
+    "rms": [
+     0.182170851161005,
+     0.183621814622279
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "023473805b8ee150bf2944fedf657c9c3d336dd72a903373b96bf89fe15ba494"
+  },
+  {
+   "file": "presets/candidates/drum_authority_2001/da2001_root_r1.json",
+   "name": "2001 DRUM AUTHORITY: root (= DRUM AUTHORITY)",
+   "status": "DRAFT",
+   "source": "demo_-3dBFS",
+   "sp_level_db": 2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -4.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.672635134931762,
+     0.721634402594337
+    ],
+    "rms": [
+     0.108518531187383,
+     0.109396631990422
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "32ad8ad548b452c6ed197ad24d128988282ffc22f919eca916bc14f2a43d3de5"
+  },
+  {
+   "file": "presets/candidates/drum_authority_2001/da2001_root_r1.json",
+   "name": "2001 DRUM AUTHORITY: root (= DRUM AUTHORITY)",
+   "status": "DRAFT",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": 2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -4.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    9,
+    18
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.830710515696344,
+     0.842604106820619
+    ],
+    "rms": [
+     0.14470345062094,
+     0.145855991865783
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "66bd858c967065b3cad15cb6f50a1c25d54154153c598fa421dcaf7d1c924f41"
+  },
+  {
+   "file": "presets/candidates/foundations/fd_clean_print_r1.json",
+   "name": "Foundation: CLEAN PRINT",
+   "status": "AUDITIONED",
+   "source": "demo_-3dBFS",
+   "sp_level_db": -2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": 0.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.672420914703475,
+     0.72127997541531
+    ],
+    "rms": [
+     0.108518944665413,
+     0.109396274058593
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "1386463012fd27ae267e6cbf6c98599f4c4bf6476dc9a630b45cd3de900a4d9c"
+  },
+  {
+   "file": "presets/candidates/foundations/fd_clean_print_r1.json",
+   "name": "Foundation: CLEAN PRINT",
+   "status": "AUDITIONED",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": -2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": 0.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.896987094485754,
+     0.96195225208393
+    ],
+    "rms": [
+     0.144712227604611,
+     0.145882505720351
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "292219218b802663a651cab29a824fd65c4179fd788f2fbeddec6af41afe5ae4"
+  },
+  {
+   "file": "presets/candidates/foundations/fd_drum_authority_r1.json",
+   "name": "Foundation: DRUM AUTHORITY",
+   "status": "AUDITIONED",
+   "source": "demo_-3dBFS",
+   "sp_level_db": 2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -4.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.672635134931762,
+     0.721634402594337
+    ],
+    "rms": [
+     0.108518531187383,
+     0.109396631990422
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "32ad8ad548b452c6ed197ad24d128988282ffc22f919eca916bc14f2a43d3de5"
+  },
+  {
+   "file": "presets/candidates/foundations/fd_drum_authority_r1.json",
+   "name": "Foundation: DRUM AUTHORITY",
+   "status": "AUDITIONED",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": 2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -4.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    9,
+    18
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.830710515696344,
+     0.842604106820619
+    ],
+    "rms": [
+     0.14470345062094,
+     0.145855991865783
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "66bd858c967065b3cad15cb6f50a1c25d54154153c598fa421dcaf7d1c924f41"
+  },
+  {
+   "file": "presets/candidates/foundations/fd_dual_machine_r1.json",
+   "name": "Foundation: DUAL MACHINE",
+   "status": "AUDITIONED",
+   "source": "demo_-3dBFS",
+   "sp_level_db": 3.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": 2.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": -5.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    29,
+    48
+   ],
+   "storage_clamps_LR": [
+    22,
+    31
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.608835734608249,
+     0.641843190363204
+    ],
+    "rms": [
+     0.108503563762857,
+     0.109357016747876
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "3f157140315d10c02d6b2fc1892caddfc45f8ea92bec3b87c8574c8bf3af46a7"
+  },
+  {
+   "file": "presets/candidates/foundations/fd_dual_machine_r1.json",
+   "name": "Foundation: DUAL MACHINE",
+   "status": "AUDITIONED",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": 3.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": 2.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": -5.0,
+   "sp_clamps_LR": [
+    45,
+    75
+   ],
+   "mpc_clamps_LR": [
+    975,
+    1138
+   ],
+   "storage_clamps_LR": [
+    582,
+    641
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.651262739952502,
+     0.665508449215773
+    ],
+    "rms": [
+     0.144024256966224,
+     0.144951731226635
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "bd701702a0bb17721ff1dc861fe7adcb9e179a1b2d4623a64fce003b59379e9c"
+  },
+  {
+   "file": "presets/candidates/foundations/fd_dusted_soul_r1.json",
+   "name": "Foundation: DUSTED SOUL",
+   "status": "AUDITIONED",
+   "source": "demo_-3dBFS",
+   "sp_level_db": 0.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -2.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.672408911885479,
+     0.721437862993916
+    ],
+    "rms": [
+     0.108518524203794,
+     0.109396100836154
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "b61ce60cb8818b60e6f753cd18dcf0601fd631e96e565b93c754b61538b00e82"
+  },
+  {
+   "file": "presets/candidates/foundations/fd_dusted_soul_r1.json",
+   "name": "Foundation: DUSTED SOUL",
+   "status": "AUDITIONED",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": 0.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -2.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.896890035855772,
+     0.961939284313935
+    ],
+    "rms": [
+     0.144711768772142,
+     0.145882660952262
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "9a9cf6af205d6754cf02f7e480da41bc50d9299dc2e5372096a9361f82f153a6"
+  },
+  {
+   "file": "presets/candidates/foundations/fd_mpc_pressure_r1.json",
+   "name": "Foundation: MPC PRESSURE",
+   "status": "AUDITIONED",
+   "source": "demo_-3dBFS",
+   "sp_level_db": -3.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": 5.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": -2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.672370304130699,
+     0.721486200166852
+    ],
+    "rms": [
+     0.108518996888744,
+     0.109396233327516
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "80738c08671085c72b32c9f369c200d5de9fcd9f4df589ef37b9f6b5bd2872bb"
+  },
+  {
+   "file": "presets/candidates/foundations/fd_mpc_pressure_r1.json",
+   "name": "Foundation: MPC PRESSURE",
+   "status": "AUDITIONED",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": -3.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": 5.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": -2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    13,
+    29
+   ],
+   "storage_clamps_LR": [
+    9,
+    21
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.838889534104139,
+     0.882929282368786
+    ],
+    "rms": [
+     0.144703540332192,
+     0.145855240871998
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "cb148ecf1fe84898e201ed1f16f4a89d8ec1ab23bcda4e936e21c90496c0edf3"
+  },
+  {
+   "file": "presets/candidates/ca_dual_light_r2.json",
+   "name": "Character audit: DUAL LIGHT",
+   "status": "DRAFT",
+   "source": "demo_-3dBFS",
+   "sp_level_db": -2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": 0.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.672420914703475,
+     0.72127997541531
+    ],
+    "rms": [
+     0.108518944665413,
+     0.109396274058593
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "1386463012fd27ae267e6cbf6c98599f4c4bf6476dc9a630b45cd3de900a4d9c"
+  },
+  {
+   "file": "presets/candidates/ca_dual_light_r2.json",
+   "name": "Character audit: DUAL LIGHT",
+   "status": "DRAFT",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": -2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": 0.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.896987094485754,
+     0.96195225208393
+    ],
+    "rms": [
+     0.144712227604611,
+     0.145882505720351
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "292219218b802663a651cab29a824fd65c4179fd788f2fbeddec6af41afe5ae4"
+  },
+  {
+   "file": "presets/candidates/ca_dual_light_r3.json",
+   "name": "QU DRE PRESET CLEAN",
+   "status": "DRAFT",
+   "source": "demo_-3dBFS",
+   "sp_level_db": -2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": 0.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.672420914703475,
+     0.72127997541531
+    ],
+    "rms": [
+     0.108518944665413,
+     0.109396274058593
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "1386463012fd27ae267e6cbf6c98599f4c4bf6476dc9a630b45cd3de900a4d9c"
+  },
+  {
+   "file": "presets/candidates/ca_dual_light_r3.json",
+   "name": "QU DRE PRESET CLEAN",
+   "status": "DRAFT",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": -2.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": 0.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 2.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.896987094485754,
+     0.96195225208393
+    ],
+    "rms": [
+     0.144712227604611,
+     0.145882505720351
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "292219218b802663a651cab29a824fd65c4179fd788f2fbeddec6af41afe5ae4"
+  },
+  {
+   "file": "presets/candidates/ca_mpc_light_r2.json",
+   "name": "Character audit: MPC LIGHT",
+   "status": "DRAFT",
+   "source": "demo_-3dBFS",
+   "sp_level_db": 1.056003570556641,
+   "sp_input_gain_db": 0,
+   "interstage_db": -5.903999328613281,
+   "mpc_input_gain": "LO",
+   "output_trim_db": -3.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.272517000142892,
+     0.292387590408381
+    ],
+    "rms": [
+     0.043964669066159,
+     0.04432038937074
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "3d78a1032a806c1dbdbc3b386950507fba7b0f4bb603f91794bdecd7c2ffce57"
+  },
+  {
+   "file": "presets/candidates/ca_mpc_light_r2.json",
+   "name": "Character audit: MPC LIGHT",
+   "status": "DRAFT",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": 1.056003570556641,
+   "sp_input_gain_db": 0,
+   "interstage_db": -5.903999328613281,
+   "mpc_input_gain": "LO",
+   "output_trim_db": -3.0,
+   "sp_clamps_LR": [
+    0,
+    4
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.363293467751468,
+     0.379648734308447
+    ],
+    "rms": [
+     0.058627953483358,
+     0.059101288611105
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "bc16893d18d7b40bac407cebf20821618da5f00394bceb819eb6dbdd1d9fb85b"
+  },
+  {
+   "file": "presets/candidates/ca_mpc_light_r3.json",
+   "name": "SOUNDWAVE_1",
+   "status": "DRAFT",
+   "source": "demo_-3dBFS",
+   "sp_level_db": 1.056003570556641,
+   "sp_input_gain_db": 0,
+   "interstage_db": -5.903999328613281,
+   "mpc_input_gain": "LO",
+   "output_trim_db": -3.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.272517000142892,
+     0.292387590408381
+    ],
+    "rms": [
+     0.043964669066159,
+     0.04432038937074
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "3d78a1032a806c1dbdbc3b386950507fba7b0f4bb603f91794bdecd7c2ffce57"
+  },
+  {
+   "file": "presets/candidates/ca_mpc_light_r3.json",
+   "name": "SOUNDWAVE_1",
+   "status": "DRAFT",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": 1.056003570556641,
+   "sp_input_gain_db": 0,
+   "interstage_db": -5.903999328613281,
+   "mpc_input_gain": "LO",
+   "output_trim_db": -3.0,
+   "sp_clamps_LR": [
+    0,
+    4
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.363293467751468,
+     0.379648734308447
+    ],
+    "rms": [
+     0.058627953483358,
+     0.059101288611105
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "bc16893d18d7b40bac407cebf20821618da5f00394bceb819eb6dbdd1d9fb85b"
+  },
+  {
+   "file": "presets/candidates/ca_mpc_light_r4.json",
+   "name": "SOUNDWAVE_2",
+   "status": "DRAFT",
+   "source": "demo_-3dBFS",
+   "sp_level_db": 0.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": 0.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 0.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.672384497280501,
+     0.721442109010835
+    ],
+    "rms": [
+     0.108518506019088,
+     0.109396120135302
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "e5d7b63ce7199ca6e0093c925ae963ab5e2552e7c2b860562939e9b0e8831947"
+  },
+  {
+   "file": "presets/candidates/ca_mpc_light_r4.json",
+   "name": "SOUNDWAVE_2",
+   "status": "DRAFT",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": 0.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": 0.0,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 0.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.896894310444449,
+     0.961931463654563
+    ],
+    "rms": [
+     0.144711762911095,
+     0.145882674631325
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "ccb4eac6a7e6f34091f7cceb2dc7b033659cc2be0152e5b49772b7ba5892006b"
+  },
+  {
+   "file": "presets/candidates/cand_46417de5f6cf_r1.json",
+   "name": "DRE",
+   "status": "DRAFT",
+   "source": "demo_-3dBFS",
+   "sp_level_db": 1.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -3.000003814697266,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 1.0,
+   "sp_clamps_LR": [
+    0,
+    0
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.664381742477417,
+     0.707945823669434
+    ],
+    "rms": [
+     0.109121110232835,
+     0.11003507657005
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.59938436411837,
+     0.642848434057703
+    ],
+    "rms": [
+     0.096717757459522,
+     0.09749967134334
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "0abcd182f39faec736bab90994852421446fe4cf5d2902e29c094fec3c0b69f9"
+  },
+  {
+   "file": "presets/candidates/cand_46417de5f6cf_r1.json",
+   "name": "DRE",
+   "status": "DRAFT",
+   "source": "demo_-0.5dBFS",
+   "sp_level_db": 1.0,
+   "sp_input_gain_db": 0,
+   "interstage_db": -3.000003814697266,
+   "mpc_input_gain": "LO",
+   "output_trim_db": 1.0,
+   "sp_clamps_LR": [
+    0,
+    3
+   ],
+   "mpc_clamps_LR": [
+    0,
+    0
+   ],
+   "storage_clamps_LR": [
+    0,
+    0
+   ],
+   "over_range_LR": [
+    false,
+    false
+   ],
+   "frames_out": 384310,
+   "source_analysis": {
+    "sample_peak": [
+     0.885967254638672,
+     0.944060862064362
+    ],
+    "rms": [
+     0.145515331153314,
+     0.1467341247665
+    ],
+    "frames": 384000,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_analysis": {
+    "sample_peak": [
+     0.799150472086509,
+     0.840983233649278
+    ],
+    "rms": [
+     0.128974276027756,
+     0.1300159456786
+    ],
+    "frames": 384310,
+    "note": "offline file analysis of the whole buffer (sample peak, RMS of samples); audition-only level information, not a plugin meter, not LUFS, not true peak"
+   },
+   "output_f64_sha256": "ec4d5acb5560c09a321b9114496d1d5b08a8f78526b0dc8cc6061f56bc198226"
+  }
+ ]
+}

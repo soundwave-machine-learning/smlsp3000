@@ -1,0 +1,32 @@
+{
+  "format": "smlsp3000-preset-candidate",
+  "schema": 1,
+  "id": "ca_mpc_light",
+  "name": "Character audit: MPC LIGHT",
+  "category": "MPC CHARACTER",
+  "revision": 2,
+  "product_parameters": {
+    "sp_input_level_db": 1.056003570556641,
+    "sp_input_gain_db": 0,
+    "interstage_level_db": -5.903999328613281,
+    "mpc_input_gain": "LO",
+    "output_trim_db": -3.0,
+    "plugin_bypass": false
+  },
+  "authoring_metadata": {
+    "author": "executor (rule-derived starting point)",
+    "description": "CHARACTER-AUDIT STARTING POINT, not a factory preset and not a recommendation. Values follow a fixed rule (LIGHT = +6 dB at the stage; HARD = +12 dB plus the +20 dB step; DUAL MEDIUM = +12/+12; trim = -(gain added) so an unclamped signal returns to unity). The owner auditions and changes them on real finished beats.",
+    "audition_notes": "NOT auditioned by the owner.",
+    "clamp_observations": "",
+    "engineering_note": "",
+    "source_material": [],
+    "acceptance_status": "DRAFT",
+    "input_peak": -1.0,
+    "output_peak": -1.0,
+    "created_utc": "2026-10-08T00:00:00Z",
+    "modified_utc": "2026-10-07T19:09:40.790-07:00",
+    "tool_version": "smlsp3000-preset-lab-0.1.0",
+    "native_core_version": "smlsp3000-native-core-1.0.0",
+    "adapter_version": "smlsp3000-host-adapter-1.0.0"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "format": "smlsp3000-preset-candidate",
+  "schema": 1,
+  "id": "cand_46417de5f6cf",
+  "name": "DRE",
+  "category": "EXPERIMENTAL",
+  "revision": 1,
+  "product_parameters": {
+    "sp_input_level_db": 1.0,
+    "sp_input_gain_db": 0,
+    "interstage_level_db": -3.000003814697266,
+    "mpc_input_gain": "LO",
+    "output_trim_db": 1.0,
+    "plugin_bypass": false
+  },
+  "authoring_metadata": {
+    "author": "",
+    "description": "",
+    "audition_notes": "",
+    "clamp_observations": "",
+    "engineering_note": "",
+    "source_material": [],
+    "acceptance_status": "DRAFT",
+    "input_peak": -1.0,
+    "output_peak": -1.0,
+    "created_utc": "2026-10-07T19:22:51.407-07:00",
+    "modified_utc": "2026-10-07T19:33:23.990-07:00",
+    "tool_version": "smlsp3000-preset-lab-0.1.0",
+    "native_core_version": "smlsp3000-native-core-1.0.0",
+    "adapter_version": "smlsp3000-host-adapter-1.0.0"
+  }
+}

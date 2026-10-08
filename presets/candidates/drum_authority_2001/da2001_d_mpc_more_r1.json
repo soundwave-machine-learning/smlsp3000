@@ -1,0 +1,32 @@
+{
+ "format": "smlsp3000-preset-candidate",
+ "schema": 1,
+ "id": "da2001_d_mpc_more",
+ "name": "2001 DRUM AUTHORITY: D  interstage +2 (slightly more MPC feed)",
+ "category": "DRUMS",
+ "revision": 1,
+ "product_parameters": {
+  "sp_input_level_db": 2.0,
+  "sp_input_gain_db": 0,
+  "interstage_level_db": -2.0,
+  "mpc_input_gain": "LO",
+  "output_trim_db": 2.0,
+  "plugin_bypass": false
+ },
+ "authoring_metadata": {
+  "author": "owner (values) / executor (file)",
+  "acceptance_status": "DRAFT",
+  "created_utc": "2026-10-08T02:42:15Z",
+  "modified_utc": "2026-10-08T02:42:15Z",
+  "description": "2001 DRUM AUTHORITY family (working name), exploration D: interstage -2 dB instead of -4 dB. Root: DRUM AUTHORITY SP +2 dB / interstage -4 dB / output +2 dB; SP input gain 0 dB, MPC input gain LO throughout. Creative listening reference only: the owner's 2001-era drum-impact target is a musical intent, not a claim of emulating any producer, album, hardware chain or verified historical signal path. Not a factory preset.",
+  "audition_notes": "NOT auditioned by the owner. One control changed from DRUM AUTHORITY (+2 / -4 / +2); the owner rates it on finished beats against bypass, INIT, DRUM AUTHORITY and the current favourite.",
+  "clamp_observations": "",
+  "engineering_note": "",
+  "source_material": [],
+  "input_peak": -1.0,
+  "output_peak": -1.0,
+  "tool_version": "smlsp3000-preset-lab-0.1.0",
+  "native_core_version": "smlsp3000-native-core-1.0.0",
+  "adapter_version": "smlsp3000-host-adapter-1.0.0"
+ }
+}
