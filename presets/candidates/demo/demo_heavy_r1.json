@@ -1,0 +1,33 @@
+{
+ "format": "smlsp3000-preset-candidate",
+ "schema": 1,
+ "id": "demo_heavy",
+ "name": "Demo: heavy clamp",
+ "category": "HEAVY",
+ "revision": 1,
+ "product_parameters": {
+  "sp_input_level_db": 12.0,
+  "sp_input_gain_db": 20,
+  "interstage_level_db": 12.0,
+  "mpc_input_gain": "MID",
+  "output_trim_db": -40.0,
+  "plugin_bypass": false
+ },
+ "authoring_metadata": {
+  "author": "executor (tool demonstration)",
+  "acceptance_status": "TOOL_DEMO",
+  "created_utc": "2026-10-08T00:00:00Z",
+  "modified_utc": "2026-10-08T00:00:00Z",
+  "tool_version": "smlsp3000-preset-lab-0.1.0",
+  "native_core_version": "smlsp3000-native-core-1.0.0",
+  "adapter_version": "smlsp3000-host-adapter-1.0.0",
+  "source_material": [
+   "demo_beat_48000.wav (synthetic; reference/preset_lab/sources/demo_beat_48000.json)"
+  ],
+  "audition_notes": "NOT auditioned by the owner. Demonstration of the tool only; not a factory preset, not a recommendation.",
+  "clamp_observations": "",
+  "input_peak": -1.0,
+  "output_peak": -1.0,
+  "description": "TOOL DEMO. SP input gain +20 dB plus +12 dB level drives the SP 12-bit converter into its code clamp on most peaks; interstage +12 dB and MPC MID drive the 18-bit converter clamp; trim pulled down. Reducing the trim does NOT undo the clamps upstream. Illustrative only."
+ }
+}

@@ -79,3 +79,6 @@ juce_add_console_app(smlsp3000_host_harness PRODUCT_NAME "smlsp3000_host_harness
 target_sources(smlsp3000_host_harness PRIVATE tools/host_harness_main.cpp)
 target_compile_definitions(smlsp3000_host_harness PRIVATE JUCE_PLUGINHOST_VST3=1 JUCE_PLUGINHOST_VST=0 JUCE_PLUGINHOST_AU=0 JUCE_PLUGINHOST_LV2=0 JUCE_WEB_BROWSER=0 JUCE_USE_CURL=0 JUCE_USE_XRANDR=0 JUCE_USE_XINERAMA=0 JUCE_USE_XCURSOR=0 JUCE_ALSA=0 JUCE_JACK=0 JUCE_MODAL_LOOPS_PERMITTED=1)
 target_link_libraries(smlsp3000_host_harness PRIVATE juce::juce_audio_processors juce::juce_gui_basics juce::juce_recommended_config_flags juce::juce_recommended_warning_flags)
+
+# ---- Preset Lab (development/authoring tool; separate targets, no change to the product targets above) ----------------
+add_subdirectory(tools/preset_lab)

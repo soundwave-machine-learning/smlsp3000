@@ -1,0 +1,14 @@
+{
+ "record": "smlsp3000-preset-lab-demo-source",
+ "schema": 1,
+ "file": "demo_beat_48000.wav",
+ "rate": 48000,
+ "seconds": 8.0,
+ "bpm": 92.0,
+ "generator": "smlsp3000.preset_lab.demo_source.render_demo_beat (seed 20261008)",
+ "wav_sha256": "be35b5b4e3fd5fb2c3b7e50f96688239bf4074d949c2890c49845897b412ccea",
+ "samples_sha256": "9f6d72fceaf4439f6ca2410b63c7cba8e16ed709880433e65531fa64fd19d2a4",
+ "peak_dbfs": -3.0,
+ "note": "synthetic stimulus for tool demonstration and tests only; not a musical reference; the owner auditions real beats",
+ "regenerate": "python3 -m smlsp3000.runner preset-lab-demo-source --out reference/preset_lab/sources --rate 48000"
+}

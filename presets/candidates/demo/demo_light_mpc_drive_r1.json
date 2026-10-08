@@ -1,0 +1,33 @@
+{
+ "format": "smlsp3000-preset-candidate",
+ "schema": 1,
+ "id": "demo_light_mpc_drive",
+ "name": "Demo: light MPC drive",
+ "category": "MPC CHARACTER",
+ "revision": 1,
+ "product_parameters": {
+  "sp_input_level_db": 0.0,
+  "sp_input_gain_db": 0,
+  "interstage_level_db": 6.0,
+  "mpc_input_gain": "LO",
+  "output_trim_db": -6.0,
+  "plugin_bypass": false
+ },
+ "authoring_metadata": {
+  "author": "executor (tool demonstration)",
+  "acceptance_status": "TOOL_DEMO",
+  "created_utc": "2026-10-08T00:00:00Z",
+  "modified_utc": "2026-10-08T00:00:00Z",
+  "tool_version": "smlsp3000-preset-lab-0.1.0",
+  "native_core_version": "smlsp3000-native-core-1.0.0",
+  "adapter_version": "smlsp3000-host-adapter-1.0.0",
+  "source_material": [
+   "demo_beat_48000.wav (synthetic; reference/preset_lab/sources/demo_beat_48000.json)"
+  ],
+  "audition_notes": "NOT auditioned by the owner. Demonstration of the tool only; not a factory preset, not a recommendation.",
+  "clamp_observations": "",
+  "input_peak": -1.0,
+  "output_peak": -1.0,
+  "description": "TOOL DEMO. SP stage at INIT; interstage level raised so the MPC 18-bit converter sees a hotter signal; output trim reduced by the same amount. Illustrative only."
+ }
+}

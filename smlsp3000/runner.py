@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from pathlib import Path
 import sys
 
 from .experiments import exp016, exp017
@@ -48,6 +49,8 @@ def main(argv: list[str] | None = None) -> int:
     lk.add_argument("--out", required=True)
     sa = sub.add_parser("scope-audit", help="VAL-018 scope audit")
     sa.add_argument("--out", required=True)
+    pd = sub.add_parser("preset-lab-demo-source", help="Preset Lab: regenerate the deterministic synthetic demo beat (tool demonstration/tests only)")
+    pd.add_argument("--out", default="reference/preset_lab/sources"); pd.add_argument("--rate", type=int, default=48000)
     ns = ap.parse_args(argv)
 
     if ns.cmd == "run":
@@ -96,6 +99,11 @@ def main(argv: list[str] | None = None) -> int:
         from .listening.kit import generate
         r = generate(ns.out, command="python3 -m smlsp3000.runner " + " ".join(argv))
         print(json.dumps({"experiment_id": r["experiment_id"], "status": r["status"], "files": len(r["entries"])}, indent=1))
+        return 0
+    if ns.cmd == "preset-lab-demo-source":
+        from .preset_lab.demo_source import write_demo_source
+        rec = write_demo_source(Path(ns.out), ns.rate)
+        print(json.dumps({"file": rec["file"], "wav_sha256": rec["wav_sha256"], "samples_sha256": rec["samples_sha256"]}, indent=1))
         return 0
     if ns.cmd == "scope-audit":
         from .validation.scope_audit import run as scope_run
