@@ -163,7 +163,9 @@ def val_026(out: Path, command: str, quick=False) -> dict:
         oracle32 = yref32.astype(np.float32).astype(np.float64)
         cell["plugin32_vs_reference_same_float32_input_and_cast"] = _cells(x32, oracle32, y32)
         cell["float32_interface_rounding_rms"] = float(np.sqrt(np.mean((yref32 - oracle32) ** 2)))
-        yi, _ = _render_plugin(x, fs, 64, name=f"mi_{fs}", blocks=[1, 7, 500, 2048, 64, 3, 1000, 4096, 2, 1, 513, 8192, 9000])
+        # The VST3 host must announce its largest callback before processing (JUCE allocates bus buffers then).
+        # Direct SMLProcessor calls larger than prepareToPlay(512) remain covered by processor_oversized_test.
+        yi, _ = _render_plugin(x, fs, 64, name=f"mi_{fs}", extra={"block": 9000}, blocks=[1, 7, 500, 2048, 64, 3, 1000, 4096, 2, 1, 513, 8192, 9000])
         cell["plugin64_irregular_vs_block512"] = _bitwise(yi, y64)
         yo, _ = _render_plugin(x, fs, 64, name=f"mo_{fs}", extra={"offline": 1})
         cell["offline_vs_realtime"] = _bitwise(yo, y64)

@@ -62,3 +62,9 @@ All relevant audio engineering roles are substantive. Added RESEARCH_AUDIT/RESEA
 ## Update dependencies and conflicts
 
 Evidence change updates CONFIDENCE/debt/gates; material design change records DECISIONS and affected spec/architecture/parameters/matrix/contracts. Numeric threshold changes revise signed policy and check rows before dependent reruns. Runtime result updates changelog/actual report/handoff, not historical source. Cross-document consistency is recorded PASS/FAIL/UNRESOLVED in PACKAGE_VALIDATION; material decision conflicts remain OPEN until named owner gate, even when files consistently mark them unknown.
+
+## Windows troubleshooting and UI/preset continuation
+
+- [Full troubleshooting report](WINDOWS_TROUBLESHOOTING_REPORT.md)
+- [UI/preset engineering handoff](UI_PRESET_HANDOFF.md)
+- [Next-task prompt](NEXT_UI_PRESET_TASK.md)
