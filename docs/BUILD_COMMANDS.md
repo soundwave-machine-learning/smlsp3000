@@ -1,6 +1,6 @@
 # Build, test and analysis command manifest
 
-Revision: execution V8 (manual + Preset Lab, after Sprint 7) · 2026-10-08 · supersedes execution V7
+Revision: execution V8 (manual + Preset Lab, after Sprint 7) + Windows validation addendum · 2026-10-08 · supersedes execution V7
 
 Status: FROZEN for the reference/analysis stack (ENG-DEC-011) and, from Sprint 6, for the native production core (OWN-DEC-014: C++20, CMake, GCC/Clang; no plugin SDK). Every command below was executed in the sprint that introduced it with the recorded exit code. Native plugin build/host commands do not exist yet: G-09 target matrix UNKNOWN; Windows commands are NOT listed because no Windows build was run.
 
@@ -57,3 +57,28 @@ Rules: a command absent from this table is not an approved check. Adding a comma
 | VAL-005…VAL-016 HARDWARE-FIT cells, thresholds, hardware-arm listening | G-04/G-05/G-06/G-07H | stock units, calibrated interface, operator, owner (Track B, deferred) |
 | VAL-023…VAL-027 native plugin/host/release | G-09/G-10/G-11 | approved formats/OS/DAW matrix, SDK/licence, native hosts |
 | Windows native build/validation of the core, VST3 and Standalone; FL Studio session/automation/bounce checks | G-09 (platform) | a Windows x86_64 machine with Visual Studio 2022 (MSVC v143), CMake ≥ 3.22, Ninja or the VS generator, the pinned JUCE checkout and FL Studio; procedure: docs/WINDOWS_HANDOFF.md |
+
+
+## Windows validation addendum (owner-approved harness correction, 2026-10-07)
+
+The Windows continuation starts from `38ff483ed6f75d080bfc5e06e32465e4804294ca` and retains all prior numerical criteria. The approved correction changes the VAL-026 VST3 host announcement to 9000 samples for the unchanged irregular schedule. Calls larger than the processor's prepared maximum remain covered directly by the new `processor_oversized_test`. No DSP or JUCE changes are part of this correction. See [Windows validation addendum](sprint_reports/SPRINT_07_WINDOWS_VALIDATION.md) for executed results and unresolved gates.
+
+| Check ID | Windows command | Purpose | Exit policy |
+|---|---|---|---|
+| CMD-W01 | `cmake -S plugin -B "D:/SML Builds/SML-SP-3000/windows-sprint7-release" -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=Release -DSMLSP3000_JUCE_DIR="D:/SML Projects/SML-SP-3000/third_party/JUCE"` | Configure the existing approved out-of-tree Windows build | 0 = configured |
+| CMD-W02 | `cmake --build "D:/SML Builds/SML-SP-3000/windows-sprint7-release" --config Release --target smlsp3000_processor_test SMLSP3000_VST3 SMLSP3000_Standalone smlsp3000_host_harness smlsp3000_editor_snapshot smlsp3000_selftest smlsp3000_adapter_test smlsp3000_native` | Build the direct regression and original seven targets | 0 = built |
+| CMD-W03 | `ctest --test-dir "D:/SML Builds/SML-SP-3000/windows-sprint7-release" -C Release --verbose --no-tests=error --stop-on-failure --output-log "D:/SML Builds/SML-SP-3000/windows-sprint7-release/approved-fix-ctest.log"` | All three native/direct-processor CTest tests | 0 = all three pass |
+
+Windows VAL-026/VAL-023 use the existing functions with runtime paths pointing to `.exe` binaries in the external build directory. Reports and scratch files stay in that directory. Runtime report labels identify Windows/MSVC without changing checks or thresholds. The local orchestration script and logs are retained alongside the build; it is not a source-code or acceptance-policy replacement.
+
+### Executed Windows continuation commands
+
+Run from the project root with `SMLSP3000_NATIVE` pointing to the Release native executable, `PYTHONDONTWRITEBYTECODE=1`, `PYTHONUTF8=1`, and TEMP/TMP under the external build directory. The retained scripts provide exact path overrides and metadata corrections; reference acceptance logic is unchanged.
+
+- CMD-W04: `python "D:/SML Builds/SML-SP-3000/windows-sprint7-release/run_windows_checks.py"` — full VAL-026 and VAL-023; exit 0. Log: `approved-fix-validation.log`.
+- CMD-W05: `python "D:/SML Builds/SML-SP-3000/windows-sprint7-release/run_windows_checks.py" VAL-025` — software UI/safety checks; exit 0. Log: `windows-ui-safety.log`.
+- CMD-W06: `python -m unittest discover -s tests -t . -v` — all 59 unit tests; exit 1, 57 pass and two retained failures. Native stderr captured with Python subprocess to avoid Windows PowerShell 5.1 NativeCommandError termination. Log: `windows-full-unittest.log`.
+- CMD-W07: `python "D:/SML Builds/SML-SP-3000/windows-sprint7-release/run_windows_safety.py"` — unchanged VAL-024 sections 3–5, quick=False; exit 0 for the portable subset only. Exact extracted source and all trials retained. Combined sanitizers NOT RUN, p99.9 target NOT MET. Log: `windows-safety-benchmark.log`.
+- CMD-W08: `"D:/SML Builds/SML-SP-3000/windows-sprint7-release/tools/pluginval-1.0.4/pluginval.exe" --strictness-level 8 --validate-in-process --verbose --output-dir "D:/SML Builds/SML-SP-3000/windows-sprint7-release/windows-validation-agent/pluginval" "D:/SML Builds/SML-SP-3000/windows-sprint7-release/SMLSP3000_artefacts/Release/VST3/SML SP-3000.vst3"` — executable invoked with PowerShell call operator or Python subprocess; exit 0. Exact invocation and hashes retained in pluginval_record.json.
+
+- CMD-W09: `python "D:/SML Builds/SML-SP-3000/windows-sprint7-release/run_windows_native_matrix.py"` — full existing VAL-021, VAL-019, VAL-020 and VAL-022 in sequence with quick=False. Only runtime executable/output paths and report platform metadata differ. Stops after any non-PASS result; outputs under `windows-native-full-matrix`, log `windows-native-full-matrix.log`. This continuation was authorized on 2026-10-07; execution completed with VAL-021, VAL-019, VAL-020 and VAL-022 PASS, exit 0. See the consolidated Windows troubleshooting report for timings and numerical results.
